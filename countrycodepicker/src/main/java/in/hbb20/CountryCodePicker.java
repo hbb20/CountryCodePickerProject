@@ -24,6 +24,7 @@ public class CountryCodePicker extends RelativeLayout {
     View holderView;
     LayoutInflater mInflater;
     TextView textView_selectedCountry;
+    EditText editText_registeredCarrierNumber;
     RelativeLayout relative_holder;
     ImageView imageViewArrow;
     Country selectedCountry;
@@ -51,6 +52,7 @@ public class CountryCodePicker extends RelativeLayout {
 
 
     private void init(AttributeSet attrs) {
+        Log.d(TAG,"Initialization of CCP");
         mInflater = LayoutInflater.from(context);
         holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
         textView_selectedCountry = (TextView) holderView.findViewById(R.id.textView_selectedCountry);
@@ -64,6 +66,7 @@ public class CountryCodePicker extends RelativeLayout {
 
 
     private void applyCustomProperty(AttributeSet attrs) {
+        Log.d(TAG,"Applying custom property");
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
                 R.styleable.CountryCodePicker,
@@ -140,6 +143,7 @@ public class CountryCodePicker extends RelativeLayout {
             selectedCountry = Country.getCountryForCode(context, defaultCountryCode);
         }
         textView_selectedCountry.setText("(" + selectedCountry.getNameCode() + ")  +" + selectedCountry.getPhoneCode());
+        Log.d(TAG, "Setting selected country:"+selectedCountry.logString());
     }
 
     private View getHolderView() {
@@ -156,6 +160,14 @@ public class CountryCodePicker extends RelativeLayout {
 
     private void setRelative_holder(RelativeLayout relative_holder) {
         this.relative_holder = relative_holder;
+    }
+
+    EditText getEditText_registeredCarrierNumber() {
+        return editText_registeredCarrierNumber;
+    }
+
+    void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
+        this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
     }
 
     private LayoutInflater getmInflater() {
@@ -363,24 +375,37 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
+     * All functions that work with fullNumber need an editText to write and read carrier number of full number.
+     * An editText for carrier number must be registered in order to use functions like setFullNumber() and getFullNumber().
+     * @param editTextCarrierNumber - an editText where user types carrier number ( the part of full number other than country code).
+     */
+    public void registerCarrierNumberEditText(EditText editTextCarrierNumber){
+        setEditText_registeredCarrierNumber(editTextCarrierNumber);
+    }
+
+    /**
      * This function combines selected country code from CCP and carrier number from @param editTextCarrierNumber
      *
-     * @param editTextCarrierNumber is the editText where carrier phone number will be inserted.
      * @return Full number is countryCode + carrierNumber i.e countryCode=>91 and carrier number=>8866667722, this will return "918866667722"
      */
-    public String getFullNumber(EditText editTextCarrierNumber) {
-        String fullNumber = getSelectedCountry().getPhoneCode() + editTextCarrierNumber.getText().toString();
+    public String getFullNumber() {
+        String fullNumber;
+        if(editText_registeredCarrierNumber!=null) {
+            fullNumber = getSelectedCountry().getPhoneCode() + editText_registeredCarrierNumber.getText().toString();
+        }else {
+            fullNumber = getSelectedCountry().getPhoneCode();
+            Log.w(TAG,"EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
+        }
         return fullNumber;
     }
 
     /**
      * This function combines selected country code from CCP and carrier number from @param editTextCarrierNumber and prefix "+"
      *
-     * @param editTextCarrierNumber is the editText where carrier phone number will be inserted.
      * @return Full number is countryCode + carrierNumber i.e countryCode=>91 and carrier number=>8866667722, this will return "+918866667722"
      */
-    public String getFullNumberWithPlus(EditText editTextCarrierNumber) {
-        String fullNumber = "+" + getFullNumber(editTextCarrierNumber);
+    public String getFullNumberWithPlus() {
+        String fullNumber = "+" + getFullNumber();
         return fullNumber;
     }
 
@@ -390,14 +415,15 @@ public class CountryCodePicker extends RelativeLayout {
      * If no valid country code is found from full number, CCP will be set to default country code and full number will be set as carrier number to editTextCarrierNumber.
      *
      * @param fullNumber            is combination of country code and carrier number, (country_code+carrier_number) for example if country is India (+91) and carrier/mobile number is 8866667722 then full number will be 9188666667722 or +918866667722. "+" in starting of number is optional.
-     * @param editTextCarrierNumber is the edit text where you want to put the carrier number
      */
-    public void setFullNumber(String fullNumber, EditText editTextCarrierNumber) {
+    public void setFullNumber(String fullNumber) {
         Country country = Country.getCountryForNumber(context, fullNumber);
         setSelectedCountry(country);
         String carrierNumber = detectCarrierNumber(fullNumber, country);
-        if (editTextCarrierNumber != null) {
-            editTextCarrierNumber.setText(carrierNumber);
+        if (getEditText_registeredCarrierNumber() != null) {
+            getEditText_registeredCarrierNumber().setText(carrierNumber);
+        }else{
+            Log.w(TAG,"EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
         }
     }
 
