@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.hbb20.countrycodepickerproject.FullNumberFragment">
+
+    <android.support.v7.widget.CardView style="@style/parentCard">
+
+        <ScrollView style="@style/parentScrollView">
+
+            <LinearLayout style="@style/parentLinear">
+
+                <TextView
+                    style="@style/fragmentTitle"
+                    android:text="Full number support" />
+
+                <TextView
+                    style="@style/fragmentSubTitle"
+                    android:text="Full number is combination of country code and carrier number." />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:text="A carrierNumberEditText must be registered in order to work with full number."/>
+
+                <TextView
+                    android:text="Register carrierNumberEditText"
+                    style="@style/sectionText"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 CarrierNumberEditText is the supplementary editText in which carrier number part of full number."/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 editText can be registered using registerCarrierNumberEditText()."/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 A carrierNumberEditText must be registered before any function call of full number like setFullNumber() or getFullNumber()."/>
+
+                <TextView
+                    style="@style/sectionText"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 "/>
+
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

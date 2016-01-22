@@ -1,0 +1,138 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="in.hbb20.countrycodepickerproject.IntroductionFragment">
+
+    <android.support.v7.widget.CardView style="@style/parentCard">
+
+        <ScrollView style="@style/parentScrollView">
+
+            <LinearLayout style="@style/parentLinear">
+
+                <TextView
+                    style="@style/fragmentTitle"
+                    android:text="Introduction" />
+
+                <TextView
+                    style="@style/fragmentSubTitle"
+                    android:text="This app shows basic use cases of the CCP library." />
+                <TextView
+                    style="@style/sectionText"
+                    android:text="What is Country Code Picker (CCP)?"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Country Code Picker (CCP) is an android library which provides easy way to search and select country code for telephone number."/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 CCP enriches view of form screens. i.e. Sign up screen, Login with phoneNumber, Edit profile screen."/>
+                <TextView
+                    style="@style/sectionText"
+                    android:text="How does it add value?"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="CCP gives professional touch to your well designed form like login / sign up / edit profile. CCP removes confusion about how to add number and thus make view more understandable. Finally reduces mistakes in user input"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Your phone view with out CCP"/>
+                <RelativeLayout
+                    android:background="#e5e5e5"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="Phone number"/>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:inputType="phone"
+                            android:textColor="@android:color/black"
+                            android:hint="Phone number with national code"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="* add your country code with '+' as prefix. i.e +91"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Above view can be transformed by using CCP"/>
+                <RelativeLayout
+                    android:background="#e5e5e5"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="Phone number"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+                            <in.hbb20.CountryCodePicker
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:contentColor="@android:color/black"/>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:inputType="phone"
+                            android:textColor="@android:color/black"
+                            android:hint="phone"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="Features of library"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Option to set default country."/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Easy interface to select country."/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Search country using country name or country phone code or country name code."/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Works well with country code and full number as well."/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Customized content color of CCP view."/>
+
+                <Button
+                    android:id="@+id/button_letsGo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="@android:color/white"
+                    android:text="Let's see features"/>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+</FrameLayout>

@@ -1,0 +1,166 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.hbb20.countrycodepickerproject.SetCountryFragment">
+
+    <android.support.v7.widget.CardView style="@style/parentCard">
+
+        <ScrollView style="@style/parentScrollView">
+
+            <LinearLayout style="@style/parentLinear">
+
+                <TextView
+                    style="@style/fragmentTitle"
+                    android:text="Choose and set country" />
+
+                <TextView
+                    style="@style/fragmentSubTitle"
+                    android:text="Choosing and setting country will update selected country in CCP." />
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="How to choose country?" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 In order to choose country, click on CCP view." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Then search country by country name or phone code or name code." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Click on county from list to choose" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Try with this" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/dullBG"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phone number"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <in.hbb20.CountryCodePicker
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:hint="phone"
+                                android:inputType="phone"
+                                android:singleLine="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView style="@style/sectionText"
+                    android:text="Set country programmatically
+                   "/>
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Country in CCP can be set programmatically as well, using setCountryForCode() method." />
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Try with this" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical">
+                    <EditText
+                        android:id="@+id/editText_countryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="number"
+                        android:minWidth="50dp"
+                        android:maxWidth="50dp"
+                        android:text="672" />
+                    <Button
+                        android:id="@+id/button_setCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="set country with code 91"
+                        />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/dullBG"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phone number"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <in.hbb20.CountryCodePicker
+                                android:id="@+id/ccp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="phone"
+                                android:enabled="false"
+                                android:inputType="phone"
+                                android:singleLine="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+                <TextView
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    style="@style/pointText"
+                    android:text="\u2022 If specified country code does not match in any country, default country will be set in to CCP." />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+</FrameLayout>

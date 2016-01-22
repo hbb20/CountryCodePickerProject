@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:background="?attr/selectableItemBackground"
+    android:foreground="?attr/selectableItemBackground"
     android:padding="8dp"
     android:gravity="center"
     android:layout_gravity="right">
@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(IN) +91"
-        android:textColor="@android:color/primary_text_light"
+        android:textColor="@android:color/black"
         android:textSize="18sp" />
 
     <ImageView
@@ -24,5 +24,5 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/textView_selectedCountry"
         android:src="@drawable/ic_arrow_drop_down_black_24dp"
-        android:tint="@android:color/primary_text_light" />
+        android:tint="@android:color/black" />
 </RelativeLayout>

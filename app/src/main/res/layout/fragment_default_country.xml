@@ -1,0 +1,203 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.hbb20.countrycodepickerproject.DefaultCountryFragment">
+
+    <android.support.v7.widget.CardView style="@style/parentCard">
+
+        <ScrollView style="@style/parentScrollView">
+
+            <LinearLayout style="@style/parentLinear">
+
+                <TextView
+                    style="@style/fragmentTitle"
+                    android:text="Default country" />
+
+                <TextView
+                    style="@style/fragmentSubTitle"
+                    android:text="Default country is the country where most of your target audience belong." />
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="How to set default country?" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 The default country can be set through xml layout and programmatically as well." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="1. Using xml "
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text='add app:defaultCode="81" (replace 81 with your default country code) to xml layout.' />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:text='&#60;in.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultCode="81" \n app:previewNameCode="jp"/&#62;'
+                    android:layout_marginBottom="8dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/dullBG"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phone number"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <in.hbb20.CountryCodePicker
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:defaultCode="81"
+                                app:previewNameCode="jp" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="phone"
+                                android:inputType="phone"
+                                android:enabled="false"
+                                android:singleLine="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/pointText"
+                    android:layout_marginLeft="32dp"
+                    android:text="\u2022 If you set default country from xml, default country will set to CCP as soon as screen is displayed. " />
+
+                <TextView
+                    android:visibility="gone"
+                    style="@style/pointText"
+                    android:layout_marginLeft="32dp"
+                    android:text="\u2022 app:previewCountryNameCode is not compulsory. It just give you correct preview in layout preview of android studio. app:previewCountryNameCode will only displayed if it’s made up of 2 characters and app:defaultCode is specified. previewNameCode will not affect or will not change name of country name’s code at run time. Default country will be picked only on bases of defaultCode, previewCountryNameCode has nothing to do with it. " />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="2. Programmatically "
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text="To set default country programmatically, use setDefaultCountryCode() method." />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical">
+                    <EditText
+                        android:id="@+id/editText_defaultCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="number"
+                        android:minWidth="50dp"
+                        android:maxWidth="50dp"
+                        android:text="672" />
+                    <Button
+                        android:id="@+id/button_setDefault"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="set 672 as Default Country Code"
+                        />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/dullBG"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phone number"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <in.hbb20.CountryCodePicker
+                                android:id="@+id/ccp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:defaultCode="81"
+                                app:previewNameCode="jp" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="phone"
+                                android:enabled="false"
+                                android:inputType="phone"
+                                android:singleLine="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+                <TextView
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    style="@style/pointText"
+                    android:text="\u2022 setDefaultCountryCode() will not set default country as selected country. To set default country as selected country, call resetToDefaultCountry()." />
+                <Button
+                    android:id="@+id/button_resetToDefault"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reset to default country code"
+                    />
+                <TextView
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    style="@style/pointText"
+                    android:text="\u2022 resetToDefaultCountry() will set default country in CCP, it can be used at the time of form reset." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 If you do not specify default country from xml, IN +91 (India) will be the default country until you update default country programmatically." />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

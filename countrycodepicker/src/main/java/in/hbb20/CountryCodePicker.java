@@ -3,8 +3,12 @@ package in.hbb20;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.system.Os;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -18,6 +22,7 @@ import android.widget.TextView;
 public class CountryCodePicker extends RelativeLayout {
 
     static String TAG = "CCP";
+    static String BUNDLE_SELECTED_CODE="selctedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
     int defaultCountryCode;
     Context context;
@@ -50,7 +55,6 @@ public class CountryCodePicker extends RelativeLayout {
         init(attrs);
     }
 
-
     private void init(AttributeSet attrs) {
         Log.d(TAG,"Initialization of CCP");
         mInflater = LayoutInflater.from(context);
@@ -77,7 +81,12 @@ public class CountryCodePicker extends RelativeLayout {
             //default country
             //if no country code is specified, 1 will be the default countryCode.
             if (!isInEditMode()) {
-                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, 91);
+                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, LIB_DEFAULT_COUNTRY_CODE);
+
+                //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
+                if(Country.getCountryForCode(context,defaultCountryCode)==null){
+                    defaultCountryCode=LIB_DEFAULT_COUNTRY_CODE;
+                }
                 setDefaultCountryCode(defaultCountryCode);
                 setSelectedCountry(defaultCountry);
             }
@@ -211,20 +220,19 @@ public class CountryCodePicker extends RelativeLayout {
      * Default country code defines your default country.
      * Whenever invalid / improper number is found in setCountryForCode() /  setFullNumber(), it CCP will set to default country.
      * This function will not set default country as selected in CCP. To set default country in CCP call resetToDefaultCountry() right after this call.
-     *
+     * If invalid defaultCountryCode is applied, it won't be changed.
      * @param defaultCountryCode code of your default country
      *                           if you want to set IN +91(India) as default country, defaultCountryCode => 91
      *                           if you want to set JP +81(Japan) as default country, defaultCountryCode => 81
      */
     public void setDefaultCountryCode(int defaultCountryCode) {
-        this.defaultCountryCode = defaultCountryCode;
         Country defaultCountry = Country.getCountryForCode(context, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
-        if (defaultCountry == null) {
+        if (defaultCountry == null) { //if no correct country is found
             Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
-            this.defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
-            defaultCountry = Country.getCountryForCode(context, LIB_DEFAULT_COUNTRY_CODE);
+        }else{ //if correct country is found, set the country
+            this.defaultCountryCode = defaultCountryCode;
+            setDefaultCountry(defaultCountry);
         }
-        setDefaultCountry(defaultCountry);
     }
 
     /**
