@@ -23,7 +23,7 @@
                     android:text="What is Country Code Picker (CCP)?"/>
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 Country Code Picker (CCP) is an android library which provides easy way to search and select country code for telephone number."/>
+                    android:text="\u2022 Country Code Picker (CCP) is an android library which provides easy way to search and select country code for the telephone number."/>
                 <TextView
                     style="@style/pointText"
                     android:text="\u2022 CCP enriches view of form screens. i.e. Sign up screen, Login with phoneNumber, Edit profile screen."/>
@@ -130,7 +130,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
-                    android:textColor="@android:color/white"
                     android:text="Let's see features"/>
             </LinearLayout>
         </ScrollView>

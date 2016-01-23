@@ -178,7 +178,7 @@
                     android:layout_marginLeft="32dp"
                     android:layout_marginRight="16dp"
                     style="@style/pointText"
-                    android:text="\u2022 setDefaultCountryCode() will not set default country as selected country. To set default country as selected country, call resetToDefaultCountry()." />
+                    android:text="\u2022 setDefaultCountryCode() will not set default country as selected country in CCP view. To set default country as selected country in CCP view, call resetToDefaultCountry() method." />
                 <Button
                     android:id="@+id/button_resetToDefault"
                     android:layout_marginLeft="32dp"
@@ -191,11 +191,17 @@
                     android:layout_marginLeft="32dp"
                     android:layout_marginRight="16dp"
                     style="@style/pointText"
-                    android:text="\u2022 resetToDefaultCountry() will set default country in CCP, it can be used at the time of form reset." />
+                    android:text="\u2022 resetToDefaultCountry() will set default country as selected country in CCP, it can be used at the time of form reset." />
 
                 <TextView
                     style="@style/pointText"
                     android:text="\u2022 If you do not specify default country from xml, IN +91 (India) will be the default country until you update default country programmatically." />
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="Next feature >"/>
             </LinearLayout>
         </ScrollView>
     </android.support.v7.widget.CardView>

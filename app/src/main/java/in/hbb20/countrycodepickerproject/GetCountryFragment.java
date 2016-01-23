@@ -21,6 +21,7 @@ public class GetCountryFragment extends Fragment {
     TextView textViewCountryName,textViewCountryCode,textViewCountryNameCode;
     Button buttonReadCountry;
     CountryCodePicker ccp;
+    Button buttonNext;
     public GetCountryFragment() {
         // Required empty public constructor
     }
@@ -49,6 +50,13 @@ public class GetCountryFragment extends Fragment {
                 textViewCountryNameCode.setText(ccp.getSelectedCountryNameCode());
             }
         });
+
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ExampleActivity) getActivity()).viewPager.setCurrentItem(((ExampleActivity) getActivity()).viewPager.getCurrentItem() + 1);
+            }
+        });
     }
 
     private void assignViews() {
@@ -57,5 +65,6 @@ public class GetCountryFragment extends Fragment {
         textViewCountryName=(TextView)getView().findViewById(R.id.textView_countryName);
         textViewCountryNameCode=(TextView)getView().findViewById(R.id.textView_countryNameCode);
         buttonReadCountry=(Button)getView().findViewById(R.id.button_readCountry);
+        buttonNext=(Button)getView().findViewById(R.id.button_next);
     }
 }

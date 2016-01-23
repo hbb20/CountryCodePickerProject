@@ -1,6 +1,7 @@
 package in.hbb20.countrycodepickerproject;
 
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -24,6 +25,7 @@ public class DefaultCountryFragment extends Fragment {
     EditText editTextDefaultCode;
     Button buttonSetNewDefaultCode,buttonResetToDefault;
     CountryCodePicker ccp;
+    Button buttonNext;
     public DefaultCountryFragment() {
         // Required empty public constructor
     }
@@ -65,6 +67,13 @@ public class DefaultCountryFragment extends Fragment {
                 ccp.resetToDefaultCountry();
             }
         });
+
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ExampleActivity) getActivity()).viewPager.setCurrentItem(((ExampleActivity) getActivity()).viewPager.getCurrentItem() + 1);
+            }
+        });
     }
 
     private void editTextWatcher() {
@@ -91,5 +100,8 @@ public class DefaultCountryFragment extends Fragment {
         ccp=(CountryCodePicker)getView().findViewById(R.id.ccp);
         buttonSetNewDefaultCode=(Button) getView().findViewById(R.id.button_setDefault);
         buttonResetToDefault=(Button) getView().findViewById(R.id.button_resetToDefault);
+
+        buttonNext=(Button)getView().findViewById(R.id.button_next);
+        buttonNext.getBackground().setColorFilter(getActivity().getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
     }
 }

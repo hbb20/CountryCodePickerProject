@@ -160,6 +160,12 @@
                     android:layout_marginRight="16dp"
                     style="@style/pointText"
                     android:text="\u2022 If specified country code does not match in any country, default country will be set in to CCP." />
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="Next feature >"/>
             </LinearLayout>
         </ScrollView>
     </android.support.v7.widget.CardView>

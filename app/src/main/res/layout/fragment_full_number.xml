@@ -21,28 +21,207 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:text="A carrierNumberEditText must be registered in order to work with full number."/>
+                    android:text="A carrierNumberEditText must be registered in order to work with full number."
+                    android:textColor="@android:color/holo_red_dark" />
 
                 <TextView
-                    android:text="Register carrierNumberEditText"
-                    style="@style/sectionText"/>
-                <TextView
-                    style="@style/pointText"
-                    android:text="\u2022 CarrierNumberEditText is the supplementary editText in which carrier number part of full number."/>
-                <TextView
-                    style="@style/pointText"
-                    android:text="\u2022 editText can be registered using registerCarrierNumberEditText()."/>
-                <TextView
-                    style="@style/pointText"
-                    android:text="\u2022 A carrierNumberEditText must be registered before any function call of full number like setFullNumber() or getFullNumber()."/>
+                    style="@style/sectionText"
+                    android:text="Register carrierNumberEditText" />
 
                 <TextView
-                    style="@style/sectionText"/>
+                    style="@style/pointText"
+                    android:text="\u2022 CarrierNumberEditText is the supplementary editText in which carrier number part of full number is entered." />
+
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 "/>
+                    android:text="\u2022 editText can be registered using registerCarrierNumberEditText()." />
 
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 A carrierNumberEditText must be registered before any function call of full number like setFullNumber() or getFullNumber()." />
+
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="Load full number" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 To load full number, use setFullNumber() method. In this method you need to pass the full number. " />
+
+                <EditText
+                    android:id="@+id/editText_loadFullNumber"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:text="+819017901357"/>
+                <Button
+                    android:id="@+id/button_loadFullNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Load +819017901357 to CCP"/>
+                <RelativeLayout
+                    android:background="#e5e5e5"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="Phone number"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+                            <in.hbb20.CountryCodePicker
+                                android:id="@+id/ccp_loadFullNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/editText_loadCarrierNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:inputType="phone"
+                                android:editable="false"
+                                android:textColor="@android:color/black"
+                                android:hint="phone"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Prefix “+” is optional for full number so full number can be “91886667722” or “+918866667722”. Both will set same country and carrier number." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 This will detect country code from full number and set that county to ccp and carrier number ( remaining part of full number other than country code) will be set as text of registered carrier editText." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 If no valid country code is found in beginning part of full number, default country will be set to CCP and full number will be set as text of registered carrier editText. " />
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="Get full number" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Full number can be read from CCP if carrierEditText is registered." />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="#e5e5e5"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phone number"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <in.hbb20.CountryCodePicker
+                                android:id="@+id/ccp_getFullNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <EditText
+                                android:id="@+id/editText_getCarrierNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="phone"
+                                android:inputType="phone"
+                                android:singleLine="true"
+                                android:text="8866667722"
+                                android:textColor="@android:color/black" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/button_getFullNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:text="Get Full number from CCP" />
+
+                    <Button
+                        android:id="@+id/button_getFullNumberWithPlus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:text="Get full number with + from CCP" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editText_getFullNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:editable="false"
+                    android:hint="Full number"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:text="" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Use getFullNumber(); for full number without “+” prefix." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Use getFullNumberWithPlus(); for full number with “+” prefix." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:textStyle="bold"
+                    android:text="* None of the above functions validate the number format of phone." />
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="Next feature >"/>
             </LinearLayout>
         </ScrollView>
     </android.support.v7.widget.CardView>

@@ -25,6 +25,7 @@ public class SetCountryFragment extends Fragment {
     EditText editTextCode;
     Button buttonSetCode;
     CountryCodePicker ccp;
+    Button buttonNext;
     public SetCountryFragment() {
     }
 
@@ -56,6 +57,13 @@ public class SetCountryFragment extends Fragment {
                 }
             }
         });
+
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ExampleActivity) getActivity()).viewPager.setCurrentItem(((ExampleActivity) getActivity()).viewPager.getCurrentItem()+1);
+            }
+        });
     }
 
     private void editTextWatcher() {
@@ -81,6 +89,7 @@ public class SetCountryFragment extends Fragment {
         editTextCode=(EditText)getView().findViewById(R.id.editText_countryCode);
         ccp=(CountryCodePicker)getView().findViewById(R.id.ccp);
         buttonSetCode=(Button) getView().findViewById(R.id.button_setCountry);
+        buttonNext=(Button)getView().findViewById(R.id.button_next);
     }
 
 }

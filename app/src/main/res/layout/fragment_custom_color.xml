@@ -63,7 +63,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:singleLine="true"
+                                android:freezesText="true"
                                 android:inputType="phone"
+                                android:text="8866667722"
                                 android:textColorHint="#caff8800"
                                 android:textColor="@android:color/holo_orange_dark"
                                 android:backgroundTint="@android:color/holo_orange_dark"
@@ -147,6 +149,7 @@
                                 android:textColorHint="#caffffff"
                                 android:textColor="@android:color/white"
                                 android:text="8866667722"
+                                android:enabled="false"
                                 android:backgroundTint="@android:color/white"
                                 android:hint="phone"/>
                         </LinearLayout>
