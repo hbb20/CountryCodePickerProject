@@ -18,8 +18,8 @@ Features
 
  - If you just want to read them, here you go.
     ### 1. Default country###
-    *   Default country is the country where most of your target audience belong.
-    *   The default country can be set through xml layout and programmatically as well.
+    *  Default country is the country where most of your target audience belong.
+    *  The default country can be set through xml layout and programmatically as well.
    
    - ####Using xml####
         - add app:defaultCode="81" (replace 81 with your default country code) to xml layout.
@@ -43,10 +43,10 @@ Features
     
   ###2. Choose and set country
   
-   -  Choosing and setting country will update selected country in CCP view.
+   - Choosing and setting country will update selected country in CCP view.
 		####Choose Country
              
-			1.  In order to choose country, click on CCP view.
+			1. In order to choose country, click on CCP view.
 			2. Then search country by country name or phone code or name code in dialog. 
 			3. Click on county from list to choose
 				
@@ -73,7 +73,7 @@ Features
 	 
    ###4. Full number support
    
-    - Full number is combination of country code and carrier number. for example, if coutnry code is 91 and carrier number is 8866667722 then "918866667722" or "+918866667722" is the full numbe
+    - Full number is combination of country code and carrier number. for example, if country code is 91 and carrier number is 8866667722 then "918866667722" or "+918866667722" is the full number
 
 	    ####Register carrierNumberEditText
 	    
