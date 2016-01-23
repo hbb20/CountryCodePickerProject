@@ -7,9 +7,9 @@ Introduction
 ------------
 * CCP gives professional touch to your well designed form like login screen, sign up screen, edit profile screen. CCP removes confusion about how to add number and thus make view more understandable. Finally reduces mistakes in user input.
     * Phone number screen without CCP
-          - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/noncpp.png" width="300"> 
+          - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_c.png" width="300"> 
     * Above view can be transformed by using CCP
-          - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/withcpp.png" width="300">
+          - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_d.png" width="300">
 
 Features
 --------
@@ -108,11 +108,11 @@ Features
 		     app:contentColor="@color/custom_color"/>                        
 			```
 		
-		- <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/color1cpp.png" width="300"> 
+		- <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_a.png" width="300"> 
 
 		####Programmatically
 		- To set color programmatically, use setContentColor() method.
-		- <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/color2cpp.png" width="300"> 
+		- <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_b.png" width="300"> 
 
 ##How to add to project
 jcenter
