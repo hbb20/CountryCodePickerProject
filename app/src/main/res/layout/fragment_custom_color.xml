@@ -1,0 +1,166 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="in.hbb20.countrycodepickerproject.CustomColorFragment">
+
+    <android.support.v7.widget.CardView style="@style/parentCard">
+
+        <ScrollView style="@style/parentScrollView">
+
+            <LinearLayout style="@style/parentLinear">
+
+                <TextView
+                    style="@style/fragmentTitle"
+                    android:text="Custom Color" />
+
+                <TextView
+                    style="@style/fragmentSubTitle"
+                    android:text="Color of CCP content can be changed according to different background." />
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="How to set custom color?"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 The custom content color can be set through xml layout and programmatically as well."/>
+                <TextView
+                    android:textStyle="bold"
+                    style="@style/pointText"
+                    android:text="1. Using xml "/>
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text='add app:contentColor=\"@color/customColor" to xml layout.'/>
+                <RelativeLayout
+                    android:background="#250041"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@android:color/holo_orange_dark"
+                            android:text="Phone number"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+                            <in.hbb20.CountryCodePicker
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:contentColor="@android:color/holo_orange_dark"/>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:freezesText="true"
+                                android:inputType="phone"
+                                android:text="8866667722"
+                                android:textColorHint="#caff8800"
+                                android:textColor="@android:color/holo_orange_dark"
+                                android:backgroundTint="@android:color/holo_orange_dark"
+                                android:hint="phone"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:textStyle="bold"
+                    style="@style/pointText"
+                    android:text="2. Programmatically "/>
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text="To set color programmatically, use setContentColor() method."/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:paddingLeft="32dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="16dp">
+                    <RelativeLayout
+                        android:id="@+id/relative_color1"
+                        style="@style/colorBlock"
+                        android:background="@color/selectedTile">
+                        <View
+                            style="@style/colorInnerBlock"
+                            android:background="@color/color1"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/relative_color2"
+                        style="@style/colorBlock">
+                        <View
+                            style="@style/colorInnerBlock"
+                            android:background="@color/color2"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/relative_color3"
+                        style="@style/colorBlock">
+                        <View
+                            style="@style/colorInnerBlock"
+                            android:background="@color/color3"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                <RelativeLayout
+                    android:background="#222124"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/textView_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@android:color/white"
+                            android:text="Phone number"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+                            <in.hbb20.CountryCodePicker
+                                android:id="@+id/ccp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:contentColor="@android:color/white"/>
+                            <EditText
+                                android:id="@+id/editText_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:inputType="phone"
+                                android:textColorHint="#caffffff"
+                                android:textColor="@android:color/white"
+                                android:text="8866667722"
+                                android:enabled="false"
+                                android:backgroundTint="@android:color/white"
+                                android:hint="phone"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+                <TextView
+                    android:layout_marginLeft="32dp"
+                    style="@style/pointText"
+                    android:text="* Click on any color to apply. "/>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

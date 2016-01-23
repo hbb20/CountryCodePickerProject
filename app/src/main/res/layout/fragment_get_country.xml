@@ -1,0 +1,179 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.hbb20.countrycodepickerproject.GetCountryFragment">
+
+    <android.support.v7.widget.CardView style="@style/parentCard">
+
+        <ScrollView style="@style/parentScrollView">
+
+            <LinearLayout style="@style/parentLinear">
+
+
+                <TextView
+                    style="@style/fragmentTitle"
+                    android:text="Read selected country" />
+
+                <TextView
+                    style="@style/fragmentSubTitle"
+                    android:text="It's just one step away to read details of selected country" />
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="Read properties"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Country's 3 properties can be read individually. For simplicity, here single button click will read all 3 properties."/>
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Try here"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/dullBG"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phone number"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <in.hbb20.CountryCodePicker
+                                android:id="@+id/ccp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:hint="phone"
+                                android:inputType="phone"
+                                android:singleLine="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+                <Button
+                    android:id="@+id/button_readCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Read Selected country"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Country"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Phone code"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Name Code"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3">
+                        <TextView
+                            android:id="@+id/textView_countryName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="_________"
+                            android:textColor="@android:color/black"
+                            android:gravity="center_horizontal"/>
+                        <TextView
+                            android:id="@+id/textView_countryCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="_________"
+                            android:textColor="@android:color/black"
+                            android:gravity="center_horizontal"/>
+                        <TextView
+                            android:id="@+id/textView_countryNameCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="_________"
+                            android:textColor="@android:color/black"
+                            android:gravity="center_horizontal"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    style="@style/sectionText"
+                    android:text="Read selected country phone code"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 To get selected country code as String type and without prefix “+”, use getSelectedCountryCode(); method. => “91”"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 To get selected country code as String type and with prefix “+”, use getSelectedCountryCodeWithPlus(); method. => “+91”"/>
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 To get selected country code as int (Integer) type, use getSelectedCountryCodeAsInt(); method. => 91"/>
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="Read selected country name"/>
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 To get selected country’s name, use getSelectedCountryName(); => “India”"/>
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="Read selected country name code"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 To get selected country’s name code, use getSelectedCountryNameCode(); => “IN”"/>
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="Next feature >"/>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

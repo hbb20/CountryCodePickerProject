@@ -9,5 +9,6 @@
             <enum name="right" value="1"/>
         </attr>
         <attr name="previewNameCode" format="string"/>
+        <attr name="registeredCarrierNumberEditText" format="reference"/>
     </declare-styleable>
 </resources>
