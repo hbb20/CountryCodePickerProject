@@ -1,7 +1,7 @@
 Country Code Picker Library
 ===========================
 
-Country Code Picker (CCP) is an android library which provides easy way to search and select country phone code for the telephone number.
+Country Code Picker (CCP) <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_f.png" width="70">  is an android library which provides easy way to search and select country phone code for the telephone number.
 
 Introduction
 ------------
@@ -14,7 +14,7 @@ Introduction
 Features
 --------
  - If you prefer experience along with only reads, an demo android app is available that demonstrates all the features of this library. Click below button to download from Playstore.
-<br/><a href="https://play.google.com/store/apps/details?id=updateLink"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
+<br/><a href="https://goo.gl/zI2cY2"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
 
  - If you just want to read them, here you go.
     ### 1. Default country###
@@ -119,6 +119,6 @@ jcenter
 
 > dependencies {
 >
->compile 'updateLink'
+>compile 'com.hbb20:ccp:0.1.1'
 >
 >}
