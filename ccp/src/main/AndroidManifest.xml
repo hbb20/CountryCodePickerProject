@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.hbb20">
+    package="com.hbb20">
 
     <application
         android:allowBackup="true"

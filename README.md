@@ -26,7 +26,7 @@ Features
         - If you set default country from xml, default country will set to CCP as soon as screen is displayed.
         - app:previewCountryNameCode is not compulsory. It just give you correct preview in layout preview of android studio. app:previewCountryNameCode will only displayed if it’s made up of 2 characters and app:defaultCode is specified. previewNameCode will not affect or will not change name of country name’s code at run time. Default country will be picked only on bases of defaultCode, previewCountryNameCode has nothing to do with it. 
  ```
-  <in.hbb20.CountryCodePicker
+  <com.hbb20.countrycodepickerlib.CountryCodePicker
    android:id="@+id/ccp"
    android:layout_width="wrap_content"
    android:layout_height="wrap_content"
@@ -102,7 +102,7 @@ Features
 		####Using XML
 		- Add app:contentColor property to xml layout
 			```
-			<in.hbb20.CountryCodePicker
+			<com.hbb20.countrycodepickerlib.CountryCodePicker
 	         android:layout_width="wrap_content"
 		     android:layout_height="wrap_content"
 		     app:contentColor="@color/custom_color"/>                        

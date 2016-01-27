@@ -1,7 +1,5 @@
 package in.hbb20.countrycodepickerproject;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -13,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import in.hbb20.CountryCodePicker;
+import com.hbb20.CountryCodePicker;
 
 
 /**

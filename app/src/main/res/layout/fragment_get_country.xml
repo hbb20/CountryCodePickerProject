@@ -54,7 +54,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
 
-                            <in.hbb20.CountryCodePicker
+                            <com.hbb20.CountryCodePicker
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
