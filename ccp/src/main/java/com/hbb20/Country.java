@@ -1,4 +1,4 @@
-package in.hbb20;
+package com.hbb20;
 
 import android.content.Context;
 import android.util.Log;
@@ -170,4 +170,3 @@ class Country {
         return nameCode.toUpperCase()+" +"+phoneCode+"("+name+")";
     }
 }
-

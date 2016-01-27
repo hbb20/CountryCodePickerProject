@@ -1,6 +1,5 @@
 package in.hbb20.countrycodepickerproject;
 
-import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +10,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import in.hbb20.CountryCodePicker;
+import com.hbb20.CountryCodePicker;
 
 
 /**

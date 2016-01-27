@@ -1,14 +1,10 @@
-package in.hbb20;
+package com.hbb20;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.system.Os;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;

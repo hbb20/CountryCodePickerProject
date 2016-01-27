@@ -1,4 +1,4 @@
-package in.hbb20;
+package com.hbb20.countrycodepickerlib;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
