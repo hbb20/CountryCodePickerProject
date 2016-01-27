@@ -1,5 +1,31 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'country-code-picker'
+
+    publishedGroupId = 'in.hbb20.countrycodepicker'
+    libraryName = 'CountryCodePicker'
+    artifact = 'country-code-picker'
+
+    libraryDescription = 'Country Code Picker (CCP) is an android library which provides an easy way to search and select international country code for the phone number.'
+
+    siteUrl = 'https://github.com/hbb20/CountryCodePickerProject'
+    gitUrl = 'https://github.com/hbb20/CountryCodePickerProject.git'
+
+    libraryVersion = '0.2'
+
+    developerId = 'hbb20'
+    developerName = 'Harsh Bhakta'
+    developerEmail = 'harshbbhakta@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
+}
+
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -12,10 +38,13 @@ android {
     }
     buildTypes {
         release {
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+//    tasks.withType(Javadoc).all { enabled = false }
 }
 
 dependencies {
@@ -25,3 +54,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.android.support:support-v4:23.1.1'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

@@ -222,8 +222,8 @@ public class CountryCodePicker extends RelativeLayout {
      * This function will not set default country as selected in CCP. To set default country in CCP call resetToDefaultCountry() right after this call.
      * If invalid defaultCountryCode is applied, it won't be changed.
      * @param defaultCountryCode code of your default country
-     *                           if you want to set IN +91(India) as default country, defaultCountryCode => 91
-     *                           if you want to set JP +81(Japan) as default country, defaultCountryCode => 81
+     *                           if you want to set IN +91(India) as default country, defaultCountryCode =  91
+     *                           if you want to set JP +81(Japan) as default country, defaultCountryCode =  81
      */
     public void setDefaultCountryCode(int defaultCountryCode) {
         Country defaultCountry = Country.getCountryForCode(context, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
@@ -371,8 +371,8 @@ public class CountryCodePicker extends RelativeLayout {
      * This will set country with @param countryCode as country code, in CCP
      *
      * @param countryCode a valid country code.
-     *                    If you want to set IN +91(India), countryCode=>91
-     *                    If you want to set JP +81(Japan), countryCode=>81
+     *                    If you want to set IN +91(India), countryCode= 91
+     *                    If you want to set JP +81(Japan), countryCode= 81
      */
     public void setCountryForCode(int countryCode) {
         Country country = Country.getCountryForCode(context, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
@@ -394,7 +394,7 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * This function combines selected country code from CCP and carrier number from @param editTextCarrierNumber
      *
-     * @return Full number is countryCode + carrierNumber i.e countryCode=>91 and carrier number=>8866667722, this will return "918866667722"
+     * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "918866667722"
      */
     public String getFullNumber() {
         String fullNumber;
@@ -410,7 +410,7 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * This function combines selected country code from CCP and carrier number from @param editTextCarrierNumber and prefix "+"
      *
-     * @return Full number is countryCode + carrierNumber i.e countryCode=>91 and carrier number=>8866667722, this will return "+918866667722"
+     * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "+918866667722"
      */
     public String getFullNumberWithPlus() {
         String fullNumber = "+" + getFullNumber();
