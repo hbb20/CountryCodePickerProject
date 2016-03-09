@@ -14,11 +14,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(IN) +91"
+        android:layout_centerVertical="true"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
     <ImageView
+        android:adjustViewBounds="true"
         android:alpha="0.6"
+        android:layout_centerVertical="true"
         android:id="@+id/imageView_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

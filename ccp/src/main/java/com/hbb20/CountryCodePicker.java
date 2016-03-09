@@ -3,8 +3,10 @@ package com.hbb20;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
+import android.support.annotation.DimenRes;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -18,7 +20,7 @@ import android.widget.TextView;
 public class CountryCodePicker extends RelativeLayout {
 
     static String TAG = "CCP";
-    static String BUNDLE_SELECTED_CODE="selctedCode";
+    static String BUNDLE_SELECTED_CODE = "selctedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
     int defaultCountryCode;
     Context context;
@@ -52,7 +54,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private void init(AttributeSet attrs) {
-        Log.d(TAG,"Initialization of CCP");
+        Log.d(TAG, "Initialization of CCP");
         mInflater = LayoutInflater.from(context);
         holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
         textView_selectedCountry = (TextView) holderView.findViewById(R.id.textView_selectedCountry);
@@ -66,7 +68,7 @@ public class CountryCodePicker extends RelativeLayout {
 
 
     private void applyCustomProperty(AttributeSet attrs) {
-        Log.d(TAG,"Applying custom property");
+        Log.d(TAG, "Applying custom property");
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
                 R.styleable.CountryCodePicker,
@@ -80,8 +82,8 @@ public class CountryCodePicker extends RelativeLayout {
                 int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, LIB_DEFAULT_COUNTRY_CODE);
 
                 //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
-                if(Country.getCountryForCode(context,defaultCountryCode)==null){
-                    defaultCountryCode=LIB_DEFAULT_COUNTRY_CODE;
+                if (Country.getCountryForCode(context, defaultCountryCode) == null) {
+                    defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
                 }
                 setDefaultCountryCode(defaultCountryCode);
                 setSelectedCountry(defaultCountry);
@@ -96,6 +98,20 @@ public class CountryCodePicker extends RelativeLayout {
             }
             if (contentColor != 0) {
                 setContentColor(contentColor);
+            }
+
+            //text size
+            int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_textSize, 0);
+            if (textSize > 0) {
+                textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            }
+
+            //arrow size
+            int arrowSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_arrowSize, 0);
+            if (arrowSize > 0) {
+                LayoutParams params = (LayoutParams) imageViewArrow.getLayoutParams();
+                params.width = arrowSize;
+                imageViewArrow.setLayoutParams(params);
             }
 
             //preview country code
@@ -148,7 +164,7 @@ public class CountryCodePicker extends RelativeLayout {
             selectedCountry = Country.getCountryForCode(context, defaultCountryCode);
         }
         textView_selectedCountry.setText("(" + selectedCountry.getNameCode() + ")  +" + selectedCountry.getPhoneCode());
-        Log.d(TAG, "Setting selected country:"+selectedCountry.logString());
+        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
     }
 
     private View getHolderView() {
@@ -217,6 +233,7 @@ public class CountryCodePicker extends RelativeLayout {
      * Whenever invalid / improper number is found in setCountryForCode() /  setFullNumber(), it CCP will set to default country.
      * This function will not set default country as selected in CCP. To set default country in CCP call resetToDefaultCountry() right after this call.
      * If invalid defaultCountryCode is applied, it won't be changed.
+     *
      * @param defaultCountryCode code of your default country
      *                           if you want to set IN +91(India) as default country, defaultCountryCode =  91
      *                           if you want to set JP +81(Japan) as default country, defaultCountryCode =  81
@@ -225,7 +242,7 @@ public class CountryCodePicker extends RelativeLayout {
         Country defaultCountry = Country.getCountryForCode(context, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
-        }else{ //if correct country is found, set the country
+        } else { //if correct country is found, set the country
             this.defaultCountryCode = defaultCountryCode;
             setDefaultCountry(defaultCountry);
         }
@@ -381,9 +398,10 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * All functions that work with fullNumber need an editText to write and read carrier number of full number.
      * An editText for carrier number must be registered in order to use functions like setFullNumber() and getFullNumber().
+     *
      * @param editTextCarrierNumber - an editText where user types carrier number ( the part of full number other than country code).
      */
-    public void registerCarrierNumberEditText(EditText editTextCarrierNumber){
+    public void registerCarrierNumberEditText(EditText editTextCarrierNumber) {
         setEditText_registeredCarrierNumber(editTextCarrierNumber);
     }
 
@@ -394,11 +412,11 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public String getFullNumber() {
         String fullNumber;
-        if(editText_registeredCarrierNumber!=null) {
+        if (editText_registeredCarrierNumber != null) {
             fullNumber = getSelectedCountry().getPhoneCode() + editText_registeredCarrierNumber.getText().toString();
-        }else {
+        } else {
             fullNumber = getSelectedCountry().getPhoneCode();
-            Log.w(TAG,"EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
+            Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
         }
         return fullNumber;
     }
@@ -418,7 +436,7 @@ public class CountryCodePicker extends RelativeLayout {
      * Sets country of separated country code in CCP and carrier number as text of editTextCarrierNumber
      * If no valid country code is found from full number, CCP will be set to default country code and full number will be set as carrier number to editTextCarrierNumber.
      *
-     * @param fullNumber            is combination of country code and carrier number, (country_code+carrier_number) for example if country is India (+91) and carrier/mobile number is 8866667722 then full number will be 9188666667722 or +918866667722. "+" in starting of number is optional.
+     * @param fullNumber is combination of country code and carrier number, (country_code+carrier_number) for example if country is India (+91) and carrier/mobile number is 8866667722 then full number will be 9188666667722 or +918866667722. "+" in starting of number is optional.
      */
     public void setFullNumber(String fullNumber) {
         Country country = Country.getCountryForNumber(context, fullNumber);
@@ -426,8 +444,8 @@ public class CountryCodePicker extends RelativeLayout {
         String carrierNumber = detectCarrierNumber(fullNumber, country);
         if (getEditText_registeredCarrierNumber() != null) {
             getEditText_registeredCarrierNumber().setText(carrierNumber);
-        }else{
-            Log.w(TAG,"EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
+        } else {
+            Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
         }
     }
 

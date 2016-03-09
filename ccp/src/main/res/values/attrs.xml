@@ -10,5 +10,7 @@
         </attr>
         <attr name="previewNameCode" format="string"/>
         <attr name="registeredCarrierNumberEditText" format="reference"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="arrowSize" format="dimension"/>
     </declare-styleable>
 </resources>
