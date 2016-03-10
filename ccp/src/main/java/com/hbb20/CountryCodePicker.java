@@ -111,6 +111,7 @@ public class CountryCodePicker extends RelativeLayout {
             if (arrowSize > 0) {
                 LayoutParams params = (LayoutParams) imageViewArrow.getLayoutParams();
                 params.width = arrowSize;
+                params.height=arrowSize;
                 imageViewArrow.setLayoutParams(params);
             }
 
@@ -465,5 +466,28 @@ public class CountryCodePicker extends RelativeLayout {
         this.contentColor = contentColor;
         textView_selectedCountry.setTextColor(this.contentColor);
         imageViewArrow.setColorFilter(this.contentColor, PorterDuff.Mode.SRC_IN);
+    }
+
+    /**
+     * Modifies size of text in side CCP view.
+     * @param textSize size of text in pixels
+     */
+    public void setTextSize(int textSize){
+        if ( textSize > 0) {
+            textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+        }
+    }
+
+    /**
+     * Modifies size of downArrow in CCP view
+     * @param arrowSize size in pixels
+     */
+    public void setArrowSize(int arrowSize){
+        if(arrowSize>0){
+            LayoutParams params = (LayoutParams) imageViewArrow.getLayoutParams();
+            params.width = arrowSize;
+            params.height=arrowSize;
+            imageViewArrow.setLayoutParams(params);
+        }
     }
 }
