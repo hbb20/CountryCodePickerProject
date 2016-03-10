@@ -17,7 +17,7 @@ Add this to your gradle file
   
 ````groovy
 dependencies {
-  compile 'com.hbb20:ccp:0.1.1'
+  compile 'com.hbb20:ccp:1.2'
 }
 ````
 
@@ -105,7 +105,7 @@ Features
         - Use ``` getFullNumber();``` for full number without “+” prefix.
         - Use ``` getFullNumberWithPlus();``` for full number with “+” prefix.
 
-- A carrierNumberEditText must be registered before any function call of full number like ``` setFullNumber()``` or ``` getFullNumber() ```.
+    - A carrierNumberEditText must be registered before any function call of full number like ``` setFullNumber()``` or ``` getFullNumber() ```.
   - *None of the above functions validate the number format of phone.*
 
   ###5. Custom content color
@@ -127,3 +127,42 @@ Features
     - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_b.png" width="300"> 
 
 
+ ###6. Custom textSize
+  - Text size of CCP content can be changed in order to match rest of the view of form.
+    
+    ####Using XML
+    - Add app:contentColor property to xml layout
+      ````xml
+      <com.hbb20.CountryCodePicker
+            android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:textSize="26sp"/>                        
+      ````
+
+    ####Programmatically
+    - To set textSize programmatically, use ```` setTextSize() ```` method.
+    
+ ###7. Custom arrow size
+  - Size if Down arrow of CCP view can be modified in order to match rest of the view of form.
+    
+    ####Using XML
+    - Add app:contentColor property to xml layout
+      ````xml
+      <com.hbb20.CountryCodePicker
+            android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:arrowSize="26sp"/>                        
+      ````
+
+    ####Programmatically
+    - To set textSize programmatically, use ```` setArrowSize() ```` method.
+   
+
+Change log
+--------
+
+##### version 0.1.1
+		- First upload with all basic functionalities
+	
+##### version 1.2
+		- Support for textSize and arrowSize modification
