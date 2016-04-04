@@ -3,7 +3,6 @@ package com.hbb20;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
-import android.support.annotation.DimenRes;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -13,6 +12,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hbb20 on 11/1/16.
@@ -35,6 +37,7 @@ public class CountryCodePicker extends RelativeLayout {
     Country defaultCountry;
     CountryCodePicker codePicker;
     int contentColor;
+    List<Country> preferredCountries;
     //this will be "AU,IN,US"
     String preferenceString;
 
@@ -80,20 +83,24 @@ public class CountryCodePicker extends RelativeLayout {
         //default country code
 
         try {
+            //preference
+            preferenceString = a.getString(R.styleable.CountryCodePicker_countryPreference);
+            loadPreferredCountries();
+
             //default country
-            String defaultCountryNameCode=a.getString(R.styleable.CountryCodePicker_defaultNameCode);
-            boolean setUsingNameCode=false;
-            if(defaultCountryNameCode!=null && defaultCountryNameCode.length()!=0){
-                if(Country.getCountryForNameCode(context,defaultCountryNameCode)!=null){
-                    setUsingNameCode=true;
-                    setDefaultCountry(Country.getCountryForNameCode(context,defaultCountryNameCode));
+            defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_defaultNameCode);
+            boolean setUsingNameCode = false;
+            if (defaultCountryNameCode != null && defaultCountryNameCode.length() != 0) {
+                if (Country.getCountryForNameCode(context, defaultCountryNameCode) != null) {
+                    setUsingNameCode = true;
+                    setDefaultCountry(Country.getCountryForNameCode(context, defaultCountryNameCode));
                     setSelectedCountry(defaultCountry);
                 }
             }
 
 
             //if default country is not set using name code.
-            if(!setUsingNameCode) {
+            if (!setUsingNameCode) {
                 int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, -1);
 
                 //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
@@ -126,7 +133,7 @@ public class CountryCodePicker extends RelativeLayout {
             if (arrowSize > 0) {
                 LayoutParams params = (LayoutParams) imageViewArrow.getLayoutParams();
                 params.width = arrowSize;
-                params.height=arrowSize;
+                params.height = arrowSize;
                 imageViewArrow.setLayoutParams(params);
             }
 
@@ -207,6 +214,31 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
+     * this will load preferredCountries based on preferenceString
+     */
+    private void loadPreferredCountries() {
+        if (preferenceString == null || preferenceString.length() == 0) {
+            preferredCountries = null;
+        } else {
+            List<Country> localCountryList = new ArrayList<>();
+            for (String nameCode : preferenceString.split(",")) {
+                Country country = Country.getCountryForNameCode(context, nameCode);
+                if (country != null) {
+                    localCountryList.add(country);
+                }
+            }
+
+            if (localCountryList.size() == 0) {
+                preferredCountries = null;
+            } else {
+                preferredCountries = localCountryList;
+            }
+        }
+        if (preferredCountries != null)
+            Log.d("preference list", preferredCountries.size() + " countries");
+    }
+
+    /**
      * This function removes possible country code from fullNumber and set rest of the number as carrier number.
      *
      * @param fullNumber combination of country code and carrier number.
@@ -262,8 +294,8 @@ public class CountryCodePicker extends RelativeLayout {
      * If invalid defaultCountryCode is applied, it won't be changed.
      *
      * @param defaultCountryNameCode code of your default country
-     *                           if you want to set IN +91(India) as default country, defaultCountryCode =  IN or in
-     *                           if you want to set JP +81(Japan) as default country, defaultCountryCode =  JP or jp
+     *                               if you want to set IN +91(India) as default country, defaultCountryCode =  IN or in
+     *                               if you want to set JP +81(Japan) as default country, defaultCountryCode =  JP or jp
      */
     public void setDefaultCountryNameCode(String defaultCountryNameCode) {
         Country defaultCountry = Country.getCountryForNameCode(context, defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
@@ -496,24 +528,28 @@ public class CountryCodePicker extends RelativeLayout {
 
     /**
      * Modifies size of text in side CCP view.
+     *
      * @param textSize size of text in pixels
      */
-    public void setTextSize(int textSize){
-        if ( textSize > 0) {
+    public void setTextSize(int textSize) {
+        if (textSize > 0) {
             textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         }
     }
 
     /**
      * Modifies size of downArrow in CCP view
+     *
      * @param arrowSize size in pixels
      */
-    public void setArrowSize(int arrowSize){
-        if(arrowSize>0){
+    public void setArrowSize(int arrowSize) {
+        if (arrowSize > 0) {
             LayoutParams params = (LayoutParams) imageViewArrow.getLayoutParams();
             params.width = arrowSize;
-            params.height=arrowSize;
+            params.height = arrowSize;
             imageViewArrow.setLayoutParams(params);
         }
     }
+
+
 }
