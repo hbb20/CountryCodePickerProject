@@ -20,9 +20,10 @@ import android.widget.TextView;
 public class CountryCodePicker extends RelativeLayout {
 
     static String TAG = "CCP";
-    static String BUNDLE_SELECTED_CODE = "selctedCode";
+    static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
     int defaultCountryCode;
+    String defaultCountryNameCode;
     Context context;
     View holderView;
     LayoutInflater mInflater;
@@ -34,6 +35,9 @@ public class CountryCodePicker extends RelativeLayout {
     Country defaultCountry;
     CountryCodePicker codePicker;
     int contentColor;
+    //this will be "AU,IN,US"
+    String preferenceString;
+
 
     public CountryCodePicker(Context context) {
         super(context);
@@ -77,9 +81,20 @@ public class CountryCodePicker extends RelativeLayout {
 
         try {
             //default country
-            //if no country code is specified, 1 will be the default countryCode.
-            if (!isInEditMode()) {
-                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, LIB_DEFAULT_COUNTRY_CODE);
+            String defaultCountryNameCode=a.getString(R.styleable.CountryCodePicker_defaultNameCode);
+            boolean setUsingNameCode=false;
+            if(defaultCountryNameCode!=null && defaultCountryNameCode.length()!=0){
+                if(Country.getCountryForNameCode(context,defaultCountryNameCode)!=null){
+                    setUsingNameCode=true;
+                    setDefaultCountry(Country.getCountryForNameCode(context,defaultCountryNameCode));
+                    setSelectedCountry(defaultCountry);
+                }
+            }
+
+
+            //if default country is not set using name code.
+            if(!setUsingNameCode) {
+                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, -1);
 
                 //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
                 if (Country.getCountryForCode(context, defaultCountryCode) == null) {
@@ -113,15 +128,6 @@ public class CountryCodePicker extends RelativeLayout {
                 params.width = arrowSize;
                 params.height=arrowSize;
                 imageViewArrow.setLayoutParams(params);
-            }
-
-            //preview country code
-            if (isInEditMode()) {
-                int previewCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, 91);
-                String previewNameCode = a.getString(R.styleable.CountryCodePicker_previewNameCode);
-                if (previewCode != 91 && previewNameCode != null && previewNameCode.length() == 2) {
-                    textView_selectedCountry.setText("(" + previewNameCode.toUpperCase() + ") +" + previewCode);
-                }
             }
 
         } finally {
@@ -164,7 +170,7 @@ public class CountryCodePicker extends RelativeLayout {
         if (selectedCountry == null) {
             selectedCountry = Country.getCountryForCode(context, defaultCountryCode);
         }
-        textView_selectedCountry.setText("(" + selectedCountry.getNameCode() + ")  +" + selectedCountry.getPhoneCode());
+        textView_selectedCountry.setText("(" + selectedCountry.getNameCode().toUpperCase() + ")  +" + selectedCountry.getPhoneCode());
         Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
     }
 
@@ -245,6 +251,26 @@ public class CountryCodePicker extends RelativeLayout {
             Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
         } else { //if correct country is found, set the country
             this.defaultCountryCode = defaultCountryCode;
+            setDefaultCountry(defaultCountry);
+        }
+    }
+
+    /**
+     * Default country name code defines your default country.
+     * Whenever invalid / improper name code is found in setCountryForNameCode(), CCP will set to default country.
+     * This function will not set default country as selected in CCP. To set default country in CCP call resetToDefaultCountry() right after this call.
+     * If invalid defaultCountryCode is applied, it won't be changed.
+     *
+     * @param defaultCountryNameCode code of your default country
+     *                           if you want to set IN +91(India) as default country, defaultCountryCode =  IN or in
+     *                           if you want to set JP +81(Japan) as default country, defaultCountryCode =  JP or jp
+     */
+    public void setDefaultCountryNameCode(String defaultCountryNameCode) {
+        Country defaultCountry = Country.getCountryForNameCode(context, defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        if (defaultCountry == null) { //if no correct country is found
+            Log.d(TAG, "No country for nameCode " + defaultCountryNameCode + " is found");
+        } else { //if correct country is found, set the country
+            this.defaultCountryNameCode = defaultCountry.getNameCode();
             setDefaultCountry(defaultCountry);
         }
     }

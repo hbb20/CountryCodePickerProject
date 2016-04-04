@@ -8,9 +8,10 @@
             <enum name="left" value="-1"/>
             <enum name="right" value="1"/>
         </attr>
-        <attr name="previewNameCode" format="string"/>
         <attr name="registeredCarrierNumberEditText" format="reference"/>
         <attr name="textSize" format="dimension"/>
         <attr name="arrowSize" format="dimension"/>
+        <attr name="preference" format="string"/>
+        <attr name="defaultNameCode" format="string" />
     </declare-styleable>
 </resources>
