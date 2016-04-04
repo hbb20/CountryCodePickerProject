@@ -14,8 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import com.hbb20.CountryCodePicker;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +31,6 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
     CountryCodeAdapter(Context context, List<Country> countries, CountryCodePicker codePicker, final EditText editText_search, TextView textView_noResult, Dialog dialog) {
         this.context = context;
-        this.filteredCountries = countries;
         this.masterCountries = countries;
         this.codePicker = codePicker;
         this.dialog = dialog;
@@ -41,6 +38,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         this.editText_search = editText_search;
         this.inflater = LayoutInflater.from(context);
         setTextWatcher();
+        this.filteredCountries = getFilteredCountries("");
     }
 
     /**
@@ -79,7 +77,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
      */
     private void applyQuery(String query) {
 
-        List<Country> tempCountryList = new ArrayList<Country>();
+
         textView_noResult.setVisibility(View.GONE);
         query = query.toLowerCase();
 
@@ -88,17 +86,35 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             query=query.substring(1);
         }
 
-        for (Country country : masterCountries) {
-            if (country.getName().toLowerCase().contains(query) || country.getNameCode().toLowerCase().contains(query) || country.getPhoneCode().toLowerCase().contains(query)) {
-                tempCountryList.add(country);
-            }
-        }
+        filteredCountries= getFilteredCountries(query);
 
-        filteredCountries = tempCountryList;
         if (filteredCountries.size() == 0) {
             textView_noResult.setVisibility(View.VISIBLE);
         }
         notifyDataSetChanged();
+    }
+
+    private List<Country> getFilteredCountries(String query) {
+        List<Country> tempCountryList = new ArrayList<Country>();
+        if(codePicker.preferredCountries!=null && codePicker.preferredCountries.size()>0) {
+            for (Country country : codePicker.preferredCountries) {
+                if (country.isEligibleForQuery(query)) {
+                    tempCountryList.add(country);
+                }
+            }
+
+            if (tempCountryList.size() > 0) { //means at least one preferred country is added.
+                Country divider = null;
+                tempCountryList.add(divider);
+            }
+        }
+
+        for (Country country : masterCountries) {
+            if (country.isEligibleForQuery(query)) {
+                tempCountryList.add(country);
+            }
+        }
+        return tempCountryList;
     }
 
     @Override
@@ -115,11 +131,11 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             @Override
             public void onClick(View view) {
                 codePicker.setSelectedCountry(filteredCountries.get(i));
-                if (view != null) {
+                if (view != null && filteredCountries.get(i)!=null) {
                     InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    dialog.dismiss();
                 }
-                dialog.dismiss();
             }
         });
     }
@@ -132,17 +148,27 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     class CountryCodeViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout relativeLayout_main;
         TextView textView_name, textView_code;
-
+        View divider;
         public CountryCodeViewHolder(View itemView) {
             super(itemView);
             relativeLayout_main = (RelativeLayout) itemView;
             textView_name = (TextView) relativeLayout_main.findViewById(R.id.textView_countryName);
             textView_code = (TextView) relativeLayout_main.findViewById(R.id.textView_code);
+            divider=(View) relativeLayout_main.findViewById(R.id.preferenceDivider);
         }
 
         public void setCountry(Country country) {
-            textView_name.setText(country.getName() + " (" + country.getNameCode() + ")");
-            textView_code.setText("+" + country.getPhoneCode());
+            if(country!=null) {
+                divider.setVisibility(View.GONE);
+                textView_name.setVisibility(View.VISIBLE);
+                textView_code.setVisibility(View.VISIBLE);
+                textView_name.setText(country.getName() + " (" + country.getNameCode().toUpperCase() + ")");
+                textView_code.setText("+" + country.getPhoneCode());
+            }else{
+                divider.setVisibility(View.VISIBLE);
+                textView_name.setVisibility(View.GONE);
+                textView_code.setVisibility(View.GONE);
+            }
         }
 
         public RelativeLayout getMainView() {

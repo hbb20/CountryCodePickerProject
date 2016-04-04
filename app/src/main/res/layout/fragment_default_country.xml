@@ -72,8 +72,9 @@
                             <com.hbb20.CountryCodePicker
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:countryPreference="us,cd,pk,in,uk,nz,fsdkd,fsdkj,flsdk"
-                                app:defaultNameCode="nz" />
+                                app:countryPreference="US,cd,pk,rs,in,uk,nz"
+                                app:defaultCode="1"
+                                />
 
                             <EditText
                                 android:layout_width="match_parent"

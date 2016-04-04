@@ -13,5 +13,6 @@
         <attr name="arrowSize" format="dimension"/>
         <attr name="countryPreference" format="string"/>
         <attr name="defaultNameCode" format="string" />
+        <attr name="hideNameCode" format="boolean"/>
     </declare-styleable>
 </resources>

@@ -67,6 +67,8 @@
                             <com.hbb20.CountryCodePicker
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                app:countryPreference="us,in"
+                                app:defaultNameCode="pk"
                                 />
 
                             <EditText
@@ -145,6 +147,7 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                app:countryPreference="us,in"
                                 />
 
                             <EditText

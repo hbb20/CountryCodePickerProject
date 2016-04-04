@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <countries>
+    <Note content='This list is just for user reference. CountryCodePicker picks country list from getMasterCountries(), a static method of Country class'. If country is added to or modified in or deleted from this list, same change should be done to that method.  />
     <country code='af' phoneCode='93' name='Afghanistan' />
     <country code='al' phoneCode='355' name='Albania' />
     <country code='dz' phoneCode='213' name='Algeria' />

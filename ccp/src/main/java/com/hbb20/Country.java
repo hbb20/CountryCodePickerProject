@@ -72,7 +72,7 @@ class Country {
      * @param context: required to access application resources (where country.xml is).
      * @return List of all the countries available in xml file.
      */
-    public static List<Country> getAllCountries(Context context){
+    public static List<Country> readXMLofCountries(Context context){
         List<Country> countries=new ArrayList<Country>();
         try {
             XmlPullParserFactory xmlFactoryObject = XmlPullParserFactory.newInstance();
@@ -110,14 +110,26 @@ class Country {
 
     /**
      * Search a country which matches @param code.
-     * @param context to access raw file of countries list.
+     * @param preferredCountries is list of preference countries.
      * @param code phone code. i.e "91" or "1"
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
+     * if same code (e.g. +1) available for more than one country ( US, canada) , this function will return preferred country.
      */
-    private static Country getCountryForCode(Context context, String code){
-        List<Country> countries=Country.getMasterCountries();
-        for(Country country:countries){
+    private static Country getCountryForCode(List<Country> preferredCountries, String code){
+
+        /**
+         * check in preferred countries
+         */
+        if(preferredCountries!=null && !preferredCountries.isEmpty()) {
+            for (Country country : preferredCountries) {
+                if (country.getPhoneCode().equals(code)) {
+                    return country;
+                }
+            }
+        }
+
+        for(Country country:getMasterCountries()){
             if(country.getPhoneCode().equals(code)){
                 return country;
             }
@@ -127,12 +139,11 @@ class Country {
 
     /**
      * Search a country which matches @param nameCode.
-     * @param context to access raw file of countries list.
      * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      */
-    public static Country getCountryForNameCode(Context context, String nameCode){
+    public static Country getCountryForNameCode(String nameCode){
         List<Country> countries=Country.getMasterCountries();
         for(Country country:countries){
             if(country.getNameCode().equalsIgnoreCase(nameCode)){
@@ -144,13 +155,13 @@ class Country {
 
     /**
      * Search a country which matches @param code.
-     * @param context to access raw file of countries list.
+     * @param preferredCountries list of country with priority,
      * @param code phone code. i.e 91 or 1
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      */
-    static Country getCountryForCode(Context context, int code){
-        return getCountryForCode(context, code + "");
+    static Country getCountryForCode(List<Country> preferredCountries, int code){
+        return getCountryForCode(preferredCountries, code + "");
     }
     /**
      * Finds country code by matching substring from left to right from full number.
@@ -158,13 +169,13 @@ class Country {
      * function will ignore "+" and try to find match for first character "8"
      * if any country found for code "8", will return that country. If not, then it will
      * try to find country for "81". and so on till first 3 characters ( maximum number of characters in country code is 3).
-     * @param context to access resource file of
+     * @param preferredCountries countries of preference
      * @param fullNumber full number ( "+" (optional)+ country code + carrier number) i.e. +819017901357 / 819017901357 / 918866667722
      * @return Country JP +81(Japan) for +819017901357 or 819017901357
      * Country IN +91(India) for  918866667722
      * null for 2956635321 ( as neither of "2", "29" and "295" matches any country code)
      */
-    static Country getCountryForNumber(Context context,String fullNumber) {
+    static Country getCountryForNumber(List<Country> preferredCountries,String fullNumber) {
         int firstDigit;
         if(fullNumber.length()!=0) {
             if (fullNumber.charAt(0) == '+') {
@@ -175,7 +186,7 @@ class Country {
             Country country = null;
             for (int i = firstDigit; i < firstDigit + 4; i++) {
                 String code = fullNumber.substring(firstDigit, i);
-                country = Country.getCountryForCode(context, code);
+                country = Country.getCountryForCode(preferredCountries, code);
                 if (country != null) {
                     return country;
                 }
@@ -401,5 +412,14 @@ class Country {
         countries.add(new Country("zm","260","Zambia"));
         countries.add(new Country("zw","263","Zimbabwe"));
         return countries;
+    }
+
+    public boolean isEligibleForQuery(String query) {
+        query=query.toLowerCase();
+        if (getName().toLowerCase().contains(query) || getNameCode().toLowerCase().contains(query) || getPhoneCode().toLowerCase().contains(query)){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
