@@ -414,6 +414,11 @@ class Country {
         return countries;
     }
 
+    /**
+     * If country have query word in name or name code or phone code, this will return true.
+     * @param query
+     * @return
+     */
     public boolean isEligibleForQuery(String query) {
         query=query.toLowerCase();
         if (getName().toLowerCase().contains(query) || getNameCode().toLowerCase().contains(query) || getPhoneCode().toLowerCase().contains(query)){

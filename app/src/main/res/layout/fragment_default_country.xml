@@ -27,76 +27,166 @@
                     style="@style/pointText"
                     android:text="\u2022 The default country can be set through xml layout and programmatically as well." />
 
-                <TextView
-                    style="@style/pointText"
-                    android:text="1. Using xml "
-                    android:textStyle="bold" />
-
-                <TextView
-                    style="@style/pointText"
-                    android:paddingLeft="32dp"
-                    android:text='add app:defaultCode="81" (replace 81 with your default country code) to xml layout.' />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="32dp"
-                    android:text='&#60;in.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultCode="81" \n app:previewNameCode="jp"/&#62;' />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginRight="16dp"
-                    android:background="@color/dullBG"
-                    android:padding="8dp">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/pointText"
+                            android:text="1. Using xml "
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/pointText"
+                            android:paddingLeft="32dp"
+                            android:text='A. Using country name code'
+                            android:textStyle="italic|bold" />
+
+                        <TextView
+                            style="@style/pointText"
+                            android:paddingLeft="32dp"
+                            android:text='add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout.' />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Phone number"
-                            android:textSize="18sp" />
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="32dp"
+                            android:text='&#60;in.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultNameCode="US" /&#62;' />
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical">
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/dullBG"
+                            android:padding="8dp">
 
-                            <com.hbb20.CountryCodePicker
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:countryPreference="US,cd,pk,rs,in,uk,nz"
-                                app:defaultCode="1"
-                                />
-
-                            <EditText
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:enabled="false"
-                                android:hint="phone"
-                                android:inputType="phone"
-                                android:singleLine="true" />
-                        </LinearLayout>
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Phone number"
+                                    android:textSize="18sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical">
+
+                                    <com.hbb20.CountryCodePicker
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:defaultNameCode="US" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:enabled="false"
+                                        android:hint="phone"
+                                        android:inputType="phone"
+                                        android:singleLine="true" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
                     </LinearLayout>
-                </RelativeLayout>
 
-                <TextView
-                    style="@style/pointText"
-                    android:layout_marginLeft="32dp"
-                    android:text="\u2022 If you set default country from xml, default country will set to CCP as soon as screen is displayed. " />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
-                <TextView
-                    style="@style/pointText"
-                    android:layout_marginLeft="32dp"
-                    android:text="\u2022 app:previewCountryNameCode is not compulsory. It just give you correct preview in layout preview of android studio. app:previewCountryNameCode will only displayed if it’s made up of 2 characters and app:defaultCode is specified. previewNameCode will not affect or will not change name of country name’s code at run time. Default country will be picked only on bases of defaultCode, previewCountryNameCode has nothing to do with it. "
-                    android:visibility="gone" />
+                        <TextView
+                            style="@style/pointText"
+                            android:paddingLeft="32dp"
+                            android:text='B. Using phone code'
+                            android:textStyle="italic|bold" />
+
+                        <TextView
+                            style="@style/pointText"
+                            android:paddingLeft="32dp"
+                            android:text='add app:defaultCode="81" (replace 81 by your default country code) to xml layout.' />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="32dp"
+                            android:text='&#60;in.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultCode="81" /&#62;' />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/dullBG"
+                            android:padding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Phone number"
+                                    android:textSize="18sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical">
+
+                                    <com.hbb20.CountryCodePicker
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:defaultCode="7" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:enabled="false"
+                                        android:hint="phone"
+                                        android:inputType="phone"
+                                        android:singleLine="true" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <TextView
+                            style="@style/pointText"
+                            android:layout_marginLeft="32dp"
+                            android:text="\u2022 Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US" />
+
+                        <TextView
+                            style="@style/pointText"
+                            android:layout_marginLeft="32dp"
+                            android:text="\u2022 Use app:defaultNameCode or app:countryPreference to resolve issue." />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/pointText"
+                        android:layout_marginLeft="32dp"
+                        android:paddingLeft="0dp"
+                        android:text="\u2022 Use app:defaultNameCode has higher priority than app:defaultCode for setting default country using XML." />
+
+                </LinearLayout>
 
                 <TextView
                     style="@style/pointText"
@@ -106,8 +196,54 @@
                 <TextView
                     style="@style/pointText"
                     android:paddingLeft="32dp"
-                    android:text="To set default country programmatically, use setDefaultCountryCode() method." />
+                    android:text='A. Using country name code'
+                    android:textStyle="italic|bold" />
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text="use setDefaultCountryUsingNameCode() method." />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
+                    <EditText
+                        android:id="@+id/editText_defaultNameCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:maxWidth="50dp"
+                        android:minWidth="50dp"
+                        android:singleLine="true"
+                        android:text="US" />
+
+                    <Button
+                        android:id="@+id/button_setDefaultNameCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="set 'US' as Default Country Name Code" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="OR"
+                    android:textSize="20sp" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text='B. Using phone code'
+                    android:textStyle="italic|bold" />
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text="use setDefaultCountryUsingPhoneCode() method." />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -127,12 +263,13 @@
                         android:text="672" />
 
                     <Button
-                        android:id="@+id/button_setDefault"
+                        android:id="@+id/button_setDefaultCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="2"
                         android:text="set 672 as Default Country Code" />
                 </LinearLayout>
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -162,8 +299,7 @@
                             <com.hbb20.CountryCodePicker
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:defaultCode="81" />
+                                android:layout_height="wrap_content" />
 
                             <EditText
                                 android:layout_width="match_parent"
@@ -180,7 +316,7 @@
                     style="@style/pointText"
                     android:layout_marginLeft="32dp"
                     android:layout_marginRight="16dp"
-                    android:text="\u2022 setDefaultCountryCode() will not set default country as selected country in CCP view. To set default country as selected country in CCP view, call resetToDefaultCountry() method." />
+                    android:text="\u2022 setDefaultCountryCode() / setDefaultCountryNameCode() will not set default country as selected country in CCP view. To set default country as selected country in CCP view, call resetToDefaultCountry() method." />
 
                 <Button
                     android:id="@+id/button_resetToDefault"

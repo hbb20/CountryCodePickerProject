@@ -22,10 +22,11 @@ import com.hbb20.CountryCodePicker;
 public class DefaultCountryFragment extends Fragment {
 
 
-    EditText editTextDefaultCode;
-    Button buttonSetNewDefaultCode,buttonResetToDefault;
+    EditText editTextDefaultPhoneCode, editTextDefaultNameCode;
+    Button buttonSetNewDefaultPhoneCode, buttonSetNewDefaultNameCode, buttonResetToDefault;
     CountryCodePicker ccp;
     Button buttonNext;
+
     public DefaultCountryFragment() {
         // Required empty public constructor
     }
@@ -47,16 +48,30 @@ public class DefaultCountryFragment extends Fragment {
     }
 
     private void addClickListeners() {
-        buttonSetNewDefaultCode.setOnClickListener(new View.OnClickListener() {
+        buttonSetNewDefaultPhoneCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int code=-1;
-                try{
-                    code=Integer.parseInt(editTextDefaultCode.getText().toString());
-                    ccp.setDefaultCountryCode(code);
-                    Toast.makeText(getActivity(),"Now default country is "+ccp.getDefaultCountryName()+" with phone code "+ccp.getDefaultCountryCode() ,Toast.LENGTH_LONG).show();
-                }catch (Exception ex){
-                    Toast.makeText(getActivity(),"Invalid number format",Toast.LENGTH_LONG).show();
+                int code = -1;
+                try {
+                    code = Integer.parseInt(editTextDefaultPhoneCode.getText().toString());
+                    ccp.setDefaultCountryUsingPhoneCode(code);
+                    Toast.makeText(getActivity(), "Now default country is " + ccp.getDefaultCountryName() + " with phone code " + ccp.getDefaultCountryCode(), Toast.LENGTH_LONG).show();
+                } catch (Exception ex) {
+                    Toast.makeText(getActivity(), "Invalid number format", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        buttonSetNewDefaultNameCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nameCode;
+                try {
+                    nameCode = editTextDefaultNameCode.getText().toString();
+                    ccp.setDefaultCountryUsingNameCode(nameCode);
+                    Toast.makeText(getActivity(), "Now default country is " + ccp.getDefaultCountryName() + " with phone code " + ccp.getDefaultCountryCode(), Toast.LENGTH_LONG).show();
+                } catch (Exception ex) {
+
                 }
             }
         });
@@ -77,7 +92,7 @@ public class DefaultCountryFragment extends Fragment {
     }
 
     private void editTextWatcher() {
-        editTextDefaultCode.addTextChangedListener(new TextWatcher() {
+        editTextDefaultPhoneCode.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -85,7 +100,24 @@ public class DefaultCountryFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                buttonSetNewDefaultCode.setText("set "+s+" as Default Country Code");
+                buttonSetNewDefaultPhoneCode.setText("set " + s + " as Default Country Code");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        editTextDefaultNameCode.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                buttonSetNewDefaultNameCode.setText("set '" + s + "' as Default Country Name Code");
             }
 
             @Override
@@ -96,12 +128,15 @@ public class DefaultCountryFragment extends Fragment {
     }
 
     private void assignViews() {
-        editTextDefaultCode=(EditText)getView().findViewById(R.id.editText_defaultCode);
-        ccp=(CountryCodePicker)getView().findViewById(R.id.ccp);
-        buttonSetNewDefaultCode=(Button) getView().findViewById(R.id.button_setDefault);
-        buttonResetToDefault=(Button) getView().findViewById(R.id.button_resetToDefault);
+        editTextDefaultPhoneCode = (EditText) getView().findViewById(R.id.editText_defaultCode);
+        ccp = (CountryCodePicker) getView().findViewById(R.id.ccp);
+        buttonSetNewDefaultPhoneCode = (Button) getView().findViewById(R.id.button_setDefaultCode);
+        buttonResetToDefault = (Button) getView().findViewById(R.id.button_resetToDefault);
 
-        buttonNext=(Button)getView().findViewById(R.id.button_next);
+        editTextDefaultNameCode = (EditText) getView().findViewById(R.id.editText_defaultNameCode);
+        buttonSetNewDefaultNameCode = (Button) getView().findViewById(R.id.button_setDefaultNameCode);
+
+        buttonNext = (Button) getView().findViewById(R.id.button_next);
         buttonNext.getBackground().setColorFilter(getActivity().getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
     }
 }

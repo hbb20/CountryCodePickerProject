@@ -40,7 +40,7 @@ public class CountryCodePicker extends RelativeLayout {
     int contentColor;
     List<Country> preferredCountries;
     //this will be "AU,IN,US"
-    String preferenceString;
+    String countryPreference;
 
 
     public CountryCodePicker(Context context) {
@@ -83,13 +83,11 @@ public class CountryCodePicker extends RelativeLayout {
                 0, 0);
         //default country code
         try {
-
-
-            //hide nameCode. If someone wants only phone code to avoid name collision.
+            //hide nameCode. If someone wants only phone code to avoid name collision for same country phone code.
             hideNameCode=a.getBoolean(R.styleable.CountryCodePicker_hideNameCode,false);
 
             //preference
-            preferenceString = a.getString(R.styleable.CountryCodePicker_countryPreference);
+            countryPreference = a.getString(R.styleable.CountryCodePicker_countryPreference);
             loadPreferredCountries();
 
             //default country
@@ -112,7 +110,7 @@ public class CountryCodePicker extends RelativeLayout {
                 if (Country.getCountryForCode(preferredCountries, defaultCountryCode) == null) {
                     defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
                 }
-                setDefaultCountryCode(defaultCountryCode);
+                setDefaultCountryUsingPhoneCode(defaultCountryCode);
                 setSelectedCountry(defaultCountry);
             }
 
@@ -226,17 +224,19 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
-     * this will load preferredCountries based on preferenceString
+     * this will load preferredCountries based on countryPreference
      */
     private void loadPreferredCountries() {
-        if (preferenceString == null || preferenceString.length() == 0) {
+        if (countryPreference == null || countryPreference.length() == 0) {
             preferredCountries = null;
         } else {
             List<Country> localCountryList = new ArrayList<>();
-            for (String nameCode : preferenceString.split(",")) {
+            for (String nameCode : countryPreference.split(",")) {
                 Country country = Country.getCountryForNameCode(nameCode);
                 if (country != null) {
-                    localCountryList.add(country);
+                    if(!isAlreadyInList(country,localCountryList)) { //to avoid duplicate entry of country
+                        localCountryList.add(country);
+                    }
                 }
             }
 
@@ -254,6 +254,24 @@ public class CountryCodePicker extends RelativeLayout {
         }else{
             Log.d("preference list", " has no country");
         }
+    }
+
+    /**
+     * This will match name code of all countries of list against the country's name code.
+     *
+     * @param country
+     * @param countryList list of countries against which country will be checked.
+     * @return if country name code is found in list, returns true else return false
+     */
+    private boolean isAlreadyInList(Country country, List<Country> countryList) {
+        if(country!=null && countryList!=null) {
+            for (Country iterationCountry:countryList){
+                if(iterationCountry.getNameCode().equalsIgnoreCase(country.getNameCode())){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -286,6 +304,10 @@ public class CountryCodePicker extends RelativeLayout {
      */
 
     /**
+     * This method is not encouraged because this might set some other country which have same country code as of yours. e.g 1 is common for US and canada.
+     * If you are trying to set US ( and countryPreference is not set) and you pass 1 as @param defaultCountryCode, it will set canada (prior in list due to alphabetical order)
+     * Rather use setDefaultCountryUsingNameCode("us"); or setDefaultCountryUsingNameCode("US");
+     *
      * Default country code defines your default country.
      * Whenever invalid / improper number is found in setCountryForCode() /  setFullNumber(), it CCP will set to default country.
      * This function will not set default country as selected in CCP. To set default country in CCP call resetToDefaultCountry() right after this call.
@@ -295,7 +317,7 @@ public class CountryCodePicker extends RelativeLayout {
      *                           if you want to set IN +91(India) as default country, defaultCountryCode =  91
      *                           if you want to set JP +81(Japan) as default country, defaultCountryCode =  81
      */
-    public void setDefaultCountryCode(int defaultCountryCode) {
+    public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
         Country defaultCountry = Country.getCountryForCode(preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
@@ -312,10 +334,10 @@ public class CountryCodePicker extends RelativeLayout {
      * If invalid defaultCountryCode is applied, it won't be changed.
      *
      * @param defaultCountryNameCode code of your default country
-     *                               if you want to set IN +91(India) as default country, defaultCountryCode =  IN or in
-     *                               if you want to set JP +81(Japan) as default country, defaultCountryCode =  JP or jp
+     *                               if you want to set IN +91(India) as default country, defaultCountryCode =  "IN" or "in"
+     *                               if you want to set JP +81(Japan) as default country, defaultCountryCode =  "JP" or "jp"
      */
-    public void setDefaultCountryNameCode(String defaultCountryNameCode) {
+    public void setDefaultCountryUsingNameCode(String defaultCountryNameCode) {
         Country defaultCountry = Country.getCountryForNameCode(defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             Log.d(TAG, "No country for nameCode " + defaultCountryNameCode + " is found");
@@ -569,5 +591,24 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
+    /**
+     * If nameCode of country in CCP view is not required use this to show/hide country name code of ccp view.
+     * @param hideNameCode true will remove country name code from ccp view, it will result  " +91 "
+     *                     false will show country name code in ccp view, it will result " (IN) +91 "
+     */
+    public void hideNameCode(boolean hideNameCode) {
+        this.hideNameCode = hideNameCode;
+        setSelectedCountry(selectedCountry);
+    }
 
+    /**
+     * This will set preferred countries using their name code. Prior preferred countries will be replaced by these countries.
+     * Preferred countries will be at top of country selection box.
+     * If more than one countries have same country code, country in preferred list will have higher priory than others. e.g. Canada and US have +1 as their country code. If "us" is set as preferred country then US will be selected whenever setCountryForCode(1); or setFullNumber("+1xxxxxxxxx"); is called.
+     * @param countryPreference is country name codes separated by comma. e.g. "us,in,nz"
+     */
+    public void setCountryPreference(String countryPreference) {
+        this.countryPreference = countryPreference;
+        loadPreferredCountries();
+    }
 }
