@@ -17,7 +17,7 @@ Add this to your gradle file
   
 ````groovy
 dependencies {
-  compile 'com.hbb20:ccp:1.2'
+  compile 'com.hbb20:ccp:1.4'
 }
 ````
 
@@ -31,25 +31,45 @@ Features
     *  Default country is the country where most of your target audience belong.
     *  The default country can be set through xml layout and programmatically as well.
    
-   - ####Using xml####
-        - add app:defaultCode="81" (replace 81 with your default country code) to xml layout.
-        - If you set default country from xml, default country will set to CCP as soon as screen is displayed.
-        - app:previewCountryNameCode is not compulsory. It just give you correct preview in layout preview of android studio. app:previewCountryNameCode will only displayed if it’s made up of 2 characters and app:defaultCode is specified. previewNameCode will not affect or will not change name of country name’s code at run time. Default country will be picked only on bases of defaultCode, previewCountryNameCode has nothing to do with it. 
+   - ####Through xml####
+       **Using country code name**  
+        - Add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
-     ````xml
-      <com.hbb20.CountryCodePicker
-       android:id="@+id/ccp"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:defaultCode="81" 
-       app:previewNameCode="jp"/>
-    ````
-  - ####Programmatically####
+	       ````xml
+	        <com.hbb20.CountryCodePicker
+	         android:id="@+id/ccp"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         app:defaultNameCode="US"  />
+	      ```` 
+	      
+       **Using phone code**   
+        - add app:defaultCode="81" (replace 81 with your default country code) to xml layout.Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for country codes.
+        - Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US.  Use app:defaultNameCode or app:countryPreference to overcome issue.
+	
+	       ````xml
+	        <com.hbb20.CountryCodePicker
+	         android:id="@+id/ccp"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         app:defaultCode="81" />
+	      ````
+  _app:defaultNameCode has high priority than app:defaultCode._
   
-      - To set default country programmatically, use ```` setDefaultCountryCode()```` method.
-      - ```java setDefaultCountryCode() ``` will not set default country as selected country in CCP view. To set default country as selected country in CCP view, call ```` resetToDefaultCountry() ```` method.
-      - ```java resetToDefaultCountry() ``` will set default country as selected country in CCP, it can be used at the time of form reset.
-  - If you do not specify default country from xml, IN +91 (India) will be the default country until you update default country programmatically.
+   - ####Programmatically####
+       **Using country name code** 
+         - Use ```` setDefaultCountryUsingNameCode()```` method.
+   
+       **Using phone code** 
+         - To set default country programmatically, use ```` setDefaultCountryUsingPhoneCode()```` method.
+    
+
+    - ````setDefaultCountryUsingNameCode()```` or ```setDefaultCountryUsingPhoneCode() ``` will not set default country as selected country in CCP view. To set default country as selected country in CCP view, call ```` resetToDefaultCountry() ```` method.
+
+    - ```resetToDefaultCountry() ``` will set default country as selected country in CCP, it can be used at the time of form reset.
+      
+    - If you do not specify default country from xml, IN +91 (India) will be the default country until you update default country programmatically.
+ 
     
     
   ###2. Choose and set country
@@ -61,37 +81,65 @@ Features
       2. Then search country by country name or phone code or name code in dialog. 
       3. Click on county from list to choose
         
+     ####Set country programmatically
+		
+      **Using country code name**  
+		- Country in CCP can be using ```` setCountryForNameCode() ```` method.
 
-        ####Set country programmatically
-           - Country in CCP can be using ```` setCountryForCode() ```` method.
-           - If specified country code does not match with any country code, default country will be set in to CCP.
-                
+      **Using phone code**  
+		- Country in CCP can be using ```` setCountryForCode() ```` method.
+	
+	- If specified country code / name code does not match with any country, default country will be set in to CCP.
+		        
+  ###3. Country preference
   
-  ###3. Read selected country
+    - Library has list of countries in alphabetical order. It searches for country in same order. But preferred country/countries have higher priority than rest.
+    - There are few cases where more than one countries have same code. For example, Canada, Puerto Rico and US have +1. When lilbrary will try to find country with +1, it will always pick Canada as it's alphabetically first in (1)Canada-(2)Puerto Rico-(3)US.
+    - If US is set in country preference, order for search will be (1)US-(2)Canada-(3)Puerto Rico, so it will pick US for +1.
+    - Countries of preference will be listed at top in selection dialog. It is helpful when target audience is from a set of countries.
+    - Any number of countries can be set in preference.
+   
+  - ####Set through xml####
+        - Add app:countryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+
+	       ````xml
+	        <com.hbb20.CountryCodePicker
+	         android:id="@+id/ccp"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         app:countryPreference="US,IN,NZ"  />
+	      ````
+  
+   - ####Programmatically####
+        - Use ```` setCountryPreference()```` method.
+        
+  ###4. Read selected country
   
     - Country's 3 properties (Country name, phone code and name code) can be read individually.
     
-    ####Read selected country phone code
+     ####Read selected country phone code
     
-	 - To get selected country code as String type and without prefix “+”, use ```` getSelectedCountryCode(); ```` method. => “91”
-	 - To get selected country code as String type and with prefix “+”, use ```` getSelectedCountryCodeWithPlus(); ```` method. => “+91”
-	 - To get selected country code as int (Integer) type, use ```` getSelectedCountryCodeAsInt(); ```` method. => 91
-	  
-    ####Read selected country name
+	   - To get selected country code as String type and without prefix “+”, use ```` getSelectedCountryCode(); ```` method. => “91”
+	   - To get selected country code as String type and with prefix “+”, use ```` getSelectedCountryCodeWithPlus(); ```` method. => “+91”
+	   - To get selected country code as int (Integer) type, use ```` getSelectedCountryCodeAsInt(); ```` method. => 91
+	    
+     ####Read selected country name
+
 	 - To get selected country’s name, use ```` getSelectedCountryName();```` => “India”
   
-    ####Read selected country name code
+     ####Read selected country name code
+
 	 - To get selected country’s name code, use ```` getSelectedCountryNameCode();```` => “IN”
    
-   ###4. Full number support
+   ###5. Full number support
      
      - Full number is combination of country code and carrier number. for example, if country code is 91 and carrier number is 8866667722 then "918866667722" or "+918866667722" is the full number.
 
      #### Register carrierNumberEditText
      
-	  - CarrierNumberEditText is the supplementary editText in which carrier number part of full number is entered.
-	  - A carrierNumberEditText must be registered in order to work with full number.
-	  - editText can be registered using ``` registerCarrierNumberEditText()```.
+	    - CarrierNumberEditText is the supplementary editText in which carrier number part of full number is entered.
+	    - A carrierNumberEditText must be registered in order to work with full number.
+	    - editText can be registered using ``` registerCarrierNumberEditText()```.
   
      ####Load full number####
        
@@ -108,17 +156,18 @@ Features
     - A carrierNumberEditText must be registered before any function call of full number like ``` setFullNumber()``` or ``` getFullNumber() ```.
   - *None of the above functions validate the number format of phone.*
 
-  ###5. Custom content color
+  ###6. Custom content color
   - Color of CCP content can be changed according to different background.
     
     ####Using XML
     - Add app:contentColor property to xml layout
-      ````xml
-      <com.hbb20.CountryCodePicker
-            android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          app:contentColor="@color/custom_color"/>                        
-      ````
+   
+	      ````xml
+	      <com.hbb20.CountryCodePicker
+	            android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          app:contentColor="@color/custom_color"/>                        
+	      ````
     
     - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_a.png" width="300"> 
 
@@ -127,42 +176,66 @@ Features
     - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_b.png" width="300"> 
 
 
- ###6. Custom textSize
+ ###7. Custom textSize
   - Text size of CCP content can be changed in order to match rest of the view of form.
+  - Everytime when textSize is updated, arrowsize will be updated itself. 
     
     ####Using XML
     - Add app:contentColor property to xml layout
-      ````xml
-      <com.hbb20.CountryCodePicker
-            android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          app:textSize="26sp"/>                        
-      ````
+  
+	      ````xml
+	      	<com.hbb20.CountryCodePicker
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         app:textSize="26sp"/>                        
+	      ````
 
     ####Programmatically
     - To set textSize programmatically, use ```` setTextSize() ```` method.
     
- ###7. Custom arrow size
+ ###8. Custom arrow size
   - Size if Down arrow of CCP view can be modified in order to match rest of the view of form.
     
     ####Using XML
     - Add app:contentColor property to xml layout
-      ````xml
-      <com.hbb20.CountryCodePicker
-            android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          app:arrowSize="26sp"/>                        
-      ````
+	      
+	````xml
+	      <com.hbb20.CountryCodePicker
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       app:arrowSize="26sp"/>                        
+	  ````
 
     ####Programmatically
     - To set textSize programmatically, use ```` setArrowSize() ```` method.
+    
+ ###9. Hide country name code
+  - By default, text of CCP contains coutry's name code. i.e "(US) +1". Coutnry name code can be removed if required. 
+    
+    ####Using XML
+    - Add app:hideCodeName property to xml layout
+	      
+	````xml
+	      <com.hbb20.CountryCodePicker
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       app:hideCodeName="true"/>                        
+	  ````
+
+    ####Programmatically
+    - To set textSize programmatically, use ```` hideCodeName() ```` method.
    
 
 Change log
 --------
 
 ##### version 0.1.1
-		- First upload with all basic functionalities
-	
+    - First upload with all basic functionalities
+  
 ##### version 1.2
-		- Support for textSize and arrowSize modification
+    - Support for textSize and arrowSize modification
+    
+##### version 1.4
+    - Country preference
+    - Hide country name code option
+    - Default country using Country name code
