@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import com.hbb20.CountryCodePicker;
  * A simple {@link Fragment} subclass.
  */
 public class CustomColorFragment extends Fragment {
+
+    Button buttonNext;
 
     public CustomColorFragment() {
     }
@@ -58,6 +61,13 @@ public class CustomColorFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 setColor(3,getActivity().getResources().getColor(R.color.color3));
+            }
+        });
+
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ExampleActivity) getActivity()).viewPager.setCurrentItem(((ExampleActivity) getActivity()).viewPager.getCurrentItem() + 1);
             }
         });
     }
@@ -104,5 +114,6 @@ public class CustomColorFragment extends Fragment {
         relativeColor1=(RelativeLayout)getView().findViewById(R.id.relative_color1);
         relativeColor2=(RelativeLayout)getView().findViewById(R.id.relative_color2);
         relativeColor3=(RelativeLayout)getView().findViewById(R.id.relative_color3);
+        buttonNext = (Button) getView().findViewById(R.id.button_next);
     }
 }

@@ -1,0 +1,210 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.hbb20.countrycodepickerproject.CustomSizeFragment">
+
+    <android.support.v7.widget.CardView style="@style/parentCard">
+
+        <ScrollView style="@style/parentScrollView">
+
+            <LinearLayout style="@style/parentLinear">
+
+                <TextView
+                    style="@style/fragmentTitle"
+                    android:text="Custom Text Size" />
+
+                <TextView
+                    style="@style/fragmentSubTitle"
+                    android:text="Size of CCP content can be changed to match rest of your views." />
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="How to set custom textSize?" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 The custom text size can be set through xml layout and programmatically as well." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/pointText"
+                        android:text="1. Using xml "
+                        android:textStyle="bold" />
+
+                    <TextView
+                        style="@style/pointText"
+                        android:paddingLeft="32dp"
+                        android:text='add app:textSize="14sp" to xml layout.' />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="16dp"
+                        android:background="#222124"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white"
+                                    app:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="14sp"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white"
+                                    app:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="16sp"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="18sp (Default)"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white"
+                                    app:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="20sp"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white"
+
+                                    app:textSize="22sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="22sp"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white"
+                                    app:textSize="24sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="24sp"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <TextView
+                        style="@style/pointText"
+                        android:paddingLeft="32dp"
+                        android:text='*add app:textSize will update the size of downFace arrow accordingly. To specify arrow size explicitly, use app:arrowSize' />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="2. Programmatically "
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text="To set size programmatically, use setTextSize() method." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 setTextSize() will update arrow size along with it. To update arrow size explicitly call setArrowSize()" />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

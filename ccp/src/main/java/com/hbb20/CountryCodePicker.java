@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -130,15 +131,17 @@ public class CountryCodePicker extends RelativeLayout {
             int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_textSize, 0);
             if (textSize > 0) {
                 textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                setArrowSize(textSize);
+            }else{ //no textsize specified
+                DisplayMetrics dm=context.getResources().getDisplayMetrics();
+                int defaultSize=Math.round(18 * (dm.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+                setTextSize(defaultSize);
             }
 
-            //arrow size
+            //if arrow arrow size is explicitly defined
             int arrowSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_arrowSize, 0);
             if (arrowSize > 0) {
-                LayoutParams params = (LayoutParams) imageViewArrow.getLayoutParams();
-                params.width = arrowSize;
-                params.height = arrowSize;
-                imageViewArrow.setLayoutParams(params);
+                setArrowSize(arrowSize);
             }
 
         } finally {
@@ -574,6 +577,7 @@ public class CountryCodePicker extends RelativeLayout {
     public void setTextSize(int textSize) {
         if (textSize > 0) {
             textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            setArrowSize(textSize);
         }
     }
 
@@ -582,7 +586,7 @@ public class CountryCodePicker extends RelativeLayout {
      *
      * @param arrowSize size in pixels
      */
-    public void setArrowSize(int arrowSize) {
+    private void setArrowSize(int arrowSize) {
         if (arrowSize > 0) {
             LayoutParams params = (LayoutParams) imageViewArrow.getLayoutParams();
             params.width = arrowSize;

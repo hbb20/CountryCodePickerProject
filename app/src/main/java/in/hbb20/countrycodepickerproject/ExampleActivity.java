@@ -50,20 +50,24 @@ public class ExampleActivity extends AppCompatActivity {
                 case 1:
                     return new DefaultCountryFragment();
                 case 2:
-                    return new SetCountryFragment();
+                    return new CountryPreferenceFragment();
                 case 3:
-                    return new GetCountryFragment();
+                    return new SetCountryFragment();
                 case 4:
-                    return new FullNumberFragment();
+                    return new GetCountryFragment();
                 case 5:
+                    return new FullNumberFragment();
+                case 6:
                     return new CustomColorFragment();
+                case 7:
+                    return new CustomSizeFragment();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 6;
+            return 8;
         }
     }
 }

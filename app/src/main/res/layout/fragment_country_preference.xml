@@ -1,0 +1,235 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.hbb20.countrycodepickerproject.CountryPreferenceFragment">
+
+    <android.support.v7.widget.CardView style="@style/parentCard">
+
+        <ScrollView style="@style/parentScrollView">
+
+            <LinearLayout style="@style/parentLinear">
+
+                <TextView
+                    style="@style/fragmentTitle"
+                    android:text="Country Preference" />
+
+                <TextView
+                    style="@style/fragmentSubTitle"
+                    android:text="Countries that are preferred for better user experience." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        style="@style/sectionText"
+                        android:text="What is country preference?" />
+
+
+                    <TextView
+                        style="@style/pointText"
+                        android:text="\u2022 Library has list of countries in alphabetical order. It searches for country in same order. But preferred country/countries have higher priority than rest." />
+
+                    <TextView
+                        style="@style/pointText"
+                        android:text="\u2022 There are few cases where more than one countries have same code. For example, Canada, Puerto Rico and US have +1. When lilbrary will try to find country with +1, it will always pick Canada as it's alphabetically first in (1)Canada-(2)Puerto Rico-(3)US." />
+
+
+                    <TextView
+                        style="@style/pointText"
+                        android:text="\u2022 If US is set in country preference, order for search will be (1)US-(2)Canada-(3)Puerto Rico, so it will pick US for +1." />
+
+                    <TextView
+                        style="@style/pointText"
+                        android:text="\u2022 Countries of preference will be listed at top in selection dialog. It is helpful when target audience is from a set of countries." />
+
+                    <TextView
+                        style="@style/sectionText"
+                        android:text="How many countries can be set in preference?" />
+
+                    <TextView
+                        style="@style/pointText"
+                        android:text="\u2022 Any number of countries. To add more than one, use comma separated name codes. See How to set country preference? " />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="How to set country preference?" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 The country preference can be set through xml layout and programmatically as well." />
+
+                <LinearLayout
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/pointText"
+                            android:text="1. Using xml "
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/pointText"
+                            android:paddingLeft="32dp"
+                            android:text='add app:countryPreference="US,IN,NZ" (replace "US,IN,NZ" by your preference) to xml layout.' />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="32dp"
+                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultNameCode="US" \n app:countryPreference="US,IN,NZ"/&#62;' />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/dullBG"
+                            android:padding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Phone number"
+                                    android:textSize="18sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical">
+
+                                    <com.hbb20.CountryCodePicker
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:countryPreference="US,IN,NZ"
+                                        app:defaultNameCode="US" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:enabled="false"
+                                        android:hint="phone"
+                                        android:inputType="phone"
+                                        android:singleLine="true" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/pointText"
+                        android:layout_marginLeft="32dp"
+                        android:paddingLeft="0dp"
+                        android:text="\u2022 Click on CCP to see preferred countries at the top of selection list." />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="2. Programmatically "
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    style="@style/pointText"
+                    android:paddingLeft="32dp"
+                    android:text="use setCountryPreference() method." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/editText_countryPreference"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:singleLine="true"
+                        android:text="AU,RU,LK,VN" />
+
+                    <Button
+                        android:id="@+id/button_setCountryPreference"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="set 'AU,RU,LK,VN' as country preference" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/dullBG"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phone number"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <com.hbb20.CountryCodePicker
+                                android:id="@+id/ccp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:hint="phone"
+                                android:inputType="phone"
+                                android:singleLine="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+                <TextView
+                    style="@style/pointText"
+                    android:layout_marginLeft="32dp"
+                    android:paddingLeft="0dp"
+                    android:text="\u2022 After setting new preference, click on CCP to verify preferred countries at the top of selection list." />
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="Next feature >" />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+</FrameLayout>
