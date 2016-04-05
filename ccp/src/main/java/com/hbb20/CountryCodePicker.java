@@ -312,7 +312,7 @@ public class CountryCodePicker extends RelativeLayout {
      * Rather use setDefaultCountryUsingNameCode("us"); or setDefaultCountryUsingNameCode("US");
      *
      * Default country code defines your default country.
-     * Whenever invalid / improper number is found in setCountryForCode() /  setFullNumber(), it CCP will set to default country.
+     * Whenever invalid / improper number is found in setCountryForPhoneCode() /  setFullNumber(), it CCP will set to default country.
      * This function will not set default country as selected in CCP. To set default country in CCP call resetToDefaultCountry() right after this call.
      * If invalid defaultCountryCode is applied, it won't be changed.
      *
@@ -489,12 +489,35 @@ public class CountryCodePicker extends RelativeLayout {
      *                    If you want to set IN +91(India), countryCode= 91
      *                    If you want to set JP +81(Japan), countryCode= 81
      */
-    public void setCountryForCode(int countryCode) {
+    public void setCountryForPhoneCode(int countryCode) {
         Country country = Country.getCountryForCode(preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
-        if (defaultCountry == null) {
-            defaultCountry = Country.getCountryForCode(preferredCountries, defaultCountryCode);
+        if(country==null){
+            if(defaultCountry==null){
+                defaultCountry = Country.getCountryForCode(preferredCountries, defaultCountryCode);
+            }
+            setSelectedCountry(defaultCountry);
+        }else {
+            setSelectedCountry(country);
         }
-        setSelectedCountry(country);
+    }
+
+    /**
+     * This will set country with @param countryNameCode as country name code, in CCP
+     *
+     * @param countryNameCode a valid country name code.
+     *                    If you want to set IN +91(India), countryCode= IN
+     *                    If you want to set JP +81(Japan), countryCode= JP
+     */
+    public void setCountryForNameCode(String countryNameCode) {
+        Country country = Country.getCountryForNameCode(countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        if(country==null){
+            if(defaultCountry==null){
+                defaultCountry = Country.getCountryForCode(preferredCountries, defaultCountryCode);
+            }
+            setSelectedCountry(defaultCountry);
+        }else {
+            setSelectedCountry(country);
+        }
     }
 
     /**
@@ -608,7 +631,7 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * This will set preferred countries using their name code. Prior preferred countries will be replaced by these countries.
      * Preferred countries will be at top of country selection box.
-     * If more than one countries have same country code, country in preferred list will have higher priory than others. e.g. Canada and US have +1 as their country code. If "us" is set as preferred country then US will be selected whenever setCountryForCode(1); or setFullNumber("+1xxxxxxxxx"); is called.
+     * If more than one countries have same country code, country in preferred list will have higher priory than others. e.g. Canada and US have +1 as their country code. If "us" is set as preferred country then US will be selected whenever setCountryForPhoneCode(1); or setFullNumber("+1xxxxxxxxx"); is called.
      * @param countryPreference is country name codes separated by comma. e.g. "us,in,nz"
      */
     public void setCountryPreference(String countryPreference) {
