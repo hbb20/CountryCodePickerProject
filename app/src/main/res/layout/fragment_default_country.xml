@@ -31,13 +31,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        >
 
                         <TextView
                             style="@style/pointText"
@@ -60,7 +60,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="32dp"
-                            android:text='&#60;in.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultNameCode="US" /&#62;' />
+                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultNameCode="US" /&#62;' />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        >
 
                         <TextView
                             style="@style/pointText"
@@ -126,7 +126,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="32dp"
-                            android:text='&#60;in.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultCode="81" /&#62;' />
+                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultCode="81" /&#62;' />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                                     <com.hbb20.CountryCodePicker
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        app:defaultCode="7" />
+                                        app:defaultCode="81" />
 
                                     <EditText
                                         android:layout_width="match_parent"
