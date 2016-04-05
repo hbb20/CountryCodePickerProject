@@ -219,11 +219,11 @@ Features
 	      <com.hbb20.CountryCodePicker
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
-	       app:hideCodeName="true"/>                        
+	       app:hideNameCode="true"/>                        
 	  ````
 
     ####Programmatically
-    - To set textSize programmatically, use ```` hideCodeName() ```` method.
+    - To set textSize programmatically, use ```` hideNameCode() ```` method.
    
 
 Change log
