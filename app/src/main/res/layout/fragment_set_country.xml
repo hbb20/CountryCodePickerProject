@@ -67,8 +67,6 @@
                             <com.hbb20.CountryCodePicker
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:countryPreference="us,in"
-                                app:defaultNameCode="pk"
                                 />
 
                             <EditText
@@ -86,13 +84,54 @@
                     android:text="Set country programmatically
                    "/>
 
-                <TextView
-                    style="@style/pointText"
-                    android:text="\u2022 Country in CCP can be set programmatically as well, using setCountryForCode() method." />
-                <TextView
-                    style="@style/pointText"
-                    android:text="\u2022 Try with this" />
 
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Using country name code"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_marginLeft="24dp"
+                    style="@style/pointText"
+                    android:text="Use setCountryForNameCode() method." />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical">
+                    <EditText
+                        android:id="@+id/editText_countryNameCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:minWidth="50dp"
+                        android:maxWidth="50dp"
+                        android:text="US" />
+                    <Button
+                        android:id="@+id/button_setCountryNameCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="set country with name code  'US'"
+                        />
+                </LinearLayout>
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="OR"
+                android:gravity="center_horizontal"/>
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Using phone code"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_marginLeft="24dp"
+                    style="@style/pointText"
+                    android:text="\u2022 Use setCountryForPhoneCode() method." />
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -114,7 +153,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="2"
-                        android:text="set country with code 91"
+                        android:text="set country with code 672"
                         />
                 </LinearLayout>
 
@@ -146,9 +185,7 @@
                             <com.hbb20.CountryCodePicker
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:countryPreference="us,in"
-                                />
+                                android:layout_height="wrap_content" />
 
                             <EditText
                                 android:layout_width="match_parent"
