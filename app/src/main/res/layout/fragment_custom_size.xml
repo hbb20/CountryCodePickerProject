@@ -13,7 +13,7 @@
 
                 <TextView
                     style="@style/fragmentTitle"
-                    android:text="Custom Text Size" />
+                    android:text="Custom text size" />
 
                 <TextView
                     style="@style/fragmentSubTitle"

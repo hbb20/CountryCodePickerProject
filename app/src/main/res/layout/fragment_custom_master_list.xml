@@ -13,7 +13,7 @@
 
                 <TextView
                     style="@style/fragmentTitle"
-                    android:text="Custom Master Country List" />
+                    android:text="Custom master country list" />
 
                 <TextView
                     style="@style/fragmentSubTitle"

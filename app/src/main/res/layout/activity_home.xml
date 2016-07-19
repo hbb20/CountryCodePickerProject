@@ -72,7 +72,7 @@
                 <TextView
                     android:id="@+id/textCustomMaster"
                     style="@style/menuTextView"
-                    android:text="Custom master countries" />
+                    android:text="Custom Master Countries List" />
 
                 <ImageView
                     style="@style/arrow"
@@ -86,7 +86,7 @@
                 <TextView
                     android:id="@+id/textSetCountry"
                     style="@style/menuTextView"
-                    android:text="Set country" />
+                    android:text="Choose and set country" />
 
                 <ImageView
                     style="@style/arrow"
@@ -114,7 +114,7 @@
                 <TextView
                     android:id="@+id/textFullNumber"
                     style="@style/menuTextView"
-                    android:text="Full number" />
+                    android:text="Full number support" />
 
                 <ImageView
                     style="@style/arrow"
@@ -142,7 +142,7 @@
                 <TextView
                     android:id="@+id/textCustomSize"
                     style="@style/menuTextView"
-                    android:text="Custom size" />
+                    android:text="Custom text size" />
 
                 <ImageView
                     style="@style/arrow"
@@ -156,7 +156,7 @@
                 <TextView
                     android:id="@+id/textCustomFont"
                     style="@style/menuTextView"
-                    android:text="Custom fonts" />
+                    android:text="Custom font" />
 
                 <ImageView
                     style="@style/arrow"
@@ -170,7 +170,7 @@
                 <TextView
                     android:id="@+id/textCustomLanguage"
                     style="@style/menuTextView"
-                    android:text="Custom language" />
+                    android:text="Language support" />
 
                 <ImageView
                     style="@style/arrow"
