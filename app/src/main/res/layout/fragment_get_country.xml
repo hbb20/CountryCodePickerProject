@@ -1,8 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="in.hbb20.countrycodepickerproject.GetCountryFragment">
 
     <android.support.v7.widget.CardView style="@style/parentCard">
@@ -56,11 +56,11 @@
                             android:gravity="center_vertical">
 
                             <com.hbb20.CountryCodePicker
-                                app:keyboardAutoPopOnSearch="false"
                                 android:id="@+id/ccp"
-                                app:defaultNameCode="IN"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                app:defaultNameCode="IN"
+                                app:keyboardAutoPopOnSearch="false" />
 
                             <EditText
                                 android:layout_width="match_parent"
@@ -93,23 +93,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center_horizontal"
                             android:text="Country"
-                            android:textStyle="bold"
-                            android:gravity="center_horizontal"/>
+                            android:textStyle="bold" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center_horizontal"
                             android:text="Phone code"
-                            android:textStyle="bold"
-                            android:gravity="center_horizontal"/>
+                            android:textStyle="bold" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center_horizontal"
                             android:text="Name Code"
-                            android:textStyle="bold"
-                            android:gravity="center_horizontal"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -120,25 +120,25 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center_horizontal"
                             android:text="_________"
-                            android:textColor="@android:color/black"
-                            android:gravity="center_horizontal"/>
+                            android:textColor="@android:color/black" />
                         <TextView
                             android:id="@+id/textView_countryCode"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center_horizontal"
                             android:text="_________"
-                            android:textColor="@android:color/black"
-                            android:gravity="center_horizontal"/>
+                            android:textColor="@android:color/black" />
                         <TextView
                             android:id="@+id/textView_countryNameCode"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center_horizontal"
                             android:text="_________"
-                            android:textColor="@android:color/black"
-                            android:gravity="center_horizontal"/>
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
                 </LinearLayout>
                 <TextView
@@ -171,9 +171,9 @@
                     android:text="\u2022 To get selected country’s name code, use getSelectedCountryNameCode(); => “IN”"/>
                 <Button
                     android:id="@+id/button_next"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
                     android:text="Next feature >"/>
             </LinearLayout>
         </ScrollView>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.hbb20.countrycodepickerproject.HomeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonGo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Features"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textIntro"
+                    style="@style/menuTextView"
+                    android:text="Introduction" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textDefaultCountry"
+                    style="@style/menuTextView"
+                    android:text="Default country" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textCountryPreference"
+                    style="@style/menuTextView"
+                    android:text="Country preference" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textCustomMaster"
+                    style="@style/menuTextView"
+                    android:text="Custom master countries" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textSetCountry"
+                    style="@style/menuTextView"
+                    android:text="Set country" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textGetCountry"
+                    style="@style/menuTextView"
+                    android:text="Read selected country" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textFullNumber"
+                    style="@style/menuTextView"
+                    android:text="Full number" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textCustomColor"
+                    style="@style/menuTextView"
+                    android:text="Custom color" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textCustomSize"
+                    style="@style/menuTextView"
+                    android:text="Custom size" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textCustomFont"
+                    style="@style/menuTextView"
+                    android:text="Custom fonts" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textCustomLanguage"
+                    style="@style/menuTextView"
+                    android:text="Custom language" />
+
+                <ImageView
+                    style="@style/arrow"
+                    android:src="@android:drawable/ic_media_play" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonGo"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="Start feature demo" />
+</RelativeLayout>

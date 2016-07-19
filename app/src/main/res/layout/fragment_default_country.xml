@@ -338,9 +338,9 @@
 
                 <Button
                     android:id="@+id/button_next"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
                     android:text="Next feature >" />
             </LinearLayout>
         </ScrollView>

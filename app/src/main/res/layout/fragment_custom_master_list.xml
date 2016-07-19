@@ -13,11 +13,11 @@
 
                 <TextView
                     style="@style/fragmentTitle"
-                    android:text="Country Preference" />
+                    android:text="Custom Master Country List" />
 
                 <TextView
                     style="@style/fragmentSubTitle"
-                    android:text="Countries that are preferred for better user experience." />
+                    android:text="Customize country choices for user" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -27,42 +27,36 @@
 
                     <TextView
                         style="@style/sectionText"
-                        android:text="What is country preference?" />
+                        android:text="What is custom master country list?" />
 
 
                     <TextView
                         style="@style/pointText"
-                        android:text="\u2022 Library has list of countries in alphabetical order. It searches for country in same order. But preferred country/countries have higher priority than rest." />
+                        android:text="\u2022 If your app expects users from only few countries then you might wish to remove all other countries from selection list." />
 
                     <TextView
                         style="@style/pointText"
-                        android:text="\u2022 There are few cases where more than one countries have same code. For example, Canada, Puerto Rico and US have +1. When lilbrary will try to find country with +1, it will always pick Canada as it's alphabetically first in (1)Canada-(2)Puerto Rico-(3)US." />
+                        android:text="\u2022 You can remove unnecessary countries by setting your custom master country list." />
 
 
                     <TextView
                         style="@style/pointText"
-                        android:text="\u2022 If US is set in country preference, order for search will be (1)US-(2)Canada-(3)Puerto Rico, so it will pick US for +1." />
+                        android:text="\u2022 It will help you provide clean interface." />
 
                     <TextView
                         style="@style/pointText"
-                        android:text="\u2022 Countries of preference will be listed at top in selection dialog. It is helpful when target audience is from a set of countries." />
+                        android:text="\u2022 Also it will keep user from selecting irrelevant country." />
 
-                    <TextView
-                        style="@style/sectionText"
-                        android:text="How many countries can be set in preference?" />
-
-                    <TextView
-                        style="@style/pointText"
-                        android:text="\u2022 Any number of countries. To add more than one, use comma separated name codes. See How to set country preference? " />
                 </LinearLayout>
 
                 <TextView
                     style="@style/sectionText"
-                    android:text="How to set country preference?" />
+                    android:text="How to set custom master list?" />
+
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 The country preference can be set through xml layout and programmatically as well." />
+                    android:text="\u2022 The custom master country list can be set through xml layout and programmatically as well." />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -83,14 +77,14 @@
                         <TextView
                             style="@style/pointText"
                             android:paddingLeft="32dp"
-                            android:text='add app:countryPreference="US,IN,NZ" (replace "US,IN,NZ" by your preference) to xml layout.' />
+                            android:text='add app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout.' />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="32dp"
-                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultNameCode="US" \n app:countryPreference="US,IN,NZ"/&#62;' />
+                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultNameCode="US" \n app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"/&#62;' />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -120,7 +114,7 @@
                                     <com.hbb20.CountryCodePicker
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        app:countryPreference="US,IN,NZ"
+                                        app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"
                                         app:defaultNameCode="US" />
 
                                     <EditText
@@ -139,7 +133,7 @@
                         style="@style/pointText"
                         android:layout_marginLeft="32dp"
                         android:paddingLeft="0dp"
-                        android:text="\u2022 Click on CCP to see preferred countries at the top of selection list." />
+                        android:text="\u2022 Click on CCP to check the effect." />
 
                 </LinearLayout>
 
@@ -152,7 +146,7 @@
                 <TextView
                     style="@style/pointText"
                     android:paddingLeft="32dp"
-                    android:text="use setCountryPreference() method." />
+                    android:text="use setCustomMasterCountries() method." />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -171,11 +165,11 @@
                         android:text="AU,RU,LK,VN" />
 
                     <Button
-                        android:id="@+id/button_setCountryPreference"
+                        android:id="@+id/button_setCustomMaster"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="2"
-                        android:text="set 'AU,RU,LK,VN' as country preference" />
+                        android:text="set 'AU,RU,LK,VN' as master countries" />
                 </LinearLayout>
 
                 <RelativeLayout
@@ -218,11 +212,31 @@
                         </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>
+
                 <TextView
                     style="@style/pointText"
                     android:layout_marginLeft="32dp"
                     android:paddingLeft="0dp"
-                    android:text="\u2022 After setting new preference, click on CCP to verify preferred countries at the top of selection list." />
+                    android:text="\u2022 After setting new custom list, click on CCP to verify change in selection list." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:layout_marginLeft="32dp"
+                    android:paddingLeft="0dp"
+                    android:text="\u2022 Custom master list will only limit the visibility of irrelevant countries from selection dialog. But all other functions like setCountryForCodeName() or setFullNumber() will consider all the countries." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:layout_marginLeft="32dp"
+                    android:paddingLeft="0dp"
+                    android:text="\u2022 Preferred country list will be a subset of custom master list. If some xyz country is not in custom master list, it won't be added to preferred country list." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:layout_marginLeft="32dp"
+                    android:paddingLeft="0dp"
+                    android:text="\u2022 To remove custom master list just call setCustomMasterCountries(null);. This will reset the country list to library's default master list." />
+
                 <Button
                     android:id="@+id/button_next"
                     style="@style/Widget.AppCompat.Button.Colored"

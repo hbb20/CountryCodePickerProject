@@ -1,8 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="in.hbb20.countrycodepickerproject.FullNumberFragment">
 
     <android.support.v7.widget.CardView style="@style/parentCard">
@@ -52,28 +52,28 @@
 
                 <EditText
                     android:id="@+id/editText_loadFullNumber"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:inputType="number"
+                    android:singleLine="true"
                     android:text="+819017901357"/>
                 <Button
                     android:id="@+id/button_loadFullNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:singleLine="true"
                     android:text="Load +819017901357 to CCP"/>
                 <RelativeLayout
-                    android:background="#e5e5e5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:background="#e5e5e5"
                     android:padding="8dp">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -82,8 +82,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:text="Phone number"/>
+                            android:text="Phone number"
+                            android:textSize="18sp" />
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -98,11 +98,11 @@
                                 android:id="@+id/editText_loadCarrierNumber"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:singleLine="true"
-                                android:inputType="phone"
                                 android:editable="false"
-                                android:textColor="@android:color/black"
-                                android:hint="phone"/>
+                                android:hint="phone"
+                                android:inputType="phone"
+                                android:singleLine="true"
+                                android:textColor="@android:color/black" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -217,13 +217,13 @@
 
                 <TextView
                     style="@style/pointText"
-                    android:textStyle="bold"
-                    android:text="* None of the above functions validate the number format of phone." />
+                    android:text="* None of the above functions validate the number format of phone."
+                    android:textStyle="bold" />
                 <Button
                     android:id="@+id/button_next"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
                     android:text="Next feature >"/>
             </LinearLayout>
         </ScrollView>

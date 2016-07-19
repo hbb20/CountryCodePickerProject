@@ -27,44 +27,11 @@ class Country {
     }
 
 
-    public String getNameCode() {
-        return nameCode;
-    }
-
-    public void setNameCode(String nameCode) {
-        this.nameCode = nameCode;
-    }
-
-    public String getPhoneCode() {
-        return phoneCode;
-    }
-
-    public void setPhoneCode(String phoneCode) {
-        this.phoneCode = phoneCode;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Country(String nameCode, String phoneCode, String name) {
         this.nameCode = nameCode;
         this.phoneCode = phoneCode;
         this.name = name;
     }
-
-    public void log() {
-        try {
-            Log.d(TAG, "Country->" + nameCode + ":" + phoneCode + ":" + name);
-        } catch (NullPointerException ex) {
-            Log.d(TAG, "Null");
-        }
-    }
-
 
     /**
      * This function parses the raw/countries.xml file, and get list of all the countries.
@@ -129,9 +96,40 @@ class Country {
             }
         }
 
-        for (Country country : getLibraryMasterCountries(language)) {
+        for (Country country : getLibraryMasterCountryList(language)) {
             if (country.getPhoneCode().equals(code)) {
                 return country;
+            }
+        }
+        return null;
+    }
+
+    public static List<Country> getCustomMasterCountryList(CountryCodePicker codePicker) {
+        codePicker.refreshCustomMasterList();
+        if (codePicker.customMasterCountriesList != null && codePicker.customMasterCountriesList.size() > 0) {
+            return codePicker.getCustomMasterCountriesList();
+        } else {
+            return getLibraryMasterCountryList(codePicker.getCustomLanguage());
+        }
+    }
+
+    /**
+     * Search a country which matches @param nameCode.
+     *
+     *
+     * @param customMasterCountriesList
+     * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
+     * @return Country that has phone code as @param code.
+     * or returns null if no country matches given code.
+     */
+    public static Country getCountryForNameCodeFromCustomMasterList(List<Country> customMasterCountriesList, CountryCodePicker.Language language, String nameCode) {
+        if (customMasterCountriesList == null || customMasterCountriesList.size() == 0) {
+            return getCountryForNameCodeFromLibraryMasterList(language, nameCode);
+        } else {
+            for (Country country : customMasterCountriesList) {
+                if (country.getNameCode().equalsIgnoreCase(nameCode)) {
+                    return country;
+                }
             }
         }
         return null;
@@ -144,8 +142,8 @@ class Country {
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      */
-    public static Country getCountryForNameCode(CountryCodePicker.Language language, String nameCode) {
-        List<Country> countries = Country.getLibraryMasterCountries(language);
+    public static Country getCountryForNameCodeFromLibraryMasterList(CountryCodePicker.Language language, String nameCode) {
+        List<Country> countries = Country.getLibraryMasterCountryList(language);
         for (Country country : countries) {
             if (country.getNameCode().equalsIgnoreCase(nameCode)) {
                 return country;
@@ -216,17 +214,13 @@ class Country {
         return null;
     }
 
-    public String logString() {
-        return nameCode.toUpperCase() + " +" + phoneCode + "(" + name + ")";
-    }
-
     /**
      * This will return all the countries. No preference is manages.
      * Anytime new country need to be added, add it
      *
      * @return
      */
-    public static List<Country> getLibraryMasterCountries(CountryCodePicker.Language language) {
+    public static List<Country> getLibraryMasterCountryList(CountryCodePicker.Language language) {
         switch (language) {
             case ARABIC:
                 return getLibraryMasterCountriesArabic();
@@ -2989,6 +2983,42 @@ class Country {
         return countries;
     }
 
+    public String getNameCode() {
+        return nameCode;
+    }
+
+    public void setNameCode(String nameCode) {
+        this.nameCode = nameCode;
+    }
+
+    public String getPhoneCode() {
+        return phoneCode;
+    }
+
+    public void setPhoneCode(String phoneCode) {
+        this.phoneCode = phoneCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void log() {
+        try {
+            Log.d(TAG, "Country->" + nameCode + ":" + phoneCode + ":" + name);
+        } catch (NullPointerException ex) {
+            Log.d(TAG, "Null");
+        }
+    }
+
+    public String logString() {
+        return nameCode.toUpperCase() + " +" + phoneCode + "(" + name + ")";
+    }
+
 
     /*public static List<Country> getLibraryMasterCountriesSpanish() {
         List<Country> countries = new ArrayList<>();
@@ -3011,10 +3041,6 @@ class Country {
      */
     public boolean isEligibleForQuery(String query) {
         query = query.toLowerCase();
-        if (getName().toLowerCase().contains(query) || getNameCode().toLowerCase().contains(query) || getPhoneCode().toLowerCase().contains(query)) {
-            return true;
-        } else {
-            return false;
-        }
+        return getName().toLowerCase().contains(query) || getNameCode().toLowerCase().contains(query) || getPhoneCode().toLowerCase().contains(query);
     }
 }

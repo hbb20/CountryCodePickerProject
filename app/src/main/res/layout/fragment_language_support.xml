@@ -48,7 +48,7 @@
                     <TextView
                         style="@style/pointText"
                         android:paddingLeft="32dp"
-                        android:text='add app:ccpLanguage="JAPANESE" to xml layout.' />
+                        android:text='add app:ccpLanguage="RUSSIAN" to xml layout.' />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -195,7 +195,7 @@
                     <TextView
                         style="@style/pointText"
                         android:paddingLeft="32dp"
-                        android:text='*Language will be applied in search box. Tap on any of above ccp to check.' />
+                        android:text='*Language will be applied in country selection dialog. Tap on any of above ccp to check.' />
                 </LinearLayout>
 
                 <TextView
@@ -206,21 +206,21 @@
                 <TextView
                     style="@style/pointText"
                     android:paddingLeft="32dp"
-                    android:text="To set size programmatically, use changeLanguage() method." />
+                    android:text="To set language programmatically, use changeLanguage() method." />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/google_1x"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/google_1x"
-                    android:layout_marginLeft="@dimen/google_1x">
+                    android:paddingLeft="@dimen/google_1x">
 
                     <RadioGroup
                         android:id="@+id/radioGroup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/google_1x"
+                        android:orientation="horizontal"
                         android:weightSum="3">
 
                         <RadioButton
@@ -250,8 +250,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#222124"
-                        android:padding="@dimen/google_1x"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="@dimen/google_1x">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -267,29 +267,30 @@
 
                             <com.hbb20.CountryCodePicker
                                 android:id="@+id/ccp"
-                                app:defaultNameCode="IN"
-                                app:contentColor="@color/card_background"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                app:contentColor="@color/card_background"
+                                app:defaultNameCode="IN" />
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:enabled="false"
                                 android:backgroundTint="@color/card_background"
-                                android:textColorHint="@color/card_background"
+                                android:enabled="false"
                                 android:hint="phone"
                                 android:inputType="phone"
-                                android:singleLine="true" />
+                                android:singleLine="true"
+                                android:textColorHint="@color/card_background" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
                 <Button
                     android:id="@+id/button_next"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:text="Next feature >" />
+                    android:text="Next feature >"
+                    android:visibility="gone" />
             </LinearLayout>
         </ScrollView>
     </android.support.v7.widget.CardView>

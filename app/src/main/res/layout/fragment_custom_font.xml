@@ -189,7 +189,7 @@
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 Step 2: put your font ttf file in assets folder. For example if file name is 'myfonts.ttf' it should be 'app/src/main/assets/myfonts.ttf'. Make sure that the extension '.ttf' have contain small letters only. '.TTF' might not work." />
+                    android:text="\u2022 Step 2: put your font's .ttf file in assets folder. For example if file name is 'myfonts.ttf', it should be 'app/src/main/assets/myfonts.ttf'. Make sure that the extension '.ttf' have contain small letters only. '.TTF' might not work." />
 
                 <TextView
                     style="@style/pointText"
@@ -197,38 +197,38 @@
 
 
                 <TextView
-                    android:textStyle="italic"
                     style="@style/pointText"
                     android:layout_marginLeft="20dp"
-                    android:text='Typeface typeFace=Typeface.createFromAsset(getContext().getAssets(),"myfonts.ttf");' />
+                    android:text='Typeface typeFace=Typeface.createFromAsset(getContext().getAssets(),"myfonts.ttf");'
+                    android:textStyle="italic" />
 
                 <TextView
                     style="@style/pointText"
                     android:text="\u2022 Step 4: finally apply the type face on ccp" />
 
                 <TextView
-                    android:textStyle="italic"
                     style="@style/pointText"
                     android:layout_marginLeft="20dp"
-                    android:text='ccp.setTypeFace(typeFace);' />
+                    android:text='ccp.setTypeFace(typeFace);'
+                    android:textStyle="italic" />
                 <TextView
-                    android:textStyle="italic"
                     style="@style/pointText"
                     android:layout_marginLeft="50dp"
-                    android:text='OR' />
+                    android:text='OR'
+                    android:textStyle="italic" />
 
                 <TextView
-                    android:textStyle="italic"
                     style="@style/pointText"
                     android:layout_marginLeft="20dp"
-                    android:text='ccp.setTypeFace(typeFace,customStyle);' />
+                    android:text='ccp.setTypeFace(typeFace,customStyle);'
+                    android:textStyle="italic" />
 
 
                 <Button
                     android:id="@+id/button_next"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
                     android:text="Next feature >" />
             </LinearLayout>
         </ScrollView>

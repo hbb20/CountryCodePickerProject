@@ -24,5 +24,6 @@
             <enum name="SPANISH" value="13"/>
         </attr>
         <attr name="keyboardAutoPopOnSearch" format="boolean"/>
+        <attr name="customMasterCountries" format="string" />
     </declare-styleable>
 </resources>

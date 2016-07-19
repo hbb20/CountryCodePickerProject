@@ -20,14 +20,14 @@ import com.hbb20.CountryCodePicker;
 public class CustomColorFragment extends Fragment {
 
     Button buttonNext;
-
-    public CustomColorFragment() {
-    }
-
     TextView textViewTitle;
     EditText editTextPhone;
     CountryCodePicker ccp;
     RelativeLayout relativeColor1,relativeColor2,relativeColor3;
+
+    public CustomColorFragment() {
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,7 +74,6 @@ public class CustomColorFragment extends Fragment {
 
     private void setColor(int selection,int color) {
         ccp.setContentColor(color);
-
         //textView
         textViewTitle.setTextColor(color);
 

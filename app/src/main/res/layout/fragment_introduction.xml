@@ -1,8 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="in.hbb20.countrycodepickerproject.IntroductionFragment">
 
     <android.support.v7.widget.CardView style="@style/parentCard">
@@ -37,12 +37,12 @@
                     style="@style/pointText"
                     android:text="\u2022 Your phone view with out CCP"/>
                 <RelativeLayout
-                    android:background="#e5e5e5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:background="#e5e5e5"
                     android:padding="8dp">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -51,15 +51,15 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:text="Phone number"/>
+                            android:text="Phone number"
+                            android:textSize="18sp" />
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:singleLine="true"
+                            android:hint="Phone number with national code"
                             android:inputType="phone"
-                            android:textColor="@android:color/black"
-                            android:hint="Phone number with national code"/>
+                            android:singleLine="true"
+                            android:textColor="@android:color/black" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -70,12 +70,12 @@
                     style="@style/pointText"
                     android:text="\u2022 Above view can be transformed by using CCP"/>
                 <RelativeLayout
-                    android:background="#e5e5e5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:background="#e5e5e5"
                     android:padding="8dp">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -84,8 +84,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:text="Phone number"/>
+                            android:text="Phone number"
+                            android:textSize="18sp" />
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -97,10 +97,10 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:singleLine="true"
+                            android:hint="phone"
                             android:inputType="phone"
-                            android:textColor="@android:color/black"
-                            android:hint="phone"/>
+                            android:singleLine="true"
+                            android:textColor="@android:color/black" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -127,9 +127,9 @@
 
                 <Button
                     android:id="@+id/button_letsGo"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
                     android:text="Let's see features"/>
             </LinearLayout>
         </ScrollView>

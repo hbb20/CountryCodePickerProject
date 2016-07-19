@@ -1,20 +1,24 @@
 package in.hbb20.countrycodepickerproject;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class ExampleActivity extends AppCompatActivity {
 
+    public static final String EXTRA_INIT_TAB = "extraInitTab";
     ViewPager viewPager;
     PagerAdapter pagerAdapter;
+    int init = 0;
+    boolean initLoaded = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
+        init = getIntent().getIntExtra(EXTRA_INIT_TAB, 0);
         assignViews();
         setUpViewPager();
     }
@@ -27,6 +31,10 @@ public class ExampleActivity extends AppCompatActivity {
             pagerAdapter=new PagerAdapter(getSupportFragmentManager());
         }
         viewPager.setAdapter(pagerAdapter);
+        if (!initLoaded) {
+            viewPager.setCurrentItem(init);
+            initLoaded = true;
+        }
     }
 
     /**
@@ -52,18 +60,20 @@ public class ExampleActivity extends AppCompatActivity {
                 case 2:
                     return new CountryPreferenceFragment();
                 case 3:
-                    return new SetCountryFragment();
+                    return new CustomMasterFragment();
                 case 4:
-                    return new GetCountryFragment();
+                    return new SetCountryFragment();
                 case 5:
-                    return new FullNumberFragment();
+                    return new GetCountryFragment();
                 case 6:
-                    return new CustomColorFragment();
+                    return new FullNumberFragment();
                 case 7:
-                    return new CustomSizeFragment();
+                    return new CustomColorFragment();
                 case 8:
-                    return new CustomFontFragment();
+                    return new CustomSizeFragment();
                 case 9:
+                    return new CustomFontFragment();
+                case 10:
                     return new LanguageSupportFragment();
             }
             return null;
@@ -71,7 +81,7 @@ public class ExampleActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 10;
+            return 11;
         }
     }
 }
