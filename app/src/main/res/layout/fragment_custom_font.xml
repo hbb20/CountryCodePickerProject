@@ -13,19 +13,19 @@
 
                 <TextView
                     style="@style/fragmentTitle"
-                    android:text="Custom Text Size" />
+                    android:text="Custom font" />
 
                 <TextView
                     style="@style/fragmentSubTitle"
-                    android:text="Size of CCP content can be changed to match rest of your views." />
+                    android:text="Use your own font with CCP" />
 
                 <TextView
                     style="@style/sectionText"
-                    android:text="How to set custom textSize?" />
+                    android:text="How to set custom fonts?" />
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 The custom text size can be set through xml layout and programmatically as well." />
+                    android:text="\u2022 Font can be set programmatically only. To apply external fonts, you will need .ttf file for font of your choice." />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -34,13 +34,8 @@
 
                     <TextView
                         style="@style/pointText"
-                        android:text="1. Using xml "
+                        android:text="Few examples"
                         android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/pointText"
-                        android:paddingLeft="32dp"
-                        android:text='add app:textSize="14sp" to xml layout.' />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -62,48 +57,7 @@
                                 android:gravity="center_vertical">
 
                                 <com.hbb20.CountryCodePicker
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-                                    app:textSize="14sp" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:freezesText="true"
-                                    android:inputType="phone"
-                                    android:singleLine="true"
-                                    android:text="14sp"
-                                    android:textColor="@android:color/white" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical">
-
-                                <com.hbb20.CountryCodePicker
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-                                    app:textSize="16sp" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:freezesText="true"
-                                    android:inputType="phone"
-                                    android:singleLine="true"
-                                    android:text="16sp"
-                                    android:textColor="@android:color/white" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical">
-
-                                <com.hbb20.CountryCodePicker
+                                    android:id="@+id/ccp1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:contentColor="@android:color/white" />
@@ -114,29 +68,7 @@
                                     android:freezesText="true"
                                     android:inputType="phone"
                                     android:singleLine="true"
-                                    android:text="18sp (Default)"
-                                    android:textColor="@android:color/white" />
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical">
-
-                                <com.hbb20.CountryCodePicker
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-                                    app:textSize="20sp" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:freezesText="true"
-                                    android:inputType="phone"
-                                    android:singleLine="true"
-                                    android:text="20sp"
+                                    android:text="(Default)"
                                     android:textColor="@android:color/white" />
                             </LinearLayout>
 
@@ -146,11 +78,10 @@
                                 android:gravity="center_vertical">
 
                                 <com.hbb20.CountryCodePicker
+                                    android:id="@+id/ccp2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-
-                                    app:textSize="22sp" />
+                                    app:contentColor="@android:color/white" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -158,7 +89,27 @@
                                     android:freezesText="true"
                                     android:inputType="phone"
                                     android:singleLine="true"
-                                    android:text="22sp"
+                                    android:text="(bookos)"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:id="@+id/ccp3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="(hack)"
                                     android:textColor="@android:color/white" />
                             </LinearLayout>
 
@@ -168,10 +119,10 @@
                                 android:gravity="center_vertical">
 
                                 <com.hbb20.CountryCodePicker
+                                    android:id="@+id/ccp4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-                                    app:textSize="24sp" />
+                                    app:contentColor="@android:color/white" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -179,30 +130,100 @@
                                     android:freezesText="true"
                                     android:inputType="phone"
                                     android:singleLine="true"
-                                    android:text="24sp"
+                                    android:text="(playfair)"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:id="@+id/ccp5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="(raleway)"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <com.hbb20.CountryCodePicker
+                                    android:id="@+id/ccp6"                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:contentColor="@android:color/white" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:freezesText="true"
+                                    android:inputType="phone"
+                                    android:singleLine="true"
+                                    android:text="(titillium)"
                                     android:textColor="@android:color/white" />
                             </LinearLayout>
                         </LinearLayout>
                     </RelativeLayout>
+
                     <TextView
                         style="@style/pointText"
                         android:paddingLeft="32dp"
-                        android:text='*add app:textSize will update the size of downFace arrow accordingly. To specify arrow size explicitly, use app:arrowSize' />
+                        android:text='* Rendering of font sometimes depends on the device.' />
                 </LinearLayout>
 
                 <TextView
                     style="@style/pointText"
-                    android:text="2. Programmatically "
-                    android:textStyle="bold" />
+                    android:text="\u2022 Step 1: create a folder named 'assets' under 'app/src/main/' folder. If you already have 'app/src/main/assets' then jump to next step." />
 
                 <TextView
                     style="@style/pointText"
-                    android:paddingLeft="32dp"
-                    android:text="To set size programmatically, use setTextSize() method." />
+                    android:text="\u2022 Step 2: put your font ttf file in assets folder. For example if file name is 'myfonts.ttf' it should be 'app/src/main/assets/myfonts.ttf'. Make sure that the extension '.ttf' have contain small letters only. '.TTF' might not work." />
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 setTextSize() will update arrow size along with it. To update arrow size explicitly call setArrowSize()" />
+                    android:text="\u2022 Step 3: now prepare typeFace using " />
+
+
+                <TextView
+                    android:textStyle="italic"
+                    style="@style/pointText"
+                    android:layout_marginLeft="20dp"
+                    android:text='Typeface typeFace=Typeface.createFromAsset(getContext().getAssets(),"myfonts.ttf");' />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 Step 4: finally apply the type face on ccp" />
+
+                <TextView
+                    android:textStyle="italic"
+                    style="@style/pointText"
+                    android:layout_marginLeft="20dp"
+                    android:text='ccp.setTypeFace(typeFace);' />
+                <TextView
+                    android:textStyle="italic"
+                    style="@style/pointText"
+                    android:layout_marginLeft="50dp"
+                    android:text='OR' />
+
+                <TextView
+                    android:textStyle="italic"
+                    style="@style/pointText"
+                    android:layout_marginLeft="20dp"
+                    android:text='ccp.setTypeFace(typeFace,customStyle);' />
+
+
                 <Button
                     android:id="@+id/button_next"
                     android:layout_width="match_parent"

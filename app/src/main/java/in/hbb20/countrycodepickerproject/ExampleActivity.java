@@ -61,13 +61,17 @@ public class ExampleActivity extends AppCompatActivity {
                     return new CustomColorFragment();
                 case 7:
                     return new CustomSizeFragment();
+                case 8:
+                    return new CustomFontFragment();
+                case 9:
+                    return new LanguageSupportFragment();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 8;
+            return 10;
         }
     }
 }
