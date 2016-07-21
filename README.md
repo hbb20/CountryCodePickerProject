@@ -302,3 +302,6 @@ Change log
     - Custom font
     - Language support
     - Optional KeyboardAutoPopup
+    
+##### version 1.5.1
+    - Changed ccp view size when code name is hidden
