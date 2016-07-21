@@ -222,7 +222,7 @@ public class CountryCodePicker extends RelativeLayout {
         if(!hideNameCode) {
             textView_selectedCountry.setText("(" + selectedCountry.getNameCode().toUpperCase() + ")  +" + selectedCountry.getPhoneCode());
         }else{
-            textView_selectedCountry.setText("  +" + selectedCountry.getPhoneCode()+"  ");
+            textView_selectedCountry.setText("+" + selectedCountry.getPhoneCode());
         }
 
         Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
