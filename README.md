@@ -17,7 +17,7 @@ Add this to your gradle file
   
 ````groovy
 dependencies {
-  compile 'com.hbb20:ccp:1.5'
+  compile 'com.hbb20:ccp:1.5.1'
 }
 ````
 
