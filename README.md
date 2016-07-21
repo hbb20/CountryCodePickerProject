@@ -17,7 +17,7 @@ Add this to your gradle file
   
 ````groovy
 dependencies {
-  compile 'com.hbb20:ccp:1.4'
+  compile 'com.hbb20:ccp:1.5'
 }
 ````
 
@@ -179,7 +179,7 @@ Features
  ###7. Custom textSize
   - Text size of CCP content can be changed in order to match rest of the view of form.
   - Everytime when textSize is updated, arrowsize will be updated itself. 
-    
+  - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_h.png" width="300">  
     ####Using XML
     - Add app:contentColor property to xml layout
   
@@ -224,8 +224,65 @@ Features
 
     ####Programmatically
     - To set textSize programmatically, use ```` hideNameCode() ```` method.
+  
+  ###10. Custom master country list
+  
+    - If your app expects users from only few countries then you might wish to remove all other countries from selection list.
+    - You can remove unnecessary countries by setting your custom master country list.
+    - Also it will keep user from selecting irrelevant country.
+    - Countries of preference will be listed at top in selection dialog. It is helpful when target audience is from a set of countries.
+    - Custom master list will only limit the visibility of irrelevant countries from selection dialog. But all other functions like setCountryForCodeName() or setFullNumber() will consider all the countries.
+    - Preferred country list will be a subset of custom master list. If some xyz country is not in custom master list, it won't be added to preferred country list.
    
+  - ####Set through xml####
+        - add app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
+	       ````xml
+	        <com.hbb20.CountryCodePicker
+	         android:id="@+id/ccp"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"  />
+	      ````
+  
+   - ####Programmatically####
+        - Use ```` setCustomMasterCountries()```` method. 
+        - ```` setCustomMasterCountries(null);```` will remove custom list and revert to library default list.
+
+
+ ###11. Custom font
+  - FontFamily of CCP content can be changed in order to match rest of the view of form.
+  - Font can be set programmatically only.  
+  - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_g.png" width="300">  
+   
+    ####Programmatically
+    - Step 1: create a folder named 'assets' under 'app/src/main/' folder. If you already have 'app/src/main/assets' then jump to next step.
+    - Step 2: put your font's .ttf file in assets folder. For example if file name is 'myfonts.ttf', it should be 'app/src/main/assets/myfonts.ttf'. Make sure that the extension '.ttf' have contain small letters only. '.TTF' might not work.
+    - Step 3: now prepare typeFace using ```` Typeface typeFace=Typeface.createFromAsset(getContext().getAssets(),"myfonts.ttf"); ````
+    - Step 4: finally apply the type face on ccp ```` ccp.setTypeFace(typeFace); ```` OR ```` ccp.setTypeFace(typeFace,customStyle); ````
+   
+ ###12. Language support
+    - Library has list of countries in alphabetical order. It searches for country in same order. But preferred country/countries have higher priority than rest.
+    - Supported languages: Arabic, Bengali, Chinese, English, French, German, Gujarati, Hindi, Japanese, Javanese, Portuguese, Russian, Spanish
+    - More languages can be added in the future.
+    - Language will be applied in country selection dialog.
+    - Google translator was used to tranlate. So there is possibility of translation error, if you find any mistake please report issue to correct it or send pull request.
+    - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_i.png" width="300"> 
+   
+  - ####Set through xml####
+        - add app:ccpLanguage="JAPANESE" to xml layout
+
+	       ````xml
+	        <com.hbb20.CountryCodePicker
+	         android:id="@+id/ccp"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         app:ccpLanguage="JAPANESE"  />
+	      ````
+  
+   - ####Programmatically####
+        - Use ```` changeLanguage()```` method.
+        
 Change log
 --------
 
@@ -239,3 +296,9 @@ Change log
     - Country preference
     - Hide country name code option
     - Default country using Country name code
+
+##### version 1.5
+    - Custom master list
+    - Custom font
+    - Language support
+    - Optional KeyboardAutoPopup
