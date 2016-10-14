@@ -68,6 +68,7 @@ public class CountryCodePicker extends RelativeLayout {
             CountryCodeDialog.openCountryCodeDialog(codePicker);
         }
     };
+    private OnCountrySelectedListener mOnCountrySelected;
 
     public CountryCodePicker(Context context) {
         super(context);
@@ -191,6 +192,10 @@ public class CountryCodePicker extends RelativeLayout {
 
     }
 
+    public void setOnCountrySelectedListener(OnCountrySelectedListener listener){
+        mOnCountrySelected = listener;
+    }
+
     private Country getDefaultCountry() {
         return defaultCountry;
     }
@@ -226,6 +231,15 @@ public class CountryCodePicker extends RelativeLayout {
         }
 
         Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
+    }
+
+    void setSelectedCountry(Country selectedCountry, boolean withListener) {
+
+        setSelectedCountry(selectedCountry);
+        if(withListener){
+            if(mOnCountrySelected!=null)
+                mOnCountrySelected.onCountrySelected();
+        }
     }
 
     Language getCustomLanguage() {
