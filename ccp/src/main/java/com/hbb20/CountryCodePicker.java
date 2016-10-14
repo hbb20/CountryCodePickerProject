@@ -90,7 +90,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private void init(AttributeSet attrs) {
-        Log.d(TAG, "Initialization of CCP");
+//        Log.d(TAG, "Initialization of CCP");
         mInflater = LayoutInflater.from(context);
         holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
         textView_selectedCountry = (TextView) holderView.findViewById(R.id.textView_selectedCountry);
@@ -103,7 +103,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private void applyCustomProperty(AttributeSet attrs) {
-        Log.d(TAG, "Applying custom property");
+//        Log.d(TAG, "Applying custom property");
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
                 R.styleable.CountryCodePicker,
@@ -199,7 +199,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     private void setDefaultCountry(Country defaultCountry) {
         this.defaultCountry = defaultCountry;
-        Log.d(TAG, "Setting default country:" + defaultCountry.logString());
+//        Log.d(TAG, "Setting default country:" + defaultCountry.logString());
     }
 
     private TextView getTextView_selectedCountry() {
@@ -230,7 +230,7 @@ public class CountryCodePicker extends RelativeLayout {
         if (onCountryChangeListener != null) {
             onCountryChangeListener.onCountrySelected();
         }
-        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
+//        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
     }
 
 
@@ -312,12 +312,12 @@ public class CountryCodePicker extends RelativeLayout {
             }
         }
         if (preferredCountries != null) {
-            Log.d("preference list", preferredCountries.size() + " countries");
+//            Log.d("preference list", preferredCountries.size() + " countries");
             for (Country country : preferredCountries) {
                 country.log();
             }
         } else {
-            Log.d("preference list", " has no country");
+//            Log.d("preference list", " has no country");
         }
     }
 
@@ -345,12 +345,12 @@ public class CountryCodePicker extends RelativeLayout {
             }
         }
         if (customMasterCountriesList != null) {
-            Log.d("custom master list:", customMasterCountriesList.size() + " countries");
+//            Log.d("custom master list:", customMasterCountriesList.size() + " countries");
             for (Country country : customMasterCountriesList) {
                 country.log();
             }
         } else {
-            Log.d("custom master list", " has no country");
+//            Log.d("custom master list", " has no country");
         }
     }
 
@@ -578,7 +578,7 @@ public class CountryCodePicker extends RelativeLayout {
     public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
         Country defaultCountry = Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
-            Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
+//            Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
         } else { //if correct country is found, set the country
             this.defaultCountryCode = defaultCountryCode;
             setDefaultCountry(defaultCountry);
@@ -598,7 +598,7 @@ public class CountryCodePicker extends RelativeLayout {
     public void setDefaultCountryUsingNameCode(String defaultCountryNameCode) {
         Country defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(customLanguage, defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
-            Log.d(TAG, "No country for nameCode " + defaultCountryNameCode + " is found");
+//            Log.d(TAG, "No country for nameCode " + defaultCountryNameCode + " is found");
         } else { //if correct country is found, set the country
             this.defaultCountryNameCode = defaultCountry.getNameCode();
             setDefaultCountry(defaultCountry);
