@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -156,7 +155,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             relativeLayout_main = (RelativeLayout) itemView;
             textView_name = (TextView) relativeLayout_main.findViewById(R.id.textView_countryName);
             textView_code = (TextView) relativeLayout_main.findViewById(R.id.textView_code);
-            divider=(View) relativeLayout_main.findViewById(R.id.preferenceDivider);
+            divider = relativeLayout_main.findViewById(R.id.preferenceDivider);
         }
 
         public void setCountry(Country country) {
