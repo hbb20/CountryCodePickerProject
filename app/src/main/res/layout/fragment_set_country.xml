@@ -32,11 +32,11 @@
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 Click on county from list to choose" />
+                    android:text="\u2022 Tap on county from list to choose" />
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 Try with this" />
+                    android:text="\u2022 Try with this (Tap on ccp view)" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -201,6 +201,19 @@
                     android:layout_marginLeft="32dp"
                     android:layout_marginRight="16dp"
                     android:text="\u2022 If specified country code does not match in any country, default country will be set in to CCP." />
+
+                <TextView
+                    style="@style/sectionText"
+                    android:text="How to listen change in selection?" />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 To get call back when country is changed, you need to add OnCountryChangeListener from code." />
+
+                <TextView
+                    style="@style/pointText"
+                    android:text="\u2022 To set listener, use ccp.setOnCountryChangeListener(changeListener); function." />
+
                 <Button
                     android:id="@+id/button_next"
                     style="@style/Widget.AppCompat.Button.Colored"

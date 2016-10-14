@@ -109,6 +109,13 @@ public class SetCountryFragment extends Fragment {
 
             }
         });
+
+        ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
+            @Override
+            public void onCountrySelected() {
+                Toast.makeText(getContext(), "This is from OnCountryChangeListener. \n Country updated to " + ccp.getSelectedCountryName() + "(" + ccp.getSelectedCountryCodeWithPlus() + ")", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void assignViews() {
