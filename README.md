@@ -17,7 +17,7 @@ Add this to your gradle file
   
 ````groovy
 dependencies {
-  compile 'com.hbb20:ccp:1.5.1'
+  compile 'com.hbb20:ccp:1.6'
 }
 ````
 
@@ -90,7 +90,18 @@ Features
 		- Country in CCP can be using ```` setCountryForCode() ```` method.
 	
 	- If specified country code / name code does not match with any country, default country will be set in to CCP.
-		        
+      
+     **How to listen change in selection?**
+     	- To get call back when country is changed, you need to add OnCountryChangeListener from code.
+	```java 
+	   ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
+		@Override 
+		public void onCountrySelected() {
+			 Toast.makeText(getContext(), "Updated " + ccp.getSelectedCountryName(), Toast.LENGTH_SHORT).show();
+           	 }
+       	   });
+	   ```
+
   ###3. Country preference
   
     - Library has list of countries in alphabetical order. It searches for country in same order. But preferred country/countries have higher priority than rest.
@@ -305,3 +316,6 @@ Change log
     
 ##### version 1.5.1
     - Changed ccp view size when code name is hidden
+    
+##### version 1.6
+    - Added country change listener
