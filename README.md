@@ -17,7 +17,7 @@ Add this to your gradle file
   
 ````groovy
 dependencies {
-  compile 'com.hbb20:ccp:1.5'
+  compile 'com.hbb20:ccp:1.5.1'
 }
 ````
 
@@ -302,3 +302,6 @@ Change log
     - Custom font
     - Language support
     - Optional KeyboardAutoPopup
+    
+##### version 1.5.1
+    - Changed ccp view size when code name is hidden
