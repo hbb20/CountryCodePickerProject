@@ -17,7 +17,7 @@ Add this to your gradle file
   
 ````groovy
 dependencies {
-  compile 'com.hbb20:ccp:1.6'
+  compile 'com.hbb20:ccp:1.6.1'
 }
 ````
 
@@ -319,3 +319,6 @@ Change log
     
 ##### version 1.6
     - Added country change listener
+
+##### version 1.6.1
+    - Bug fix for getDefaultCountryCodeAsInt() and getDefaultCountryCodeAsInt()

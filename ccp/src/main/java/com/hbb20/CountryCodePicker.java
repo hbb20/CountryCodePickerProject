@@ -711,7 +711,7 @@ public class CountryCodePicker extends RelativeLayout {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return 0;
+        return code;
     }
 
     /**
