@@ -89,7 +89,7 @@
     <country code='im' phoneCode='44' name='Isle Of Man' />
     <country code='il' phoneCode='972' name='Israel' />
     <country code='it' phoneCode='39' name='Italy' />
-    <country code='ci' phoneCode='225' name='Côte D&apos;ivoire' />
+    <country code='ci' phoneCode='225' name='Côte D\'ivoire' />
     <country code='jp' phoneCode='81' name='Japan' />
     <country code='jo' phoneCode='962' name='Jordan' />
     <country code='kz' phoneCode='7' name='Kazakhstan' />
@@ -97,7 +97,7 @@
     <country code='ki' phoneCode='686' name='Kiribati' />
     <country code='kw' phoneCode='965' name='Kuwait' />
     <country code='kg' phoneCode='996' name='Kyrgyzstan' />
-    <country code='la' phoneCode='856' name='Lao People&apos;s Democratic Republic' />
+    <country code='la' phoneCode='856' name='Lao People\'s Democratic Republic' />
     <country code='lv' phoneCode='371' name='Latvia' />
     <country code='lb' phoneCode='961' name='Lebanon' />
     <country code='ls' phoneCode='266' name='Lesotho' />
@@ -136,7 +136,7 @@
     <country code='ne' phoneCode='227' name='Niger' />
     <country code='ng' phoneCode='234' name='Nigeria' />
     <country code='nu' phoneCode='683' name='Niue' />
-    <country code='kp' phoneCode='850' name='Korea, Democratic People&apos;s Republic Of' />
+    <country code='kp' phoneCode='850' name='Korea, Democratic People\'s Republic Of' />
     <country code='no' phoneCode='47' name='Norway' />
     <country code='om' phoneCode='968' name='Oman' />
     <country code='pk' phoneCode='92' name='Pakistan' />
