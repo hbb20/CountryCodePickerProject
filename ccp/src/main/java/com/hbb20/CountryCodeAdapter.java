@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -61,7 +62,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 }
             });
 
-            if(codePicker.isKeyboardAutoPopOnSearch()) {
+            if (codePicker.isKeyboardAutoPopOnSearch()) {
                 InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                 if (inputMethodManager != null) {
                     inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
@@ -84,10 +85,10 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
         //if query started from "+" ignore it
         if (query.length() > 0 && query.charAt(0) == '+') {
-            query=query.substring(1);
+            query = query.substring(1);
         }
 
-        filteredCountries= getFilteredCountries(query);
+        filteredCountries = getFilteredCountries(query);
 
         if (filteredCountries.size() == 0) {
             textView_noResult.setVisibility(View.VISIBLE);
@@ -97,7 +98,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
     private List<Country> getFilteredCountries(String query) {
         List<Country> tempCountryList = new ArrayList<Country>();
-        if(codePicker.preferredCountries!=null && codePicker.preferredCountries.size()>0) {
+        if (codePicker.preferredCountries != null && codePicker.preferredCountries.size() > 0) {
             for (Country country : codePicker.preferredCountries) {
                 if (country.isEligibleForQuery(query)) {
                     tempCountryList.add(country);
@@ -132,7 +133,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             @Override
             public void onClick(View view) {
                 codePicker.setSelectedCountry(filteredCountries.get(i));
-                if (view != null && filteredCountries.get(i)!=null) {
+                if (view != null && filteredCountries.get(i) != null) {
                     InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                     dialog.dismiss();
@@ -148,25 +149,32 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
     class CountryCodeViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout relativeLayout_main;
+        ImageView imageView_flag;
         TextView textView_name, textView_code;
         View divider;
+
         public CountryCodeViewHolder(View itemView) {
             super(itemView);
             relativeLayout_main = (RelativeLayout) itemView;
+            imageView_flag = (ImageView) relativeLayout_main.findViewById(R.id.imageView_countryFlag);
             textView_name = (TextView) relativeLayout_main.findViewById(R.id.textView_countryName);
             textView_code = (TextView) relativeLayout_main.findViewById(R.id.textView_code);
             divider = relativeLayout_main.findViewById(R.id.preferenceDivider);
         }
 
         public void setCountry(Country country) {
-            if(country!=null) {
+            if (country != null) {
                 divider.setVisibility(View.GONE);
+                imageView_flag.setVisibility(View.VISIBLE);
                 textView_name.setVisibility(View.VISIBLE);
                 textView_code.setVisibility(View.VISIBLE);
+                int flagId = context.getResources().getIdentifier("flag_" + country.getNameCode().toLowerCase(), "drawable", context.getPackageName());
+                imageView_flag.setImageResource(flagId);
                 textView_name.setText(country.getName() + " (" + country.getNameCode().toUpperCase() + ")");
                 textView_code.setText("+" + country.getPhoneCode());
-            }else{
+            } else {
                 divider.setVisibility(View.VISIBLE);
+                imageView_flag.setVisibility(View.GONE);
                 textView_name.setVisibility(View.GONE);
                 textView_code.setVisibility(View.GONE);
             }
