@@ -2,35 +2,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    android:background="?attr/selectableItemBackground">
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/imageView_countryFlag"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="5dp" />
 
     <TextView
         android:id="@+id/textView_countryName"
-        android:layout_marginLeft="15dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerVertical="true"
-        android:gravity="center_vertical"
-        android:textColor="@android:color/secondary_text_light"
+        android:layout_marginLeft="5dp"
         android:layout_toLeftOf="@+id/textView_code"
-        android:text="India (IN)"/>
+        android:layout_toRightOf="@id/imageView_countryFlag"
+        android:gravity="center_vertical"
+        android:text="India (IN)"
+        android:textColor="@android:color/secondary_text_light" />
+
     <TextView
-        android:layout_centerVertical="true"
         android:id="@+id/textView_code"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:textColor="@android:color/secondary_text_light"
-        android:text="+91"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:gravity="center_vertical"
         android:paddingRight="10dp"
-        android:layout_alignParentRight="true"/>
+        android:text="+91"
+        android:textColor="@android:color/secondary_text_light" />
+
     <View
         android:id="@+id/preferenceDivider"
         android:layout_width="match_parent"
         android:layout_height="2dp"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_alignParentTop="true"
-        android:background="#898989"/>
+        android:background="#898989" />
 </RelativeLayout>
