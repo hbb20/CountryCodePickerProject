@@ -343,7 +343,7 @@ class Country {
         countries.add(new Country("im", "44", "Isle Of Man"));
         countries.add(new Country("il", "972", "Israel"));
         countries.add(new Country("it", "39", "Italy"));
-        countries.add(new Country("ci", "225", "Côte D&apos;ivoire"));
+        countries.add(new Country("ci", "225", "Côte D\'ivoire"));
         countries.add(new Country("jp", "81", "Japan"));
         countries.add(new Country("jo", "962", "Jordan"));
         countries.add(new Country("kz", "7", "Kazakhstan"));
@@ -351,7 +351,7 @@ class Country {
         countries.add(new Country("ki", "686", "Kiribati"));
         countries.add(new Country("kw", "965", "Kuwait"));
         countries.add(new Country("kg", "996", "Kyrgyzstan"));
-        countries.add(new Country("la", "856", "Lao People&apos;s Democratic Republic"));
+        countries.add(new Country("la", "856", "Lao People\'s Democratic Republic"));
         countries.add(new Country("lv", "371", "Latvia"));
         countries.add(new Country("lb", "961", "Lebanon"));
         countries.add(new Country("ls", "266", "Lesotho"));
