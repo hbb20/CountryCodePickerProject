@@ -73,7 +73,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:ccpLanguage="ARABIC"
-                                    app:contentColor="@android:color/white" />
+                                    app:contentColor="@android:color/white"
+                                    app:defaultNameCode="sa" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -94,7 +95,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:ccpLanguage="CHINESE"
-                                    app:contentColor="@android:color/white" />
+                                    app:contentColor="@android:color/white"
+                                    app:defaultNameCode="cn" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -115,7 +117,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:ccpLanguage="ENGLISH"
-                                    app:contentColor="@android:color/white" />
+                                    app:contentColor="@android:color/white"
+                                    app:defaultNameCode="us" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -157,7 +160,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:ccpLanguage="GERMAN"
-                                    app:contentColor="@android:color/white" />
+                                    app:contentColor="@android:color/white"
+                                    app:defaultNameCode="de" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -178,7 +182,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:ccpLanguage="RUSSIAN"
-                                    app:contentColor="@android:color/white" />
+                                    app:contentColor="@android:color/white"
+                                    app:defaultNameCode="ru" />
 
                                 <TextView
                                     android:layout_width="match_parent"

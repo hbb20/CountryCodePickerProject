@@ -17,7 +17,7 @@ Add this to your gradle file
   
 ````groovy
 dependencies {
-  compile 'com.hbb20:ccp:1.6.1'
+  compile 'com.hbb20:ccp:1.7'
 }
 ````
 
@@ -273,7 +273,6 @@ Features
     - Step 4: finally apply the type face on ccp ```` ccp.setTypeFace(typeFace); ```` OR ```` ccp.setTypeFace(typeFace,customStyle); ````
    
  ###12. Language support
-    - Library has list of countries in alphabetical order. It searches for country in same order. But preferred country/countries have higher priority than rest.
     - Supported languages: Arabic, Bengali, Chinese, English, French, German, Gujarati, Hindi, Japanese, Javanese, Portuguese, Russian, Spanish
     - More languages can be added in the future.
     - Language will be applied in country selection dialog.
@@ -291,8 +290,47 @@ Features
 	         app:ccpLanguage="JAPANESE"  />
 	      ````
   
-   - ####Programmatically####
+  - ####Programmatically####
         - Use ```` changeLanguage()```` method.
+
+ ###12. National Flag Thumbnail
+     - Added flag thambnail to cpp and selector dialog
+     - More thumbnail packs can be added
+     - By default flag will be added to the ccp view
+   - ####Set through xml####
+           - add app:showFlag="false" to remove flag using xml layout
+
+   	       ````xml
+   	        <com.hbb20.CountryCodePicker
+   	         android:id="@+id/ccp"
+   	         android:layout_width="wrap_content"
+   	         android:layout_height="wrap_content"
+   	         app:showFlag="false"
+   	         app:ccpLanguage="JAPANESE"  />
+   	      ````
+
+     - ####Programmatically####
+           - Use ```` showFlag(false)```` method to hide the flag.
+
+ ###13. Show Full Country Name
+   - Developer might wish to show full country name instead of only code name
+   - `showFullName` will replace name code with full name.
+   - If name code was hidden using app:hideNameCode="true" then this will not work.
+   - Some country names are real long so go for this option only if your UI has dedicated enough space for it.
+   - ####Set through xml####
+              - add app:showFullName="true" to show full nameinstead of name code
+
+      	       ````xml
+      	        <com.hbb20.CountryCodePicker
+      	         android:id="@+id/ccp"
+      	         android:layout_width="wrap_content"
+      	         android:layout_height="wrap_content"
+      	         app:showFullName="true"
+      	         app:ccpLanguage="JAPANESE"  />
+      	      ````
+
+   - ####Programmatically####
+              - Use ```` showFullName(false)```` or ```` showFullName(false)```` method to show / hide the full name.
         
 Change log
 --------
@@ -322,3 +360,8 @@ Change log
 
 ##### version 1.6.1
     - Bug fix for getDefaultCountryCodeAsInt() and getDefaultCountryCodeAsInt()
+
+##### version 1.7
+    - Adds Flag thumbnail
+    - Adds option for full country name
+

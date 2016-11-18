@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -149,12 +150,14 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     class CountryCodeViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout relativeLayout_main;
         TextView textView_name, textView_code;
+        ImageView imageViewFlag;
         View divider;
         public CountryCodeViewHolder(View itemView) {
             super(itemView);
             relativeLayout_main = (RelativeLayout) itemView;
             textView_name = (TextView) relativeLayout_main.findViewById(R.id.textView_countryName);
             textView_code = (TextView) relativeLayout_main.findViewById(R.id.textView_code);
+            imageViewFlag = (ImageView) relativeLayout_main.findViewById(R.id.image_flag);
             divider = relativeLayout_main.findViewById(R.id.preferenceDivider);
         }
 
@@ -165,6 +168,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 textView_code.setVisibility(View.VISIBLE);
                 textView_name.setText(country.getName() + " (" + country.getNameCode().toUpperCase() + ")");
                 textView_code.setText("+" + country.getPhoneCode());
+                imageViewFlag.setImageResource(country.getFlagID());
             }else{
                 divider.setVisibility(View.VISIBLE);
                 textView_name.setVisibility(View.GONE);

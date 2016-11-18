@@ -58,11 +58,13 @@
                             <com.hbb20.CountryCodePicker
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:contentColor="@android:color/holo_orange_dark"/>
+                                app:contentColor="@android:color/holo_orange_dark"
+                                app:defaultNameCode="jp" />
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="@android:color/holo_orange_dark"
+                                android:editable="false"
                                 android:freezesText="true"
                                 android:hint="phone"
                                 android:inputType="phone"

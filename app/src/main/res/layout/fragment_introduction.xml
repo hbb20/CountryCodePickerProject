@@ -56,7 +56,7 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Phone number with national code"
+                            android:hint="Enter number with national code"
                             android:inputType="phone"
                             android:singleLine="true"
                             android:textColor="@android:color/black" />
@@ -93,7 +93,10 @@
                             <com.hbb20.CountryCodePicker
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:contentColor="@android:color/black"/>
+                                app:contentColor="@android:color/black"
+                                app:defaultNameCode="in"
+                                app:hideNameCode="false"
+                                app:showFullName="true" />
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

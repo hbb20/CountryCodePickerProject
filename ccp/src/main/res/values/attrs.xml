@@ -25,5 +25,7 @@
         </attr>
         <attr name="keyboardAutoPopOnSearch" format="boolean"/>
         <attr name="customMasterCountries" format="string" />
+        <attr name="showFlag" format="boolean" />
+        <attr name="showFullName" format="boolean" />
     </declare-styleable>
 </resources>

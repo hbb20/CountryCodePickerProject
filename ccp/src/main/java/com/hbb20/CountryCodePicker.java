@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -47,12 +48,17 @@ public class CountryCodePicker extends RelativeLayout {
     LayoutInflater mInflater;
     TextView textView_selectedCountry;
     EditText editText_registeredCarrierNumber;
-    RelativeLayout relative_holder;
+    RelativeLayout holder;
     ImageView imageViewArrow;
+    ImageView imageViewFlag;
+    LinearLayout linearFlagHolder;
     Country selectedCountry;
     Country defaultCountry;
     CountryCodePicker codePicker;
     boolean hideNameCode = false;
+    boolean showFlag = true;
+    boolean showFullName = false;
+    boolean useFullName = false;
     int contentColor;
     List<Country> preferredCountries;
     //this will be "AU,IN,US"
@@ -94,12 +100,13 @@ public class CountryCodePicker extends RelativeLayout {
         mInflater = LayoutInflater.from(context);
         holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
         textView_selectedCountry = (TextView) holderView.findViewById(R.id.textView_selectedCountry);
-        relative_holder = (RelativeLayout) holderView.findViewById(R.id.relative_countryCodeHolder);
+        holder = (RelativeLayout) holderView.findViewById(R.id.countryCodeHolder);
         imageViewArrow = (ImageView) holderView.findViewById(R.id.imageView_arrow);
+        imageViewFlag = (ImageView) holderView.findViewById(R.id.image_flag);
+        linearFlagHolder = (LinearLayout) holderView.findViewById(R.id.linear_flag_holder);
         codePicker = this;
-
         applyCustomProperty(attrs);
-        relative_holder.setOnClickListener(countryCodeHolderClickListener);
+        holder.setOnClickListener(countryCodeHolderClickListener);
     }
 
     private void applyCustomProperty(AttributeSet attrs) {
@@ -112,6 +119,9 @@ public class CountryCodePicker extends RelativeLayout {
         try {
             //hide nameCode. If someone wants only phone code to avoid name collision for same country phone code.
             hideNameCode = a.getBoolean(R.styleable.CountryCodePicker_hideNameCode, false);
+
+            //show full name
+            showFullName = a.getBoolean(R.styleable.CountryCodePicker_showFullName, false);
 
             //autopop keyboard
             setKeyboardAutoPopOnSearch(a.getBoolean(R.styleable.CountryCodePicker_keyboardAutoPopOnSearch, true));
@@ -155,6 +165,8 @@ public class CountryCodePicker extends RelativeLayout {
                 setSelectedCountry(defaultCountry);
             }
 
+            //show flag
+            showFlag(a.getBoolean(R.styleable.CountryCodePicker_showFlag, true));
 
             //content color
             int contentColor;
@@ -171,6 +183,7 @@ public class CountryCodePicker extends RelativeLayout {
             int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_textSize, 0);
             if (textSize > 0) {
                 textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                setFlagSize(textSize);
                 setArrowSize(textSize);
             } else { //no textsize specified
                 DisplayMetrics dm = context.getResources().getDisplayMetrics();
@@ -222,7 +235,11 @@ public class CountryCodePicker extends RelativeLayout {
         }
 
         if (!hideNameCode) {
-            textView_selectedCountry.setText("(" + selectedCountry.getNameCode().toUpperCase() + ")  +" + selectedCountry.getPhoneCode());
+            if (showFullName) {
+                textView_selectedCountry.setText(selectedCountry.getName().toUpperCase() + "  +" + selectedCountry.getPhoneCode());
+            } else {
+                textView_selectedCountry.setText("(" + selectedCountry.getNameCode().toUpperCase() + ")  +" + selectedCountry.getPhoneCode());
+            }
         } else {
             textView_selectedCountry.setText("+" + selectedCountry.getPhoneCode());
         }
@@ -230,6 +247,8 @@ public class CountryCodePicker extends RelativeLayout {
         if (onCountryChangeListener != null) {
             onCountryChangeListener.onCountrySelected();
         }
+
+        imageViewFlag.setImageResource(selectedCountry.getFlagID());
 //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
     }
 
@@ -250,12 +269,12 @@ public class CountryCodePicker extends RelativeLayout {
         this.holderView = holderView;
     }
 
-    private RelativeLayout getRelative_holder() {
-        return relative_holder;
+    private RelativeLayout getHolder() {
+        return holder;
     }
 
-    private void setRelative_holder(RelativeLayout relative_holder) {
-        this.relative_holder = relative_holder;
+    private void setHolder(RelativeLayout holder) {
+        this.holder = holder;
     }
 
     boolean isKeyboardAutoPopOnSearch() {
@@ -855,6 +874,7 @@ public class CountryCodePicker extends RelativeLayout {
         if (textSize > 0) {
             textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
             setArrowSize(textSize);
+            setFlagSize(textSize);
         }
     }
 
@@ -932,11 +952,37 @@ public class CountryCodePicker extends RelativeLayout {
 
     /**
      * To get call back on country selection a onCountryChangeListener must be registered.
+     *
      * @param onCountryChangeListener
      */
     public void setOnCountryChangeListener(OnCountryChangeListener onCountryChangeListener) {
         this.onCountryChangeListener = onCountryChangeListener;
     }
+
+    /**
+     * Modifies size of flag in CCP view
+     *
+     * @param flagSize size in pixels
+     */
+    public void setFlagSize(int flagSize) {
+        imageViewFlag.getLayoutParams().height = flagSize;
+        imageViewFlag.requestLayout();
+    }
+
+    public void showFlag(boolean showFlag) {
+        this.showFlag = showFlag;
+        if (showFlag) {
+            linearFlagHolder.setVisibility(VISIBLE);
+        } else {
+            linearFlagHolder.setVisibility(GONE);
+        }
+    }
+
+    public void showFullName(boolean showFullName) {
+        this.showFullName = showFullName;
+        setSelectedCountry(selectedCountry);
+    }
+
 
     /**
      * Update every time new language is supported #languageSupport
@@ -949,12 +995,10 @@ public class CountryCodePicker extends RelativeLayout {
         ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH
     }
 
-
     /*
     interface to set change listener
      */
     public interface OnCountryChangeListener {
         void onCountrySelected();
     }
-
 }
