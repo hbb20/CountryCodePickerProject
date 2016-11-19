@@ -1,7 +1,6 @@
 package in.hbb20.countrycodepickerproject;
 
 
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -137,6 +136,5 @@ public class DefaultCountryFragment extends Fragment {
         buttonSetNewDefaultNameCode = (Button) getView().findViewById(R.id.button_setDefaultNameCode);
 
         buttonNext = (Button) getView().findViewById(R.id.button_next);
-        buttonNext.getBackground().setColorFilter(getActivity().getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
     }
 }

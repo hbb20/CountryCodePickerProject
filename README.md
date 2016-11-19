@@ -11,15 +11,36 @@ Introduction
     * Above view can be transformed by using CCP
           - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_d.png" width="300">
 
-How to add to project
+How to add to your project
 --------------
-Add this to your gradle file
-  
-````groovy
-dependencies {
-  compile 'com.hbb20:ccp:1.7'
-}
-````
+
+   1. Add this to your gradle file and sync
+
+        ````groovy
+        dependencies {
+          compile 'com.hbb20:ccp:1.7'
+        }
+        ````
+
+   2. Add ccp view to xml layout
+        ````xml
+        <com.hbb20.CountryCodePicker
+          android:id="@+id/ccp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
+        ````
+
+   3. Add ccp object in Activity / Fragment
+        ````java
+          CountryCodePicker ccp;
+        ````
+
+   4. Bind ccp from layout
+        ````java
+           ccp = (CountryCodePicker) findViewById(R.id.ccp);
+        ````
+
+   5. That's it. Run the project and see the results.
 
 Features
 --------
@@ -293,7 +314,7 @@ Features
   - ####Programmatically####
         - Use ```` changeLanguage()```` method.
 
- ###12. National Flag Thumbnail
+ ###13. National Flag Thumbnail
      - Added flag thambnail to cpp and selector dialog
      - More thumbnail packs can be added
      - By default flag will be added to the ccp view
@@ -312,7 +333,7 @@ Features
      - ####Programmatically####
            - Use ```` showFlag(false)```` method to hide the flag.
 
- ###13. Show Full Country Name
+ ###14. Show Full Country Name
    - Developer might wish to show full country name instead of only code name
    - `showFullName` will replace name code with full name.
    - If name code was hidden using app:hideNameCode="true" then this will not work.
@@ -328,6 +349,7 @@ Features
       	         app:showFullName="true"
       	         app:ccpLanguage="JAPANESE"  />
       	      ````
+
 
    - ####Programmatically####
               - Use ```` showFullName(false)```` or ```` showFullName(false)```` method to show / hide the full name.
