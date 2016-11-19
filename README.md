@@ -1,7 +1,7 @@
 Country Code Picker Library
 ===========================
 
-Country Code Picker (CCP) <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_f.png" width="70">  is an android library which provides easy way to search and select country phone code for the telephone number.
+Country Code Picker (CCP) <img src="https://farm6.staticflickr.com/5726/30960801342_6e65c7ddd5_m.jpg" width="80">  is an android library which provides an easy way to search and select country phone code for the telephone number.
 
 Introduction
 ------------
@@ -9,36 +9,39 @@ Introduction
     * Phone number screen without CCP
           - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_c.png" width="300"> 
     * Above view can be transformed by using CCP
-          - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_d.png" width="300">
+          - <img src="https://farm6.staticflickr.com/5625/30296514763_e3af239e2c_z.jpg" width="300">
 
 How to add to your project
 --------------
 
    1. Add this to your gradle file and sync
 
-        ````groovy
+      ````groovy
         dependencies {
           compile 'com.hbb20:ccp:1.7'
         }
-        ````
+      ````
 
    2. Add ccp view to xml layout
-        ````xml
+   
+      ````xml
         <com.hbb20.CountryCodePicker
           android:id="@+id/ccp"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
-        ````
+      ````
 
    3. Add ccp object in Activity / Fragment
-        ````java
-          CountryCodePicker ccp;
-        ````
+   
+      ````
+        CountryCodePicker ccp;
+      ````
 
    4. Bind ccp from layout
-        ````java
-           ccp = (CountryCodePicker) findViewById(R.id.ccp);
-        ````
+   
+      ````
+        ccp = (CountryCodePicker) findViewById(R.id.ccp);
+      ````
 
    5. That's it. Run the project and see the results.
 
@@ -201,17 +204,17 @@ Features
 	          app:contentColor="@color/custom_color"/>                        
 	      ````
     
-    - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_a.png" width="300"> 
+    - <img src="https://farm6.staticflickr.com/5590/30736274540_b156916b98_z.jpg" width="300">
 
     ####Programmatically
     - To set color programmatically, use ```` setContentColor() ```` method.
-    - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_b.png" width="300"> 
+    - <img src="https://farm6.staticflickr.com/5821/30736274500_02e03a57dd_z.jpg" width="300"> 
 
 
  ###7. Custom textSize
   - Text size of CCP content can be changed in order to match rest of the view of form.
   - Everytime when textSize is updated, arrowsize will be updated itself. 
-  - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_h.png" width="300">  
+  - <img src="https://farm6.staticflickr.com/5743/30296515043_78d70ff6ba_z.jpg" width="300">  
     ####Using XML
     - Add app:contentColor property to xml layout
   
@@ -285,7 +288,7 @@ Features
  ###11. Custom font
   - FontFamily of CCP content can be changed in order to match rest of the view of form.
   - Font can be set programmatically only.  
-  - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_g.png" width="300">  
+  - <img src="https://farm6.staticflickr.com/5334/31103136905_1f0dc0b535_z.jpg" width="300">  
    
     ####Programmatically
     - Step 1: create a folder named 'assets' under 'app/src/main/' folder. If you already have 'app/src/main/assets' then jump to next step.
@@ -295,10 +298,11 @@ Features
    
  ###12. Language support
     - Supported languages: Arabic, Bengali, Chinese, English, French, German, Gujarati, Hindi, Japanese, Javanese, Portuguese, Russian, Spanish
+    - <img src="https://farm6.staticflickr.com/5444/30960801252_34b573e938_z.jpg" width="300"> 
     - More languages can be added in the future.
     - Language will be applied in country selection dialog.
     - Google translator was used to tranlate. So there is possibility of translation error, if you find any mistake please report issue to correct it or send pull request.
-    - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_i.png" width="300"> 
+    - <img src="https://farm6.staticflickr.com/5738/30736274420_213808d03b_z.jpg" width="300"> 
    
   - ####Set through xml####
         - add app:ccpLanguage="JAPANESE" to xml layout
@@ -338,8 +342,10 @@ Features
    - `showFullName` will replace name code with full name.
    - If name code was hidden using app:hideNameCode="true" then this will not work.
    - Some country names are real long so go for this option only if your UI has dedicated enough space for it.
+   - <img src="https://farm6.staticflickr.com/5514/31103136845_1abdfcfe81_z.jpg" width="300"> 
    - ####Set through xml####
               - add app:showFullName="true" to show full nameinstead of name code
+	     
 
       	       ````xml
       	        <com.hbb20.CountryCodePicker
