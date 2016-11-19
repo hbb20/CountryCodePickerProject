@@ -304,7 +304,7 @@ Features
     - Google translator was used to tranlate. So there is possibility of translation error, if you find any mistake please report issue to correct it or send pull request.
     - <img src="https://farm6.staticflickr.com/5738/30736274420_213808d03b_z.jpg" width="300"> 
    
-  - ####Set through xml####
+  - ####Set through xml
         - add app:ccpLanguage="JAPANESE" to xml layout
 
 	       ````xml
@@ -315,14 +315,14 @@ Features
 	         app:ccpLanguage="JAPANESE"  />
 	      ````
   
-  - ####Programmatically####
+  - ####Programmatically
         - Use ```` changeLanguage()```` method.
 
  ###13. National Flag Thumbnail
      - Added flag thambnail to cpp and selector dialog
      - More thumbnail packs can be added
      - By default flag will be added to the ccp view
-   - ####Set through xml####
+   - ####Set through xml
            - add app:showFlag="false" to remove flag using xml layout
 
    	       ````xml
@@ -334,7 +334,7 @@ Features
    	         app:ccpLanguage="JAPANESE"  />
    	      ````
 
-     - ####Programmatically####
+     - ####Programmatically
            - Use ```` showFlag(false)```` method to hide the flag.
 
  ###14. Show Full Country Name
@@ -356,9 +356,9 @@ Features
       	         app:ccpLanguage="JAPANESE"  />
       	      ````
 
+   - ####Programmatically
 
-   - ####Programmatically####
-              - Use ```` showFullName(false)```` or ```` showFullName(false)```` method to show / hide the full name.
+       - Use ```` showFullName(false)```` or ```` showFullName(false)```` method to show / hide the full name.
         
 Change log
 --------
