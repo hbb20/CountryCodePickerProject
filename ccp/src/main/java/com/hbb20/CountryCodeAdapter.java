@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -151,6 +152,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         RelativeLayout relativeLayout_main;
         TextView textView_name, textView_code;
         ImageView imageViewFlag;
+        LinearLayout linearFlagHolder;
         View divider;
         public CountryCodeViewHolder(View itemView) {
             super(itemView);
@@ -158,6 +160,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             textView_name = (TextView) relativeLayout_main.findViewById(R.id.textView_countryName);
             textView_code = (TextView) relativeLayout_main.findViewById(R.id.textView_code);
             imageViewFlag = (ImageView) relativeLayout_main.findViewById(R.id.image_flag);
+            linearFlagHolder = (LinearLayout) relativeLayout_main.findViewById(R.id.linear_flag_holder);
             divider = relativeLayout_main.findViewById(R.id.preferenceDivider);
         }
 
@@ -166,6 +169,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 divider.setVisibility(View.GONE);
                 textView_name.setVisibility(View.VISIBLE);
                 textView_code.setVisibility(View.VISIBLE);
+                linearFlagHolder.setVisibility(View.VISIBLE);
                 textView_name.setText(country.getName() + " (" + country.getNameCode().toUpperCase() + ")");
                 textView_code.setText("+" + country.getPhoneCode());
                 imageViewFlag.setImageResource(country.getFlagID());
@@ -173,6 +177,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 divider.setVisibility(View.VISIBLE);
                 textView_name.setVisibility(View.GONE);
                 textView_code.setVisibility(View.GONE);
+                linearFlagHolder.setVisibility(View.GONE);
             }
         }
 

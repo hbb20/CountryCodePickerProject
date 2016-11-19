@@ -18,7 +18,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7'
+          compile 'com.hbb20:ccp:1.7.1'
         }
       ````
 
@@ -389,7 +389,7 @@ Change log
 ##### version 1.6.1
     - Bug fix for getDefaultCountryCodeAsInt() and getDefaultCountryCodeAsInt()
 
-##### version 1.7
+##### version 1.7.1
     - Adds Flag thumbnail
     - Adds option for full country name
 
