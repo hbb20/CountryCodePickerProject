@@ -10,6 +10,9 @@ Introduction
           - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_c.png" width="300"> 
     * Above view can be transformed by using CCP
           - <img src="https://farm6.staticflickr.com/5625/30296514763_e3af239e2c_z.jpg" width="300">
+    
+    * Tapping on CCP will open a dialog to search and select country
+          - <img src="https://farm6.staticflickr.com/5686/30982885732_294ee950d7_z.jpg" width="300">
 
 How to add to your project
 --------------
