@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Select country"
+        android:text="@string/select_country"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/secondary_text_light" />
 
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_title"
-        android:hint="search..."
+        android:hint="@string/search..."
         android:singleLine="true"
         android:textColor="@android:color/primary_text_light_nodisable" />
 
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="No result found"
+        android:text="@string/no_result_found"
         android:visibility="gone"
         android:textColor="@android:color/primary_text_light" />
 
