@@ -446,7 +446,7 @@ public class CountryCodePicker extends RelativeLayout {
             case LANGUAGE_BENGALI:
                 return Language.BENGALI;
             case LANGUAGE_CHINESE:
-                return Language.CHINESE;
+                return Language.SIMPLIFY_CHINESE;
             case LANGUAGE_ENGLISH:
                 return Language.ENGLISH;
             case LANGUAGE_FRENCH:
@@ -478,8 +478,10 @@ public class CountryCodePicker extends RelativeLayout {
                 return "حدد الدولة";
             case BENGALI:
                 return "দেশ নির্বাচন করুন";
-            case CHINESE:
+            case SIMPLIFY_CHINESE:
                 return "选择国家";
+            case TRADITIONAL_CHINESE:
+                return "選擇國家";
             case ENGLISH:
                 return "Select country";
             case FRENCH:
@@ -511,7 +513,9 @@ public class CountryCodePicker extends RelativeLayout {
                 return "بحث";
             case BENGALI:
                 return "অনুসন্ধান...";
-            case CHINESE:
+            case SIMPLIFY_CHINESE:
+                return "搜索...";
+            case TRADITIONAL_CHINESE:
                 return "搜索...";
             case ENGLISH:
                 return "search...";
@@ -553,8 +557,10 @@ public class CountryCodePicker extends RelativeLayout {
                 return "يؤدي لم يتم العثور";
             case BENGALI:
                 return "ফলাফল পাওয়া যায়নি";
-            case CHINESE:
+            case SIMPLIFY_CHINESE:
                 return "结果未发现";
+            case TRADITIONAL_CHINESE:
+                return "結果未發現";
             case ENGLISH:
                 return "result not found";
             case FRENCH:
@@ -992,7 +998,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH
+        ARABIC, BENGALI, SIMPLIFY_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH
     }
 
     /*
