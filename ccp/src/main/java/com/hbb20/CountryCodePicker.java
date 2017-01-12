@@ -27,7 +27,7 @@ public class CountryCodePicker extends RelativeLayout {
     //this name should match value of enum <attr name="language" format="enum"> from attrs
     final static int LANGUAGE_ARABIC = 1;
     final static int LANGUAGE_BENGALI = 2;
-    final static int LANGUAGE_CHINESE = 3;
+    final static int LANGUAGE_SIMPLIFY_CHINESE = 3;
     final static int LANGUAGE_ENGLISH = 4;
     final static int LANGUAGE_FRENCH = 5;
     final static int LANGUAGE_GERMAN = 6;
@@ -38,6 +38,7 @@ public class CountryCodePicker extends RelativeLayout {
     final static int LANGUAGE_PORTUGUESE = 11;
     final static int LANGUAGE_RUSSIAN = 12;
     final static int LANGUAGE_SPANISH = 13;
+    final static int LANGUAGE_TRADITIONAL_CHINESE = 14;
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
@@ -445,8 +446,10 @@ public class CountryCodePicker extends RelativeLayout {
                 return Language.ARABIC;
             case LANGUAGE_BENGALI:
                 return Language.BENGALI;
-            case LANGUAGE_CHINESE:
+            case LANGUAGE_SIMPLIFY_CHINESE:
                 return Language.SIMPLIFY_CHINESE;
+            case LANGUAGE_TRADITIONAL_CHINESE:
+                return Language.TRADITIONAL_CHINESE;
             case LANGUAGE_ENGLISH:
                 return Language.ENGLISH;
             case LANGUAGE_FRENCH:
