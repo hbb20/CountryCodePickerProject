@@ -57,6 +57,7 @@ public class CountryCodePicker extends RelativeLayout {
     CountryCodePicker codePicker;
     boolean hideNameCode = false;
     boolean showFlag = true;
+    boolean showSearch = true;
     boolean showFullName = false;
     boolean useFullName = false;
     int contentColor;
@@ -196,6 +197,9 @@ public class CountryCodePicker extends RelativeLayout {
             if (arrowSize > 0) {
                 setArrowSize(arrowSize);
             }
+
+            //show search
+            showSearch(a.getBoolean(R.styleable.CountryCodePicker_showSearch, true));
 
         } catch (Exception e) {
             textView_selectedCountry.setText(e.getMessage());
@@ -976,6 +980,10 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             linearFlagHolder.setVisibility(GONE);
         }
+    }
+
+    private void showSearch(boolean showSearch) {
+        this.showSearch = showSearch;
     }
 
     public void showFullName(boolean showFullName) {

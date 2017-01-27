@@ -38,7 +38,11 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         this.textView_noResult = textView_noResult;
         this.editText_search = editText_search;
         this.inflater = LayoutInflater.from(context);
-        setTextWatcher();
+        if (this.codePicker.showSearch) {
+            setTextWatcher();
+        } else {
+          this.editText_search.setVisibility(View.GONE);
+        }
         this.filteredCountries = getFilteredCountries("");
     }
 
