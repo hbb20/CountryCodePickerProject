@@ -29,5 +29,6 @@
         <attr name="showFlag" format="boolean" />
         <attr name="showFullName" format="boolean" />
         <attr name="selectionDialogShowSearch" format="boolean" />
+        <attr name="ccpClickable" format="boolean" />
     </declare-styleable>
 </resources>

@@ -55,6 +55,7 @@ public class CountryCodePicker extends RelativeLayout {
     LinearLayout linearFlagHolder;
     Country selectedCountry;
     Country defaultCountry;
+    RelativeLayout relativeClickConsumer;
     CountryCodePicker codePicker;
     boolean hideNameCode = false;
     boolean showFlag = true;
@@ -70,10 +71,13 @@ public class CountryCodePicker extends RelativeLayout {
     String customMasterCountries;
     Language customLanguage = Language.ENGLISH;
     boolean keyboardAutoPopOnSearch = true;
+    boolean ccpClickable = true;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            if (isCcpClickable()) {
                 CountryCodeDialog.openCountryCodeDialog(codePicker);
+            }
         }
     };
 
@@ -106,9 +110,10 @@ public class CountryCodePicker extends RelativeLayout {
         imageViewArrow = (ImageView) holderView.findViewById(R.id.imageView_arrow);
         imageViewFlag = (ImageView) holderView.findViewById(R.id.image_flag);
         linearFlagHolder = (LinearLayout) holderView.findViewById(R.id.linear_flag_holder);
+        relativeClickConsumer = (RelativeLayout) holderView.findViewById(R.id.rlClickConsumer);
         codePicker = this;
         applyCustomProperty(attrs);
-        holder.setOnClickListener(countryCodeHolderClickListener);
+        relativeClickConsumer.setOnClickListener(countryCodeHolderClickListener);
     }
 
     private void applyCustomProperty(AttributeSet attrs) {
@@ -200,6 +205,7 @@ public class CountryCodePicker extends RelativeLayout {
             }
 
             selectionDialogShowSearch = a.getBoolean(R.styleable.CountryCodePicker_selectionDialogShowSearch, true);
+            setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccpClickable, true));
 
         } catch (Exception e) {
             textView_selectedCountry.setText(e.getMessage());
@@ -1013,6 +1019,28 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setSelectionDialogShowSearch(boolean selectionDialogShowSearch) {
         this.selectionDialogShowSearch = selectionDialogShowSearch;
+    }
+
+    public boolean isCcpClickable() {
+        return ccpClickable;
+    }
+
+    /**
+     * Allow click and open dialog
+     *
+     * @param ccpClickable
+     */
+    public void setCcpClickable(boolean ccpClickable) {
+        this.ccpClickable = ccpClickable;
+        if (!ccpClickable) {
+            relativeClickConsumer.setOnClickListener(null);
+            relativeClickConsumer.setClickable(false);
+            relativeClickConsumer.setEnabled(false);
+        } else {
+            relativeClickConsumer.setOnClickListener(countryCodeHolderClickListener);
+            relativeClickConsumer.setClickable(true);
+            relativeClickConsumer.setEnabled(true);
+        }
     }
 
     /**
