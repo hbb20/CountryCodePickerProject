@@ -38,6 +38,7 @@ public class CountryCodePicker extends RelativeLayout {
     final static int LANGUAGE_PORTUGUESE = 11;
     final static int LANGUAGE_RUSSIAN = 12;
     final static int LANGUAGE_SPANISH = 13;
+    final static int LANGUAGE_HEBREW = 14;
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
@@ -71,9 +72,7 @@ public class CountryCodePicker extends RelativeLayout {
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (isEnabled()) {
                 CountryCodeDialog.openCountryCodeDialog(codePicker);
-            }
         }
     };
 
@@ -469,6 +468,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return Language.RUSSIAN;
             case LANGUAGE_SPANISH:
                 return Language.SPANISH;
+            case LANGUAGE_HEBREW:
+                return Language.HEBREW;
             default:
                 return Language.ENGLISH;
         }
@@ -502,6 +503,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return "Выберите страну";
             case SPANISH:
                 return "Seleccionar país";
+            case HEBREW:
+                return "בחר מדינה";
             default:
                 return "Select country";
         }
@@ -535,15 +538,13 @@ public class CountryCodePicker extends RelativeLayout {
                 return "поиск ...";
             case SPANISH:
                 return "buscar ...";
+            case HEBREW:
+                return "בחר...";
+
             default:
                 return "Search...";
         }
     }
-
-
-    /**
-     * Publicly available functions from library
-     */
 
     /**
      * Related to default country
@@ -577,10 +578,17 @@ public class CountryCodePicker extends RelativeLayout {
                 return "результат не найден";
             case SPANISH:
                 return "como resultado que no se encuentra";
+            case HEBREW:
+                return "לא נמצאו תוצאות";
             default:
                 return "No result found";
         }
     }
+
+    /**
+     * Publicly available functions from library
+     */
+
 
     /**
      * This method is not encouraged because this might set some other country which have same country code as of yours. e.g 1 is common for US and canada.
@@ -596,6 +604,7 @@ public class CountryCodePicker extends RelativeLayout {
      *                           if you want to set IN +91(India) as default country, defaultCountryCode =  91
      *                           if you want to set JP +81(Japan) as default country, defaultCountryCode =  81
      */
+    @Deprecated
     public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
         Country defaultCountry = Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
@@ -994,7 +1003,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH
+        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
     }
 
     /*
