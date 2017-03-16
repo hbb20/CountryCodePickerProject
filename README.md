@@ -55,11 +55,11 @@ Features
 <br/><a href="https://goo.gl/zI2cY2"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
 
  - If you just want to read them, here you go.
-    ### 1. Default country
-    *  Default country is the country where most of your target audience belong.
-    *  The default country can be set through xml layout and programmatically as well.
+  ### 1. Default country
+   *  Default country is the country where most of your target audience belong.
+   *  The default country can be set through xml layout and programmatically as well.
    
-       #### A. Through xml
+      #### A. Through xml
        
         ##### Using country code name
         - Add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
