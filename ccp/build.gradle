@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/hbb20/CountryCodePickerProject'
     gitUrl = 'https://github.com/hbb20/CountryCodePickerProject.git'
 
-    libraryVersion = '1.7.1'
+    libraryVersion = '1.8'
 
     developerId = 'hbb20'
     developerName = 'Harsh Bhakta'
@@ -31,7 +31,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        minSdkVersion 7
+        minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"

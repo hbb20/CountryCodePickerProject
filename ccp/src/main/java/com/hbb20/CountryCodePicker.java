@@ -60,6 +60,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showFlag = true;
     boolean showFullName = false;
     boolean useFullName = false;
+    boolean selectionDialogShowSearch = true;
     int contentColor;
     List<Country> preferredCountries;
     //this will be "AU,IN,US"
@@ -197,6 +198,8 @@ public class CountryCodePicker extends RelativeLayout {
             if (arrowSize > 0) {
                 setArrowSize(arrowSize);
             }
+
+            selectionDialogShowSearch = a.getBoolean(R.styleable.CountryCodePicker_selectionDialogShowSearch, true);
 
         } catch (Exception e) {
             textView_selectedCountry.setText(e.getMessage());
@@ -994,6 +997,23 @@ public class CountryCodePicker extends RelativeLayout {
         setSelectedCountry(selectedCountry);
     }
 
+    /**
+     * SelectionDialogSearch is the facility to search through the list of country while selecting.
+     *
+     * @return true if search is set allowed
+     */
+    public boolean isSelectionDialogShowSearch() {
+        return selectionDialogShowSearch;
+    }
+
+    /**
+     * SelectionDialogSearch is the facility to search through the list of country while selecting.
+     *
+     * @param selectionDialogShowSearch true will allow search and false will hide search box
+     */
+    public void setSelectionDialogShowSearch(boolean selectionDialogShowSearch) {
+        this.selectionDialogShowSearch = selectionDialogShowSearch;
+    }
 
     /**
      * Update every time new language is supported #languageSupport
