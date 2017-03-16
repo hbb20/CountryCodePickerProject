@@ -59,8 +59,9 @@ Features
     *  Default country is the country where most of your target audience belong.
     *  The default country can be set through xml layout and programmatically as well.
    
-    	#### A. Through xml
-       	##### Using country code name
+       #### A. Through xml
+       
+        ##### Using country code name
         - Add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
@@ -92,9 +93,9 @@ Features
          - To set default country programmatically, use ```` setDefaultCountryUsingPhoneCode()```` method.
     	 - ````setDefaultCountryUsingNameCode()```` or ```setDefaultCountryUsingPhoneCode() ``` will not set default country as selected country in CCP view. To set default country as selected country in CCP view, call ```` resetToDefaultCountry() ```` method.
 
-    - ```resetToDefaultCountry() ``` will set default country as selected country in CCP, it can be used at the time of form reset.
+    	 - ```resetToDefaultCountry() ``` will set default country as selected country in CCP, it can be used at the time of form reset.
       
-    - If you do not specify default country from xml, IN +91 (India) will be the default country until you update default country programmatically.
+    	 - If you do not specify default country from xml, IN +91 (India) will be the default country until you update default country programmatically.
  
     
     
