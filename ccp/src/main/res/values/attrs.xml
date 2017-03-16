@@ -27,5 +27,7 @@
         <attr name="customMasterCountries" format="string" />
         <attr name="showFlag" format="boolean" />
         <attr name="showFullName" format="boolean" />
+        <attr name="showSearch" format="boolean"/>
+        <attr name="useSystemLocale" format="boolean"/>
     </declare-styleable>
 </resources>

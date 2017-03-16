@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by hbb20 on 11/1/16.
@@ -57,6 +58,7 @@ public class CountryCodePicker extends RelativeLayout {
     CountryCodePicker codePicker;
     boolean hideNameCode = false;
     boolean showFlag = true;
+    boolean showSearch = true;
     boolean showFullName = false;
     boolean useFullName = false;
     int contentColor;
@@ -128,12 +130,19 @@ public class CountryCodePicker extends RelativeLayout {
             //autopop keyboard
             setKeyboardAutoPopOnSearch(a.getBoolean(R.styleable.CountryCodePicker_keyboardAutoPopOnSearch, true));
 
-            //if custom language is specified, then set it as custom
             int attrLanguage = LANGUAGE_ENGLISH;
+            customLanguage = getLanguageEnum(attrLanguage);
+
+            //if use system locale is specified, use this but give custom locale priority
+            if(a.hasValue(R.styleable.CountryCodePicker_useSystemLocale)){
+                customLanguage = Language.fromLocal(getCurrentLocale());
+            }
+
+            //if custom language is specified, then set it as custom
             if (a.hasValue(R.styleable.CountryCodePicker_ccpLanguage)) {
                 attrLanguage = a.getInt(R.styleable.CountryCodePicker_ccpLanguage, 1);
+                customLanguage = getLanguageEnum(attrLanguage);
             }
-            customLanguage = getLanguageEnum(attrLanguage);
 
             //custom master list
             customMasterCountries = a.getString(R.styleable.CountryCodePicker_customMasterCountries);
@@ -198,6 +207,9 @@ public class CountryCodePicker extends RelativeLayout {
             if (arrowSize > 0) {
                 setArrowSize(arrowSize);
             }
+
+            //show search
+            showSearch(a.getBoolean(R.styleable.CountryCodePicker_showSearch, true));
 
         } catch (Exception e) {
             textView_selectedCountry.setText(e.getMessage());
@@ -980,6 +992,10 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
+    private void showSearch(boolean showSearch) {
+        this.showSearch = showSearch;
+    }
+
     public void showFullName(boolean showFullName) {
         this.showFullName = showFullName;
         setSelectedCountry(selectedCountry);
@@ -994,7 +1010,25 @@ public class CountryCodePicker extends RelativeLayout {
 
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH
+        ARABIC("ar"), BENGALI("bn"), CHINESE("zh"), ENGLISH("en"), FRENCH("fr"), GERMAN("de"), GUJARATI("gu"), HINDI("hi"), JAPANESE("ja"), JAVANESE("jv"), PORTUGUESE("pt"), RUSSIAN("ru"), SPANISH("es");
+        String ISO2Code;
+        Language(String ISO2Code) {
+            this.ISO2Code = ISO2Code;
+        }
+        String getISO2Code() {
+            return ISO2Code;
+        }
+
+        static Language fromLocal(Locale locale){
+
+
+            for(Language language : Language.values()){
+                if (locale.getLanguage().equalsIgnoreCase(language.getISO2Code())) {
+                    return language;
+                }
+            }
+            return ENGLISH;
+        }
     }
 
     /*
@@ -1002,5 +1036,9 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public interface OnCountryChangeListener {
         void onCountrySelected();
+    }
+
+    public Locale getCurrentLocale(){
+        return getResources().getConfiguration().locale;
     }
 }
