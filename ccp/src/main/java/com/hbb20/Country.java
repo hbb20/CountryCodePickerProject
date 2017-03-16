@@ -631,6 +631,42 @@ class Country {
                 return R.drawable.flag_zambia;
             case "zw": //zimbabwe
                 return R.drawable.flag_zimbabwe;
+
+            // Caribbean Islands
+            case "ai": //anguilla
+                return R.drawable.flag_anguilla;
+            case "ag": //antigua & barbuda
+                return R.drawable.flag_antigua_and_barbuda;
+            case "bs": //bahamas
+                return R.drawable.flag_bahamas;
+            case "bb": //barbados
+                return R.drawable.flag_barbados;
+            case "bm": //bermuda
+                return R.drawable.flag_bermuda;
+            case "vg": //british virgin islands
+                return R.drawable.flag_british_virgin_islands;
+            case "dm": //dominica
+                return R.drawable.flag_dominica;
+            case "do": //dominican republic
+                return R.drawable.flag_dominican_republic;
+            case "gd": //grenada
+                return R.drawable.flag_grenada;
+            case "jm": //jamaica
+                return R.drawable.flag_jamaica;
+            case "ms": //montserrat
+                return R.drawable.flag_montserrat;
+            case "kn": //st kitts & nevis
+                return R.drawable.flag_saint_kitts_and_nevis;
+            case "lc": //st lucia
+                return R.drawable.flag_saint_lucia;
+            case "vc": //st vincent & the grenadines
+                return R.drawable.flag_saint_vicent_and_the_grenadines;
+            case "tt": //trinidad & tobago
+                return R.drawable.flag_trinidad_and_tobago;
+            case "tc": //turks & caicos islands
+                return R.drawable.flag_turks_and_caicos_islands;
+            case "vi": //us virgin islands
+                return R.drawable.flag_us_virgin_islands;
             default:
                 return R.drawable.flag_transparent;
         }
@@ -672,6 +708,8 @@ class Country {
                 return getLibraryMasterCountriesRussian();
             case SPANISH:
                 return getLibraryMasterCountriesSpanish();
+            case HEBREW:
+                return getLibraryMasterCountriesHebrew();
             default:
                 return getLibraryMasterCountriesEnglish();
         }
@@ -684,24 +722,30 @@ class Country {
         countries.add(new Country("dz", "213", "Algeria"));
         countries.add(new Country("ad", "376", "Andorra"));
         countries.add(new Country("ao", "244", "Angola"));
+        countries.add(new Country("ai", "1", "Anguilla"));
         countries.add(new Country("aq", "672", "Antarctica"));
+        countries.add(new Country("ag", "1", "Antigua and Barbuda"));
         countries.add(new Country("ar", "54", "Argentina"));
         countries.add(new Country("am", "374", "Armenia"));
         countries.add(new Country("aw", "297", "Aruba"));
         countries.add(new Country("au", "61", "Australia"));
         countries.add(new Country("at", "43", "Austria"));
         countries.add(new Country("az", "994", "Azerbaijan"));
+        countries.add(new Country("bs", "1", "Bahamas"));
         countries.add(new Country("bh", "973", "Bahrain"));
         countries.add(new Country("bd", "880", "Bangladesh"));
+        countries.add(new Country("bb", "1", "Barbados"));
         countries.add(new Country("by", "375", "Belarus"));
         countries.add(new Country("be", "32", "Belgium"));
         countries.add(new Country("bz", "501", "Belize"));
         countries.add(new Country("bj", "229", "Benin"));
+        countries.add(new Country("bm", "1", "Bermuda"));
         countries.add(new Country("bt", "975", "Bhutan"));
         countries.add(new Country("bo", "591", "Bolivia, Plurinational State Of"));
         countries.add(new Country("ba", "387", "Bosnia And Herzegovina"));
         countries.add(new Country("bw", "267", "Botswana"));
         countries.add(new Country("br", "55", "Brazil"));
+        countries.add(new Country("vg", "1", "British Virgin Islands"));
         countries.add(new Country("bn", "673", "Brunei Darussalam"));
         countries.add(new Country("bg", "359", "Bulgaria"));
         countries.add(new Country("bf", "226", "Burkina Faso"));
@@ -711,6 +755,7 @@ class Country {
         countries.add(new Country("cm", "237", "Cameroon"));
         countries.add(new Country("ca", "1", "Canada"));
         countries.add(new Country("cv", "238", "Cape Verde"));
+        countries.add(new Country("ky", "1", "Cayman Islands"));
         countries.add(new Country("cf", "236", "Central African Republic"));
         countries.add(new Country("td", "235", "Chad"));
         countries.add(new Country("cl", "56", "Chile"));
@@ -729,6 +774,8 @@ class Country {
         countries.add(new Country("cz", "420", "Czech Republic"));
         countries.add(new Country("dk", "45", "Denmark"));
         countries.add(new Country("dj", "253", "Djibouti"));
+        countries.add(new Country("dm", "1", "Dominica"));
+        countries.add(new Country("do", "1", "Dominican Republic"));
         countries.add(new Country("tl", "670", "Timor-leste"));
         countries.add(new Country("ec", "593", "Ecuador"));
         countries.add(new Country("eg", "20", "Egypt"));
@@ -751,6 +798,7 @@ class Country {
         countries.add(new Country("gi", "350", "Gibraltar"));
         countries.add(new Country("gr", "30", "Greece"));
         countries.add(new Country("gl", "299", "Greenland"));
+        countries.add(new Country("gd", "1", "Grenada"));
         countries.add(new Country("gt", "502", "Guatemala"));
         countries.add(new Country("gn", "224", "Guinea"));
         countries.add(new Country("gw", "245", "Guinea-bissau"));
@@ -768,6 +816,7 @@ class Country {
         countries.add(new Country("il", "972", "Israel"));
         countries.add(new Country("it", "39", "Italy"));
         countries.add(new Country("ci", "225", "Côte D\'ivoire"));
+        countries.add(new Country("jm", "1", "Jamaica"));
         countries.add(new Country("jp", "81", "Japan"));
         countries.add(new Country("jo", "962", "Jordan"));
         countries.add(new Country("kz", "7", "Kazakhstan"));
@@ -801,6 +850,7 @@ class Country {
         countries.add(new Country("md", "373", "Moldova, Republic Of"));
         countries.add(new Country("mc", "377", "Monaco"));
         countries.add(new Country("mn", "976", "Mongolia"));
+        countries.add(new Country("ms", "1", "Montserrat"));
         countries.add(new Country("me", "382", "Montenegro"));
         countries.add(new Country("ma", "212", "Morocco"));
         countries.add(new Country("mz", "258", "Mozambique"));
@@ -833,6 +883,9 @@ class Country {
         countries.add(new Country("ru", "7", "Russian Federation"));
         countries.add(new Country("rw", "250", "Rwanda"));
         countries.add(new Country("bl", "590", "Saint Barthélemy"));
+        countries.add(new Country("kn", "1", "Saint Kitts and Nevis"));
+        countries.add(new Country("lc", "1", "Saint Lucia"));
+        countries.add(new Country("vc", "1", "Saint Vincent & The Grenadines"));
         countries.add(new Country("ws", "685", "Samoa"));
         countries.add(new Country("sm", "378", "San Marino"));
         countries.add(new Country("st", "239", "Sao Tome And Principe"));
@@ -842,6 +895,7 @@ class Country {
         countries.add(new Country("sc", "248", "Seychelles"));
         countries.add(new Country("sl", "232", "Sierra Leone"));
         countries.add(new Country("sg", "65", "Singapore"));
+        countries.add(new Country("sx", "1", "Sint Maarten"));
         countries.add(new Country("sk", "421", "Slovakia"));
         countries.add(new Country("si", "386", "Slovenia"));
         countries.add(new Country("sb", "677", "Solomon Islands"));
@@ -865,9 +919,11 @@ class Country {
         countries.add(new Country("tg", "228", "Togo"));
         countries.add(new Country("tk", "690", "Tokelau"));
         countries.add(new Country("to", "676", "Tonga"));
+        countries.add(new Country("tt", "1", "Trinidad & Tobago"));
         countries.add(new Country("tn", "216", "Tunisia"));
         countries.add(new Country("tr", "90", "Turkey"));
         countries.add(new Country("tm", "993", "Turkmenistan"));
+        countries.add(new Country("tc", "1", "Turks and Caicos Islands"));
         countries.add(new Country("tv", "688", "Tuvalu"));
         countries.add(new Country("ae", "971", "United Arab Emirates"));
         countries.add(new Country("ug", "256", "Uganda"));
@@ -875,6 +931,7 @@ class Country {
         countries.add(new Country("ua", "380", "Ukraine"));
         countries.add(new Country("uy", "598", "Uruguay"));
         countries.add(new Country("us", "1", "United States"));
+        countries.add(new Country("vi", "1", "US Virgin Islands"));
         countries.add(new Country("uz", "998", "Uzbekistan"));
         countries.add(new Country("vu", "678", "Vanuatu"));
         countries.add(new Country("va", "39", "Holy See (vatican City State)"));
@@ -3614,6 +3671,216 @@ class Country {
         countries.add(new Country("ye", "967", "યેમેન"));
         countries.add(new Country("zm", "260", "ઝામ્બિયા"));
         countries.add(new Country("zw", "263", "ઝિમ્બાબ્વે"));
+        return countries;
+    }
+
+    public static List<Country> getLibraryMasterCountriesHebrew() {
+        List<Country> countries = new ArrayList<>();
+        countries.add(new Country("af", "93", "אפגניסטן"));
+        countries.add(new Country("al", "355", "אלבניה"));
+        countries.add(new Country("dz", "213", "אלג’יריה"));
+        countries.add(new Country("ad", "376", "אנדורה"));
+        countries.add(new Country("ao", "244", "אנגולה"));
+        countries.add(new Country("aq", "672", "אנטארקטיקה"));
+        countries.add(new Country("ar", "54", "ארגנטינה"));
+        countries.add(new Country("am", "374", "ארמניה"));
+        countries.add(new Country("aw", "297", "ארובה"));
+        countries.add(new Country("au", "61", "אוסטרליה"));
+        countries.add(new Country("at", "43", "אוסטריה"));
+        countries.add(new Country("az", "994", "אזרבייג׳ן"));
+        countries.add(new Country("bh", "973", "בחריין"));
+        countries.add(new Country("bd", "880", "בנגלדש"));
+        countries.add(new Country("by", "375", "בלארוס"));
+        countries.add(new Country("be", "32", "בלגיה"));
+        countries.add(new Country("bz", "501", "בליז"));
+        countries.add(new Country("bj", "229", "בנין"));
+        countries.add(new Country("bt", "975", "בהוטן"));
+        countries.add(new Country("bo", "591", "בוליביה"));
+        countries.add(new Country("ba", "387", "בוסניה והרצגובינה"));
+        countries.add(new Country("bw", "267", "בוטסואנה"));
+        countries.add(new Country("br", "55", "ברזיל"));
+        countries.add(new Country("bn", "673", "ברוניי"));
+        countries.add(new Country("bg", "359", "בולגריה"));
+        countries.add(new Country("bf", "226", "בורקינה פאסו"));
+        countries.add(new Country("mm", "95", "מיאנמר"));
+        countries.add(new Country("bi", "257", "בורונדי"));
+        countries.add(new Country("kh", "855", "קמבודיה"));
+        countries.add(new Country("cm", "237", "קמרון"));
+        countries.add(new Country("ca", "1", "קנדה"));
+        countries.add(new Country("cv", "238", "כף ורדה"));
+        countries.add(new Country("cf", "236", "הרפובליקה המרכז-אפריקאית"));
+        countries.add(new Country("td", "235", "צ׳אד"));
+        countries.add(new Country("cl", "56", "צ׳ילה"));
+        countries.add(new Country("cn", "86", "סין"));
+        countries.add(new Country("cx", "61", "אי חג המולד"));
+        countries.add(new Country("cc", "61", "איי קוקוס"));
+        countries.add(new Country("co", "57", "קולומביה"));
+        countries.add(new Country("km", "269", "קומורו"));
+        countries.add(new Country("cg", "242", "הרפובליקה של קונגו"));
+        countries.add(new Country("cd", "243", "הרפובליקה הדמוקרטית של קונגו"));
+        countries.add(new Country("ck", "682", "איי קוק"));
+        countries.add(new Country("cr", "506", "קוסטה ריקה"));
+        countries.add(new Country("hr", "385", "קרואטיה"));
+        countries.add(new Country("cu", "53", "קובה"));
+        countries.add(new Country("cy", "357", "קפריסין"));
+        countries.add(new Country("cz", "420", "צ׳כיה"));
+        countries.add(new Country("dk", "45", "דנמרק"));
+        countries.add(new Country("dj", "253", "ג׳יבוטי"));
+        countries.add(new Country("tl", "670", "מזרח טימור"));
+        countries.add(new Country("ec", "593", "אקוודור"));
+        countries.add(new Country("eg", "20", "מצרים"));
+        countries.add(new Country("sv", "503", "אל סלוודור"));
+        countries.add(new Country("gq", "240", "ינאה המשוונית"));
+        countries.add(new Country("er", "291", "אריתריאה"));
+        countries.add(new Country("ee", "372", "אסטוניה"));
+        countries.add(new Country("et", "251", "אתיופיה"));
+        countries.add(new Country("fk", "500", "איי פוקלנד"));
+        countries.add(new Country("fo", "298", "איי פרו"));
+        countries.add(new Country("fj", "679", "פיג׳י"));
+        countries.add(new Country("fi", "358", "פינלנד"));
+        countries.add(new Country("fr", "33", "צרפת"));
+        countries.add(new Country("pf", "689", "פולינזיה"));
+        countries.add(new Country("ga", "241", "גבון"));
+        countries.add(new Country("gm", "220", "גמביה"));
+        countries.add(new Country("ge", "995", "גאורגיה"));
+        countries.add(new Country("de", "49", "גרמניה"));
+        countries.add(new Country("gh", "233", "גאנה"));
+        countries.add(new Country("gi", "350", "גיברלטר"));
+        countries.add(new Country("gr", "30", "יון"));
+        countries.add(new Country("gl", "299", "גרינלנד"));
+        countries.add(new Country("gt", "502", "גואטמלה"));
+        countries.add(new Country("gn", "224", "גינאה"));
+        countries.add(new Country("gw", "245", "גינאה ביסאו"));
+        countries.add(new Country("gy", "592", "גיאנה"));
+        countries.add(new Country("ht", "509", "האיטי"));
+        countries.add(new Country("hn", "504", "הונדורס"));
+        countries.add(new Country("hk", "852", "הונג קונג"));
+        countries.add(new Country("hu", "36", "הונגריה"));
+        countries.add(new Country("in", "91", "הודו"));
+        countries.add(new Country("id", "62", "אינדונזיה"));
+        countries.add(new Country("ir", "98", "איראן"));
+        countries.add(new Country("iq", "964", "עיראק"));
+        countries.add(new Country("ie", "353", "אירלנד"));
+        countries.add(new Country("im", "44", "האי מאן"));
+        countries.add(new Country("il", "972", "ישראל"));
+        countries.add(new Country("it", "39", "איטליה"));
+        countries.add(new Country("ci", "225", "חוף השנהב"));
+        countries.add(new Country("jp", "81", "יפן"));
+        countries.add(new Country("jo", "962", "ירדן"));
+        countries.add(new Country("kz", "7", "קזחסטן"));
+        countries.add(new Country("ke", "254", "קניה"));
+        countries.add(new Country("ki", "686", "קיריבטי"));
+        countries.add(new Country("kw", "965", "כווית"));
+        countries.add(new Country("kg", "996", "קירגיזסטן"));
+        countries.add(new Country("la", "856", "לאוס"));
+        countries.add(new Country("lv", "371", "לטביה"));
+        countries.add(new Country("lb", "961", "לבנון"));
+        countries.add(new Country("ls", "266", "לסוטו"));
+        countries.add(new Country("lr", "231", "ליבריה"));
+        countries.add(new Country("ly", "218", "לוב"));
+        countries.add(new Country("li", "423", "ליכטנשטיין"));
+        countries.add(new Country("lt", "370", "ליטא"));
+        countries.add(new Country("lu", "352", "לוקסמבורג"));
+        countries.add(new Country("mo", "853", "מקאו"));
+        countries.add(new Country("mk", "389", "מקדוניה"));
+        countries.add(new Country("mg", "261", "מדגסקר"));
+        countries.add(new Country("mw", "265", "מלאווי"));
+        countries.add(new Country("my", "60", "מלזיה"));
+        countries.add(new Country("mv", "960", "האיים המלדיביים"));
+        countries.add(new Country("ml", "223", "מאלי"));
+        countries.add(new Country("mt", "356", "מלטה"));
+        countries.add(new Country("mh", "692", "איי מרשל       "));
+        countries.add(new Country("mr", "222", "מאוריטניה"));
+        countries.add(new Country("mu", "230", "מאוריציוס"));
+        countries.add(new Country("yt", "262", "מיוט"));
+        countries.add(new Country("mx", "52", "מקסיקו"));
+        countries.add(new Country("fm", "691", "מיקרונזיה"));
+        countries.add(new Country("md", "373", "מולדובה"));
+        countries.add(new Country("mc", "377", "מונאקו"));
+        countries.add(new Country("mn", "976", "מונגוליה"));
+        countries.add(new Country("me", "382", "מונטנגרו"));
+        countries.add(new Country("ma", "212", "מרוקו"));
+        countries.add(new Country("mz", "258", "מוזמביק"));
+        countries.add(new Country("na", "264", "נמיביה"));
+        countries.add(new Country("nr", "674", "נאורו"));
+        countries.add(new Country("np", "977", "נפאל"));
+        countries.add(new Country("nl", "31", "הולנד"));
+        countries.add(new Country("nc", "687", "קלדוניה החדשה"));
+        countries.add(new Country("nz", "64", "ניו זילנד"));
+        countries.add(new Country("ni", "505", "ניקרגואה"));
+        countries.add(new Country("ne", "227", "ניז׳ר"));
+        countries.add(new Country("ng", "234", "ניגריה"));
+        countries.add(new Country("nu", "683", "ניואה"));
+        countries.add(new Country("kp", "850", "קוריאה הצפונית"));
+        countries.add(new Country("no", "47", "נורבגיה"));
+        countries.add(new Country("om", "968", "עומאן"));
+        countries.add(new Country("pk", "92", "פקיסטן"));
+        countries.add(new Country("pw", "680", "פלאו"));
+        countries.add(new Country("pa", "507", "פנמה"));
+        countries.add(new Country("pg", "675", "פפואה גינאה החדשה"));
+        countries.add(new Country("py", "595", "פרגוואי"));
+        countries.add(new Country("pe", "51", "פרו"));
+        countries.add(new Country("ph", "63", "הפיליפינים"));
+        countries.add(new Country("pn", "870", "איי פיטקרן"));
+        countries.add(new Country("pl", "48", "פולין"));
+        countries.add(new Country("pt", "351", "פורטוגל"));
+        countries.add(new Country("pr", "1", "פוארטו ריקו"));
+        countries.add(new Country("qa", "974", "קטאר"));
+        countries.add(new Country("ro", "40", "רומניה"));
+        countries.add(new Country("ru", "7", "רוסיה"));
+        countries.add(new Country("rw", "250", "רואנדה"));
+        countries.add(new Country("bl", "590", "סנט ברתולומיאו"));
+        countries.add(new Country("ws", "685", "סמואה"));
+        countries.add(new Country("sm", "378", "סן מרינו"));
+        countries.add(new Country("st", "239", "סאו טומה ופרינסיפה"));
+        countries.add(new Country("sa", "966", "ערב הסעודית"));
+        countries.add(new Country("sn", "221", "סנגל"));
+        countries.add(new Country("rs", "381", "סרביה"));
+        countries.add(new Country("sc", "248", "סיישל"));
+        countries.add(new Country("sl", "232", "סיירה לאונה"));
+        countries.add(new Country("sg", "65", "סינגפור"));
+        countries.add(new Country("sk", "421", "סלובקיה"));
+        countries.add(new Country("si", "386", "סלובניה"));
+        countries.add(new Country("sb", "677", "איי שלמה"));
+        countries.add(new Country("so", "252", "סומליה"));
+        countries.add(new Country("za", "27", "דרום אפריקה"));
+        countries.add(new Country("kr", "82", "קוריאה הדרומית"));
+        countries.add(new Country("es", "34", "ספרד"));
+        countries.add(new Country("lk", "94", "סרי לנקה"));
+        countries.add(new Country("sh", "290", "סנט הלנה, אסנשן וטריסטן דה קונה"));
+        countries.add(new Country("pm", "508", "סנט פייר ומיקלון"));
+        countries.add(new Country("sd", "249", "סודאן"));
+        countries.add(new Country("sr", "597", "סורינאם"));
+        countries.add(new Country("sz", "268", "סווזילנד"));
+        countries.add(new Country("se", "46", "שבדיה"));
+        countries.add(new Country("ch", "41", "שווייץ"));
+        countries.add(new Country("sy", "963", "סוריה"));
+        countries.add(new Country("tw", "886", "טייוואן"));
+        countries.add(new Country("tj", "992", "טג׳יקיסטן"));
+        countries.add(new Country("tz", "255", "טנזניה"));
+        countries.add(new Country("th", "66", "תאילנד"));
+        countries.add(new Country("tg", "228", "טוגו"));
+        countries.add(new Country("tk", "690", "טוקלאו"));
+        countries.add(new Country("to", "676", "טונגה"));
+        countries.add(new Country("tn", "216", "תוניסיה"));
+        countries.add(new Country("tr", "90", "טורקיה"));
+        countries.add(new Country("tm", "993", "טורקמניסטן"));
+        countries.add(new Country("tv", "688", "טובאלו"));
+        countries.add(new Country("ae", "971", "איחוד האמירויות הערביות"));
+        countries.add(new Country("ug", "256", "אוגנדה"));
+        countries.add(new Country("gb", "44", "הממלכה המאוחדת"));
+        countries.add(new Country("ua", "380", "אוקראינה"));
+        countries.add(new Country("uy", "598", "אורוגוואי"));
+        countries.add(new Country("us", "1", "ארצות הברית"));
+        countries.add(new Country("uz", "998", "אוזבקיסטן"));
+        countries.add(new Country("vu", "678", "ונואטו"));
+        countries.add(new Country("va", "39", "עיר הותיקן"));
+        countries.add(new Country("ve", "58", "ונצואלה"));
+        countries.add(new Country("vn", "84", "וייטנאם"));
+        countries.add(new Country("wf", "681", "ואליס ופוטונה"));
+        countries.add(new Country("ye", "967", "תימן"));
+        countries.add(new Country("zm", "260", "זמביה"));
+        countries.add(new Country("zw", "263", "זימבבואה"));
         return countries;
     }
 

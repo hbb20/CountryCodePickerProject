@@ -22,10 +22,13 @@
             <enum name="PORTUGUESE" value="11"/>
             <enum name="RUSSIAN" value="12"/>
             <enum name="SPANISH" value="13"/>
+            <enum name="HEBREW" value="14" />
         </attr>
         <attr name="keyboardAutoPopOnSearch" format="boolean"/>
         <attr name="customMasterCountries" format="string" />
         <attr name="showFlag" format="boolean" />
         <attr name="showFullName" format="boolean" />
+        <attr name="selectionDialogShowSearch" format="boolean" />
+        <attr name="ccpClickable" format="boolean" />
     </declare-styleable>
 </resources>

@@ -38,7 +38,8 @@ public class CountryCodePicker extends RelativeLayout {
     final static int LANGUAGE_PORTUGUESE = 11;
     final static int LANGUAGE_RUSSIAN = 12;
     final static int LANGUAGE_SPANISH = 13;
-    final static int LANGUAGE_TRADITIONAL_CHINESE = 14;
+    final static int LANGUAGE_HEBREW = 14;
+  final static int LANGUAGE_TRADITIONAL_CHINESE = 15;
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
@@ -55,11 +56,13 @@ public class CountryCodePicker extends RelativeLayout {
     LinearLayout linearFlagHolder;
     Country selectedCountry;
     Country defaultCountry;
+    RelativeLayout relativeClickConsumer;
     CountryCodePicker codePicker;
     boolean hideNameCode = false;
     boolean showFlag = true;
     boolean showFullName = false;
     boolean useFullName = false;
+    boolean selectionDialogShowSearch = true;
     int contentColor;
     List<Country> preferredCountries;
     //this will be "AU,IN,US"
@@ -69,10 +72,13 @@ public class CountryCodePicker extends RelativeLayout {
     String customMasterCountries;
     Language customLanguage = Language.ENGLISH;
     boolean keyboardAutoPopOnSearch = true;
+    boolean ccpClickable = true;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            CountryCodeDialog.openCountryCodeDialog(codePicker);
+            if (isCcpClickable()) {
+                CountryCodeDialog.openCountryCodeDialog(codePicker);
+            }
         }
     };
 
@@ -105,9 +111,10 @@ public class CountryCodePicker extends RelativeLayout {
         imageViewArrow = (ImageView) holderView.findViewById(R.id.imageView_arrow);
         imageViewFlag = (ImageView) holderView.findViewById(R.id.image_flag);
         linearFlagHolder = (LinearLayout) holderView.findViewById(R.id.linear_flag_holder);
+        relativeClickConsumer = (RelativeLayout) holderView.findViewById(R.id.rlClickConsumer);
         codePicker = this;
         applyCustomProperty(attrs);
-        holder.setOnClickListener(countryCodeHolderClickListener);
+        relativeClickConsumer.setOnClickListener(countryCodeHolderClickListener);
     }
 
     private void applyCustomProperty(AttributeSet attrs) {
@@ -197,6 +204,9 @@ public class CountryCodePicker extends RelativeLayout {
             if (arrowSize > 0) {
                 setArrowSize(arrowSize);
             }
+
+            selectionDialogShowSearch = a.getBoolean(R.styleable.CountryCodePicker_selectionDialogShowSearch, true);
+            setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccpClickable, true));
 
         } catch (Exception e) {
             textView_selectedCountry.setText(e.getMessage());
@@ -470,6 +480,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return Language.RUSSIAN;
             case LANGUAGE_SPANISH:
                 return Language.SPANISH;
+            case LANGUAGE_HEBREW:
+                return Language.HEBREW;
             default:
                 return Language.ENGLISH;
         }
@@ -505,6 +517,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return "Выберите страну";
             case SPANISH:
                 return "Seleccionar país";
+            case HEBREW:
+                return "בחר מדינה";
             default:
                 return "Select country";
         }
@@ -540,15 +554,13 @@ public class CountryCodePicker extends RelativeLayout {
                 return "поиск ...";
             case SPANISH:
                 return "buscar ...";
+            case HEBREW:
+                return "בחר...";
+
             default:
                 return "Search...";
         }
     }
-
-
-    /**
-     * Publicly available functions from library
-     */
 
     /**
      * Related to default country
@@ -584,10 +596,17 @@ public class CountryCodePicker extends RelativeLayout {
                 return "результат не найден";
             case SPANISH:
                 return "como resultado que no se encuentra";
+            case HEBREW:
+                return "לא נמצאו תוצאות";
             default:
                 return "No result found";
         }
     }
+
+    /**
+     * Publicly available functions from library
+     */
+
 
     /**
      * This method is not encouraged because this might set some other country which have same country code as of yours. e.g 1 is common for US and canada.
@@ -603,6 +622,7 @@ public class CountryCodePicker extends RelativeLayout {
      *                           if you want to set IN +91(India) as default country, defaultCountryCode =  91
      *                           if you want to set JP +81(Japan) as default country, defaultCountryCode =  81
      */
+    @Deprecated
     public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
         Country defaultCountry = Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
@@ -992,6 +1012,45 @@ public class CountryCodePicker extends RelativeLayout {
         setSelectedCountry(selectedCountry);
     }
 
+    /**
+     * SelectionDialogSearch is the facility to search through the list of country while selecting.
+     *
+     * @return true if search is set allowed
+     */
+    public boolean isSelectionDialogShowSearch() {
+        return selectionDialogShowSearch;
+    }
+
+    /**
+     * SelectionDialogSearch is the facility to search through the list of country while selecting.
+     *
+     * @param selectionDialogShowSearch true will allow search and false will hide search box
+     */
+    public void setSelectionDialogShowSearch(boolean selectionDialogShowSearch) {
+        this.selectionDialogShowSearch = selectionDialogShowSearch;
+    }
+
+    public boolean isCcpClickable() {
+        return ccpClickable;
+    }
+
+    /**
+     * Allow click and open dialog
+     *
+     * @param ccpClickable
+     */
+    public void setCcpClickable(boolean ccpClickable) {
+        this.ccpClickable = ccpClickable;
+        if (!ccpClickable) {
+            relativeClickConsumer.setOnClickListener(null);
+            relativeClickConsumer.setClickable(false);
+            relativeClickConsumer.setEnabled(false);
+        } else {
+            relativeClickConsumer.setOnClickListener(countryCodeHolderClickListener);
+            relativeClickConsumer.setClickable(true);
+            relativeClickConsumer.setEnabled(true);
+        }
+    }
 
     /**
      * Update every time new language is supported #languageSupport
@@ -1001,7 +1060,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, SIMPLIFY_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH
+        ARABIC, BENGALI, SIMPLIFY_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
     }
 
     /*

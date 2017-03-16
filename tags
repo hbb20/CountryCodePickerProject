@@ -1,0 +1,420 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+4NT_args	gradlew.bat	/^:4NT_args$/;"	l
+APP_BASE_NAME	gradlew.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_HOME	gradlew.bat	/^set APP_HOME=%DIRNAME%$/;"	v
+ARABIC	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+ApplicationTest	app/src/androidTest/java/in/hbb20/countrycodepickerproject/ApplicationTest.java	/^    public ApplicationTest() {$/;"	m	class:ApplicationTest
+ApplicationTest	app/src/androidTest/java/in/hbb20/countrycodepickerproject/ApplicationTest.java	/^public class ApplicationTest extends ApplicationTestCase<Application> {$/;"	c
+ApplicationTest	ccp/src/androidTest/java/com/hbb20/countrycodepickerlib/ApplicationTest.java	/^    public ApplicationTest() {$/;"	m	class:ApplicationTest
+ApplicationTest	ccp/src/androidTest/java/com/hbb20/countrycodepickerlib/ApplicationTest.java	/^public class ApplicationTest extends ApplicationTestCase<Application> {$/;"	c
+BENGALI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+BUNDLE_SELECTED_CODE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    static String BUNDLE_SELECTED_CODE = "selectedCode";$/;"	f	class:CountryCodePicker
+CHINESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+CLASSPATH	gradlew.bat	/^set CLASSPATH=%APP_HOME%\\gradle\\wrapper\\gradle-wrapper.jar$/;"	v
+CMD_LINE_ARGS	gradlew.bat	/^set CMD_LINE_ARGS=$/;"	v
+CMD_LINE_ARGS	gradlew.bat	/^set CMD_LINE_ARGS=%*$/;"	v
+CMD_LINE_ARGS	gradlew.bat	/^set CMD_LINE_ARGS=%\$$/;"	v
+Country	ccp/src/main/java/com/hbb20/Country.java	/^    public Country() {$/;"	m	class:Country
+Country	ccp/src/main/java/com/hbb20/Country.java	/^    public Country(String nameCode, String phoneCode, String name) {$/;"	m	class:Country
+Country	ccp/src/main/java/com/hbb20/Country.java	/^class Country {$/;"	c
+CountryCodeAdapter	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    CountryCodeAdapter(Context context, List<Country> countries, CountryCodePicker codePicker, final EditText editText_search, TextView textView_noResult, Dialog dialog) {$/;"	m	class:CountryCodeAdapter
+CountryCodeAdapter	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.CountryCodeViewHolder> {$/;"	c
+CountryCodeDialog	ccp/src/main/java/com/hbb20/CountryCodeDialog.java	/^class CountryCodeDialog {$/;"	c
+CountryCodePicker	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public CountryCodePicker(Context context) {$/;"	m	class:CountryCodePicker
+CountryCodePicker	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public CountryCodePicker(Context context, AttributeSet attrs) {$/;"	m	class:CountryCodePicker
+CountryCodePicker	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public CountryCodePicker(Context context, AttributeSet attrs, int defStyleAttr) {$/;"	m	class:CountryCodePicker
+CountryCodePicker	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^public class CountryCodePicker extends RelativeLayout {$/;"	c
+CountryCodeViewHolder	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        public CountryCodeViewHolder(View itemView) {$/;"	m	class:CountryCodeAdapter.CountryCodeViewHolder
+CountryCodeViewHolder	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    class CountryCodeViewHolder extends RecyclerView.ViewHolder {$/;"	c	class:CountryCodeAdapter
+CountryPreferenceFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    public CountryPreferenceFragment() {$/;"	m	class:CountryPreferenceFragment
+CountryPreferenceFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^public class CountryPreferenceFragment extends Fragment {$/;"	c
+CustomColorFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    public CustomColorFragment() {$/;"	m	class:CustomColorFragment
+CustomColorFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^public class CustomColorFragment extends Fragment {$/;"	c
+CustomFontFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    public CustomFontFragment() {$/;"	m	class:CustomFontFragment
+CustomFontFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^public class CustomFontFragment extends Fragment {$/;"	c
+CustomMasterFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    public CustomMasterFragment() {$/;"	m	class:CustomMasterFragment
+CustomMasterFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^public class CustomMasterFragment extends Fragment {$/;"	c
+CustomSizeFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CustomSizeFragment.java	/^    public CustomSizeFragment() {$/;"	m	class:CustomSizeFragment
+CustomSizeFragment	app/src/main/java/in/hbb20/countrycodepickerproject/CustomSizeFragment.java	/^public class CustomSizeFragment extends Fragment {$/;"	c
+DEFAULT_JVM_OPTS	gradlew.bat	/^set DEFAULT_JVM_OPTS=$/;"	v
+DIRNAME	gradlew.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
+DIRNAME	gradlew.bat	/^set DIRNAME=%~dp0$/;"	v
+DefaultCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    public DefaultCountryFragment() {$/;"	m	class:DefaultCountryFragment
+DefaultCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^public class DefaultCountryFragment extends Fragment {$/;"	c
+ENGLISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+EXTRA_INIT_TAB	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    public static final String EXTRA_INIT_TAB = "extraInitTab";$/;"	f	class:ExampleActivity
+ExampleActivity	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^public class ExampleActivity extends AppCompatActivity {$/;"	c
+ExampleUnitTest	app/src/test/java/in/hbb20/countrycodepickerproject/ExampleUnitTest.java	/^public class ExampleUnitTest {$/;"	c
+ExampleUnitTest	ccp/src/test/java/com/hbb20/countrycodepickerlib/ExampleUnitTest.java	/^public class ExampleUnitTest {$/;"	c
+FRENCH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+FullNumberFragment	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    public FullNumberFragment() {$/;"	m	class:FullNumberFragment
+FullNumberFragment	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^public class FullNumberFragment extends Fragment {$/;"	c
+GERMAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+GUJARATI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+GetCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    public GetCountryFragment() {$/;"	m	class:GetCountryFragment
+GetCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^public class GetCountryFragment extends Fragment {$/;"	c
+HINDI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+HomeActivity	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^public class HomeActivity extends AppCompatActivity {$/;"	c
+IntroductionFragment	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^    public IntroductionFragment() {$/;"	m	class:IntroductionFragment
+IntroductionFragment	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^public class IntroductionFragment extends Fragment {$/;"	c
+JAPANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+JAVANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+JAVA_EXE	gradlew.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	gradlew.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_HOME	gradlew.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+LANGUAGE_ARABIC	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_ARABIC = 1;$/;"	f	class:CountryCodePicker
+LANGUAGE_BENGALI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_BENGALI = 2;$/;"	f	class:CountryCodePicker
+LANGUAGE_CHINESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_CHINESE = 3;$/;"	f	class:CountryCodePicker
+LANGUAGE_ENGLISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_ENGLISH = 4;$/;"	f	class:CountryCodePicker
+LANGUAGE_FRENCH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_FRENCH = 5;$/;"	f	class:CountryCodePicker
+LANGUAGE_GERMAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_GERMAN = 6;$/;"	f	class:CountryCodePicker
+LANGUAGE_GUJARATI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_GUJARATI = 7;$/;"	f	class:CountryCodePicker
+LANGUAGE_HINDI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_HINDI = 8;$/;"	f	class:CountryCodePicker
+LANGUAGE_JAPANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_JAPANESE = 9;$/;"	f	class:CountryCodePicker
+LANGUAGE_JAVANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_JAVANESE = 10;$/;"	f	class:CountryCodePicker
+LANGUAGE_PORTUGUESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_PORTUGUESE = 11;$/;"	f	class:CountryCodePicker
+LANGUAGE_RUSSIAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_RUSSIAN = 12;$/;"	f	class:CountryCodePicker
+LANGUAGE_SPANISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_SPANISH = 13;$/;"	f	class:CountryCodePicker
+LIB_DEFAULT_COUNTRY_CODE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    static int LIB_DEFAULT_COUNTRY_CODE = 91;$/;"	f	class:CountryCodePicker
+Language	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public enum Language {$/;"	g	class:CountryCodePicker
+LanguageSupportFragment	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    public LanguageSupportFragment() {$/;"	m	class:LanguageSupportFragment
+LanguageSupportFragment	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^public class LanguageSupportFragment extends Fragment {$/;"	c
+OnCountryChangeListener	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public interface OnCountryChangeListener {$/;"	i	class:CountryCodePicker
+PORTUGUESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+PagerAdapter	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^        public PagerAdapter(FragmentManager fm) {$/;"	m	class:ExampleActivity.PagerAdapter
+PagerAdapter	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    class PagerAdapter extends FragmentPagerAdapter{$/;"	c	class:ExampleActivity
+RUSSIAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+SPANISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+SetCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    public SetCountryFragment() {$/;"	m	class:SetCountryFragment
+SetCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^public class SetCountryFragment extends Fragment {$/;"	c
+TAG	ccp/src/main/java/com/hbb20/Country.java	/^    static String TAG = "Class Country";$/;"	f	class:Country
+TAG	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    static String TAG = "CCP";$/;"	f	class:CountryCodePicker
+_SKIP	gradlew.bat	/^set _SKIP=2$/;"	v
+addClickListeners	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    private void addClickListeners() {$/;"	m	class:CountryPreferenceFragment	file:
+addClickListeners	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    private void addClickListeners() {$/;"	m	class:CustomMasterFragment	file:
+addClickListeners	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    private void addClickListeners() {$/;"	m	class:DefaultCountryFragment	file:
+addClickListeners	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    private void addClickListeners() {$/;"	m	class:SetCountryFragment	file:
+addTextWatcher	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    private void addTextWatcher() {$/;"	m	class:FullNumberFragment	file:
+addition_isCorrect	app/src/test/java/in/hbb20/countrycodepickerproject/ExampleUnitTest.java	/^    public void addition_isCorrect() throws Exception {$/;"	m	class:ExampleUnitTest
+addition_isCorrect	ccp/src/test/java/com/hbb20/countrycodepickerlib/ExampleUnitTest.java	/^    public void addition_isCorrect() throws Exception {$/;"	m	class:ExampleUnitTest
+applyCustomFonts	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private void applyCustomFonts() {$/;"	m	class:CustomFontFragment	file:
+applyCustomProperty	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void applyCustomProperty(AttributeSet attrs) {$/;"	m	class:CountryCodePicker	file:
+applyQuery	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    private void applyQuery(String query) {$/;"	m	class:CountryCodeAdapter	file:
+assignView	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    private void assignView() {$/;"	m	class:FullNumberFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    private void assignViews() {$/;"	m	class:CountryPreferenceFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    private void assignViews() {$/;"	m	class:CustomColorFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private void assignViews() {$/;"	m	class:CustomFontFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    private void assignViews() {$/;"	m	class:CustomMasterFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    private void assignViews() {$/;"	m	class:DefaultCountryFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    private void assignViews() {$/;"	m	class:ExampleActivity	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    private void assignViews() {$/;"	m	class:GetCountryFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    private void assignViews() {$/;"	m	class:HomeActivity	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^    private void assignViews() {$/;"	m	class:IntroductionFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    private void assignViews() {$/;"	m	class:LanguageSupportFragment	file:
+assignViews	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    private void assignViews() {$/;"	m	class:SetCountryFragment	file:
+buttonGetNumber	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    Button buttonLoadNumber,buttonGetNumber,buttonGetNumberWithPlus;$/;"	f	class:FullNumberFragment
+buttonGetNumberWithPlus	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    Button buttonLoadNumber,buttonGetNumber,buttonGetNumberWithPlus;$/;"	f	class:FullNumberFragment
+buttonGo	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^    Button buttonGo;$/;"	f	class:IntroductionFragment
+buttonLoadNumber	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    Button buttonLoadNumber,buttonGetNumber,buttonGetNumberWithPlus;$/;"	f	class:FullNumberFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    Button buttonNext;$/;"	f	class:CountryPreferenceFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    Button buttonNext;$/;"	f	class:CustomColorFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    Button buttonNext;$/;"	f	class:CustomFontFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    Button buttonNext;$/;"	f	class:CustomMasterFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/CustomSizeFragment.java	/^    Button buttonNext;$/;"	f	class:CustomSizeFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    Button buttonNext;$/;"	f	class:DefaultCountryFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    Button buttonNext;$/;"	f	class:FullNumberFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    Button buttonNext;$/;"	f	class:GetCountryFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    Button buttonNext;$/;"	f	class:LanguageSupportFragment
+buttonNext	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    Button buttonNext;$/;"	f	class:SetCountryFragment
+buttonReadCountry	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    Button buttonReadCountry;$/;"	f	class:GetCountryFragment
+buttonResetToDefault	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    Button buttonSetNewDefaultPhoneCode, buttonSetNewDefaultNameCode, buttonResetToDefault;$/;"	f	class:DefaultCountryFragment
+buttonSetCode	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    Button buttonSetCode,buttonSetNameCode;$/;"	f	class:SetCountryFragment
+buttonSetCountryPreference	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    Button buttonSetCountryPreference;$/;"	f	class:CountryPreferenceFragment
+buttonSetCustomMaster	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    Button buttonSetCustomMaster;$/;"	f	class:CustomMasterFragment
+buttonSetNameCode	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    Button buttonSetCode,buttonSetNameCode;$/;"	f	class:SetCountryFragment
+buttonSetNewDefaultNameCode	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    Button buttonSetNewDefaultPhoneCode, buttonSetNewDefaultNameCode, buttonResetToDefault;$/;"	f	class:DefaultCountryFragment
+buttonSetNewDefaultPhoneCode	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    Button buttonSetNewDefaultPhoneCode, buttonSetNewDefaultNameCode, buttonResetToDefault;$/;"	f	class:DefaultCountryFragment
+ccp	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    CountryCodePicker ccp;$/;"	f	class:CountryPreferenceFragment
+ccp	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    CountryCodePicker ccp;$/;"	f	class:CustomColorFragment
+ccp	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    CountryCodePicker ccp;$/;"	f	class:CustomMasterFragment
+ccp	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    CountryCodePicker ccp;$/;"	f	class:DefaultCountryFragment
+ccp	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    CountryCodePicker ccp;$/;"	f	class:GetCountryFragment
+ccp	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    CountryCodePicker ccp;$/;"	f	class:LanguageSupportFragment
+ccp	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    CountryCodePicker ccp;$/;"	f	class:SetCountryFragment
+ccp1	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private CountryCodePicker ccp6,ccp5,ccp4,ccp3,ccp2,ccp1;$/;"	f	class:CustomFontFragment	file:
+ccp2	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private CountryCodePicker ccp6,ccp5,ccp4,ccp3,ccp2,ccp1;$/;"	f	class:CustomFontFragment	file:
+ccp3	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private CountryCodePicker ccp6,ccp5,ccp4,ccp3,ccp2,ccp1;$/;"	f	class:CustomFontFragment	file:
+ccp4	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private CountryCodePicker ccp6,ccp5,ccp4,ccp3,ccp2,ccp1;$/;"	f	class:CustomFontFragment	file:
+ccp5	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private CountryCodePicker ccp6,ccp5,ccp4,ccp3,ccp2,ccp1;$/;"	f	class:CustomFontFragment	file:
+ccp6	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private CountryCodePicker ccp6,ccp5,ccp4,ccp3,ccp2,ccp1;$/;"	f	class:CustomFontFragment	file:
+ccpGetNumber	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    CountryCodePicker ccpLoadNumber,ccpGetNumber;$/;"	f	class:FullNumberFragment
+ccpLoadNumber	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    CountryCodePicker ccpLoadNumber,ccpGetNumber;$/;"	f	class:FullNumberFragment
+changeLanguage	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void changeLanguage(Language language) {$/;"	m	class:CountryCodePicker
+codePicker	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    CountryCodePicker codePicker;$/;"	f	class:CountryCodeAdapter
+codePicker	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    CountryCodePicker codePicker;$/;"	f	class:CountryCodePicker
+com.hbb20	ccp/src/main/java/com/hbb20/Country.java	/^package com.hbb20;$/;"	p
+com.hbb20	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^package com.hbb20;$/;"	p
+com.hbb20	ccp/src/main/java/com/hbb20/CountryCodeDialog.java	/^package com.hbb20;$/;"	p
+com.hbb20	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^package com.hbb20;$/;"	p
+com.hbb20.countrycodepickerlib	ccp/src/androidTest/java/com/hbb20/countrycodepickerlib/ApplicationTest.java	/^package com.hbb20.countrycodepickerlib;$/;"	p
+com.hbb20.countrycodepickerlib	ccp/src/test/java/com/hbb20/countrycodepickerlib/ExampleUnitTest.java	/^package com.hbb20.countrycodepickerlib;$/;"	p
+contentColor	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    int contentColor;$/;"	f	class:CountryCodePicker
+context	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    Context context;$/;"	f	class:CountryCodeAdapter
+context	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    Context context;$/;"	f	class:CountryCodePicker
+countryCodeHolderClickListener	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {$/;"	f	class:CountryCodePicker
+countryPreference	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String countryPreference;$/;"	f	class:CountryCodePicker
+customLanguage	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    Language customLanguage = Language.ENGLISH;$/;"	f	class:CountryCodePicker
+customMasterCountries	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String customMasterCountries;$/;"	f	class:CountryCodePicker
+customMasterCountriesList	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    List<Country> customMasterCountriesList;$/;"	f	class:CountryCodePicker
+defaultCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    Country defaultCountry;$/;"	f	class:CountryCodePicker
+defaultCountryCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    int defaultCountryCode;$/;"	f	class:CountryCodePicker
+defaultCountryNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String defaultCountryNameCode;$/;"	f	class:CountryCodePicker
+detectCarrierNumber	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private String detectCarrierNumber(String fullNumber, Country country) {$/;"	m	class:CountryCodePicker	file:
+dialog	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    Dialog dialog;$/;"	f	class:CountryCodeAdapter
+die	gradlew	/^die ( ) {$/;"	f
+divider	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        View divider;$/;"	f	class:CountryCodeAdapter.CountryCodeViewHolder
+editTextCode	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    EditText editTextCode,editTextNameCode;$/;"	f	class:SetCountryFragment
+editTextCountryCustomMaster	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    EditText editTextCountryCustomMaster;$/;"	f	class:CustomMasterFragment
+editTextCountryPreference	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    EditText editTextCountryPreference;$/;"	f	class:CountryPreferenceFragment
+editTextDefaultNameCode	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    EditText editTextDefaultPhoneCode, editTextDefaultNameCode;$/;"	f	class:DefaultCountryFragment
+editTextDefaultPhoneCode	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    EditText editTextDefaultPhoneCode, editTextDefaultNameCode;$/;"	f	class:DefaultCountryFragment
+editTextGetCarrierNumber	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    EditText editTextLoadFullNumber,editTextLoadCarrierNumber,editTextGetFullNumber,editTextGetCarrierNumber;$/;"	f	class:FullNumberFragment
+editTextGetFullNumber	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    EditText editTextLoadFullNumber,editTextLoadCarrierNumber,editTextGetFullNumber,editTextGetCarrierNumber;$/;"	f	class:FullNumberFragment
+editTextLoadCarrierNumber	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    EditText editTextLoadFullNumber,editTextLoadCarrierNumber,editTextGetFullNumber,editTextGetCarrierNumber;$/;"	f	class:FullNumberFragment
+editTextLoadFullNumber	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    EditText editTextLoadFullNumber,editTextLoadCarrierNumber,editTextGetFullNumber,editTextGetCarrierNumber;$/;"	f	class:FullNumberFragment
+editTextNameCode	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    EditText editTextCode,editTextNameCode;$/;"	f	class:SetCountryFragment
+editTextPhone	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    EditText editTextPhone;$/;"	f	class:CustomColorFragment
+editTextWatcher	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    private void editTextWatcher() {$/;"	m	class:CountryPreferenceFragment	file:
+editTextWatcher	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    private void editTextWatcher() {$/;"	m	class:CustomMasterFragment	file:
+editTextWatcher	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    private void editTextWatcher() {$/;"	m	class:DefaultCountryFragment	file:
+editTextWatcher	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    private void editTextWatcher() {$/;"	m	class:SetCountryFragment	file:
+editText_registeredCarrierNumber	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    EditText editText_registeredCarrierNumber;$/;"	f	class:CountryCodePicker
+editText_search	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    EditText editText_search;$/;"	f	class:CountryCodeAdapter
+end	gradlew.bat	/^:end$/;"	l
+execute	gradlew.bat	/^:execute$/;"	l
+fail	gradlew.bat	/^:fail$/;"	l
+filteredCountries	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    List<Country> filteredCountries = null, masterCountries = null;$/;"	f	class:CountryCodeAdapter
+findJavaFromJavaHome	gradlew.bat	/^:findJavaFromJavaHome$/;"	l
+getContentColor	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public int getContentColor() {$/;"	m	class:CountryCodePicker
+getCount	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^        public int getCount() {$/;"	m	class:ExampleActivity.PagerAdapter
+getCountryCodeHolderClickListener	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private OnClickListener getCountryCodeHolderClickListener() {$/;"	m	class:CountryCodePicker	file:
+getCountryForCode	ccp/src/main/java/com/hbb20/Country.java	/^    private static Country getCountryForCode(CountryCodePicker.Language language, List<Country> preferredCountries, String code) {$/;"	m	class:Country	file:
+getCountryForCode	ccp/src/main/java/com/hbb20/Country.java	/^    static Country getCountryForCode(CountryCodePicker.Language language, List<Country> preferredCountries, int code) {$/;"	m	class:Country
+getCountryForNameCodeFromCustomMasterList	ccp/src/main/java/com/hbb20/Country.java	/^    public static Country getCountryForNameCodeFromCustomMasterList(List<Country> customMasterCountriesList, CountryCodePicker.Language language, String nameCode) {$/;"	m	class:Country
+getCountryForNameCodeFromLibraryMasterList	ccp/src/main/java/com/hbb20/Country.java	/^    public static Country getCountryForNameCodeFromLibraryMasterList(CountryCodePicker.Language language, String nameCode) {$/;"	m	class:Country
+getCountryForNameCodeTrial	ccp/src/main/java/com/hbb20/Country.java	/^    public static Country getCountryForNameCodeTrial(String nameCode, Context context) {$/;"	m	class:Country
+getCountryForNumber	ccp/src/main/java/com/hbb20/Country.java	/^    static Country getCountryForNumber(CountryCodePicker.Language language, List<Country> preferredCountries, String fullNumber) {$/;"	m	class:Country
+getCustomLanguage	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    Language getCustomLanguage() {$/;"	m	class:CountryCodePicker
+getCustomMasterCountries	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String getCustomMasterCountries() {$/;"	m	class:CountryCodePicker
+getCustomMasterCountriesList	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    List<Country> getCustomMasterCountriesList() {$/;"	m	class:CountryCodePicker
+getCustomMasterCountryList	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getCustomMasterCountryList(CountryCodePicker codePicker) {$/;"	m	class:Country
+getDefaultCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private Country getDefaultCountry() {$/;"	m	class:CountryCodePicker	file:
+getDefaultCountryCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getDefaultCountryCode() {$/;"	m	class:CountryCodePicker
+getDefaultCountryCodeAsInt	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public int getDefaultCountryCodeAsInt() {$/;"	m	class:CountryCodePicker
+getDefaultCountryCodeWithPlus	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getDefaultCountryCodeWithPlus() {$/;"	m	class:CountryCodePicker
+getDefaultCountryName	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getDefaultCountryName() {$/;"	m	class:CountryCodePicker
+getDefaultCountryNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getDefaultCountryNameCode() {$/;"	m	class:CountryCodePicker
+getDialogTitle	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String getDialogTitle() {$/;"	m	class:CountryCodePicker
+getEditText_registeredCarrierNumber	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    EditText getEditText_registeredCarrierNumber() {$/;"	m	class:CountryCodePicker
+getFilteredCountries	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    private List<Country> getFilteredCountries(String query) {$/;"	m	class:CountryCodeAdapter	file:
+getFlagID	ccp/src/main/java/com/hbb20/Country.java	/^    public int getFlagID() {$/;"	m	class:Country
+getFlagResID	ccp/src/main/java/com/hbb20/Country.java	/^    static int getFlagResID(Country country) {$/;"	m	class:Country
+getFullNumber	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getFullNumber() {$/;"	m	class:CountryCodePicker
+getFullNumberWithPlus	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getFullNumberWithPlus() {$/;"	m	class:CountryCodePicker
+getHolder	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private RelativeLayout getHolder() {$/;"	m	class:CountryCodePicker	file:
+getHolderView	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private View getHolderView() {$/;"	m	class:CountryCodePicker	file:
+getItem	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^        public Fragment getItem(int position) {$/;"	m	class:ExampleActivity.PagerAdapter
+getItemCount	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    public int getItemCount() {$/;"	m	class:CountryCodeAdapter
+getLanguageEnum	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private Language getLanguageEnum(int language) {$/;"	m	class:CountryCodePicker	file:
+getLibraryMasterCountriesArabic	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesArabic() {$/;"	m	class:Country
+getLibraryMasterCountriesBengali	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesBengali() {$/;"	m	class:Country
+getLibraryMasterCountriesChinese	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesChinese() {$/;"	m	class:Country
+getLibraryMasterCountriesEnglish	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesEnglish() {$/;"	m	class:Country
+getLibraryMasterCountriesFrench	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesFrench() {$/;"	m	class:Country
+getLibraryMasterCountriesGerman	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesGerman() {$/;"	m	class:Country
+getLibraryMasterCountriesGujarati	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesGujarati() {$/;"	m	class:Country
+getLibraryMasterCountriesHindi	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesHindi() {$/;"	m	class:Country
+getLibraryMasterCountriesJapanese	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesJapanese() {$/;"	m	class:Country
+getLibraryMasterCountriesJavanese	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesJavanese() {$/;"	m	class:Country
+getLibraryMasterCountriesPortuguese	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesPortuguese() {$/;"	m	class:Country
+getLibraryMasterCountriesRussian	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesRussian() {$/;"	m	class:Country
+getLibraryMasterCountriesSpanish	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesSpanish() {$/;"	m	class:Country
+getLibraryMasterCountryList	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountryList(CountryCodePicker.Language language) {$/;"	m	class:Country
+getMainView	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        public RelativeLayout getMainView() {$/;"	m	class:CountryCodeAdapter.CountryCodeViewHolder
+getName	ccp/src/main/java/com/hbb20/Country.java	/^    public String getName() {$/;"	m	class:Country
+getNameCode	ccp/src/main/java/com/hbb20/Country.java	/^    public String getNameCode() {$/;"	m	class:Country
+getNoResultFoundText	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String getNoResultFoundText() {$/;"	m	class:CountryCodePicker
+getPhoneCode	ccp/src/main/java/com/hbb20/Country.java	/^    public String getPhoneCode() {$/;"	m	class:Country
+getSearchHintText	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String getSearchHintText() {$/;"	m	class:CountryCodePicker
+getSelectedCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private Country getSelectedCountry() {$/;"	m	class:CountryCodePicker	file:
+getSelectedCountryCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getSelectedCountryCode() {$/;"	m	class:CountryCodePicker
+getSelectedCountryCodeAsInt	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public int getSelectedCountryCodeAsInt() {$/;"	m	class:CountryCodePicker
+getSelectedCountryCodeWithPlus	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getSelectedCountryCodeWithPlus() {$/;"	m	class:CountryCodePicker
+getSelectedCountryName	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getSelectedCountryName() {$/;"	m	class:CountryCodePicker
+getSelectedCountryNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public String getSelectedCountryNameCode() {$/;"	m	class:CountryCodePicker
+getTextView_selectedCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private TextView getTextView_selectedCountry() {$/;"	m	class:CountryCodePicker	file:
+getmInflater	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private LayoutInflater getmInflater() {$/;"	m	class:CountryCodePicker	file:
+hideNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    boolean hideNameCode = false;$/;"	f	class:CountryCodePicker
+hideNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void hideNameCode(boolean hideNameCode) {$/;"	m	class:CountryCodePicker
+holder	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    RelativeLayout holder;$/;"	f	class:CountryCodePicker
+holderView	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    View holderView;$/;"	f	class:CountryCodePicker
+imageViewArrow	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    ImageView imageViewArrow;$/;"	f	class:CountryCodePicker
+imageViewFlag	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        ImageView imageViewFlag;$/;"	f	class:CountryCodeAdapter.CountryCodeViewHolder
+imageViewFlag	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    ImageView imageViewFlag;$/;"	f	class:CountryCodePicker
+in.hbb20.countrycodepickerproject	app/src/androidTest/java/in/hbb20/countrycodepickerproject/ApplicationTest.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/CustomSizeFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+in.hbb20.countrycodepickerproject	app/src/test/java/in/hbb20/countrycodepickerproject/ExampleUnitTest.java	/^package in.hbb20.countrycodepickerproject;$/;"	p
+inflater	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    LayoutInflater inflater;$/;"	f	class:CountryCodeAdapter
+init	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    int init = 0;$/;"	f	class:ExampleActivity
+init	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void init(AttributeSet attrs) {$/;"	m	class:CountryCodePicker	file:
+init	gradlew.bat	/^:init$/;"	l
+initLoaded	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    boolean initLoaded = false;$/;"	f	class:ExampleActivity
+isAlreadyInList	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private boolean isAlreadyInList(Country country, List<Country> countryList) {$/;"	m	class:CountryCodePicker	file:
+isEligibleForQuery	ccp/src/main/java/com/hbb20/Country.java	/^    public boolean isEligibleForQuery(String query) {$/;"	m	class:Country
+isKeyboardAutoPopOnSearch	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    boolean isKeyboardAutoPopOnSearch() {$/;"	m	class:CountryCodePicker
+keyboardAutoPopOnSearch	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    boolean keyboardAutoPopOnSearch = true;$/;"	f	class:CountryCodePicker
+linearFlagHolder	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        LinearLayout linearFlagHolder;$/;"	f	class:CountryCodeAdapter.CountryCodeViewHolder
+linearFlagHolder	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    LinearLayout linearFlagHolder;$/;"	f	class:CountryCodePicker
+log	ccp/src/main/java/com/hbb20/Country.java	/^    public void log() {$/;"	m	class:Country
+logString	ccp/src/main/java/com/hbb20/Country.java	/^    public String logString() {$/;"	m	class:Country
+mInflater	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    LayoutInflater mInflater;$/;"	f	class:CountryCodePicker
+mainEnd	gradlew.bat	/^:mainEnd$/;"	l
+masterCountries	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    List<Country> filteredCountries = null, masterCountries = null;$/;"	f	class:CountryCodeAdapter
+name	ccp/src/main/java/com/hbb20/Country.java	/^    String name;$/;"	f	class:Country
+nameCode	ccp/src/main/java/com/hbb20/Country.java	/^    String nameCode;$/;"	f	class:Country
+omega	gradlew.bat	/^:omega$/;"	l
+onBindViewHolder	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    public void onBindViewHolder(CountryCodeViewHolder countryCodeViewHolder, final int i) {$/;"	m	class:CountryCodeAdapter
+onCountryChangeListener	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private OnCountryChangeListener onCountryChangeListener;$/;"	f	class:CountryCodePicker	file:
+onCountrySelected	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        void onCountrySelected();$/;"	m	interface:CountryCodePicker.OnCountryChangeListener
+onCreate	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:ExampleActivity
+onCreate	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:HomeActivity
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:CountryPreferenceFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:CustomColorFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:CustomFontFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:CustomMasterFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/CustomSizeFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:CustomSizeFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:DefaultCountryFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:FullNumberFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:GetCountryFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:IntroductionFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:LanguageSupportFragment
+onCreateView	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    public View onCreateView(LayoutInflater inflater, ViewGroup container,$/;"	m	class:SetCountryFragment
+onCreateViewHolder	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    public CountryCodeViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {$/;"	m	class:CountryCodeAdapter
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/CountryPreferenceFragment.java	/^    public void onViewCreated(View view, Bundle savedInstanceState) {$/;"	m	class:CountryPreferenceFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    public void onViewCreated(View view, Bundle savedInstanceState) {$/;"	m	class:CustomColorFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {$/;"	m	class:CustomFontFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/CustomMasterFragment.java	/^    public void onViewCreated(View view, Bundle savedInstanceState) {$/;"	m	class:CustomMasterFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/CustomSizeFragment.java	/^    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {$/;"	m	class:CustomSizeFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    public void onViewCreated(View view, Bundle savedInstanceState) {$/;"	m	class:DefaultCountryFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    public void onViewCreated(View view, Bundle savedInstanceState) {$/;"	m	class:FullNumberFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    public void onViewCreated(View view, Bundle savedInstanceState) {$/;"	m	class:GetCountryFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^    public void onViewCreated(View view, Bundle savedInstanceState) {$/;"	m	class:IntroductionFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {$/;"	m	class:LanguageSupportFragment
+onViewCreated	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    public void onViewCreated(View view, Bundle savedInstanceState) {$/;"	m	class:SetCountryFragment
+openCountryCodeDialog	ccp/src/main/java/com/hbb20/CountryCodeDialog.java	/^    public static void openCountryCodeDialog(CountryCodePicker codePicker) {$/;"	m	class:CountryCodeDialog
+pagerAdapter	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    PagerAdapter pagerAdapter;$/;"	f	class:ExampleActivity
+phoneCode	ccp/src/main/java/com/hbb20/Country.java	/^    String phoneCode;$/;"	f	class:Country
+preferredCountries	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    List<Country> preferredCountries;$/;"	f	class:CountryCodePicker
+radioEnglish	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    RadioButton radioEnglish;$/;"	f	class:LanguageSupportFragment
+radioGroup	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    RadioGroup radioGroup;$/;"	f	class:LanguageSupportFragment
+radioJapanese	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    RadioButton radioJapanese,radioSpanish;$/;"	f	class:LanguageSupportFragment
+radioSpanish	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    RadioButton radioJapanese,radioSpanish;$/;"	f	class:LanguageSupportFragment
+readXMLofCountries	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> readXMLofCountries(Context context) {$/;"	m	class:Country
+refreshCustomMasterList	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    void refreshCustomMasterList() {$/;"	m	class:CountryCodePicker
+refreshPreferredCountries	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    void refreshPreferredCountries() {$/;"	m	class:CountryCodePicker
+registerCarrierEditText	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    private void registerCarrierEditText() {$/;"	m	class:FullNumberFragment	file:
+registerCarrierNumberEditText	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void registerCarrierNumberEditText(EditText editTextCarrierNumber) {$/;"	m	class:CountryCodePicker
+relativeColor1	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    RelativeLayout relativeColor1,relativeColor2,relativeColor3;$/;"	f	class:CustomColorFragment
+relativeColor2	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    RelativeLayout relativeColor1,relativeColor2,relativeColor3;$/;"	f	class:CustomColorFragment
+relativeColor3	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    RelativeLayout relativeColor1,relativeColor2,relativeColor3;$/;"	f	class:CustomColorFragment
+relativeLayout_main	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        RelativeLayout relativeLayout_main;$/;"	f	class:CountryCodeAdapter.CountryCodeViewHolder
+resetBG	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    private void resetBG() {$/;"	m	class:CustomColorFragment	file:
+resetToDefaultCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void resetToDefaultCountry() {$/;"	m	class:CountryCodePicker
+rootView	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    View rootView;$/;"	f	class:CustomFontFragment
+rootView	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    View rootView;$/;"	f	class:LanguageSupportFragment
+selectedCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    Country selectedCountry;$/;"	f	class:CountryCodePicker
+setArrowSize	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void setArrowSize(int arrowSize) {$/;"	m	class:CountryCodePicker	file:
+setClickListener	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    private void setClickListener() {$/;"	m	class:CustomColorFragment	file:
+setClickListener	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private void setClickListener() {$/;"	m	class:CustomFontFragment	file:
+setClickListener	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    private void setClickListener() {$/;"	m	class:FullNumberFragment	file:
+setClickListener	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    private void setClickListener() {$/;"	m	class:GetCountryFragment	file:
+setClickListener	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^    private void setClickListener() {$/;"	m	class:IntroductionFragment	file:
+setClickListener	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    private void setClickListener() {$/;"	m	class:LanguageSupportFragment	file:
+setColor	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    private void setColor(int selection,int color) {$/;"	m	class:CustomColorFragment	file:
+setContentColor	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setContentColor(int contentColor) {$/;"	m	class:CountryCodePicker
+setCountry	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        public void setCountry(Country country) {$/;"	m	class:CountryCodeAdapter.CountryCodeViewHolder
+setCountryForNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setCountryForNameCode(String countryNameCode) {$/;"	m	class:CountryCodePicker
+setCountryForPhoneCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setCountryForPhoneCode(int countryCode) {$/;"	m	class:CountryCodePicker
+setCountryPreference	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setCountryPreference(String countryPreference) {$/;"	m	class:CountryCodePicker
+setCustomLanguage	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void setCustomLanguage(Language customLanguage) {$/;"	m	class:CountryCodePicker	file:
+setCustomMasterCountries	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setCustomMasterCountries(String customMasterCountries) {$/;"	m	class:CountryCodePicker
+setCustomMasterCountriesList	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    void setCustomMasterCountriesList(List<Country> customMasterCountriesList) {$/;"	m	class:CountryCodePicker
+setDefaultCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void setDefaultCountry(Country defaultCountry) {$/;"	m	class:CountryCodePicker	file:
+setDefaultCountryUsingNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setDefaultCountryUsingNameCode(String defaultCountryNameCode) {$/;"	m	class:CountryCodePicker
+setDefaultCountryUsingPhoneCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {$/;"	m	class:CountryCodePicker
+setEditText_registeredCarrierNumber	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {$/;"	m	class:CountryCodePicker
+setFlagSize	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setFlagSize(int flagSize) {$/;"	m	class:CountryCodePicker
+setFullNumber	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setFullNumber(String fullNumber) {$/;"	m	class:CountryCodePicker
+setHolder	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void setHolder(RelativeLayout holder) {$/;"	m	class:CountryCodePicker	file:
+setHolderView	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void setHolderView(View holderView) {$/;"	m	class:CountryCodePicker	file:
+setKeyboardAutoPopOnSearch	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setKeyboardAutoPopOnSearch(boolean keyboardAutoPopOnSearch) {$/;"	m	class:CountryCodePicker
+setName	ccp/src/main/java/com/hbb20/Country.java	/^    public void setName(String name) {$/;"	m	class:Country
+setNameCode	ccp/src/main/java/com/hbb20/Country.java	/^    public void setNameCode(String nameCode) {$/;"	m	class:Country
+setOnCountryChangeListener	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setOnCountryChangeListener(OnCountryChangeListener onCountryChangeListener) {$/;"	m	class:CountryCodePicker
+setPhoneCode	ccp/src/main/java/com/hbb20/Country.java	/^    public void setPhoneCode(String phoneCode) {$/;"	m	class:Country
+setSelectedCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    void setSelectedCountry(Country selectedCountry) {$/;"	m	class:CountryCodePicker
+setTTFfont	app/src/main/java/in/hbb20/countrycodepickerproject/CustomFontFragment.java	/^    private void setTTFfont(CountryCodePicker ccp, String fontFileName) {$/;"	m	class:CustomFontFragment	file:
+setTextSize	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setTextSize(int textSize) {$/;"	m	class:CountryCodePicker
+setTextView_selectedCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void setTextView_selectedCountry(TextView textView_selectedCountry) {$/;"	m	class:CountryCodePicker	file:
+setTextWatcher	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    private void setTextWatcher() {$/;"	m	class:CountryCodeAdapter	file:
+setTypeFace	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setTypeFace(Typeface typeFace) {$/;"	m	class:CountryCodePicker
+setTypeFace	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setTypeFace(Typeface typeFace, int style) {$/;"	m	class:CountryCodePicker
+setUpViewPager	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    private void setUpViewPager() {$/;"	m	class:ExampleActivity	file:
+setclick	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    private void setclick(TextView text, final int tabIndex) {$/;"	m	class:HomeActivity	file:
+showFlag	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    boolean showFlag = true;$/;"	f	class:CountryCodePicker
+showFlag	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void showFlag(boolean showFlag) {$/;"	m	class:CountryCodePicker
+showFullName	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    boolean showFullName = false;$/;"	f	class:CountryCodePicker
+showFullName	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void showFullName(boolean showFullName) {$/;"	m	class:CountryCodePicker
+splitJvmOpts	gradlew	/^function splitJvmOpts() {$/;"	f
+startDemo	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    Button startDemo;$/;"	f	class:HomeActivity
+textCustomColor	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textCustomFont	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textCustomLanguage	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textCustomMaster	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textCustomSize	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textDefaultCountry	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textFullNumber	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textGetCountry	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textIntro	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textPreference	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+textViewCountryCode	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    TextView textViewCountryName,textViewCountryCode,textViewCountryNameCode;$/;"	f	class:GetCountryFragment
+textViewCountryName	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    TextView textViewCountryName,textViewCountryCode,textViewCountryNameCode;$/;"	f	class:GetCountryFragment
+textViewCountryNameCode	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    TextView textViewCountryName,textViewCountryCode,textViewCountryNameCode;$/;"	f	class:GetCountryFragment
+textViewTitle	app/src/main/java/in/hbb20/countrycodepickerproject/CustomColorFragment.java	/^    TextView textViewTitle;$/;"	f	class:CustomColorFragment
+textView_code	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        TextView textView_name, textView_code;$/;"	f	class:CountryCodeAdapter.CountryCodeViewHolder
+textView_name	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^        TextView textView_name, textView_code;$/;"	f	class:CountryCodeAdapter.CountryCodeViewHolder
+textView_noResult	ccp/src/main/java/com/hbb20/CountryCodeAdapter.java	/^    TextView textView_noResult;$/;"	f	class:CountryCodeAdapter
+textView_selectedCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    TextView textView_selectedCountry;$/;"	f	class:CountryCodePicker
+textsetCountry	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;$/;"	f	class:HomeActivity
+useFullName	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    boolean useFullName = false;$/;"	f	class:CountryCodePicker
+viewPager	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    ViewPager viewPager;$/;"	f	class:ExampleActivity
+warn	gradlew	/^warn ( ) {$/;"	f
+win9xME_args	gradlew.bat	/^:win9xME_args$/;"	l
+win9xME_args_slurp	gradlew.bat	/^:win9xME_args_slurp$/;"	l

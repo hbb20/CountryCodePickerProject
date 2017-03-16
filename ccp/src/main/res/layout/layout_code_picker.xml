@@ -2,12 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/countryCodeHolder"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="right"
-    android:clickable="true"
-    android:foreground="?attr/selectableItemBackground"
-    android:gravity="center"
-    android:padding="8dp">
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rlClickConsumer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="8dp">
     <!--    <LinearLayout
 
             android:layout_width="wrap_content"
@@ -22,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/google_1x"
         android:layout_marginRight="@dimen/google_1x">
 
         <ImageView
@@ -38,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/linear_flag_holder"
         android:layout_toRightOf="@+id/linear_flag_holder"
         android:singleLine="true"
         android:text="(IN) +91"
@@ -49,9 +54,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/textView_selectedCountry"
         android:layout_toRightOf="@+id/textView_selectedCountry"
         android:adjustViewBounds="true"
         android:alpha="0.6"
         android:src="@drawable/ic_arrow_drop_down_black_24dp"
         android:tint="@android:color/black" />
+    </RelativeLayout>
 </RelativeLayout>

@@ -26,8 +26,10 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/linear_flag_holder"
         android:layout_toLeftOf="@+id/textView_code"
         android:layout_toRightOf="@+id/linear_flag_holder"
+        android:layout_toStartOf="@+id/textView_code"
         android:gravity="center_vertical"
         android:text="India (IN)"
         android:textColor="@android:color/secondary_text_light" />
@@ -35,12 +37,17 @@
         android:id="@+id/textView_code"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
+        android:paddingEnd="10dp"
+        android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:paddingStart="10dp"
         android:text="+91"
-        android:textColor="@android:color/secondary_text_light" />
+        android:textColor="@android:color/secondary_text_light"
+        android:textDirection="ltr" />
     <View
         android:id="@+id/preferenceDivider"
         android:layout_width="match_parent"
