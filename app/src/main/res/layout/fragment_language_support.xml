@@ -94,7 +94,7 @@
                                 <com.hbb20.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="CHINESE"
+                                    app:ccpLanguage="CHINESE_TRADITIONAL"
                                     app:contentColor="@android:color/white"
                                     app:defaultNameCode="cn" />
 
@@ -104,7 +104,7 @@
                                     android:freezesText="true"
                                     android:inputType="phone"
                                     android:singleLine="true"
-                                    android:text="(Chinese)"
+                                    android:text="(Chinese Traditional)"
                                     android:textColor="@android:color/white" />
                             </LinearLayout>
 

@@ -684,10 +684,10 @@ class Country {
                 return getLibraryMasterCountriesArabic();
             case BENGALI:
                 return getLibraryMasterCountriesBengali();
-            case SIMPLIFY_CHINESE:
-                return getLibraryMasterCountriesSimplifyChinese();
+            case SIMPLIFIED_CHINESE:
+                return getLibraryMasterCountriesSimplifiedChinese();
             case TRADITIONAL_CHINESE:
-                return getLibraryMasterCountriesTradionalChinese();
+                return getLibraryMasterCountriesTraditionalChinese();
             case ENGLISH:
                 return getLibraryMasterCountriesEnglish();
             case FRENCH:
@@ -1994,7 +1994,7 @@ class Country {
         return countries;
     }
 
-    public static List<Country> getLibraryMasterCountriesSimplifyChinese() {
+    public static List<Country> getLibraryMasterCountriesSimplifiedChinese() {
         List<Country> countries = new ArrayList<>();
         countries.add(new Country("af", "93", "阿富汗"));
         countries.add(new Country("al", "355", "阿尔巴尼亚"));
@@ -2204,7 +2204,7 @@ class Country {
         return countries;
     }
 
-    public static List<Country> getLibraryMasterCountriesTradionalChinese() {
+    public static List<Country> getLibraryMasterCountriesTraditionalChinese() {
         List<Country> countries = new ArrayList<>();
         countries.add(new Country("af", "93", "阿富汗"));
         countries.add(new Country("al", "355", "阿爾巴尼亞"));

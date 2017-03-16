@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_title"
-        android:hint="@string/search..."
+        android:hint="@string/search_hint"
         android:singleLine="true"
         android:textColor="@android:color/primary_text_light_nodisable" />
 
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/no_result_found"
-        android:visibility="gone"
-        android:textColor="@android:color/primary_text_light" />
+        android:textColor="@android:color/primary_text_light"
+        android:visibility="gone" />
 
 </RelativeLayout>

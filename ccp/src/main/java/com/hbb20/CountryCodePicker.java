@@ -27,7 +27,7 @@ public class CountryCodePicker extends RelativeLayout {
     //this name should match value of enum <attr name="language" format="enum"> from attrs
     final static int LANGUAGE_ARABIC = 1;
     final static int LANGUAGE_BENGALI = 2;
-    final static int LANGUAGE_SIMPLIFY_CHINESE = 3;
+    final static int LANGUAGE_SIMPLIFIED_CHINESE = 3;
     final static int LANGUAGE_ENGLISH = 4;
     final static int LANGUAGE_FRENCH = 5;
     final static int LANGUAGE_GERMAN = 6;
@@ -39,7 +39,7 @@ public class CountryCodePicker extends RelativeLayout {
     final static int LANGUAGE_RUSSIAN = 12;
     final static int LANGUAGE_SPANISH = 13;
     final static int LANGUAGE_HEBREW = 14;
-  final static int LANGUAGE_TRADITIONAL_CHINESE = 15;
+    final static int LANGUAGE_TRADITIONAL_CHINESE = 15;
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
@@ -456,8 +456,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return Language.ARABIC;
             case LANGUAGE_BENGALI:
                 return Language.BENGALI;
-            case LANGUAGE_SIMPLIFY_CHINESE:
-                return Language.SIMPLIFY_CHINESE;
+            case LANGUAGE_SIMPLIFIED_CHINESE:
+                return Language.SIMPLIFIED_CHINESE;
             case LANGUAGE_TRADITIONAL_CHINESE:
                 return Language.TRADITIONAL_CHINESE;
             case LANGUAGE_ENGLISH:
@@ -493,7 +493,7 @@ public class CountryCodePicker extends RelativeLayout {
                 return "حدد الدولة";
             case BENGALI:
                 return "দেশ নির্বাচন করুন";
-            case SIMPLIFY_CHINESE:
+            case SIMPLIFIED_CHINESE:
                 return "选择国家";
             case TRADITIONAL_CHINESE:
                 return "選擇國家";
@@ -530,7 +530,7 @@ public class CountryCodePicker extends RelativeLayout {
                 return "بحث";
             case BENGALI:
                 return "অনুসন্ধান...";
-            case SIMPLIFY_CHINESE:
+            case SIMPLIFIED_CHINESE:
                 return "搜索...";
             case TRADITIONAL_CHINESE:
                 return "搜索...";
@@ -572,7 +572,7 @@ public class CountryCodePicker extends RelativeLayout {
                 return "يؤدي لم يتم العثور";
             case BENGALI:
                 return "ফলাফল পাওয়া যায়নি";
-            case SIMPLIFY_CHINESE:
+            case SIMPLIFIED_CHINESE:
                 return "结果未发现";
             case TRADITIONAL_CHINESE:
                 return "結果未發現";
@@ -1060,7 +1060,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, SIMPLIFY_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
+        ARABIC, BENGALI, SIMPLIFIED_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
     }
 
     /*
