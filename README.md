@@ -6,14 +6,14 @@ Country Code Picker (CCP) <img src="https://farm6.staticflickr.com/5726/30960801
 Introduction
 ------------
 * CCP gives professional touch to your well designed form like login screen, sign up screen, edit profile screen. CCP removes confusion about how to add number and thus make view more understandable. Finally reduces mistakes in user input.
-    * Phone number screen without CCP
-          - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_c.png" width="300"> 
+ * Phone number screen without CCP
+     - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_c.png" width="300"> 
 	  
-    * Above view can be transformed by using CCP
-          - <img src="https://farm6.staticflickr.com/5625/30296514763_e3af239e2c_z.jpg" width="300">
+* Above view can be transformed by using CCP
+    - <img src="https://farm6.staticflickr.com/5625/30296514763_e3af239e2c_z.jpg" width="300">
     
-    * Tapping on CCP will open a dialog to search and select country
-          - <img src="https://farm6.staticflickr.com/5686/30982885732_294ee950d7_z.jpg" width="300">
+* Tapping on CCP will open a dialog to search and select country
+    - <img src="https://farm6.staticflickr.com/5686/30982885732_294ee950d7_z.jpg" width="300">
 
 How to add to your project
 --------------
@@ -59,8 +59,8 @@ Features
     *  Default country is the country where most of your target audience belong.
     *  The default country can be set through xml layout and programmatically as well.
    
-   - #### Through xml
-       **Using country code name**  
+    	#### A. Through xml
+       	##### Using country code name
         - Add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
@@ -71,7 +71,7 @@ Features
 	         app:defaultNameCode="US"  />
 	      ```` 
 	      
-       **Using phone code**   
+       ##### Using phone code
         - add app:defaultCode="81" (replace 81 with your default country code) to xml layout.Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for country codes.
         - Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US.  Use app:defaultNameCode or app:countryPreference to overcome issue.
 	
@@ -82,17 +82,15 @@ Features
 	         android:layout_height="wrap_content"
 	         app:defaultCode="81" />
 	      ````
-  _app:defaultNameCode has high priority than app:defaultCode._
+  			_app:defaultNameCode has higher priority than app:defaultCode._
   
-   - #### Programmatically
-       **Using country name code** 
-         - Use ```` setDefaultCountryUsingNameCode()```` method.
+   		####  B. Programmatically
+       	##### Using country name code
+        - Use ```` setDefaultCountryUsingNameCode()```` method.
    
-       **Using phone code** 
+       	##### Using phone code
          - To set default country programmatically, use ```` setDefaultCountryUsingPhoneCode()```` method.
-    
-
-    - ````setDefaultCountryUsingNameCode()```` or ```setDefaultCountryUsingPhoneCode() ``` will not set default country as selected country in CCP view. To set default country as selected country in CCP view, call ```` resetToDefaultCountry() ```` method.
+    	 - ````setDefaultCountryUsingNameCode()```` or ```setDefaultCountryUsingPhoneCode() ``` will not set default country as selected country in CCP view. To set default country as selected country in CCP view, call ```` resetToDefaultCountry() ```` method.
 
     - ```resetToDefaultCountry() ``` will set default country as selected country in CCP, it can be used at the time of form reset.
       
