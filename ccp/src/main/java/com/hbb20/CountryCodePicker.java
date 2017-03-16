@@ -71,7 +71,9 @@ public class CountryCodePicker extends RelativeLayout {
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            CountryCodeDialog.openCountryCodeDialog(codePicker);
+            if (isEnabled()) {
+                CountryCodeDialog.openCountryCodeDialog(codePicker);
+            }
         }
     };
 
