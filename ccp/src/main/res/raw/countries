@@ -77,6 +77,7 @@
     <country code='gn' phoneCode='224' name='Guinea' />
     <country code='gw' phoneCode='245' name='Guinea-bissau' />
     <country code='gy' phoneCode='592' name='Guyana' />
+    <country code='gf' phoneCode='594' name='Guyane' />
     <country code='ht' phoneCode='509' name='Haiti' />
     <country code='hn' phoneCode='504' name='Honduras' />
     <country code='hk' phoneCode='852' name='Hong Kong' />
@@ -115,6 +116,7 @@
     <country code='ml' phoneCode='223' name='Mali' />
     <country code='mt' phoneCode='356' name='Malta' />
     <country code='mh' phoneCode='692' name='Marshall Islands' />
+    <country code='mq' phoneCode='596' name='Martinique' />
     <country code='mr' phoneCode='222' name='Mauritania' />
     <country code='mu' phoneCode='230' name='Mauritius' />
     <country code='yt' phoneCode='262' name='Mayotte' />
@@ -151,6 +153,7 @@
     <country code='pt' phoneCode='351' name='Portugal' />
     <country code='pr' phoneCode='1' name='Puerto Rico' />
     <country code='qa' phoneCode='974' name='Qatar' />
+    <country code='re' phoneCode='262' name='Réunion' />
     <country code='ro' phoneCode='40' name='Romania' />
     <country code='ru' phoneCode='7' name='Russian Federation' />
     <country code='rw' phoneCode='250' name='Rwanda' />

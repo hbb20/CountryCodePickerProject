@@ -373,6 +373,8 @@ class Country {
                 return R.drawable.flag_guinea_bissau;
             case "gy": //guyana
                 return R.drawable.flag_guyana;
+            case "gf": //guyane
+                return R.drawable.flag_guyane;
             case "ht": //haiti
                 return R.drawable.flag_haiti;
             case "hn": //honduras
@@ -455,6 +457,10 @@ class Country {
                 return R.drawable.flag_mauritius;
             case "yt": //mayotte
                 return R.drawable.flag_martinique; // no exact flag found
+            case "re": //la reunion
+                return R.drawable.flag_martinique; // no exact flag found
+            case "mq": //martinique
+                return R.drawable.flag_martinique;
             case "mx": //mexico
                 return R.drawable.flag_mexico;
             case "fm": //micronesia, federated states of
@@ -941,6 +947,9 @@ class Country {
         countries.add(new Country("ye", "967", "Yemen"));
         countries.add(new Country("zm", "260", "Zambia"));
         countries.add(new Country("zw", "263", "Zimbabwe"));
+        countries.add(new Country("re", "262", "Réunion"));
+        countries.add(new Country("mq", "596", "Martinique"));
+        countries.add(new Country("gf", "594", "French Guyana"));
         return countries;
     }
 
@@ -1151,6 +1160,9 @@ class Country {
         countries.add(new Country("ye", "967", "यमन"));
         countries.add(new Country("zm", "260", "जाम्बिया"));
         countries.add(new Country("zw", "263", "जिम्बाब्वे"));
+        countries.add(new Country("re", "262", "बैठक"));
+        countries.add(new Country("mq", "596", "मार्टीनिक"));
+        countries.add(new Country("gf", "594", "गुयाना"));
         return countries;
     }
 
@@ -1361,6 +1373,9 @@ class Country {
         countries.add(new Country("ye", "967", "Yémen"));
         countries.add(new Country("zm", "260", "Zambie"));
         countries.add(new Country("zw", "263", "Zimbabwe"));
+        countries.add(new Country("re", "262", "La Réunion"));
+        countries.add(new Country("mq", "596", "Martinique"));
+        countries.add(new Country("gf", "594", "Guyane"));
         return countries;
     }
 
@@ -1571,6 +1586,9 @@ class Country {
         countries.add(new Country("ye", "967", "Jemen"));
         countries.add(new Country("zm", "260", "Sambia"));
         countries.add(new Country("zw", "263", "Simbabwe"));
+        countries.add(new Country("re", "262", "Wiedervereinigung"));
+        countries.add(new Country("mq", "596", "Martinique"));
+        countries.add(new Country("gf", "594", "Französisch-Guayana"));
         return countries;
     }
 
@@ -1781,6 +1799,9 @@ class Country {
         countries.add(new Country("ye", "967", "イエメン"));
         countries.add(new Country("zm", "260", "ザンビア"));
         countries.add(new Country("zw", "263", "ジンバブエ"));
+        countries.add(new Country("re", "262", "出会い"));
+        countries.add(new Country("mq", "596", "マルティニーク"));
+        countries.add(new Country("gf", "594", "フランス領ギアナ"));
         return countries;
     }
 
@@ -1991,6 +2012,9 @@ class Country {
         countries.add(new Country("ye", "967", "Yemen"));
         countries.add(new Country("zm", "260", "Zambia"));
         countries.add(new Country("zw", "263", "Zimbabue"));
+        countries.add(new Country("re", "262", "La Reunión"));
+        countries.add(new Country("mq", "596", "Martinica"));
+        countries.add(new Country("gf", "594", "Guayana francés"));
         return countries;
     }
 
@@ -2201,6 +2225,9 @@ class Country {
         countries.add(new Country("ye", "967", "也门"));
         countries.add(new Country("zm", "260", "赞比亚"));
         countries.add(new Country("zw", "263", "津巴布韦"));
+        countries.add(new Country("re", "262", "团圆"));
+        countries.add(new Country("mq", "596", "马提尼克"));
+        countries.add(new Country("gf", "594", "法属圭亚那"));
         return countries;
     }
 
@@ -2411,6 +2438,9 @@ class Country {
         countries.add(new Country("ye", "967", "葉門"));
         countries.add(new Country("zm", "260", "尚比亞"));
         countries.add(new Country("zw", "263", "辛巴威"));
+        countries.add(new Country("re", "262", "團圓"));
+        countries.add(new Country("mq", "596", "馬提尼克"));
+        countries.add(new Country("gf", "594", "法屬圭亞那"));
         return countries;
     }
 
@@ -2621,6 +2651,9 @@ class Country {
         countries.add(new Country("ye", "967", "اليمن"));
         countries.add(new Country("zm", "260", "زامبيا"));
         countries.add(new Country("zw", "263", "زيمبابوي"));
+        countries.add(new Country("re", "262", "الاجتماع"));
+        countries.add(new Country("mq", "596", "مارتينيك"));
+        countries.add(new Country("gf", "594", "جويانا الفرنسية"));
         return countries;
     }
 
@@ -2831,6 +2864,9 @@ class Country {
         countries.add(new Country("ye", "967", "Iémen"));
         countries.add(new Country("zm", "260", "Zâmbia"));
         countries.add(new Country("zw", "263", "Zimbábue"));
+        countries.add(new Country("re", "262", "Reunião"));
+        countries.add(new Country("mq", "596", "Martinique"));
+        countries.add(new Country("gf", "594", "Guiana Francesa"));
         return countries;
     }
 
@@ -3041,6 +3077,9 @@ class Country {
         countries.add(new Country("ye", "967", "ইমেন"));
         countries.add(new Country("zm", "260", "জাম্বিয়া"));
         countries.add(new Country("zw", "263", "জিম্বাবুয়ে"));
+        countries.add(new Country("re", "262", "পুনর্মিলন"));
+        countries.add(new Country("mq", "596", "মার্টিনিক"));
+        countries.add(new Country("gf", "594", "ফরাসি গায়ানা"));
         return countries;
     }
 
@@ -3251,6 +3290,9 @@ class Country {
         countries.add(new Country("ye", "967", "Йемен"));
         countries.add(new Country("zm", "260", "Замбия"));
         countries.add(new Country("zw", "263", "Зимбабве"));
+        countries.add(new Country("re", "262", "встреча"));
+        countries.add(new Country("mq", "596", "Мартиника"));
+        countries.add(new Country("gf", "594", "Французская Гвиана"));
         return countries;
     }
 
@@ -3461,6 +3503,9 @@ class Country {
         countries.add(new Country("ye", "967", "Yaman"));
         countries.add(new Country("zm", "260", "Zambia"));
         countries.add(new Country("zw", "263", "Zimbabwe"));
+        countries.add(new Country("re", "262", "Patemon"));
+        countries.add(new Country("mq", "596", "Martinique"));
+        countries.add(new Country("gf", "594", "Guyana Prancis"));
         return countries;
     }
 
@@ -3671,6 +3716,9 @@ class Country {
         countries.add(new Country("ye", "967", "યેમેન"));
         countries.add(new Country("zm", "260", "ઝામ્બિયા"));
         countries.add(new Country("zw", "263", "ઝિમ્બાબ્વે"));
+        countries.add(new Country("re", "262", "રીયુનિયન"));
+        countries.add(new Country("mq", "596", "માર્ટીનીક"));
+        countries.add(new Country("gf", "594", "ફ્રેન્ચ ગુયાના"));
         return countries;
     }
 
@@ -3881,6 +3929,9 @@ class Country {
         countries.add(new Country("ye", "967", "תימן"));
         countries.add(new Country("zm", "260", "זמביה"));
         countries.add(new Country("zw", "263", "זימבבואה"));
+        countries.add(new Country("re", "262", "ראוניון"));
+        countries.add(new Country("mq", "596", "מרטיניק"));
+        countries.add(new Country("gf", "594", "גיאנה הצרפתית"));
         return countries;
     }
 
