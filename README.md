@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7.2'
+          compile 'com.hbb20:ccp:1.7.3'
         }
       ````
 
