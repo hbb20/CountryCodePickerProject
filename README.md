@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7.3'
+          compile 'com.hbb20:ccp:1.7.4'
         }
       ````
 
@@ -423,7 +423,10 @@ Change log
     - Correct layout for RTL layouts
     - Support to enable/disable click
     - Option to hide search bar from selection dialog
-    
+
+##### version 1.7.4
+    - Adds French Guyana, Martinique and Réunion to country list
+
 ## Credits
 Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
 Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
