@@ -554,7 +554,7 @@ public class CountryCodePicker extends RelativeLayout {
             case JAVANESE:
                 return "search ...";
             case KOREAN:
-                return "검색중 ...";
+                return "검색...";
             case PORTUGUESE:
                 return "pesquisa ...";
             case RUSSIAN:
