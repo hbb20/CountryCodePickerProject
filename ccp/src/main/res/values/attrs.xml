@@ -24,6 +24,7 @@
             <enum name="SPANISH" value="13"/>
             <enum name="HEBREW" value="14" />
             <enum name="CHINESE_TRADITIONAL" value="15" />
+            <enum name="KOREAN" value="16" />
         </attr>
         <attr name="keyboardAutoPopOnSearch" format="boolean"/>
         <attr name="customMasterCountries" format="string" />
