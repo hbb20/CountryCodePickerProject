@@ -40,6 +40,7 @@ public class CountryCodePicker extends RelativeLayout {
     final static int LANGUAGE_SPANISH = 13;
     final static int LANGUAGE_HEBREW = 14;
     final static int LANGUAGE_TRADITIONAL_CHINESE = 15;
+    final static int LANGUAGE_KOREAN = 16;
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
@@ -474,6 +475,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return Language.JAPANESE;
             case LANGUAGE_JAVANESE:
                 return Language.JAVANESE;
+            case LANGUAGE_KOREAN:
+                return Language.KOREAN;
             case LANGUAGE_PORTUGUESE:
                 return Language.PORTUGUESE;
             case LANGUAGE_RUSSIAN:
@@ -511,6 +514,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return "国を選択";
             case JAVANESE:
                 return "Pilih negara";
+            case KOREAN:
+                return "국가를 선택하세요";
             case PORTUGUESE:
                 return "Selecione o pais";
             case RUSSIAN:
@@ -548,6 +553,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return "サーチ...";
             case JAVANESE:
                 return "search ...";
+            case KOREAN:
+                return "검색...";
             case PORTUGUESE:
                 return "pesquisa ...";
             case RUSSIAN:
@@ -590,6 +597,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return "結果として見つかりません。";
             case JAVANESE:
                 return "kasil ora ketemu";
+            case KOREAN:
+                return "검색 결과 없음";
             case PORTUGUESE:
                 return "resultar não encontrado";
             case RUSSIAN:
@@ -1060,7 +1069,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, SIMPLIFIED_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
+        ARABIC, BENGALI, SIMPLIFIED_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, KOREAN, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
     }
 
     /*
