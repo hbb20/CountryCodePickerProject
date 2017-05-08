@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_title"
         android:hint="@string/search_hint"
+        android:imeOptions="flagNoExtractUi"
         android:singleLine="true"
         android:textColor="@android:color/primary_text_light_nodisable" />
 
