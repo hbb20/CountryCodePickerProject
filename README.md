@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7.4'
+          compile 'com.hbb20:ccp:1.7.5'
         }
       ````
 
@@ -426,6 +426,9 @@ Change log
 
 ##### version 1.7.4
     - Adds French Guyana, Martinique and Réunion to country list
+
+##### version 1.7.5
+    - Fixes a problem which was toasting message for disabled search feature
 
 ## Credits
 Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
