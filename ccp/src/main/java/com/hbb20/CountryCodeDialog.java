@@ -8,7 +8,6 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -32,8 +31,9 @@ class CountryCodeDialog {
         TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noresult);
         textView_noResult.setText(codePicker.getNoResultFoundText());
         final CountryCodeAdapter cca = new CountryCodeAdapter(context, masterCountries, codePicker, editText_search, textView_noResult, dialog);
+
+        //this will make dialog compact
         if (!codePicker.isSelectionDialogShowSearch()) {
-            Toast.makeText(context, "Found not to show search", Toast.LENGTH_SHORT).show();
             RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) recyclerView_countryDialog.getLayoutParams();
             params.height = RecyclerView.LayoutParams.WRAP_CONTENT;
             recyclerView_countryDialog.setLayoutParams(params);
