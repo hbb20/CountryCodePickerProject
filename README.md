@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7.5'
+          compile 'com.hbb20:ccp:1.7.6'
         }
       ````
 
@@ -367,17 +367,17 @@ Features
 
    - Developer can toggle click lister of ccp
    - #### Set through xml
-              - add app:showFullName="true" to show full nameinstead of name code
+      - add app:showFullName="true" to show full nameinstead of name code
 	    
-      	       ````xml
-      	        <com.hbb20.CountryCodePicker
-      	         android:id="@+id/ccp"
-      	         android:layout_width="wrap_content"
-      	         android:layout_height="wrap_content"
-      	         app:showFullName="true"
-      	         app:ccpLanguage="JAPANESE" 
-		 app:ccpClickable="false"/>
-      	      ````
+       ````xml
+        <com.hbb20.CountryCodePicker
+         android:id="@+id/ccp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:showFullName="true"
+         app:ccpLanguage="JAPANESE" 
+         app:ccpClickable="false"/>
+      ````
 
    - #### Programmatically
 
@@ -429,6 +429,10 @@ Change log
 
 ##### version 1.7.5
     - Fixes a problem which was toasting message for disabled search feature
+
+##### version 1.7.6
+    - Typo fix for "Search...", "Select a country", "Results not found".
+    - Now "Results not found" text is shifted to top to avoid it from being hidden under bigger keyboards.
 
 ## Credits
 Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)

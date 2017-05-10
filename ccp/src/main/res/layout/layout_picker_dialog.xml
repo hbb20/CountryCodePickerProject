@@ -35,9 +35,12 @@
         android:id="@+id/textView_noresult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/editText_search"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:text="@string/no_result_found"
         android:textColor="@android:color/primary_text_light"
-        android:visibility="gone" />
+        android:visibility="gone"
+        />
 
 </RelativeLayout>

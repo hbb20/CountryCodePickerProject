@@ -501,7 +501,7 @@ public class CountryCodePicker extends RelativeLayout {
             case TRADITIONAL_CHINESE:
                 return "選擇國家";
             case ENGLISH:
-                return "Select country";
+                return "Select a country";
             case FRENCH:
                 return "Sélectionner le pays";
             case GERMAN:
@@ -525,7 +525,7 @@ public class CountryCodePicker extends RelativeLayout {
             case HEBREW:
                 return "בחר מדינה";
             default:
-                return "Select country";
+                return "Select a country";
         }
     }
 
@@ -540,7 +540,7 @@ public class CountryCodePicker extends RelativeLayout {
             case TRADITIONAL_CHINESE:
                 return "搜索...";
             case ENGLISH:
-                return "search...";
+                return "Search...";
             case FRENCH:
                 return "chercher ...";
             case GERMAN:
@@ -584,7 +584,7 @@ public class CountryCodePicker extends RelativeLayout {
             case TRADITIONAL_CHINESE:
                 return "結果未發現";
             case ENGLISH:
-                return "result not found";
+                return "Results not found";
             case FRENCH:
                 return "résulte pas trouvé";
             case GERMAN:
@@ -608,7 +608,7 @@ public class CountryCodePicker extends RelativeLayout {
             case HEBREW:
                 return "לא נמצאו תוצאות";
             default:
-                return "No result found";
+                return "Results not found";
         }
     }
 
