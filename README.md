@@ -61,7 +61,7 @@ Features
    
       #### A. Through xml
        
-        ##### Using country code name
+         ##### Using country code name
         - Add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
@@ -84,9 +84,10 @@ Features
 	         app:defaultCode="81" />
 	      ````
   			_app:defaultNameCode has higher priority than app:defaultCode._
-  
-   		####  B. Programmatically
-       	##### Using country name code
+  			
+  		####  B. Programmatically
+         ##### Using country name code
+       	
         - Use ```` setDefaultCountryUsingNameCode()```` method.
    
        	##### Using phone code
@@ -102,32 +103,39 @@ Features
   ### 2. Choose and set country
   
    - Choosing and setting country will update selected country in CCP view.
-    #### Choose Country
+    
+    
+   #### Choose Country
              
       1. In order to choose country, click on CCP view.
       2. Then search country by country name or phone code or name code in dialog. 
       3. Click on county from list to choose
         
-     #### Set country programmatically
+     
+   #### Set country programmatically
 		
-      **Using country code name**  
-		- Country in CCP can be using ```` setCountryForNameCode() ```` method.
+   **Using country code name**
+   - Country in CCP can be using ````setCountryForNameCode() ```` method.
 
-      **Using phone code**  
-		- Country in CCP can be using ```` setCountryForCode() ```` method.
+   **Using phone code**
+   - Country in CCP can be using ```` setCountryForCode() ```` method.
 	
-	- If specified country code / name code does not match with any country, default country will be set in to CCP.
+   - If specified country code / name code does not match with any country, default country will be set in to CCP.
       
-     **How to listen change in selection?**
-     	- To get call back when country is changed, you need to add OnCountryChangeListener from code.
-	```java 
+     
+   **How to listen change in selection?**
+    
+   - To get call back when country is changed, you need to add OnCountryChangeListener from code.
+   
+	
+   ```java 
 	   ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
-		@Override 
-		public void onCountrySelected() {
-			 Toast.makeText(getContext(), "Updated " + ccp.getSelectedCountryName(), Toast.LENGTH_SHORT).show();
-           	 }
-       	   });
-	   ```
+		            @Override 
+		            public void onCountrySelected() {
+			                    Toast.makeText(getContext(), "Updated " + ccp.getSelectedCountryName(), Toast.LENGTH_SHORT).show();
+           	    }
+       	});
+   ```
 
   ### 3. Country preference
   
@@ -138,22 +146,23 @@ Features
     - Any number of countries can be set in preference.
    
   - #### Set through xml
-        - Add app:countryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+  
+    - Add app:countryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
-	       ````xml
-	        <com.hbb20.CountryCodePicker
-	         android:id="@+id/ccp"
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         app:countryPreference="US,IN,NZ"  />
-	      ````
+       ````xml
+        <com.hbb20.CountryCodePicker
+         android:id="@+id/ccp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:countryPreference="US,IN,NZ"  />
+      ````
   
    - #### Programmatically
         - Use ```` setCountryPreference()```` method.
         
   ### 4. Read selected country
   
-    - Country's 3 properties (Country name, phone code and name code) can be read individually.
+   - Country's 3 properties (Country name, phone code and name code) can be read individually.
     
      #### Read selected country phone code
     
@@ -171,7 +180,7 @@ Features
    
    ### 5. Full number support
      
-     - Full number is combination of country code and carrier number. for example, if country code is 91 and carrier number is 8866667722 then "918866667722" or "+918866667722" is the full number.
+   - Full number is combination of country code and carrier number. for example, if country code is 91 and carrier number is 8866667722 then "918866667722" or "+918866667722" is the full number.
 
      #### Register carrierNumberEditText
      
@@ -191,7 +200,8 @@ Features
         - Use ``` getFullNumber();``` for full number without “+” prefix.
         - Use ``` getFullNumberWithPlus();``` for full number with “+” prefix.
 
-    - A carrierNumberEditText must be registered before any function call of full number like ``` setFullNumber()``` or ``` getFullNumber() ```.
+    
+   - A carrierNumberEditText must be registered before any function call of full number like ``` setFullNumber()``` or ``` getFullNumber() ```.
   - *None of the above functions validate the number format of phone.*
 
   ### 6. Custom content color
@@ -200,12 +210,12 @@ Features
     #### Using XML
     - Add app:contentColor property to xml layout
    
-	      ````xml
-	      <com.hbb20.CountryCodePicker
-	            android:layout_width="wrap_content"
-	          android:layout_height="wrap_content"
-	          app:contentColor="@color/custom_color"/>                        
-	      ````
+      ````xml
+      <com.hbb20.CountryCodePicker
+            android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:contentColor="@color/custom_color"/>                        
+      ````
     
     - <img src="https://farm6.staticflickr.com/5590/30736274540_b156916b98_z.jpg" width="300">
 
@@ -218,17 +228,17 @@ Features
   - Text size of CCP content can be changed in order to match rest of the view of form.
   - Everytime when textSize is updated, arrowsize will be updated itself. 
   - <img src="https://farm6.staticflickr.com/5743/30296515043_78d70ff6ba_z.jpg" width="300">  
-    #### Using XML
-    - Add app:contentColor property to xml layout
+   #### Using XML
+   - Add app:contentColor property to xml layout
   
-	      ````xml
-	      	<com.hbb20.CountryCodePicker
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         app:textSize="26sp"/>                        
-	      ````
+      ````xml
+        <com.hbb20.CountryCodePicker
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:textSize="26sp"/>                        
+      ````
 
-    #### Programmatically
+   #### Programmatically
     - To set textSize programmatically, use ```` setTextSize() ```` method.
     
  ### 8. Custom arrow size
@@ -273,7 +283,7 @@ Features
     - Preferred country list will be a subset of custom master list. If some xyz country is not in custom master list, it won't be added to preferred country list.
    
   - #### Set through xml
-        - add app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+       - add app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
 	        <com.hbb20.CountryCodePicker
@@ -300,15 +310,15 @@ Features
     - Step 4: finally apply the type face on ccp ```` ccp.setTypeFace(typeFace); ```` OR ```` ccp.setTypeFace(typeFace,customStyle); ````
    
  ### 12. Language support
-    - Supported languages: Arabic, Bengali, Chinese Traditional, Chinese Simplified, English, French, German, Gujarati, Hindi, Japanese, Javanese, Portuguese, Russian, Spanish
-    - <img src="https://farm6.staticflickr.com/5444/30960801252_34b573e938_z.jpg" width="300"> 
-    - More languages can be added in the future.
-    - Language will be applied in country selection dialog.
-    - Google translator was used to tranlate. So there is possibility of translation error, if you find any mistake please report issue to correct it or send pull request.
-    - <img src="https://farm6.staticflickr.com/5738/30736274420_213808d03b_z.jpg" width="300"> 
+- Supported languages: Arabic, Bengali, Chinese Traditional, Chinese Simplified, English, French, German, Gujarati, Hindi, Japanese, Javanese, Portuguese, Russian, Spanish
+- <img src="https://farm6.staticflickr.com/5444/30960801252_34b573e938_z.jpg" width="300"> 
+- More languages can be added in the future.
+- Language will be applied in country selection dialog.
+- Google translator was used to tranlate. So there is possibility of translation error, if you find any mistake please report issue to correct it or send pull request.
+- <img src="https://farm6.staticflickr.com/5738/30736274420_213808d03b_z.jpg" width="300"> 
    
   - #### Set through xml
-        - add app:ccpLanguage="JAPANESE" to xml layout
+       - add app:ccpLanguage="JAPANESE" to xml layout
 
 	       ````xml
 	        <com.hbb20.CountryCodePicker
@@ -319,26 +329,26 @@ Features
 	      ````
   
   - #### Programmatically
-        - Use ```` changeLanguage()```` method.
+       - Use ```` changeLanguage()```` method.
 
  ### 13. National Flag Thumbnail
-     - Added flag thambnail to cpp and selector dialog
-     - More thumbnail packs can be added
-     - By default flag will be added to the ccp view
-   - #### Set through xml
-           - add app:showFlag="false" to remove flag using xml layout
+ - Added flag thambnail to cpp and selector dialog
+ - More thumbnail packs can be added
+ - By default flag will be added to the ccp view
+ - #### Set through xml
+      - add app:showFlag="false" to remove flag using xml layout
 
-   	       ````xml
-   	        <com.hbb20.CountryCodePicker
-   	         android:id="@+id/ccp"
-   	         android:layout_width="wrap_content"
-   	         android:layout_height="wrap_content"
-   	         app:showFlag="false"
-   	         app:ccpLanguage="JAPANESE"  />
-   	      ````
+      ````xml
+        <com.hbb20.CountryCodePicker
+         android:id="@+id/ccp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:showFlag="false"
+         app:ccpLanguage="JAPANESE"  />
+      ````
 
      - #### Programmatically
-           - Use ```` showFlag(false)```` method to hide the flag.
+       - Use ```` showFlag(false)```` method to hide the flag.
 
  ### 14. Show Full Country Name
    - Developer might wish to show full country name instead of only code name
@@ -346,18 +356,17 @@ Features
    - If name code was hidden using app:hideNameCode="true" then this will not work.
    - Some country names are real long so go for this option only if your UI has dedicated enough space for it.
    - <img src="https://farm6.staticflickr.com/5514/31103136845_1abdfcfe81_z.jpg" width="300"> 
-   - #### Set through xml####
-              - add app:showFullName="true" to show full nameinstead of name code
-	     
-
-      	       ````xml
-      	        <com.hbb20.CountryCodePicker
-      	         android:id="@+id/ccp"
-      	         android:layout_width="wrap_content"
-      	         android:layout_height="wrap_content"
-      	         app:showFullName="true"
-      	         app:ccpLanguage="JAPANESE"  />
-      	      ````
+   - #### Set through xml
+      - add app:showFullName="true" to show full name instead of name code
+	    
+       ````xml
+        <com.hbb20.CountryCodePicker
+         android:id="@+id/ccp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:showFullName="true"
+         app:ccpLanguage="JAPANESE"  />
+      ````
 
    - #### Programmatically
 
@@ -367,7 +376,7 @@ Features
 
    - Developer can toggle click lister of ccp
    - #### Set through xml
-      - add app:showFullName="true" to show full nameinstead of name code
+      - add app:ccpClickable="false" to disable click listening
 	    
        ````xml
         <com.hbb20.CountryCodePicker
@@ -388,51 +397,51 @@ Change log
 --------
 
 ##### version 0.1.1
-    - First upload with all basic functionalities
+   - First upload with all basic functionalities
   
 ##### version 1.2
-    - Support for textSize and arrowSize modification
+   - Support for textSize and arrowSize modification
     
 ##### version 1.4
-    - Country preference
-    - Hide country name code option
-    - Default country using Country name code
+- Country preference
+- Hide country name code option
+- Default country using Country name code
 
 ##### version 1.5
-    - Custom master list
-    - Custom font
-    - Language support
-    - Optional KeyboardAutoPopup
+- Custom master list
+- Custom font
+- Language support
+- Optional KeyboardAutoPopup
     
 ##### version 1.5.1
-    - Changed ccp view size when code name is hidden
+- Changed ccp view size when code name is hidden
     
 ##### version 1.6
-    - Added country change listener
+- Added country change listener
 
 ##### version 1.6.1
-    - Bug fix for getDefaultCountryCodeAsInt() and getDefaultCountryCodeAsInt()
+- Bug fix for getDefaultCountryCodeAsInt() and getDefaultCountryCodeAsInt()
 
 ##### version 1.7.1
-    - Adds Flag thumbnail
-    - Adds option for full country name
+- Adds Flag thumbnail
+- Adds option for full country name
     
 ##### version 1.7.3
-    - Adds support for HEBREW
-    - Two variants of CHINESE are added CHINESE TRADITIONAL and CHINESE SIMPLIFIED
-    - Correct layout for RTL layouts
-    - Support to enable/disable click
-    - Option to hide search bar from selection dialog
+- Adds support for HEBREW
+- Two variants of CHINESE are added CHINESE TRADITIONAL and CHINESE SIMPLIFIED
+- Correct layout for RTL layouts
+- Support to enable/disable click
+- Option to hide search bar from selection dialog
 
 ##### version 1.7.4
-    - Adds French Guyana, Martinique and Réunion to country list
+- Adds French Guyana, Martinique and Réunion to country list
 
 ##### version 1.7.5
-    - Fixes a problem which was toasting message for disabled search feature
+- Fixes a problem which was toasting message for disabled search feature
 
 ##### version 1.7.6
-    - Typo fix for "Search...", "Select a country", "Results not found".
-    - Now "Results not found" text is shifted to top to avoid it from being hidden under bigger keyboards.
+- Typo fix for "Search...", "Select a country", "Results not found".
+- Now "Results not found" text is shifted to top to avoid it from being hidden under bigger keyboards.
 
 ## Credits
 Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
