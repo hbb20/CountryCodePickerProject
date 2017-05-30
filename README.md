@@ -332,7 +332,7 @@ Features
        - Use ```` changeLanguage()```` method.
 
  ### 13. National Flag Thumbnail
- - Added flag thambnail to cpp and selector dialog
+ - Added flag thambnail to ccp and selector dialog
  - More thumbnail packs can be added
  - By default flag will be added to the ccp view
  - #### Set through xml
@@ -392,6 +392,27 @@ Features
 
        - Use ```` setCcpClickable(true)```` or ```` setCcpClickable(false)```` method to enable / disable the click.
         
+ ### 16. Use as country selector
+
+   - Developers started using CCP as country selector instead of phone code selector.
+   - Only problem was phone code on ccp view and selector dialog.
+   - By hiding that phone code, CCP will work perfect as country selector.
+   - #### Set through xml
+      - add app:ccp_hidePhoneCode="false" to hide phone code from ccp and search box both
+	    
+       ````xml
+        <com.hbb20.CountryCodePicker
+         android:id="@+id/ccp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:ccp_hidePhoneCode="false"
+         app:ccpLanguage="JAPANESE" />
+      ````
+
+   - #### Programmatically
+
+       - Use ```` setShowPhoneCode()```` to set programmatically.
+        
 	
 Change log
 --------
@@ -442,6 +463,9 @@ Change log
 ##### version 1.7.6
 - Typo fix for "Search...", "Select a country", "Results not found".
 - Now "Results not found" text is shifted to top to avoid it from being hidden under bigger keyboards.
+
+##### version 1.7.7
+- Option to hide phone code. Allows developers to us CCP as Country Selector and not code selector.
 
 ## Credits
 Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)

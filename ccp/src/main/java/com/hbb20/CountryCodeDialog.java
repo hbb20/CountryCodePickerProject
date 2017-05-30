@@ -38,6 +38,7 @@ class CountryCodeDialog {
             params.height = RecyclerView.LayoutParams.WRAP_CONTENT;
             recyclerView_countryDialog.setLayoutParams(params);
         }
+
         recyclerView_countryDialog.setLayoutManager(new LinearLayoutManager(context));
         recyclerView_countryDialog.setAdapter(cca);
         dialog.show();

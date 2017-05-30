@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CountryCodePicker">
-        <attr name="defaultCode" format="integer" />
+        <attr name="defaultCode" format="integer"/>
         <attr name="contentColor" format="color"/>
         <attr name="textSize" format="dimension"/>
         <attr name="arrowSize" format="dimension"/>
         <attr name="countryPreference" format="string"/>
-        <attr name="defaultNameCode" format="string" />
+        <attr name="defaultNameCode" format="string"/>
         <attr name="hideNameCode" format="boolean"/>
         <attr name="ccpLanguage" format="enum">
             <enum name="ARABIC" value="1"/>
             <enum name="BENGALI" value="2"/>
-            <enum name="CHINESE_SIMPLIFIED" value="3" />
+            <enum name="CHINESE_SIMPLIFIED" value="3"/>
             <enum name="ENGLISH" value="4"/>
             <enum name="FRENCH" value="5"/>
             <enum name="GERMAN" value="6"/>
@@ -22,15 +22,17 @@
             <enum name="PORTUGUESE" value="11"/>
             <enum name="RUSSIAN" value="12"/>
             <enum name="SPANISH" value="13"/>
-            <enum name="HEBREW" value="14" />
-            <enum name="CHINESE_TRADITIONAL" value="15" />
-            <enum name="KOREAN" value="16" />
+            <enum name="HEBREW" value="14"/>
+            <enum name="CHINESE_TRADITIONAL" value="15"/>
+            <enum name="KOREAN" value="16"/>
         </attr>
         <attr name="keyboardAutoPopOnSearch" format="boolean"/>
-        <attr name="customMasterCountries" format="string" />
-        <attr name="showFlag" format="boolean" />
-        <attr name="showFullName" format="boolean" />
-        <attr name="selectionDialogShowSearch" format="boolean" />
-        <attr name="ccpClickable" format="boolean" />
+        <attr name="customMasterCountries" format="string"/>
+        <attr name="showFlag" format="boolean"/>
+        <attr name="showFullName" format="boolean"/>
+        <attr name="selectionDialogShowSearch" format="boolean"/>
+        <attr name="ccpClickable" format="boolean"/>
+        <attr name="ccp_showPhoneCode" format="boolean"/>
+        <attr name="ccpSearchBox_showPhoneCode" format="boolean"/>
     </declare-styleable>
 </resources>

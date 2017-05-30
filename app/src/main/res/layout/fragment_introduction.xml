@@ -120,7 +120,6 @@
                                 android:singleLine="true"
                                 android:textColor="@android:color/black" />
                         </LinearLayout>
-
                     </LinearLayout>
                 </RelativeLayout>
 
