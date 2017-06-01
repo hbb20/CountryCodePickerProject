@@ -34,7 +34,7 @@ public class CountryCodePicker extends RelativeLayout {
     final static int LANGUAGE_GUJARATI = 7;
     final static int LANGUAGE_HINDI = 8;
     final static int LANGUAGE_JAPANESE = 9;
-    final static int LANGUAGE_JAVANESE = 10;
+    final static int LANGUAGE_INDONESIA = 10;
     final static int LANGUAGE_PORTUGUESE = 11;
     final static int LANGUAGE_RUSSIAN = 12;
     final static int LANGUAGE_SPANISH = 13;
@@ -54,6 +54,7 @@ public class CountryCodePicker extends RelativeLayout {
     RelativeLayout holder;
     ImageView imageViewArrow;
     ImageView imageViewFlag;
+    LinearLayout linearFlagBorder;
     LinearLayout linearFlagHolder;
     Country selectedCountry;
     Country defaultCountry;
@@ -66,6 +67,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean useFullName = false;
     boolean selectionDialogShowSearch = true;
     int contentColor;
+    int borderFlagColor;
     List<Country> preferredCountries;
     //this will be "AU,IN,US"
     String countryPreference;
@@ -113,6 +115,7 @@ public class CountryCodePicker extends RelativeLayout {
         imageViewArrow = (ImageView) holderView.findViewById(R.id.imageView_arrow);
         imageViewFlag = (ImageView) holderView.findViewById(R.id.image_flag);
         linearFlagHolder = (LinearLayout) holderView.findViewById(R.id.linear_flag_holder);
+        linearFlagBorder = (LinearLayout) holderView.findViewById(R.id.linear_flag_border);
         relativeClickConsumer = (RelativeLayout) holderView.findViewById(R.id.rlClickConsumer);
         codePicker = this;
         applyCustomProperty(attrs);
@@ -189,6 +192,15 @@ public class CountryCodePicker extends RelativeLayout {
             }
             if (contentColor != 0) {
                 setContentColor(contentColor);
+            }
+            int borderFlagColor;
+            if (isInEditMode()) {
+                borderFlagColor = a.getColor(R.styleable.CountryCodePicker_borderFlagColor, 0);
+            } else {
+                borderFlagColor = a.getColor(R.styleable.CountryCodePicker_borderFlagColor, context.getResources().getColor(R.color.defaultBorderFlagColor));
+            }
+            if (borderFlagColor != 0) {
+                setFlagBorderColor(borderFlagColor);
             }
 
             //text size
@@ -498,8 +510,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return Language.HINDI;
             case LANGUAGE_JAPANESE:
                 return Language.JAPANESE;
-            case LANGUAGE_JAVANESE:
-                return Language.JAVANESE;
+            case LANGUAGE_INDONESIA:
+                return Language.INDONESIA;
             case LANGUAGE_KOREAN:
                 return Language.KOREAN;
             case LANGUAGE_PORTUGUESE:
@@ -537,8 +549,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return "देश चुनिए";
             case JAPANESE:
                 return "国を選択";
-            case JAVANESE:
-                return "Pilih negara";
+            case INDONESIA:
+                return "Pilih Negara";
             case KOREAN:
                 return "국가를 선택하세요";
             case PORTUGUESE:
@@ -576,8 +588,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return "खोज करें ...";
             case JAPANESE:
                 return "サーチ...";
-            case JAVANESE:
-                return "search ...";
+            case INDONESIA:
+                return "Cari ...";
             case KOREAN:
                 return "검색...";
             case PORTUGUESE:
@@ -620,8 +632,8 @@ public class CountryCodePicker extends RelativeLayout {
                 return "परिणाम नहीं मिला";
             case JAPANESE:
                 return "結果として見つかりません。";
-            case JAVANESE:
-                return "kasil ora ketemu";
+            case INDONESIA:
+                return "Data tidak ditemukan";
             case KOREAN:
                 return "검색 결과 없음";
             case PORTUGUESE:
@@ -929,6 +941,16 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
+     * Sets flag border color of CCP.
+     *
+     * @param borderFlagColor color to apply to flag border
+     */
+    public void setFlagBorderColor(int borderFlagColor) {
+        this.borderFlagColor = borderFlagColor;
+        linearFlagBorder.setBackgroundColor(this.borderFlagColor);
+    }
+
+    /**
      * Modifies size of text in side CCP view.
      *
      * @param textSize size of text in pixels
@@ -1104,7 +1126,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, SIMPLIFIED_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, KOREAN, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
+        ARABIC, BENGALI, SIMPLIFIED_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, KOREAN, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
     }
 
     /*

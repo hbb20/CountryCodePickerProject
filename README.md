@@ -310,7 +310,7 @@ Features
     - Step 4: finally apply the type face on ccp ```` ccp.setTypeFace(typeFace); ```` OR ```` ccp.setTypeFace(typeFace,customStyle); ````
    
  ### 12. Language support
-- Supported languages: Arabic, Bengali, Chinese Traditional, Chinese Simplified, English, French, German, Gujarati, Hindi, Japanese, Javanese, Portuguese, Russian, Spanish
+- Supported languages: Arabic, Bengali, Chinese Traditional, Chinese Simplified, English, French, German, Gujarati, Hindi, Japanese, Indonesia, Portuguese, Russian, Spanish
 - <img src="https://farm6.staticflickr.com/5444/30960801252_34b573e938_z.jpg" width="300"> 
 - More languages can be added in the future.
 - Language will be applied in country selection dialog.

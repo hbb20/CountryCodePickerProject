@@ -2,4 +2,5 @@
 <resources>
     <color name="test">#221224</color>
     <color name="defaultContentColor">@android:color/black</color>
+    <color name="defaultBorderFlagColor">@android:color/transparent</color>
 </resources>

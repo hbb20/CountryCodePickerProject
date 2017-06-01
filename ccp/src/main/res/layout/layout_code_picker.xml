@@ -10,54 +10,62 @@
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:padding="8dp">
-    <!--    <LinearLayout
+        <!--    <LinearLayout
 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView_selectedCountry"
+                android:layout_alignBottom="@+id/textView_selectedCountry"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/google_1x">-->
+        <LinearLayout
+            android:id="@+id/linear_flag_holder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView_selectedCountry"
-            android:layout_alignBottom="@+id/textView_selectedCountry"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/google_1x">-->
-    <LinearLayout
-        android:id="@+id/linear_flag_holder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="@dimen/google_1x"
-        android:layout_marginRight="@dimen/google_1x">
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/google_1x"
+            android:layout_marginRight="@dimen/google_1x">
+
+            <LinearLayout
+                android:id="@+id/linear_flag_border"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
+
+                <ImageView
+                    android:id="@+id/image_flag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_margin="0.5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/flag_india" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--</LinearLayout>-->
+        <TextView
+            android:id="@+id/textView_selectedCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/linear_flag_holder"
+            android:layout_toRightOf="@+id/linear_flag_holder"
+            android:singleLine="true"
+            android:text="(IN) +91"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/image_flag"
+            android:id="@+id/imageView_arrow"
             android:layout_width="wrap_content"
-            android:layout_height="18dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/textView_selectedCountry"
+            android:layout_toRightOf="@+id/textView_selectedCountry"
             android:adjustViewBounds="true"
-            android:src="@drawable/flag_india" />
-    </LinearLayout>
-
-    <!--</LinearLayout>-->
-    <TextView
-        android:id="@+id/textView_selectedCountry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/linear_flag_holder"
-        android:layout_toRightOf="@+id/linear_flag_holder"
-        android:singleLine="true"
-        android:text="(IN) +91"
-        android:textColor="@android:color/black"
-        android:textSize="18sp" />
-
-    <ImageView
-        android:id="@+id/imageView_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/textView_selectedCountry"
-        android:layout_toRightOf="@+id/textView_selectedCountry"
-        android:adjustViewBounds="true"
-        android:alpha="0.6"
-        android:src="@drawable/ic_arrow_drop_down_black_24dp"
-        android:tint="@android:color/black" />
+            android:alpha="0.6"
+            android:src="@drawable/ic_arrow_drop_down_black_24dp"
+            android:tint="@android:color/black" />
     </RelativeLayout>
 </RelativeLayout>

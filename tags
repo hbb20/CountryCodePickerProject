@@ -7,14 +7,14 @@
 4NT_args	gradlew.bat	/^:4NT_args$/;"	l
 APP_BASE_NAME	gradlew.bat	/^set APP_BASE_NAME=%~n0$/;"	v
 APP_HOME	gradlew.bat	/^set APP_HOME=%DIRNAME%$/;"	v
-ARABIC	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+ARABIC	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 ApplicationTest	app/src/androidTest/java/in/hbb20/countrycodepickerproject/ApplicationTest.java	/^    public ApplicationTest() {$/;"	m	class:ApplicationTest
 ApplicationTest	app/src/androidTest/java/in/hbb20/countrycodepickerproject/ApplicationTest.java	/^public class ApplicationTest extends ApplicationTestCase<Application> {$/;"	c
 ApplicationTest	ccp/src/androidTest/java/com/hbb20/countrycodepickerlib/ApplicationTest.java	/^    public ApplicationTest() {$/;"	m	class:ApplicationTest
 ApplicationTest	ccp/src/androidTest/java/com/hbb20/countrycodepickerlib/ApplicationTest.java	/^public class ApplicationTest extends ApplicationTestCase<Application> {$/;"	c
-BENGALI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+BENGALI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 BUNDLE_SELECTED_CODE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    static String BUNDLE_SELECTED_CODE = "selectedCode";$/;"	f	class:CountryCodePicker
-CHINESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+CHINESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 CLASSPATH	gradlew.bat	/^set CLASSPATH=%APP_HOME%\\gradle\\wrapper\\gradle-wrapper.jar$/;"	v
 CMD_LINE_ARGS	gradlew.bat	/^set CMD_LINE_ARGS=$/;"	v
 CMD_LINE_ARGS	gradlew.bat	/^set CMD_LINE_ARGS=%*$/;"	v
@@ -46,24 +46,24 @@ DIRNAME	gradlew.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
 DIRNAME	gradlew.bat	/^set DIRNAME=%~dp0$/;"	v
 DefaultCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^    public DefaultCountryFragment() {$/;"	m	class:DefaultCountryFragment
 DefaultCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/DefaultCountryFragment.java	/^public class DefaultCountryFragment extends Fragment {$/;"	c
-ENGLISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+ENGLISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 EXTRA_INIT_TAB	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    public static final String EXTRA_INIT_TAB = "extraInitTab";$/;"	f	class:ExampleActivity
 ExampleActivity	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^public class ExampleActivity extends AppCompatActivity {$/;"	c
 ExampleUnitTest	app/src/test/java/in/hbb20/countrycodepickerproject/ExampleUnitTest.java	/^public class ExampleUnitTest {$/;"	c
 ExampleUnitTest	ccp/src/test/java/com/hbb20/countrycodepickerlib/ExampleUnitTest.java	/^public class ExampleUnitTest {$/;"	c
-FRENCH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+FRENCH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 FullNumberFragment	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^    public FullNumberFragment() {$/;"	m	class:FullNumberFragment
 FullNumberFragment	app/src/main/java/in/hbb20/countrycodepickerproject/FullNumberFragment.java	/^public class FullNumberFragment extends Fragment {$/;"	c
-GERMAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
-GUJARATI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+GERMAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+GUJARATI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 GetCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^    public GetCountryFragment() {$/;"	m	class:GetCountryFragment
 GetCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/GetCountryFragment.java	/^public class GetCountryFragment extends Fragment {$/;"	c
-HINDI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+HINDI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 HomeActivity	app/src/main/java/in/hbb20/countrycodepickerproject/HomeActivity.java	/^public class HomeActivity extends AppCompatActivity {$/;"	c
 IntroductionFragment	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^    public IntroductionFragment() {$/;"	m	class:IntroductionFragment
 IntroductionFragment	app/src/main/java/in/hbb20/countrycodepickerproject/IntroductionFragment.java	/^public class IntroductionFragment extends Fragment {$/;"	c
-JAPANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
-JAVANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+JAPANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+INDONESIA	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 JAVA_EXE	gradlew.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
 JAVA_EXE	gradlew.bat	/^set JAVA_EXE=java.exe$/;"	v
 JAVA_HOME	gradlew.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
@@ -76,7 +76,7 @@ LANGUAGE_GERMAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final s
 LANGUAGE_GUJARATI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_GUJARATI = 7;$/;"	f	class:CountryCodePicker
 LANGUAGE_HINDI	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_HINDI = 8;$/;"	f	class:CountryCodePicker
 LANGUAGE_JAPANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_JAPANESE = 9;$/;"	f	class:CountryCodePicker
-LANGUAGE_JAVANESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_JAVANESE = 10;$/;"	f	class:CountryCodePicker
+LANGUAGE_INDONESIA	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_INDONESIA = 10;$/;"	f	class:CountryCodePicker
 LANGUAGE_PORTUGUESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_PORTUGUESE = 11;$/;"	f	class:CountryCodePicker
 LANGUAGE_RUSSIAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_RUSSIAN = 12;$/;"	f	class:CountryCodePicker
 LANGUAGE_SPANISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    final static int LANGUAGE_SPANISH = 13;$/;"	f	class:CountryCodePicker
@@ -85,11 +85,11 @@ Language	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public enum La
 LanguageSupportFragment	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^    public LanguageSupportFragment() {$/;"	m	class:LanguageSupportFragment
 LanguageSupportFragment	app/src/main/java/in/hbb20/countrycodepickerproject/LanguageSupportFragment.java	/^public class LanguageSupportFragment extends Fragment {$/;"	c
 OnCountryChangeListener	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public interface OnCountryChangeListener {$/;"	i	class:CountryCodePicker
-PORTUGUESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+PORTUGUESE	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 PagerAdapter	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^        public PagerAdapter(FragmentManager fm) {$/;"	m	class:ExampleActivity.PagerAdapter
 PagerAdapter	app/src/main/java/in/hbb20/countrycodepickerproject/ExampleActivity.java	/^    class PagerAdapter extends FragmentPagerAdapter{$/;"	c	class:ExampleActivity
-RUSSIAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
-SPANISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, JAVANESE, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+RUSSIAN	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
+SPANISH	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^        ARABIC, BENGALI, CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH$/;"	e	enum:CountryCodePicker.Language	file:
 SetCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^    public SetCountryFragment() {$/;"	m	class:SetCountryFragment
 SetCountryFragment	app/src/main/java/in/hbb20/countrycodepickerproject/SetCountryFragment.java	/^public class SetCountryFragment extends Fragment {$/;"	c
 TAG	ccp/src/main/java/com/hbb20/Country.java	/^    static String TAG = "Class Country";$/;"	f	class:Country
@@ -240,7 +240,7 @@ getLibraryMasterCountriesGerman	ccp/src/main/java/com/hbb20/Country.java	/^    p
 getLibraryMasterCountriesGujarati	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesGujarati() {$/;"	m	class:Country
 getLibraryMasterCountriesHindi	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesHindi() {$/;"	m	class:Country
 getLibraryMasterCountriesJapanese	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesJapanese() {$/;"	m	class:Country
-getLibraryMasterCountriesJavanese	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesJavanese() {$/;"	m	class:Country
+getLibraryMasterCountriesINDONESIA	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesINDONESIA() {$/;"	m	class:Country
 getLibraryMasterCountriesPortuguese	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesPortuguese() {$/;"	m	class:Country
 getLibraryMasterCountriesRussian	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesRussian() {$/;"	m	class:Country
 getLibraryMasterCountriesSpanish	ccp/src/main/java/com/hbb20/Country.java	/^    public static List<Country> getLibraryMasterCountriesSpanish() {$/;"	m	class:Country
