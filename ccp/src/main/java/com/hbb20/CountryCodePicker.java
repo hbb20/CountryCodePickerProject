@@ -193,11 +193,13 @@ public class CountryCodePicker extends RelativeLayout {
             if (contentColor != 0) {
                 setContentColor(contentColor);
             }
+
+            // flag border color
             int borderFlagColor;
             if (isInEditMode()) {
-                borderFlagColor = a.getColor(R.styleable.CountryCodePicker_borderFlagColor, 0);
+                borderFlagColor = a.getColor(R.styleable.CountryCodePicker_ccp_flagBorderColor, 0);
             } else {
-                borderFlagColor = a.getColor(R.styleable.CountryCodePicker_borderFlagColor, context.getResources().getColor(R.color.defaultBorderFlagColor));
+                borderFlagColor = a.getColor(R.styleable.CountryCodePicker_ccp_flagBorderColor, context.getResources().getColor(R.color.defaultBorderFlagColor));
             }
             if (borderFlagColor != 0) {
                 setFlagBorderColor(borderFlagColor);
@@ -300,7 +302,6 @@ public class CountryCodePicker extends RelativeLayout {
         imageViewFlag.setImageResource(selectedCountry.getFlagID());
         //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
     }
-
 
     Language getCustomLanguage() {
         return customLanguage;

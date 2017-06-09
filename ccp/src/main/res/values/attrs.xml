@@ -34,6 +34,6 @@
         <attr name="ccpClickable" format="boolean"/>
         <attr name="ccp_showPhoneCode" format="boolean"/>
         <attr name="ccpSearchBox_showPhoneCode" format="boolean"/>
-        <attr name="borderFlagColor" format="color"/>
+        <attr name="ccp_flagBorderColor" format="color"/>
     </declare-styleable>
 </resources>

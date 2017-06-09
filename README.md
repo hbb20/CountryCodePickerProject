@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7.7'
+          compile 'com.hbb20:ccp:1.7.8'
         }
       ````
 
@@ -139,11 +139,11 @@ Features
 
   ### 3. Country preference
   
-    - Library has list of countries in alphabetical order. It searches for country in same order. But preferred country/countries have higher priority than rest.
-    - There are few cases where more than one countries have same code. For example, Canada, Puerto Rico and US have +1. When lilbrary will try to find country with +1, it will always pick Canada as it's alphabetically first in (1)Canada-(2)Puerto Rico-(3)US.
-    - If US is set in country preference, order for search will be (1)US-(2)Canada-(3)Puerto Rico, so it will pick US for +1.
-    - Countries of preference will be listed at top in selection dialog. It is helpful when target audience is from a set of countries.
-    - Any number of countries can be set in preference.
+   - Library has list of countries in alphabetical order. It searches for country in same order. But preferred country/countries have higher priority than rest.
+   - There are few cases where more than one countries have same code. For example, Canada, Puerto Rico and US have +1. When lilbrary will try to find country with +1, it will always pick Canada as it's alphabetically first in (1)Canada-(2)Puerto Rico-(3)US.
+   - If US is set in country preference, order for search will be (1)US-(2)Canada-(3)Puerto Rico, so it will pick US for +1.
+   - Countries of preference will be listed at top in selection dialog. It is helpful when target audience is from a set of countries.
+   - Any number of countries can be set in preference.
    
   - #### Set through xml
   
@@ -413,7 +413,23 @@ Features
 
        - Use ```` setShowPhoneCode()```` to set programmatically.
         
-	
+### 17. Flag Border Color
+  - For more clear visibility can be achieved by adding border color. This is helpful for flag which has background matching color. 
+    
+    #### Using XML
+    - Add ```app:ccp_flagBorderColor``` property to xml layout
+	      
+	````xml
+	      <com.hbb20.CountryCodePicker
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       app:ccp_flagBorderColor="@color/border_color"/>                        
+	  ````
+
+    #### Programmatically
+    - To set it programmatically, use ```` setFlagBorderColor() ```` method.
+  
+
 Change log
 --------
 
@@ -467,9 +483,15 @@ Change log
 ##### version 1.7.7
 - Option to hide phone code. Allows developers to us CCP as Country Selector and not code selector.
 
+##### version 1.7.8
+- Option to add border to ccp flag. This gives more clarity to flag if flag and background has same or almost similar color.
+- Adds Palestine to country list.
+- Change JAVANESE to INDONESIA
+
 ## Credits
-Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
-Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
+- Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
+- Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
+- Indonesia translation by [Maulana Firdaus](https://github.com/firdausmaulan) 
 
 ## License
 
