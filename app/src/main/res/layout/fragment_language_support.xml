@@ -29,7 +29,7 @@
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 Supported languages: Arabic, Bengali, Chinese, English, French, German, Gujarati, Hindi, Japanese, Javanese, Portuguese, Russian, Spanish" />
+                    android:text="\u2022 Supported languages: Arabic, Bengali, Chinese, English, French, German, Gujarati, Hindi, Japanese, Indonesia, Portuguese, Russian, Spanish" />
 
                 <TextView
                     style="@style/pointText"

@@ -33,6 +33,7 @@
         android:gravity="center_vertical"
         android:text="India (IN)"
         android:textColor="@android:color/secondary_text_light" />
+
     <TextView
         android:id="@+id/textView_code"
         android:layout_width="wrap_content"
@@ -48,6 +49,7 @@
         android:text="+91"
         android:textColor="@android:color/secondary_text_light"
         android:textDirection="ltr" />
+
     <View
         android:id="@+id/preferenceDivider"
         android:layout_width="match_parent"
@@ -55,5 +57,5 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="#898989"/>
+        android:background="#898989" />
 </RelativeLayout>

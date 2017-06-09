@@ -18,7 +18,7 @@
             <enum name="GUJARATI" value="7"/>
             <enum name="HINDI" value="8"/>
             <enum name="JAPANESE" value="9"/>
-            <enum name="JAVANESE" value="10"/>
+            <enum name="INDONESIA" value="10"/>
             <enum name="PORTUGUESE" value="11"/>
             <enum name="RUSSIAN" value="12"/>
             <enum name="SPANISH" value="13"/>
@@ -34,5 +34,6 @@
         <attr name="ccpClickable" format="boolean"/>
         <attr name="ccp_showPhoneCode" format="boolean"/>
         <attr name="ccpSearchBox_showPhoneCode" format="boolean"/>
+        <attr name="borderFlagColor" format="color"/>
     </declare-styleable>
 </resources>
