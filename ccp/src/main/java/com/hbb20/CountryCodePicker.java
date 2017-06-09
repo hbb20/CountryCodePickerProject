@@ -268,7 +268,7 @@ public class CountryCodePicker extends RelativeLayout {
         // hide phone code if required
         if (showPhoneCode) {
             if (displayText.length() > 0) {
-                displayText += " ";
+                displayText += "  ";
             }
             displayText += "+" + selectedCountry.getPhoneCode();
         }
