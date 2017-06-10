@@ -24,23 +24,6 @@ import java.util.List;
  */
 public class CountryCodePicker extends RelativeLayout {
 
-    //this name should match value of enum <attr name="language" format="enum"> from attrs
-    final static int LANGUAGE_ARABIC = 1;
-    final static int LANGUAGE_BENGALI = 2;
-    final static int LANGUAGE_SIMPLIFIED_CHINESE = 3;
-    final static int LANGUAGE_ENGLISH = 4;
-    final static int LANGUAGE_FRENCH = 5;
-    final static int LANGUAGE_GERMAN = 6;
-    final static int LANGUAGE_GUJARATI = 7;
-    final static int LANGUAGE_HINDI = 8;
-    final static int LANGUAGE_JAPANESE = 9;
-    final static int LANGUAGE_INDONESIA = 10;
-    final static int LANGUAGE_PORTUGUESE = 11;
-    final static int LANGUAGE_RUSSIAN = 12;
-    final static int LANGUAGE_SPANISH = 13;
-    final static int LANGUAGE_HEBREW = 14;
-    final static int LANGUAGE_TRADITIONAL_CHINESE = 15;
-    final static int LANGUAGE_KOREAN = 16;
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
@@ -144,7 +127,7 @@ public class CountryCodePicker extends RelativeLayout {
             setKeyboardAutoPopOnSearch(a.getBoolean(R.styleable.CountryCodePicker_keyboardAutoPopOnSearch, true));
 
             //if custom language is specified, then set it as custom
-            int attrLanguage = LANGUAGE_ENGLISH;
+            int attrLanguage = 3; //for english
             if (a.hasValue(R.styleable.CountryCodePicker_ccpLanguage)) {
                 attrLanguage = a.getInt(R.styleable.CountryCodePicker_ccpLanguage, 1);
             }
@@ -489,124 +472,20 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     //add entry here
-    private Language getLanguageEnum(int language) {
-        switch (language) {
-            case LANGUAGE_ARABIC:
-                return Language.ARABIC;
-            case LANGUAGE_BENGALI:
-                return Language.BENGALI;
-            case LANGUAGE_SIMPLIFIED_CHINESE:
-                return Language.SIMPLIFIED_CHINESE;
-            case LANGUAGE_TRADITIONAL_CHINESE:
-                return Language.TRADITIONAL_CHINESE;
-            case LANGUAGE_ENGLISH:
-                return Language.ENGLISH;
-            case LANGUAGE_FRENCH:
-                return Language.FRENCH;
-            case LANGUAGE_GERMAN:
-                return Language.GERMAN;
-            case LANGUAGE_GUJARATI:
-                return Language.GUJARATI;
-            case LANGUAGE_HINDI:
-                return Language.HINDI;
-            case LANGUAGE_JAPANESE:
-                return Language.JAPANESE;
-            case LANGUAGE_INDONESIA:
-                return Language.INDONESIA;
-            case LANGUAGE_KOREAN:
-                return Language.KOREAN;
-            case LANGUAGE_PORTUGUESE:
-                return Language.PORTUGUESE;
-            case LANGUAGE_RUSSIAN:
-                return Language.RUSSIAN;
-            case LANGUAGE_SPANISH:
-                return Language.SPANISH;
-            case LANGUAGE_HEBREW:
-                return Language.HEBREW;
-            default:
-                return Language.ENGLISH;
+    private Language getLanguageEnum(int index) {
+        if (index < Language.values().length) {
+            return Language.values()[index];
+        } else {
+            return Language.ENGLISH;
         }
     }
 
     String getDialogTitle() {
         return Country.getDialogTitle(context, customLanguage);
-        /*switch (customLanguage) {
-            case ARABIC:
-                return "حدد الدولة";
-            case BENGALI:
-                return "দেশ নির্বাচন করুন";
-            case SIMPLIFIED_CHINESE:
-                return "选择国家";
-            case TRADITIONAL_CHINESE:
-                return "選擇國家";
-            case ENGLISH:
-                return "Select a country";
-            case FRENCH:
-                return "Sélectionner le pays";
-            case GERMAN:
-                return "Land auswählen";
-            case GUJARATI:
-                return "દેશ પસંદ કરો";
-            case HINDI:
-                return "देश चुनिए";
-            case JAPANESE:
-                return "国を選択";
-            case INDONESIA:
-                return "Pilih Negara";
-            case KOREAN:
-                return "국가를 선택하세요";
-            case PORTUGUESE:
-                return "Selecione o pais";
-            case RUSSIAN:
-                return "Выберите страну";
-            case SPANISH:
-                return "Seleccionar país";
-            case HEBREW:
-                return "בחר מדינה";
-            default:
-                return "Select a country";
-        }*/
     }
 
     String getSearchHintText() {
         return Country.getSearchHintMessage(context, customLanguage);
-        /*switch (customLanguage) {
-            case ARABIC:
-                return "بحث";
-            case BENGALI:
-                return "অনুসন্ধান...";
-            case SIMPLIFIED_CHINESE:
-                return "搜索...";
-            case TRADITIONAL_CHINESE:
-                return "搜索...";
-            case ENGLISH:
-                return "Search...";
-            case FRENCH:
-                return "chercher ...";
-            case GERMAN:
-                return "Suche...";
-            case GUJARATI:
-                return "શોધ કરો ...";
-            case HINDI:
-                return "खोज करें ...";
-            case JAPANESE:
-                return "サーチ...";
-            case INDONESIA:
-                return "Cari ...";
-            case KOREAN:
-                return "검색...";
-            case PORTUGUESE:
-                return "pesquisa ...";
-            case RUSSIAN:
-                return "поиск ...";
-            case SPANISH:
-                return "buscar ...";
-            case HEBREW:
-                return "בחר...";
-
-            default:
-                return "Search...";
-        }*/
     }
 
     /**
@@ -615,42 +494,6 @@ public class CountryCodePicker extends RelativeLayout {
 
     String getNoResultFoundText() {
         return Country.getNoResultFoundAckMessage(context, customLanguage);
-        /*switch (customLanguage) {
-            case ARABIC:
-                return "يؤدي لم يتم العثور";
-            case BENGALI:
-                return "ফলাফল পাওয়া যায়নি";
-            case SIMPLIFIED_CHINESE:
-                return "结果未发现";
-            case TRADITIONAL_CHINESE:
-                return "結果未發現";
-            case ENGLISH:
-                return "Results not found";
-            case FRENCH:
-                return "résulte pas trouvé";
-            case GERMAN:
-                return "Folge nicht gefunden";
-            case GUJARATI:
-                return "પરિણામ મળ્યું નથી";
-            case HINDI:
-                return "परिणाम नहीं मिला";
-            case JAPANESE:
-                return "結果として見つかりません。";
-            case INDONESIA:
-                return "Data tidak ditemukan";
-            case KOREAN:
-                return "검색 결과 없음";
-            case PORTUGUESE:
-                return "resultar não encontrado";
-            case RUSSIAN:
-                return "результат не найден";
-            case SPANISH:
-                return "como resultado que no se encuentra";
-            case HEBREW:
-                return "לא נמצאו תוצאות";
-            default:
-                return "Results not found";
-        }*/
     }
 
     /**
@@ -1130,7 +973,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, SIMPLIFIED_CHINESE, TRADITIONAL_CHINESE, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, KOREAN, PORTUGUESE, RUSSIAN, SPANISH, HEBREW
+        ARABIC, BENGALI, CHINESE_SIMPLIFIED, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH, HEBREW, CHINESE_TRADITIONAL, KOREAN
     }
 
     /*

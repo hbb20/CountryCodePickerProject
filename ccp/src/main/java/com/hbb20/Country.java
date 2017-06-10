@@ -1,6 +1,7 @@
 package com.hbb20;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -10,13 +11,14 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
 /**
  * Created by hbb20 on 11/1/16.
  */
-class Country {
+class Country implements Comparable<Country> {
     static String TAG = "Class Country";
     static CountryCodePicker.Language loadedLibraryMasterListLanguage;
     static String dialogTitle, searchHintMessage, noResultFoundAckMessage;
@@ -74,9 +76,9 @@ class Country {
                     case XmlPullParser.END_TAG:
                         if (name.equals("country")) {
                             Country country = new Country();
-                            country.setNameCode(xmlPullParser.getAttributeValue(null, "code").toUpperCase());
-                            country.setPhoneCode(xmlPullParser.getAttributeValue(null, "phoneCode"));
-                            country.setName(xmlPullParser.getAttributeValue(null, "name") + " xml");
+                            country.setNameCode(xmlPullParser.getAttributeValue(null, "name_code").toUpperCase());
+                            country.setPhoneCode(xmlPullParser.getAttributeValue(null, "phone_code"));
+                            country.setName(xmlPullParser.getAttributeValue(null, "name"));
                             countries.add(country);
                         } else if (name.equals("ccp_dialog_title")) {
                             tempDialogTitle = xmlPullParser.getAttributeValue(null, "translation");
@@ -110,6 +112,9 @@ class Country {
         searchHintMessage = tempSeachHint.length() > 0 ? tempSeachHint : "Search...";
         noResultFoundAckMessage = tempNoResultAck.length() > 0 ? tempNoResultAck : "Results not found";
         loadedLibraryMaterList = countries;
+
+        // sort list
+        Collections.sort(loadedLibraryMaterList);
     }
 
     public static String getDialogTitle(Context context, CountryCodePicker.Language language) {
@@ -682,9 +687,7 @@ class Country {
                 return R.drawable.flag_zambia;
             case "zw": //zimbabwe
                 return R.drawable.flag_zimbabwe;
-
-            // Caribbean Islands
-            case "ai": //anguilla
+            case "ai": //anguilla // Caribbean Islands
                 return R.drawable.flag_anguilla;
             case "ag": //antigua & barbuda
                 return R.drawable.flag_antigua_and_barbuda;
@@ -4263,5 +4266,11 @@ class Country {
     public boolean isEligibleForQuery(String query) {
         query = query.toLowerCase();
         return getName().toLowerCase().contains(query) || getNameCode().toLowerCase().contains(query) || getPhoneCode().toLowerCase().contains(query);
+    }
+
+
+    @Override
+    public int compareTo(@NonNull Country o) {
+        return getName().compareTo(o.getName());
     }
 }
