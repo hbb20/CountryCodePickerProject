@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7.8'
+          compile 'com.hbb20:ccp:1.7.9'
         }
       ````
 
@@ -487,6 +487,13 @@ Change log
 - Option to add border to ccp flag. This gives more clarity to flag if flag and background has same or almost similar color.
 - Adds Palestine to country list.
 - Change JAVANESE to INDONESIA
+
+##### version 1.7.9
+- Lightweight: Long lists of countries are moved to xml from java. Now it consumes only minimum runtime memory.
+- Adds missing flags of Sint Maarten and Cayman Islands
+- There were some countries which were visible only when english is selected. This is fixed now and all countries will be appear for all languages.
+- Now it is easier to add new languages.
+- Countries are now listed in ascending order specific to selected language rather than just English name.
 
 ## Credits
 - Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
