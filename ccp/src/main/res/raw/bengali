@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <messages>
+        <ccp_dialog_title translation='દેશ પસંદ કરો'/>
+        <ccp_dialog_search_hint_message translation='શોધ કરો ...'/>
+        <ccp_dialog_no_result_ack_message translation='પરિણામ મળ્યું નથી'/>
+    </messages>
+
+    <countries>
+        <country code='af' phoneCode='93' name='Bengali Afghanistan' />
+        <country code='al' phoneCode='355' name='Bengali Albania' />
+        <country code='dz' phoneCode='213' name='Bengali Algeria' />
+        <country code='ad' phoneCode='376' name='Bengali Andorra' />
+        <country code='ao' phoneCode='244' name='Bengali Angola' />
+        <country code='aq' phoneCode='672' name='Bengali Antarctica' />
+        <country code='ar' phoneCode='54' name='Bengali Argentina' />
+        <country code='am' phoneCode='374' name='Bengali Armenia' />
+        <country code='aw' phoneCode='297' name='Bengali Aruba' />
+        <country code='au' phoneCode='61' name='Bengali Australia' />
+        <country code='at' phoneCode='43' name='Bengali Austria' />
+        <country code='az' phoneCode='994' name='Bengali Azerbaijan' />
+        <country code='bh' phoneCode='973' name='Bengali Bahrain' />
+        <country code='bd' phoneCode='880' name='Bengali Bangladesh' />
+        <country code='by' phoneCode='375' name='Bengali Belarus' />
+        <country code='be' phoneCode='32' name='Bengali Belgium' />
+        <country code='bz' phoneCode='501' name='Bengali Belize' />
+        <country code='bj' phoneCode='229' name='Bengali Benin' />
+        <country code='bt' phoneCode='975' name='Bengali Bhutan' />
+        <country code='bo' phoneCode='591' name='Bengali Bolivia, Plurinational State Of' />
+        <country code='ba' phoneCode='387' name='Bengali Bosnia And Herzegovina' />
+        <country code='bw' phoneCode='267' name='Bengali Botswana' />
+        <country code='br' phoneCode='55' name='Bengali Brazil' />
+        <country code='bn' phoneCode='673' name='Bengali Brunei Darussalam' />
+        <country code='bg' phoneCode='359' name='Bengali Bulgaria' />
+        <country code='bf' phoneCode='226' name='Bengali Burkina Faso' />
+        <country code='mm' phoneCode='95' name='Bengali Myanmar' />
+        <country code='bi' phoneCode='257' name='Bengali Burundi' />
+        <country code='kh' phoneCode='855' name='Bengali Cambodia' />
+        <country code='cm' phoneCode='237' name='Bengali Cameroon' />
+        <country code='ca' phoneCode='1' name='Bengali Canada' />
+        <country code='cv' phoneCode='238' name='Bengali Cape Verde' />
+        <country code='cf' phoneCode='236' name='Bengali Central African Republic' />
+        <country code='td' phoneCode='235' name='Bengali Chad' />
+        <country code='cl' phoneCode='56' name='Bengali Chile' />
+        <country code='cn' phoneCode='86' name='Bengali China' />
+        <country code='cx' phoneCode='61' name='Bengali Christmas Island' />
+        <country code='cc' phoneCode='61' name='Bengali Cocos (keeling) Islands' />
+        <country code='co' phoneCode='57' name='Bengali Colombia' />
+        <country code='km' phoneCode='269' name='Bengali Comoros' />
+        <country code='cg' phoneCode='242' name='Bengali Congo' />
+        <country code='cd' phoneCode='243' name='Bengali Congo, The Democratic Republic Of The' />
+        <country code='ck' phoneCode='682' name='Bengali Cook Islands' />
+        <country code='cr' phoneCode='506' name='Bengali Costa Rica' />
+        <country code='hr' phoneCode='385' name='Bengali Croatia' />
+        <country code='cu' phoneCode='53' name='Bengali Cuba' />
+        <country code='cy' phoneCode='357' name='Bengali Cyprus' />
+        <country code='cz' phoneCode='420' name='Bengali Czech Republic' />
+        <country code='dk' phoneCode='45' name='Bengali Denmark' />
+        <country code='dj' phoneCode='253' name='Bengali Djibouti' />
+        <country code='tl' phoneCode='670' name='Bengali Timor-leste' />
+        <country code='ec' phoneCode='593' name='Bengali Ecuador' />
+        <country code='eg' phoneCode='20' name='Bengali Egypt' />
+        <country code='sv' phoneCode='503' name='Bengali El Salvador' />
+        <country code='gq' phoneCode='240' name='Bengali Equatorial Guinea' />
+        <country code='er' phoneCode='291' name='Bengali Eritrea' />
+        <country code='ee' phoneCode='372' name='Bengali Estonia' />
+        <country code='et' phoneCode='251' name='Bengali Ethiopia' />
+        <country code='fk' phoneCode='500' name='Bengali Falkland Islands (malvinas)' />
+        <country code='fo' phoneCode='298' name='Bengali Faroe Islands' />
+        <country code='fj' phoneCode='679' name='Bengali Fiji' />
+        <country code='fi' phoneCode='358' name='Bengali Finland' />
+        <country code='fr' phoneCode='33' name='Bengali France' />
+        <country code='pf' phoneCode='689' name='Bengali French Polynesia' />
+        <country code='ga' phoneCode='241' name='Bengali Gabon' />
+        <country code='gm' phoneCode='220' name='Bengali Gambia' />
+        <country code='ge' phoneCode='995' name='Bengali Georgia' />
+        <country code='de' phoneCode='49' name='Bengali Germany' />
+        <country code='gh' phoneCode='233' name='Bengali Ghana' />
+        <country code='gi' phoneCode='350' name='Bengali Gibraltar' />
+        <country code='gr' phoneCode='30' name='Bengali Greece' />
+        <country code='gl' phoneCode='299' name='Bengali Greenland' />
+        <country code='gt' phoneCode='502' name='Bengali Guatemala' />
+        <country code='gn' phoneCode='224' name='Bengali Guinea' />
+        <country code='gw' phoneCode='245' name='Bengali Guinea-bissau' />
+        <country code='gy' phoneCode='592' name='Bengali Guyana' />
+        <country code='gf' phoneCode='594' name='Bengali Guyane' />
+        <country code='ht' phoneCode='509' name='Bengali Haiti' />
+        <country code='hn' phoneCode='504' name='Bengali Honduras' />
+        <country code='hk' phoneCode='852' name='Bengali Hong Kong' />
+        <country code='hu' phoneCode='36' name='Bengali Hungary' />
+        <country code='in' phoneCode='91' name='Bengali India' />
+        <country code='id' phoneCode='62' name='Bengali Indonesia' />
+        <country code='ir' phoneCode='98' name='Bengali Iran, Islamic Republic Of' />
+        <country code='iq' phoneCode='964' name='Bengali Iraq' />
+        <country code='ie' phoneCode='353' name='Bengali Ireland' />
+        <country code='im' phoneCode='44' name='Bengali Isle Of Man' />
+        <country code='il' phoneCode='972' name='Bengali Israel' />
+        <country code='it' phoneCode='39' name='Bengali Italy' />
+        <country code='ci' phoneCode='225' name='Bengali Côte D&apos;ivoire' />
+        <country code='jp' phoneCode='81' name='Bengali Japan' />
+        <country code='jo' phoneCode='962' name='Bengali Jordan' />
+        <country code='kz' phoneCode='7' name='Bengali Kazakhstan' />
+        <country code='ke' phoneCode='254' name='Bengali Kenya' />
+        <country code='ki' phoneCode='686' name='Bengali Kiribati' />
+        <country code='kw' phoneCode='965' name='Bengali Kuwait' />
+        <country code='kg' phoneCode='996' name='Bengali Kyrgyzstan' />
+        <country code='la' phoneCode='856' name='Bengali Lao People&apos;s Democratic Republic' />
+        <country code='lv' phoneCode='371' name='Bengali Latvia' />
+        <country code='lb' phoneCode='961' name='Bengali Lebanon' />
+        <country code='ls' phoneCode='266' name='Bengali Lesotho' />
+        <country code='lr' phoneCode='231' name='Bengali Liberia' />
+        <country code='ly' phoneCode='218' name='Bengali Libya' />
+        <country code='li' phoneCode='423' name='Bengali Liechtenstein' />
+        <country code='lt' phoneCode='370' name='Bengali Lithuania' />
+        <country code='lu' phoneCode='352' name='Bengali Luxembourg' />
+        <country code='mo' phoneCode='853' name='Bengali Macao' />
+        <country code='mk' phoneCode='389' name='Bengali Macedonia, The Former Yugoslav Republic Of' />
+        <country code='mg' phoneCode='261' name='Bengali Madagascar' />
+        <country code='mw' phoneCode='265' name='Bengali Malawi' />
+        <country code='my' phoneCode='60' name='Bengali Malaysia' />
+        <country code='mv' phoneCode='960' name='Bengali Maldives' />
+        <country code='ml' phoneCode='223' name='Bengali Mali' />
+        <country code='mt' phoneCode='356' name='Bengali Malta' />
+        <country code='mh' phoneCode='692' name='Bengali Marshall Islands' />
+        <country code='mq' phoneCode='596' name='Bengali Martinique' />
+        <country code='mr' phoneCode='222' name='Bengali Mauritania' />
+        <country code='mu' phoneCode='230' name='Bengali Mauritius' />
+        <country code='yt' phoneCode='262' name='Bengali Mayotte' />
+        <country code='mx' phoneCode='52' name='Bengali Mexico' />
+        <country code='fm' phoneCode='691' name='Bengali Micronesia, Federated States Of' />
+        <country code='md' phoneCode='373' name='Bengali Moldova, Republic Of' />
+        <country code='mc' phoneCode='377' name='Bengali Monaco' />
+        <country code='mn' phoneCode='976' name='Bengali Mongolia' />
+        <country code='me' phoneCode='382' name='Bengali Montenegro' />
+        <country code='ma' phoneCode='212' name='Bengali Morocco' />
+        <country code='mz' phoneCode='258' name='Bengali Mozambique' />
+        <country code='na' phoneCode='264' name='Bengali Namibia' />
+        <country code='nr' phoneCode='674' name='Bengali Nauru' />
+        <country code='np' phoneCode='977' name='Bengali Nepal' />
+        <country code='nl' phoneCode='31' name='Bengali Netherlands' />
+        <country code='nc' phoneCode='687' name='Bengali New Caledonia' />
+        <country code='nz' phoneCode='64' name='Bengali New Zealand' />
+        <country code='ni' phoneCode='505' name='Bengali Nicaragua' />
+        <country code='ne' phoneCode='227' name='Bengali Niger' />
+        <country code='ng' phoneCode='234' name='Bengali Nigeria' />
+        <country code='nu' phoneCode='683' name='Bengali Niue' />
+        <country code='kp' phoneCode='850' name='Bengali Korea, Democratic People&apos;s Republic Of' />
+        <country code='no' phoneCode='47' name='Bengali Norway' />
+        <country code='om' phoneCode='968' name='Bengali Oman' />
+        <country code='pk' phoneCode='92' name='Bengali Pakistan' />
+        <country code='pw' phoneCode='680' name='Bengali Palau' />
+        <country code='pa' phoneCode='507' name='Bengali Panama' />
+        <country code='pg' phoneCode='675' name='Bengali Papua New Guinea' />
+        <country code='py' phoneCode='595' name='Bengali Paraguay' />
+        <country code='pe' phoneCode='51' name='Bengali Peru' />
+        <country code='ph' phoneCode='63' name='Bengali Philippines' />
+        <country code='pn' phoneCode='870' name='Bengali Pitcairn' />
+        <country code='pl' phoneCode='48' name='Bengali Poland' />
+        <country code='pt' phoneCode='351' name='Bengali Portugal' />
+        <country code='pr' phoneCode='1' name='Bengali Puerto Rico' />
+        <country code='qa' phoneCode='974' name='Bengali Qatar' />
+        <country code='re' phoneCode='262' name='Bengali Réunion' />
+        <country code='ro' phoneCode='40' name='Bengali Romania' />
+        <country code='ru' phoneCode='7' name='Bengali Russian Federation' />
+        <country code='rw' phoneCode='250' name='Bengali Rwanda' />
+        <country code='bl' phoneCode='590' name='Bengali Saint Barthélemy' />
+        <country code='ws' phoneCode='685' name='Bengali Samoa' />
+        <country code='sm' phoneCode='378' name='Bengali San Marino' />
+        <country code='st' phoneCode='239' name='Bengali Sao Tome And Principe' />
+        <country code='sa' phoneCode='966' name='Bengali Saudi Arabia' />
+        <country code='sn' phoneCode='221' name='Bengali Senegal' />
+        <country code='rs' phoneCode='381' name='Bengali Serbia' />
+        <country code='sc' phoneCode='248' name='Bengali Seychelles' />
+        <country code='sl' phoneCode='232' name='Bengali Sierra Leone' />
+        <country code='sg' phoneCode='65' name='Bengali Singapore' />
+        <country code='sk' phoneCode='421' name='Bengali Slovakia' />
+        <country code='si' phoneCode='386' name='Bengali Slovenia' />
+        <country code='sb' phoneCode='677' name='Bengali Solomon Islands' />
+        <country code='so' phoneCode='252' name='Bengali Somalia' />
+        <country code='za' phoneCode='27' name='Bengali South Africa' />
+        <country code='kr' phoneCode='82' name='Bengali Korea, Republic Of' />
+        <country code='es' phoneCode='34' name='Bengali Spain' />
+        <country code='lk' phoneCode='94' name='Bengali Sri Lanka' />
+        <country code='sh' phoneCode='290' name='Bengali Saint Helena, Ascension And Tristan Da Cunha' />
+        <country code='pm' phoneCode='508' name='Bengali Saint Pierre And Miquelon' />
+        <country code='sd' phoneCode='249' name='Bengali Sudan' />
+        <country code='sr' phoneCode='597' name='Bengali Suriname' />
+        <country code='sz' phoneCode='268' name='Bengali Swaziland' />
+        <country code='se' phoneCode='46' name='Bengali Sweden' />
+        <country code='ch' phoneCode='41' name='Bengali Switzerland' />
+        <country code='sy' phoneCode='963' name='Bengali Syrian Arab Republic' />
+        <country code='tw' phoneCode='886' name='Bengali Taiwan, Province Of China' />
+        <country code='tj' phoneCode='992' name='Bengali Tajikistan' />
+        <country code='tz' phoneCode='255' name='Bengali Tanzania, United Republic Of' />
+        <country code='th' phoneCode='66' name='Bengali Thailand' />
+        <country code='tg' phoneCode='228' name='Bengali Togo' />
+        <country code='tk' phoneCode='690' name='Bengali Tokelau' />
+        <country code='to' phoneCode='676' name='Bengali Tonga' />
+        <country code='tn' phoneCode='216' name='Bengali Tunisia' />
+        <country code='tr' phoneCode='90' name='Bengali Turkey' />
+        <country code='tm' phoneCode='993' name='Bengali Turkmenistan' />
+        <country code='tv' phoneCode='688' name='Bengali Tuvalu' />
+        <country code='ae' phoneCode='971' name='Bengali United Arab Emirates' />
+        <country code='ug' phoneCode='256' name='Bengali Uganda' />
+        <country code='gb' phoneCode='44' name='Bengali United Kingdom' />
+        <country code='ua' phoneCode='380' name='Bengali Ukraine' />
+        <country code='uy' phoneCode='598' name='Bengali Uruguay' />
+        <country code='us' phoneCode='1' name='Bengali United States' />
+        <country code='uz' phoneCode='998' name='Bengali Uzbekistan' />
+        <country code='vu' phoneCode='678' name='Bengali Vanuatu' />
+        <country code='va' phoneCode='39' name='Bengali Holy See (vatican City State)' />
+        <country code='ve' phoneCode='58' name='Bengali Venezuela, Bolivarian Republic Of' />
+        <country code='vn' phoneCode='84' name='Bengali Viet Nam' />
+        <country code='wf' phoneCode='681' name='Bengali Wallis And Futuna' />
+        <country code='ye' phoneCode='967' name='Bengali Yemen' />
+        <country code='zm' phoneCode='260' name='Bengali Zambia' />
+        <country code='zw' phoneCode='263' name='Bengali Zimbabwe' />
+    </countries>
+</data>

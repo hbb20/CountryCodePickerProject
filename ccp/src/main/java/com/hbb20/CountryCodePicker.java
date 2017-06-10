@@ -162,9 +162,9 @@ public class CountryCodePicker extends RelativeLayout {
             defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_defaultNameCode);
             boolean setUsingNameCode = false;
             if (defaultCountryNameCode != null && defaultCountryNameCode.length() != 0) {
-                if (Country.getCountryForNameCodeFromLibraryMasterList(customLanguage, defaultCountryNameCode) != null) {
+                if (Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode) != null) {
                     setUsingNameCode = true;
-                    setDefaultCountry(Country.getCountryForNameCodeFromLibraryMasterList(customLanguage, defaultCountryNameCode));
+                    setDefaultCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode));
                     setSelectedCountry(defaultCountry);
                 }
             }
@@ -175,7 +175,7 @@ public class CountryCodePicker extends RelativeLayout {
                 int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, -1);
 
                 //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
-                if (Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode) == null) {
+                if (Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode) == null) {
                     defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
                 }
                 setDefaultCountryUsingPhoneCode(defaultCountryCode);
@@ -260,7 +260,7 @@ public class CountryCodePicker extends RelativeLayout {
         this.selectedCountry = selectedCountry;
         //as soon as country is selected, textView should be updated
         if (selectedCountry == null) {
-            selectedCountry = Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode);
+            selectedCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
         }
 
         String displayText = "";
@@ -366,7 +366,7 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             List<Country> localCountryList = new ArrayList<>();
             for (String nameCode : countryPreference.split(",")) {
-                Country country = Country.getCountryForNameCodeFromCustomMasterList(customMasterCountriesList, customLanguage, nameCode);
+                Country country = Country.getCountryForNameCodeFromCustomMasterList(getContext(), customMasterCountriesList, customLanguage, nameCode);
                 if (country != null) {
                     if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
                         localCountryList.add(country);
@@ -399,7 +399,7 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             List<Country> localCountryList = new ArrayList<>();
             for (String nameCode : customMasterCountries.split(",")) {
-                Country country = Country.getCountryForNameCodeFromLibraryMasterList(customLanguage, nameCode);
+                Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, nameCode);
                 if (country != null) {
                     if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
                         localCountryList.add(country);
@@ -529,7 +529,8 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     String getDialogTitle() {
-        switch (customLanguage) {
+        return Country.getDialogTitle(context, customLanguage);
+        /*switch (customLanguage) {
             case ARABIC:
                 return "حدد الدولة";
             case BENGALI:
@@ -564,11 +565,12 @@ public class CountryCodePicker extends RelativeLayout {
                 return "בחר מדינה";
             default:
                 return "Select a country";
-        }
+        }*/
     }
 
     String getSearchHintText() {
-        switch (customLanguage) {
+        return Country.getSearchHintMessage(context, customLanguage);
+        /*switch (customLanguage) {
             case ARABIC:
                 return "بحث";
             case BENGALI:
@@ -604,7 +606,7 @@ public class CountryCodePicker extends RelativeLayout {
 
             default:
                 return "Search...";
-        }
+        }*/
     }
 
     /**
@@ -612,7 +614,8 @@ public class CountryCodePicker extends RelativeLayout {
      */
 
     String getNoResultFoundText() {
-        switch (customLanguage) {
+        return Country.getNoResultFoundAckMessage(context, customLanguage);
+        /*switch (customLanguage) {
             case ARABIC:
                 return "يؤدي لم يتم العثور";
             case BENGALI:
@@ -647,7 +650,7 @@ public class CountryCodePicker extends RelativeLayout {
                 return "לא נמצאו תוצאות";
             default:
                 return "Results not found";
-        }
+        }*/
     }
 
     /**
@@ -671,7 +674,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     @Deprecated
     public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
-        Country defaultCountry = Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             //            Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
         } else { //if correct country is found, set the country
@@ -691,7 +694,7 @@ public class CountryCodePicker extends RelativeLayout {
      *                               if you want to set JP +81(Japan) as default country, defaultCountryCode =  "JP" or "jp"
      */
     public void setDefaultCountryUsingNameCode(String defaultCountryNameCode) {
-        Country defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(customLanguage, defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             //            Log.d(TAG, "No country for nameCode " + defaultCountryNameCode + " is found");
         } else { //if correct country is found, set the country
@@ -839,10 +842,10 @@ public class CountryCodePicker extends RelativeLayout {
      *                    If you want to set JP +81(Japan), countryCode= 81
      */
     public void setCountryForPhoneCode(int countryCode) {
-        Country country = Country.getCountryForCode(customLanguage, preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country country = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (country == null) {
             if (defaultCountry == null) {
-                defaultCountry = Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode);
+                defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
             }
             setSelectedCountry(defaultCountry);
         } else {
@@ -858,10 +861,10 @@ public class CountryCodePicker extends RelativeLayout {
      *                        If you want to set JP +81(Japan), countryCode= JP
      */
     public void setCountryForNameCode(String countryNameCode) {
-        Country country = Country.getCountryForNameCodeFromLibraryMasterList(customLanguage, countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (country == null) {
             if (defaultCountry == null) {
-                defaultCountry = Country.getCountryForCode(customLanguage, preferredCountries, defaultCountryCode);
+                defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
             }
             setSelectedCountry(defaultCountry);
         } else {
@@ -903,7 +906,7 @@ public class CountryCodePicker extends RelativeLayout {
      * @param fullNumber is combination of country code and carrier number, (country_code+carrier_number) for example if country is India (+91) and carrier/mobile number is 8866667722 then full number will be 9188666667722 or +918866667722. "+" in starting of number is optional.
      */
     public void setFullNumber(String fullNumber) {
-        Country country = Country.getCountryForNumber(customLanguage, preferredCountries, fullNumber);
+        Country country = Country.getCountryForNumber(getContext(), customLanguage, preferredCountries, fullNumber);
         setSelectedCountry(country);
         String carrierNumber = detectCarrierNumber(fullNumber, country);
         if (getEditText_registeredCarrierNumber() != null) {

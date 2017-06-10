@@ -110,7 +110,9 @@
                             <com.hbb20.CountryCodePicker
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:contentColor="@android:color/black" />
+                                app:ccpLanguage="BENGALI"
+                                app:contentColor="@android:color/black"
+                                app:showFullName="true"/>
 
                             <EditText
                                 android:layout_width="match_parent"

@@ -18,6 +18,9 @@ import java.util.List;
  */
 class Country {
     static String TAG = "Class Country";
+    static CountryCodePicker.Language loadedLibraryMasterListLanguage;
+    static String dialogTitle, searchHintMessage, noResultFoundAckMessage;
+    static List<Country> loadedLibraryMaterList;
     String nameCode;
     String phoneCode;
     String name;
@@ -26,11 +29,26 @@ class Country {
 
     }
 
-
     public Country(String nameCode, String phoneCode, String name) {
         this.nameCode = nameCode;
         this.phoneCode = phoneCode;
         this.name = name;
+    }
+
+    public static CountryCodePicker.Language getLoadedLibraryMasterListLanguage() {
+        return loadedLibraryMasterListLanguage;
+    }
+
+    public static void setLoadedLibraryMasterListLanguage(CountryCodePicker.Language loadedLibraryMasterListLanguage) {
+        Country.loadedLibraryMasterListLanguage = loadedLibraryMasterListLanguage;
+    }
+
+    public static List<Country> getLoadedLibraryMaterList() {
+        return loadedLibraryMaterList;
+    }
+
+    public static void setLoadedLibraryMaterList(List<Country> loadedLibraryMaterList) {
+        Country.loadedLibraryMaterList = loadedLibraryMaterList;
     }
 
     /**
@@ -39,12 +57,13 @@ class Country {
      * @param context: required to access application resources (where country.xml is).
      * @return List of all the countries available in xml file.
      */
-    public static List<Country> readXMLofCountries(Context context) {
+    public static void loadDataFromXML(Context context, CountryCodePicker.Language language) {
         List<Country> countries = new ArrayList<Country>();
+        String tempDialogTitle = "", tempSeachHint = "", tempNoResultAck = "";
         try {
             XmlPullParserFactory xmlFactoryObject = XmlPullParserFactory.newInstance();
             XmlPullParser xmlPullParser = xmlFactoryObject.newPullParser();
-            InputStream ins = context.getResources().openRawResource(R.raw.countries);
+            InputStream ins = context.getResources().openRawResource(context.getResources().getIdentifier(language.toString().toLowerCase(), "raw", context.getPackageName()));
             xmlPullParser.setInput(ins, null);
             int event = xmlPullParser.getEventType();
             while (event != XmlPullParser.END_DOCUMENT) {
@@ -57,33 +76,74 @@ class Country {
                             Country country = new Country();
                             country.setNameCode(xmlPullParser.getAttributeValue(null, "code").toUpperCase());
                             country.setPhoneCode(xmlPullParser.getAttributeValue(null, "phoneCode"));
-                            country.setName(xmlPullParser.getAttributeValue(null, "name"));
+                            country.setName(xmlPullParser.getAttributeValue(null, "name") + " xml");
                             countries.add(country);
+                        } else if (name.equals("ccp_dialog_title")) {
+                            tempDialogTitle = xmlPullParser.getAttributeValue(null, "translation");
+                        } else if (name.equals("ccp_dialog_search_hint_message")) {
+                            tempSeachHint = xmlPullParser.getAttributeValue(null, "translation");
+                        } else if (name.equals("ccp_dialog_no_result_ack_message")) {
+                            tempNoResultAck = xmlPullParser.getAttributeValue(null, "translation");
                         }
                         break;
                 }
                 event = xmlPullParser.next();
             }
+            loadedLibraryMasterListLanguage = language;
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
 
         }
-        return countries;
+
+        //if anything went wrong, countries will be loaded for english language
+        if (countries.size() == 0) {
+            loadedLibraryMasterListLanguage = CountryCodePicker.Language.ENGLISH;
+            countries = getLibraryMasterCountriesEnglish();
+        }
+
+        dialogTitle = tempDialogTitle.length() > 0 ? tempDialogTitle : "Select a country";
+        searchHintMessage = tempSeachHint.length() > 0 ? tempSeachHint : "Search...";
+        noResultFoundAckMessage = tempNoResultAck.length() > 0 ? tempNoResultAck : "Results not found";
+        loadedLibraryMaterList = countries;
+    }
+
+    public static String getDialogTitle(Context context, CountryCodePicker.Language language) {
+        if (loadedLibraryMasterListLanguage == null || loadedLibraryMasterListLanguage != language || dialogTitle == null || dialogTitle.length() == 0) {
+            loadDataFromXML(context, language);
+        }
+        return dialogTitle;
+    }
+
+    public static String getSearchHintMessage(Context context, CountryCodePicker.Language language) {
+        if (loadedLibraryMasterListLanguage == null || loadedLibraryMasterListLanguage != language || searchHintMessage == null || searchHintMessage.length() == 0) {
+            loadDataFromXML(context, language);
+        }
+        return searchHintMessage;
+    }
+
+    public static String getNoResultFoundAckMessage(Context context, CountryCodePicker.Language language) {
+        if (loadedLibraryMasterListLanguage == null || loadedLibraryMasterListLanguage != language || noResultFoundAckMessage == null || noResultFoundAckMessage.length() == 0) {
+            loadDataFromXML(context, language);
+        }
+        return noResultFoundAckMessage;
     }
 
     /**
      * Search a country which matches @param code.
      *
+     * @param context
      * @param preferredCountries is list of preference countries.
      * @param code               phone code. i.e "91" or "1"
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      * if same code (e.g. +1) available for more than one country ( US, canada) , this function will return preferred country.
      */
-    private static Country getCountryForCode(CountryCodePicker.Language language, List<Country> preferredCountries, String code) {
+    private static Country getCountryForCode(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, String code) {
 
         /**
          * check in preferred countries
@@ -96,7 +156,7 @@ class Country {
             }
         }
 
-        for (Country country : getLibraryMasterCountryList(language)) {
+        for (Country country : getLibraryMasterCountryList(context, language)) {
             if (country.getPhoneCode().equals(code)) {
                 return country;
             }
@@ -104,27 +164,25 @@ class Country {
         return null;
     }
 
-    public static List<Country> getCustomMasterCountryList(CountryCodePicker codePicker) {
+    public static List<Country> getCustomMasterCountryList(Context context, CountryCodePicker codePicker) {
         codePicker.refreshCustomMasterList();
         if (codePicker.customMasterCountriesList != null && codePicker.customMasterCountriesList.size() > 0) {
             return codePicker.getCustomMasterCountriesList();
         } else {
-            return getLibraryMasterCountryList(codePicker.getCustomLanguage());
+            return getLibraryMasterCountryList(context, codePicker.getCustomLanguage());
         }
     }
 
     /**
      * Search a country which matches @param nameCode.
      *
-     *
+     * @param context
      * @param customMasterCountriesList
-     * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
-     * @return Country that has phone code as @param code.
-     * or returns null if no country matches given code.
+     * @param nameCode                  country name code. i.e US or us or Au. See countries.xml for all code names.  @return Country that has phone code as @param code.
      */
-    public static Country getCountryForNameCodeFromCustomMasterList(List<Country> customMasterCountriesList, CountryCodePicker.Language language, String nameCode) {
+    public static Country getCountryForNameCodeFromCustomMasterList(Context context, List<Country> customMasterCountriesList, CountryCodePicker.Language language, String nameCode) {
         if (customMasterCountriesList == null || customMasterCountriesList.size() == 0) {
-            return getCountryForNameCodeFromLibraryMasterList(language, nameCode);
+            return getCountryForNameCodeFromLibraryMasterList(context, language, nameCode);
         } else {
             for (Country country : customMasterCountriesList) {
                 if (country.getNameCode().equalsIgnoreCase(nameCode)) {
@@ -138,29 +196,13 @@ class Country {
     /**
      * Search a country which matches @param nameCode.
      *
+     * @param context
      * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      */
-    public static Country getCountryForNameCodeFromLibraryMasterList(CountryCodePicker.Language language, String nameCode) {
-        List<Country> countries = Country.getLibraryMasterCountryList(language);
-        for (Country country : countries) {
-            if (country.getNameCode().equalsIgnoreCase(nameCode)) {
-                return country;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Search a country which matches @param nameCode.
-     *
-     * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
-     * @return Country that has phone code as @param code.
-     * or returns null if no country matches given code.
-     */
-    public static Country getCountryForNameCodeTrial(String nameCode, Context context) {
-        List<Country> countries = Country.readXMLofCountries(context);
+    public static Country getCountryForNameCodeFromLibraryMasterList(Context context, CountryCodePicker.Language language, String nameCode) {
+        List<Country> countries = Country.getLibraryMasterCountryList(context, language);
         for (Country country : countries) {
             if (country.getNameCode().equalsIgnoreCase(nameCode)) {
                 return country;
@@ -172,13 +214,14 @@ class Country {
     /**
      * Search a country which matches @param code.
      *
+     * @param context
      * @param preferredCountries list of country with priority,
      * @param code               phone code. i.e 91 or 1
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      */
-    static Country getCountryForCode(CountryCodePicker.Language language, List<Country> preferredCountries, int code) {
-        return getCountryForCode(language, preferredCountries, code + "");
+    static Country getCountryForCode(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, int code) {
+        return getCountryForCode(context, language, preferredCountries, code + "");
     }
 
     /**
@@ -188,13 +231,14 @@ class Country {
      * if any country found for code "8", will return that country. If not, then it will
      * try to find country for "81". and so on till first 3 characters ( maximum number of characters in country code is 3).
      *
+     * @param context
      * @param preferredCountries countries of preference
      * @param fullNumber         full number ( "+" (optional)+ country code + carrier number) i.e. +819017901357 / 819017901357 / 918866667722
      * @return Country JP +81(Japan) for +819017901357 or 819017901357
      * Country IN +91(India) for  918866667722
      * null for 2956635321 ( as neither of "2", "29" and "295" matches any country code)
      */
-    static Country getCountryForNumber(CountryCodePicker.Language language, List<Country> preferredCountries, String fullNumber) {
+    static Country getCountryForNumber(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, String fullNumber) {
         int firstDigit;
         if (fullNumber.length() != 0) {
             if (fullNumber.charAt(0) == '+') {
@@ -205,7 +249,7 @@ class Country {
             Country country = null;
             for (int i = firstDigit; i < firstDigit + 4; i++) {
                 String code = fullNumber.substring(firstDigit, i);
-                country = Country.getCountryForCode(language, preferredCountries, code);
+                country = Country.getCountryForCode(context, language, preferredCountries, code);
                 if (country != null) {
                     return country;
                 }
@@ -216,11 +260,12 @@ class Country {
 
     /**
      * Returns image res based on country name code
+     *
      * @param country
      * @return
      */
     static int getFlagResID(Country country) {
-        switch (country.getNameCode()) {
+        switch (country.getNameCode().toLowerCase()) {
             case "af": //afghanistan
                 return R.drawable.flag_afghanistan;
             case "al": //albania
@@ -686,43 +731,11 @@ class Country {
      *
      * @return
      */
-    public static List<Country> getLibraryMasterCountryList(CountryCodePicker.Language language) {
-        switch (language) {
-            case ARABIC:
-                return getLibraryMasterCountriesArabic();
-            case BENGALI:
-                return getLibraryMasterCountriesBengali();
-            case SIMPLIFIED_CHINESE:
-                return getLibraryMasterCountriesSimplifiedChinese();
-            case TRADITIONAL_CHINESE:
-                return getLibraryMasterCountriesTraditionalChinese();
-            case ENGLISH:
-                return getLibraryMasterCountriesEnglish();
-            case FRENCH:
-                return getLibraryMasterCountriesFrench();
-            case GERMAN:
-                return getLibraryMasterCountriesGerman();
-            case GUJARATI:
-                return getLibraryMasterCountriesGujarati();
-            case HINDI:
-                return getLibraryMasterCountriesHindi();
-            case JAPANESE:
-                return getLibraryMasterCountriesJapanese();
-            case INDONESIA:
-                return getLibraryMasterCountriesIndonesia();
-            case KOREAN:
-                return getLibraryMasterCountriesKorean();
-            case PORTUGUESE:
-                return getLibraryMasterCountriesPortuguese();
-            case RUSSIAN:
-                return getLibraryMasterCountriesRussian();
-            case SPANISH:
-                return getLibraryMasterCountriesSpanish();
-            case HEBREW:
-                return getLibraryMasterCountriesHebrew();
-            default:
-                return getLibraryMasterCountriesEnglish();
+    public static List<Country> getLibraryMasterCountryList(Context context, CountryCodePicker.Language language) {
+        if (loadedLibraryMasterListLanguage == null || language != loadedLibraryMasterListLanguage || loadedLibraryMaterList == null || loadedLibraryMaterList.size() == 0) { //when it is required to load country in country list
+            loadDataFromXML(context, language);
         }
+        return loadedLibraryMaterList;
     }
 
     public static List<Country> getLibraryMasterCountriesEnglish() {
@@ -3525,7 +3538,7 @@ class Country {
         countries.add(new Country("zw", "263", "Zimbabwe"));
         return countries;
     }
-    
+
     public static List<Country> getLibraryMasterCountriesKorean() {
         List<Country> countries = new ArrayList<>();
         countries.add(new Country("af", "93", "아프가니스탄"));

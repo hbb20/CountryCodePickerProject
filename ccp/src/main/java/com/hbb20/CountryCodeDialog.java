@@ -20,7 +20,7 @@ class CountryCodeDialog {
         final Dialog dialog = new Dialog(context);
         codePicker.refreshCustomMasterList();
         codePicker.refreshPreferredCountries();
-        List<Country> masterCountries = Country.getCustomMasterCountryList(codePicker);
+        List<Country> masterCountries = Country.getCustomMasterCountryList(context, codePicker);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
