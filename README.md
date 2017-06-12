@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7.9'
+          compile 'com.hbb20:ccp:1.8'
         }
       ````
 
@@ -429,6 +429,21 @@ Features
     #### Programmatically
     - To set it programmatically, use ```` setFlagBorderColor() ```` method.
   
+### 18. Fast Scroller
+   - Now it is easy to jump within the real long list and reach to the specific country using fast scroller with indexer.
+   - By default it will be visible when list is scrollable.
+   - Scroller visibility, bubble color, handle color and index text appearance can be modified as per requirement.
+     ````xml   
+        <com.hbb20.CountryCodePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ccpDialog_showFastScroller="false"
+            app:ccpDialog_fastScroller_bubbleColor="@color/bubbleColor"
+            app:ccpDialog_fastScroller_handleColor="@color/handleColoer"
+            app:ccpDialog_fastScroller_bubbleTextAppearance="@style/bubbleTextAppearance"/>
+     ````
+   - All properties have corresponding functions to modify them programmatically.   
+     
 
 Change log
 --------
@@ -495,10 +510,14 @@ Change log
 - Now it is easier to add new languages.
 - Countries are now listed in ascending order specific to selected language rather than just English name.
 
+##### version 1.8
+- Fast Scroller with index.
+
 ## Credits
 - Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
 - Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
-- Indonesia translation by [Maulana Firdaus](https://github.com/firdausmaulan) 
+- Indonesia translation by [Maulana Firdaus](https://github.com/firdausmaulan)
+- [Fast Scroller library](https://github.com/FutureMind/recycler-fast-scroll) by [Future Minds](https://github.com/FutureMind) 
 
 ## License
 

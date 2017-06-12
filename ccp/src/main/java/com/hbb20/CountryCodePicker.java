@@ -51,15 +51,20 @@ public class CountryCodePicker extends RelativeLayout {
     boolean selectionDialogShowSearch = true;
     int contentColor;
     int borderFlagColor;
+    boolean showFastScroller;
     List<Country> preferredCountries;
     //this will be "AU,IN,US"
     String countryPreference;
+    int fastScrollerBubbleColor = -1;
     List<Country> customMasterCountriesList;
     //this will be "AU,IN,US"
     String customMasterCountries;
     Language customLanguage = Language.ENGLISH;
     boolean keyboardAutoPopOnSearch = true;
     boolean ccpClickable = true;
+    private OnCountryChangeListener onCountryChangeListener;
+    private int fastScrollerHandleColor;
+    private int fastScrollerBubbleTextAppearance;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -68,8 +73,6 @@ public class CountryCodePicker extends RelativeLayout {
             }
         }
     };
-
-    private OnCountryChangeListener onCountryChangeListener;
 
     public CountryCodePicker(Context context) {
         super(context);
@@ -119,6 +122,17 @@ public class CountryCodePicker extends RelativeLayout {
             //show full name
             showFullName = a.getBoolean(R.styleable.CountryCodePicker_showFullName, false);
 
+            //show fast scroller
+            showFastScroller = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFastScroller, true);
+
+            //bubble color
+            fastScrollerBubbleColor = a.getColor(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleColor, -1);
+
+            //scroller handle color
+            fastScrollerHandleColor = a.getColor(R.styleable.CountryCodePicker_ccpDialog_fastScroller_handleColor, -1);
+
+            //scroller text appearance
+            fastScrollerBubbleTextAppearance = a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleTextAppearance, -1);
 
             //show flag
             showFlag(a.getBoolean(R.styleable.CountryCodePicker_showFlag, true));
@@ -963,6 +977,58 @@ public class CountryCodePicker extends RelativeLayout {
     public void setShowPhoneCode(boolean showPhoneCode) {
         this.showPhoneCode = showPhoneCode;
         setSelectedCountry(selectedCountry);
+    }
+
+    int getFastScrollerHandleColor() {
+        return fastScrollerHandleColor;
+    }
+
+    /**
+     * This should be the color for fast scroller handle.
+     *
+     * @param fastScrollerHandleColor
+     */
+    public void setFastScrollerHandleColor(int fastScrollerHandleColor) {
+        this.fastScrollerHandleColor = fastScrollerHandleColor;
+    }
+
+    int getFastScrollerBubbleTextAppearance() {
+        return fastScrollerBubbleTextAppearance;
+    }
+
+    /**
+     * This sets text appearance for fast scroller index character
+     *
+     * @param fastScrollerBubbleTextAppearance should be reference id of textappereance style. i.e. R.style.myBubbleTextAppearance
+     */
+    public void setFastScrollerBubbleTextAppearance(int fastScrollerBubbleTextAppearance) {
+        this.fastScrollerBubbleTextAppearance = fastScrollerBubbleTextAppearance;
+    }
+
+    boolean isShowFastScroller() {
+        return showFastScroller;
+    }
+
+    /**
+     * Set visibility of fast scroller.
+     *
+     * @param showFastScroller
+     */
+    public void setShowFastScroller(boolean showFastScroller) {
+        this.showFastScroller = showFastScroller;
+    }
+
+    int getFastScrollerBubbleColor() {
+        return fastScrollerBubbleColor;
+    }
+
+    /**
+     * Sets bubble color for fast scroller
+     *
+     * @param fastScrollerBubbleColor
+     */
+    public void setFastScrollerBubbleColor(int fastScrollerBubbleColor) {
+        this.fastScrollerBubbleColor = fastScrollerBubbleColor;
     }
 
     /**

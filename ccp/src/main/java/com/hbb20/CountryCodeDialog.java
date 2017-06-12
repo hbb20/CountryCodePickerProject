@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -47,7 +48,26 @@ class CountryCodeDialog {
         //fast scroller
         FastScroller fastScroller = (FastScroller) dialog.findViewById(R.id.fastscroll);
         fastScroller.setRecyclerView(recyclerView_countryDialog);
+        if (codePicker.isShowFastScroller()) {
+            if (codePicker.getFastScrollerBubbleColor() != -1) {
+                fastScroller.setBubbleColor(codePicker.getFastScrollerBubbleColor());
+            }
 
+            if (codePicker.getFastScrollerHandleColor() != -1) {
+                fastScroller.setHandleColor(codePicker.getFastScrollerHandleColor());
+            }
+
+            if (codePicker.getFastScrollerBubbleTextAppearance() != -1) {
+                try {
+                    fastScroller.setBubbleTextAppearance(codePicker.getFastScrollerBubbleTextAppearance());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } else {
+            fastScroller.setVisibility(View.GONE);
+        }
         dialog.show();
     }
 }
