@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="8dp">
 
     <TextView
         android:id="@+id/textView_title"
@@ -30,6 +30,17 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/editText_search"
         android:dividerHeight="2dp" />
+
+    <com.futuremind.recyclerviewfastscroll.FastScroller
+        android:id="@+id/fastscroll"
+        fastscroll__bubbleColor=""
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/recycler_countryDialog"
+        android:layout_alignEnd="@+id/recycler_countryDialog"
+        android:layout_alignRight="@+id/recycler_countryDialog"
+        android:layout_alignTop="@+id/recycler_countryDialog"
+        android:orientation="vertical"/>
 
     <TextView
         android:id="@+id/textView_noresult"

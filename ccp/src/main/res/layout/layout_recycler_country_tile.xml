@@ -41,6 +41,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:gravity="center_vertical"
         android:paddingEnd="10dp"
         android:paddingLeft="10dp"
@@ -49,7 +51,6 @@
         android:text="+91"
         android:textColor="@android:color/secondary_text_light"
         android:textDirection="ltr" />
-
     <View
         android:id="@+id/preferenceDivider"
         android:layout_width="match_parent"

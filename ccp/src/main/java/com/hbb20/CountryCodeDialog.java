@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.futuremind.recyclerviewfastscroll.FastScroller;
+
 import java.util.List;
 
 /**
@@ -41,6 +43,11 @@ class CountryCodeDialog {
 
         recyclerView_countryDialog.setLayoutManager(new LinearLayoutManager(context));
         recyclerView_countryDialog.setAdapter(cca);
+
+        //fast scroller
+        FastScroller fastScroller = (FastScroller) dialog.findViewById(R.id.fastscroll);
+        fastScroller.setRecyclerView(recyclerView_countryDialog);
+
         dialog.show();
     }
 }
