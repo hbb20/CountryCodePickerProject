@@ -35,7 +35,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     Context context;
     RelativeLayout rlQueryHolder;
     ImageView imgClearQuery;
-    int prefferedCountriesCount = 0;
+    int preferredCountriesCount = 0;
 
     CountryCodeAdapter(Context context, List<Country> countries, CountryCodePicker codePicker, RelativeLayout rlQueryHolder, final EditText editText_search, TextView textView_noResult, Dialog dialog, ImageView imgClearQuery) {
         this.context = context;
@@ -96,7 +96,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 }
             });
 
-            if(codePicker.isKeyboardAutoPopOnSearch()) {
+            if (codePicker.isDialogKeyboardAutoPopup()) {
                 InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                 if (inputMethodManager != null) {
                     inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
@@ -145,19 +145,19 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
     private List<Country> getFilteredCountries(String query) {
         List<Country> tempCountryList = new ArrayList<Country>();
-        prefferedCountriesCount = 0;
+        preferredCountriesCount = 0;
         if(codePicker.preferredCountries!=null && codePicker.preferredCountries.size()>0) {
             for (Country country : codePicker.preferredCountries) {
                 if (country.isEligibleForQuery(query)) {
                     tempCountryList.add(country);
-                    prefferedCountriesCount++;
+                    preferredCountriesCount++;
                 }
             }
 
             if (tempCountryList.size() > 0) { //means at least one preferred country is added.
                 Country divider = null;
                 tempCountryList.add(divider);
-                prefferedCountriesCount++;
+                preferredCountriesCount++;
             }
         }
 
@@ -202,7 +202,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     @Override
     public String getSectionTitle(int position) {
         Country country = filteredCountries.get(position);
-        if (prefferedCountriesCount > position) {
+        if (preferredCountriesCount > position) {
             return "★";
         } else if (country != null) {
             return country.getName().substring(0, 1);

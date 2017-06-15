@@ -51,15 +51,15 @@ public class LanguageSupportFragment extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
                     case R.id.radioEnglish:
-                        ccp.changeLanguage(CountryCodePicker.Language.ENGLISH);
+                        ccp.changeDefaultLanguage(CountryCodePicker.Language.ENGLISH);
                         Toast.makeText(getContext(),"Language is updated to ENGLISH",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.radioJapanese:
-                        ccp.changeLanguage(CountryCodePicker.Language.JAPANESE);
+                        ccp.changeDefaultLanguage(CountryCodePicker.Language.JAPANESE);
                         Toast.makeText(getContext(),"Language is updated to JAPANESE",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.radioSpanish:
-                        ccp.changeLanguage(CountryCodePicker.Language.SPANISH);
+                        ccp.changeDefaultLanguage(CountryCodePicker.Language.SPANISH);
                         Toast.makeText(getContext(),"Language is updated to SPANISH",Toast.LENGTH_SHORT).show();
                         break;
                 }

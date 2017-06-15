@@ -53,7 +53,6 @@
 
     <com.futuremind.recyclerviewfastscroll.FastScroller
         android:id="@+id/fastscroll"
-        fastscroll__bubbleColor=""
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignBottom="@+id/recycler_countryDialog"
@@ -71,7 +70,6 @@
         android:layout_marginTop="16dp"
         android:text="@string/no_result_found"
         android:textColor="@android:color/primary_text_light"
-        android:visibility="gone"
-        />
+        android:visibility="gone"/>
 
 </RelativeLayout>

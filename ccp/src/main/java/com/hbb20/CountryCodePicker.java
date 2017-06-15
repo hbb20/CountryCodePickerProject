@@ -43,11 +43,11 @@ public class CountryCodePicker extends RelativeLayout {
     Country defaultCountry;
     RelativeLayout relativeClickConsumer;
     CountryCodePicker codePicker;
-    boolean hideNameCode = false;
+
+    boolean showNameCode = false;
     boolean showPhoneCode = true;
     boolean showFlag = true;
     boolean showFullName = false;
-    boolean useFullName = false;
     boolean selectionDialogShowSearch = true;
     int contentColor;
     int borderFlagColor;
@@ -59,8 +59,8 @@ public class CountryCodePicker extends RelativeLayout {
     List<Country> customMasterCountriesList;
     //this will be "AU,IN,US"
     String customMasterCountries;
-    Language customLanguage = Language.ENGLISH;
-    boolean keyboardAutoPopOnSearch = true;
+    Language customDefaultLanguage = Language.ENGLISH;
+    boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
     private OnCountryChangeListener onCountryChangeListener;
     private int fastScrollerHandleColor;
@@ -114,13 +114,13 @@ public class CountryCodePicker extends RelativeLayout {
         //default country code
         try {
             //hide nameCode. If someone wants only phone code to avoid name collision for same country phone code.
-            hideNameCode = a.getBoolean(R.styleable.CountryCodePicker_hideNameCode, false);
+            showNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showNameCode, false);
 
             //show phone code.
             showPhoneCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showPhoneCode, true);
 
             //show full name
-            showFullName = a.getBoolean(R.styleable.CountryCodePicker_showFullName, false);
+            showFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
 
             //show fast scroller
             showFastScroller = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFastScroller, true);
@@ -135,33 +135,33 @@ public class CountryCodePicker extends RelativeLayout {
             fastScrollerBubbleTextAppearance = a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleTextAppearance, -1);
 
             //show flag
-            showFlag(a.getBoolean(R.styleable.CountryCodePicker_showFlag, true));
+            showFlag(a.getBoolean(R.styleable.CountryCodePicker_ccp_showFlag, true));
 
             //autopop keyboard
-            setKeyboardAutoPopOnSearch(a.getBoolean(R.styleable.CountryCodePicker_keyboardAutoPopOnSearch, true));
+            setDialogKeyboardAutoPopup(a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_keyboardAutoPopup, true));
 
             //if custom language is specified, then set it as custom
             int attrLanguage = 3; //for english
-            if (a.hasValue(R.styleable.CountryCodePicker_ccpLanguage)) {
-                attrLanguage = a.getInt(R.styleable.CountryCodePicker_ccpLanguage, 1);
+            if (a.hasValue(R.styleable.CountryCodePicker_ccp_defaultLanguage)) {
+                attrLanguage = a.getInt(R.styleable.CountryCodePicker_ccp_defaultLanguage, 1);
             }
-            customLanguage = getLanguageEnum(attrLanguage);
+            customDefaultLanguage = getLanguageEnum(attrLanguage);
 
             //custom master list
-            customMasterCountries = a.getString(R.styleable.CountryCodePicker_customMasterCountries);
+            customMasterCountries = a.getString(R.styleable.CountryCodePicker_ccp_customMasterCountries);
             refreshCustomMasterList();
 
             //preference
-            countryPreference = a.getString(R.styleable.CountryCodePicker_countryPreference);
+            countryPreference = a.getString(R.styleable.CountryCodePicker_ccp_countryPreference);
             refreshPreferredCountries();
 
             //default country
-            defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_defaultNameCode);
+            defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_ccp_defaultNameCode);
             boolean setUsingNameCode = false;
             if (defaultCountryNameCode != null && defaultCountryNameCode.length() != 0) {
-                if (Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode) != null) {
+                if (Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customDefaultLanguage, defaultCountryNameCode) != null) {
                     setUsingNameCode = true;
-                    setDefaultCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode));
+                    setDefaultCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customDefaultLanguage, defaultCountryNameCode));
                     setSelectedCountry(defaultCountry);
                 }
             }
@@ -169,10 +169,10 @@ public class CountryCodePicker extends RelativeLayout {
 
             //if default country is not set using name code.
             if (!setUsingNameCode) {
-                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, -1);
+                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_ccp_defaultPhoneCode, -1);
 
                 //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
-                if (Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode) == null) {
+                if (Country.getCountryForCode(getContext(), customDefaultLanguage, preferredCountries, defaultCountryCode) == null) {
                     defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
                 }
                 setDefaultCountryUsingPhoneCode(defaultCountryCode);
@@ -183,9 +183,9 @@ public class CountryCodePicker extends RelativeLayout {
             //content color
             int contentColor;
             if (isInEditMode()) {
-                contentColor = a.getColor(R.styleable.CountryCodePicker_contentColor, 0);
+                contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, 0);
             } else {
-                contentColor = a.getColor(R.styleable.CountryCodePicker_contentColor, context.getResources().getColor(R.color.defaultContentColor));
+                contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, context.getResources().getColor(R.color.defaultContentColor));
             }
             if (contentColor != 0) {
                 setContentColor(contentColor);
@@ -203,7 +203,7 @@ public class CountryCodePicker extends RelativeLayout {
             }
 
             //text size
-            int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_textSize, 0);
+            int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_ccp_textSize, 0);
             if (textSize > 0) {
                 textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 setFlagSize(textSize);
@@ -214,14 +214,14 @@ public class CountryCodePicker extends RelativeLayout {
                 setTextSize(defaultSize);
             }
 
-            //if arrow arrow size is explicitly defined
-            int arrowSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_arrowSize, 0);
+            //if arrow size is explicitly defined
+            int arrowSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_ccp_arrowSize, 0);
             if (arrowSize > 0) {
                 setArrowSize(arrowSize);
             }
 
-            selectionDialogShowSearch = a.getBoolean(R.styleable.CountryCodePicker_selectionDialogShowSearch, true);
-            setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccpClickable, true));
+            selectionDialogShowSearch = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_keyboardAutoPopup, true);
+            setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
 
         } catch (Exception e) {
             textView_selectedCountry.setText(e.getMessage());
@@ -257,7 +257,7 @@ public class CountryCodePicker extends RelativeLayout {
         this.selectedCountry = selectedCountry;
         //as soon as country is selected, textView should be updated
         if (selectedCountry == null) {
-            selectedCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
+            selectedCountry = Country.getCountryForCode(getContext(), customDefaultLanguage, preferredCountries, defaultCountryCode);
         }
 
         String displayText = "";
@@ -268,7 +268,7 @@ public class CountryCodePicker extends RelativeLayout {
         }
 
         // adds name code if required
-        if (!hideNameCode) {
+        if (!showNameCode) {
             if (showFullName) {
                 displayText += " (" + selectedCountry.getNameCode().toUpperCase() + ")";
             } else {
@@ -300,12 +300,12 @@ public class CountryCodePicker extends RelativeLayout {
         //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
     }
 
-    Language getCustomLanguage() {
-        return customLanguage;
+    Language getCustomDefaultLanguage() {
+        return customDefaultLanguage;
     }
 
-    private void setCustomLanguage(Language customLanguage) {
-        this.customLanguage = customLanguage;
+    private void setCustomDefaultLanguage(Language customDefaultLanguage) {
+        this.customDefaultLanguage = customDefaultLanguage;
     }
 
     private View getHolderView() {
@@ -324,18 +324,18 @@ public class CountryCodePicker extends RelativeLayout {
         this.holder = holder;
     }
 
-    boolean isKeyboardAutoPopOnSearch() {
-        return keyboardAutoPopOnSearch;
+    boolean isDialogKeyboardAutoPopup() {
+        return dialogKeyboardAutoPopup;
     }
 
     /**
      * By default, keyboard is poped every time ccp is clicked and selection dialog is opened.
      *
-     * @param keyboardAutoPopOnSearch true: to open keyboard automatically when selection dialog is opened
+     * @param dialogKeyboardAutoPopup true: to open keyboard automatically when selection dialog is opened
      *                                false: to avoid auto pop of keyboard
      */
-    public void setKeyboardAutoPopOnSearch(boolean keyboardAutoPopOnSearch) {
-        this.keyboardAutoPopOnSearch = keyboardAutoPopOnSearch;
+    public void setDialogKeyboardAutoPopup(boolean dialogKeyboardAutoPopup) {
+        this.dialogKeyboardAutoPopup = dialogKeyboardAutoPopup;
     }
 
     EditText getEditText_registeredCarrierNumber() {
@@ -363,7 +363,7 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             List<Country> localCountryList = new ArrayList<>();
             for (String nameCode : countryPreference.split(",")) {
-                Country country = Country.getCountryForNameCodeFromCustomMasterList(getContext(), customMasterCountriesList, customLanguage, nameCode);
+                Country country = Country.getCountryForNameCodeFromCustomMasterList(getContext(), customMasterCountriesList, customDefaultLanguage, nameCode);
                 if (country != null) {
                     if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
                         localCountryList.add(country);
@@ -396,7 +396,7 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             List<Country> localCountryList = new ArrayList<>();
             for (String nameCode : customMasterCountries.split(",")) {
-                Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, nameCode);
+                Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customDefaultLanguage, nameCode);
                 if (country != null) {
                     if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
                         localCountryList.add(country);
@@ -495,11 +495,11 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     String getDialogTitle() {
-        return Country.getDialogTitle(context, customLanguage);
+        return Country.getDialogTitle(context, customDefaultLanguage);
     }
 
     String getSearchHintText() {
-        return Country.getSearchHintMessage(context, customLanguage);
+        return Country.getSearchHintMessage(context, customDefaultLanguage);
     }
 
     /**
@@ -507,7 +507,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
 
     String getNoResultFoundText() {
-        return Country.getNoResultFoundAckMessage(context, customLanguage);
+        return Country.getNoResultFoundAckMessage(context, customDefaultLanguage);
     }
 
     /**
@@ -531,7 +531,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     @Deprecated
     public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
-        Country defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country defaultCountry = Country.getCountryForCode(getContext(), customDefaultLanguage, preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             //            Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
         } else { //if correct country is found, set the country
@@ -551,7 +551,7 @@ public class CountryCodePicker extends RelativeLayout {
      *                               if you want to set JP +81(Japan) as default country, defaultCountryCode =  "JP" or "jp"
      */
     public void setDefaultCountryUsingNameCode(String defaultCountryNameCode) {
-        Country defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customDefaultLanguage, defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             //            Log.d(TAG, "No country for nameCode " + defaultCountryNameCode + " is found");
         } else { //if correct country is found, set the country
@@ -699,10 +699,10 @@ public class CountryCodePicker extends RelativeLayout {
      *                    If you want to set JP +81(Japan), countryCode= 81
      */
     public void setCountryForPhoneCode(int countryCode) {
-        Country country = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country country = Country.getCountryForCode(getContext(), customDefaultLanguage, preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (country == null) {
             if (defaultCountry == null) {
-                defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
+                defaultCountry = Country.getCountryForCode(getContext(), customDefaultLanguage, preferredCountries, defaultCountryCode);
             }
             setSelectedCountry(defaultCountry);
         } else {
@@ -718,10 +718,10 @@ public class CountryCodePicker extends RelativeLayout {
      *                        If you want to set JP +81(Japan), countryCode= JP
      */
     public void setCountryForNameCode(String countryNameCode) {
-        Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customDefaultLanguage, countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (country == null) {
             if (defaultCountry == null) {
-                defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
+                defaultCountry = Country.getCountryForCode(getContext(), customDefaultLanguage, preferredCountries, defaultCountryCode);
             }
             setSelectedCountry(defaultCountry);
         } else {
@@ -763,7 +763,7 @@ public class CountryCodePicker extends RelativeLayout {
      * @param fullNumber is combination of country code and carrier number, (country_code+carrier_number) for example if country is India (+91) and carrier/mobile number is 8866667722 then full number will be 9188666667722 or +918866667722. "+" in starting of number is optional.
      */
     public void setFullNumber(String fullNumber) {
-        Country country = Country.getCountryForNumber(getContext(), customLanguage, preferredCountries, fullNumber);
+        Country country = Country.getCountryForNumber(getContext(), customDefaultLanguage, preferredCountries, fullNumber);
         setSelectedCountry(country);
         String carrierNumber = detectCarrierNumber(fullNumber, country);
         if (getEditText_registeredCarrierNumber() != null) {
@@ -841,11 +841,11 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * If nameCode of country in CCP view is not required use this to show/hide country name code of ccp view.
      *
-     * @param hideNameCode true will remove country name code from ccp view, it will result  " +91 "
-     *                     false will show country name code in ccp view, it will result " (IN) +91 "
+     * @param showNameCode true will show country name code in ccp view, it will result " (IN) +91 "
+     *                     false will remove country name code from ccp view, it will result  " +91 "
      */
-    public void hideNameCode(boolean hideNameCode) {
-        this.hideNameCode = hideNameCode;
+    public void showNameCode(boolean showNameCode) {
+        this.showNameCode = showNameCode;
         setSelectedCountry(selectedCountry);
     }
 
@@ -865,8 +865,8 @@ public class CountryCodePicker extends RelativeLayout {
      *
      * @param language
      */
-    public void changeLanguage(Language language) {
-        setCustomLanguage(language);
+    public void changeDefaultLanguage(Language language) {
+        setCustomDefaultLanguage(language);
     }
 
     /**

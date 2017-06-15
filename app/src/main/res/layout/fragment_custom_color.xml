@@ -32,7 +32,7 @@
                 <TextView
                     style="@style/pointText"
                     android:paddingLeft="32dp"
-                    android:text='add app:contentColor=\"@color/customColor" to xml layout.'/>
+                    android:text='add app:ccp_contentColor=\"@color/customColor" to xml layout.'/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,8 +58,8 @@
                             <com.hbb20.CountryCodePicker
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:contentColor="@android:color/holo_orange_dark"
-                                app:defaultNameCode="jp" />
+                                app:ccp_contentColor="@android:color/holo_orange_dark"
+                                app:ccp_defaultNameCode="jp"/>
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:contentColor="@android:color/white"/>
+                                app:ccp_contentColor="@android:color/white"/>
                             <EditText
                                 android:id="@+id/editText_phone"
                                 android:layout_width="match_parent"

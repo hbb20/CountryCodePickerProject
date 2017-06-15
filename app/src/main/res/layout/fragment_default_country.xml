@@ -53,14 +53,14 @@
                         <TextView
                             style="@style/pointText"
                             android:paddingLeft="32dp"
-                            android:text='add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout.' />
+                            android:text='add app:ccp_defaultNameCode="US" (replace "US" with your default country name code) to xml layout.'/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="32dp"
-                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultNameCode="US" /&#62;' />
+                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:ccp_defaultNameCode="US" /&#62;'/>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                                     <com.hbb20.CountryCodePicker
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        app:defaultNameCode="US" />
+                                        app:ccp_defaultNameCode="US"/>
 
                                     <EditText
                                         android:layout_width="match_parent"
@@ -119,14 +119,14 @@
                         <TextView
                             style="@style/pointText"
                             android:paddingLeft="32dp"
-                            android:text='add app:defaultCode="81" (replace 81 by your default country code) to xml layout.' />
+                            android:text='add app:ccp_defaultPhoneCode="81" (replace 81 by your default country code) to xml layout.'/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="32dp"
-                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultCode="81" /&#62;' />
+                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:ccp_defaultPhoneCode="81" /&#62;'/>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                                     <com.hbb20.CountryCodePicker
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        app:defaultCode="81" />
+                                        app:ccp_defaultPhoneCode="81"/>
 
                                     <EditText
                                         android:layout_width="match_parent"
@@ -177,14 +177,14 @@
                         <TextView
                             style="@style/pointText"
                             android:layout_marginLeft="32dp"
-                            android:text="\u2022 Use app:defaultNameCode or app:countryPreference to resolve issue." />
+                            android:text="\u2022 Use app:ccp_defaultNameCode or app:ccp_countryPreference to resolve issue."/>
                     </LinearLayout>
 
                     <TextView
                         style="@style/pointText"
                         android:layout_marginLeft="32dp"
                         android:paddingLeft="0dp"
-                        android:text="\u2022 Use app:defaultNameCode has higher priority than app:defaultCode for setting default country using XML." />
+                        android:text="\u2022 Use app:ccp_defaultNameCode has higher priority than app:ccp_defaultPhoneCode for setting default country using XML."/>
 
                 </LinearLayout>
 

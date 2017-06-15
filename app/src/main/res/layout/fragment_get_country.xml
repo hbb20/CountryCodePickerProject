@@ -59,8 +59,8 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:defaultNameCode="IN"
-                                app:keyboardAutoPopOnSearch="false" />
+                                app:ccpDialog_keyboardAutoPopup="false"
+                                app:ccp_defaultNameCode="IN"/>
 
                             <EditText
                                 android:layout_width="match_parent"
