@@ -515,7 +515,9 @@ Change log
 
 ##### version 2.0 (not released yet)
 - Clear search query
-- Attributes has prefix of ccp or ccpDialog 
+- Attributes has prefix of ccp and ccpDialog (to avoid name space clashes) 
+- Supports "match_parent" width attribute
+
 
 ## Credits
 - Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)

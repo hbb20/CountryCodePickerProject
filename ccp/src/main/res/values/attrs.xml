@@ -10,6 +10,11 @@
         <attr name="ccp_flagBorderColor" format="color"/>
         <attr name="ccp_countryPreference" format="string"/>
         <attr name="ccp_defaultNameCode" format="string"/>
+        <attr name="ccp_textGravity" format="enum">
+            <enum name="LEFT" value="-1"/>
+            <enum name="RIGHT" value="1"/>
+            <enum name="CENTER" value="0"/>
+        </attr>
 
         <!--CCP bool properties-->
         <attr name="ccp_showNameCode" format="boolean"/>

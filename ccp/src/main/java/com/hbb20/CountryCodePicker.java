@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -27,6 +28,8 @@ public class CountryCodePicker extends RelativeLayout {
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
+    private static int TEXT_GRAVITY_LEFT = -1, TEXT_GRAVITY_RIGHT = 1, TEXT_GRAVITY_CENTER = 0;
+    private static String ANDROID_NAME_SPACE = "http://schemas.android.com/apk/res/android";
     int defaultCountryCode;
     String defaultCountryNameCode;
     Context context;
@@ -43,6 +46,7 @@ public class CountryCodePicker extends RelativeLayout {
     Country defaultCountry;
     RelativeLayout relativeClickConsumer;
     CountryCodePicker codePicker;
+    TextGravity currentTextGravity;
 
     boolean showNameCode = false;
     boolean showPhoneCode = true;
@@ -53,6 +57,7 @@ public class CountryCodePicker extends RelativeLayout {
     int borderFlagColor;
     boolean showFastScroller;
     List<Country> preferredCountries;
+    int ccpTextgGravity = TEXT_GRAVITY_CENTER;
     //this will be "AU,IN,US"
     String countryPreference;
     int fastScrollerBubbleColor = -1;
@@ -62,6 +67,7 @@ public class CountryCodePicker extends RelativeLayout {
     Language customDefaultLanguage = Language.ENGLISH;
     boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
+    String xmlWidth = "notSet";
     private OnCountryChangeListener onCountryChangeListener;
     private int fastScrollerHandleColor;
     private int fastScrollerBubbleTextAppearance;
@@ -93,9 +99,18 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private void init(AttributeSet attrs) {
-        //        Log.d(TAG, "Initialization of CCP");
         mInflater = LayoutInflater.from(context);
-        holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
+
+        xmlWidth = attrs.getAttributeValue(ANDROID_NAME_SPACE, "layout_width");
+        Log.d(TAG, "init:xmlWidth " + xmlWidth);
+        removeAllViewsInLayout();
+        //at run time, match parent value returns LayoutParams.MATCH_PARENT ("-1"), for some android xml preview it returns "fill_parent"
+        if (xmlWidth != null && (xmlWidth.equals(LayoutParams.MATCH_PARENT + "") || xmlWidth.equals(LayoutParams.FILL_PARENT + "") || xmlWidth.equals("fill_parent") || xmlWidth.equals("match_parent"))) {
+            holderView = mInflater.inflate(R.layout.layout_full_width_code_picker, this, true);
+        } else {
+            holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
+        }
+
         textView_selectedCountry = (TextView) holderView.findViewById(R.id.textView_selectedCountry);
         holder = (RelativeLayout) holderView.findViewById(R.id.countryCodeHolder);
         imageViewArrow = (ImageView) holderView.findViewById(R.id.imageView_arrow);
@@ -154,6 +169,13 @@ public class CountryCodePicker extends RelativeLayout {
             //preference
             countryPreference = a.getString(R.styleable.CountryCodePicker_ccp_countryPreference);
             refreshPreferredCountries();
+
+            //text gravity
+            int textGravity = 1;
+            if (a.hasValue(R.styleable.CountryCodePicker_ccp_textGravity)) {
+                textGravity = a.getInt(R.styleable.CountryCodePicker_ccp_textGravity, 1);
+            }
+            applyTextGravity(textGravity);
 
             //default country
             defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_ccp_defaultNameCode);
@@ -228,7 +250,7 @@ public class CountryCodePicker extends RelativeLayout {
         } finally {
             a.recycle();
         }
-
+        Log.d(TAG, "end:xmlWidth " + xmlWidth);
     }
 
 
@@ -1031,6 +1053,26 @@ public class CountryCodePicker extends RelativeLayout {
         this.fastScrollerBubbleColor = fastScrollerBubbleColor;
     }
 
+
+    public TextGravity getCurrentTextGravity() {
+        return currentTextGravity;
+    }
+
+    public void setCurrentTextGravity(TextGravity textGravity) {
+        this.currentTextGravity = textGravity;
+        applyTextGravity(textGravity.enumIndex);
+    }
+
+    private void applyTextGravity(int enumIndex) {
+        if (enumIndex == TextGravity.LEFT.enumIndex) {
+            textView_selectedCountry.setGravity(Gravity.LEFT);
+        } else if (enumIndex == TextGravity.CENTER.enumIndex) {
+            textView_selectedCountry.setGravity(Gravity.CENTER);
+        } else {
+            textView_selectedCountry.setGravity(Gravity.RIGHT);
+        }
+    }
+
     /**
      * Update every time new language is supported #languageSupport
      */
@@ -1040,6 +1082,16 @@ public class CountryCodePicker extends RelativeLayout {
     //add here so that language can be set programmatically
     public enum Language {
         ARABIC, BENGALI, CHINESE_SIMPLIFIED, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH, HEBREW, CHINESE_TRADITIONAL, KOREAN
+    }
+
+    public enum TextGravity {
+        LEFT(-1), CENTER(0), RIGHT(1);
+
+        int enumIndex;
+
+        TextGravity(int i) {
+            enumIndex = i;
+        }
     }
 
     /*
