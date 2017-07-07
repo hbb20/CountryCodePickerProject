@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.hbb20.CountryCodePicker;
 
 
 /**
@@ -16,6 +19,8 @@ public class IntroductionFragment extends Fragment {
 
 
     Button buttonGo;
+    CountryCodePicker countryCodePicker;
+    EditText etPhone;
     public IntroductionFragment() {
         // Required empty public constructor
     }
@@ -46,5 +51,8 @@ public class IntroductionFragment extends Fragment {
 
     private void assignViews() {
         buttonGo=(Button)getView().findViewById(R.id.button_letsGo);
+        etPhone = (EditText) getView().findViewById(R.id.et_phone);
+        countryCodePicker = (CountryCodePicker) getView().findViewById(R.id.ccp);
+        countryCodePicker.registerCarrierNumberEditText(etPhone);
     }
 }

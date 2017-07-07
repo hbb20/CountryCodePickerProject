@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.os.Build;
+import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -16,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +73,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
     String xmlWidth = "notSet";
+    PhoneNumberFormattingTextWatcher textWatcher;
     private OnCountryChangeListener onCountryChangeListener;
     private int fastScrollerHandleColor;
     private int fastScrollerBubbleTextAppearance;
@@ -253,7 +259,6 @@ public class CountryCodePicker extends RelativeLayout {
         Log.d(TAG, "end:xmlWidth " + xmlWidth);
     }
 
-
     private Country getDefaultCountry() {
         return defaultCountry;
     }
@@ -320,6 +325,30 @@ public class CountryCodePicker extends RelativeLayout {
 
         imageViewFlag.setImageResource(selectedCountry.getFlagID());
         //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
+
+        updateTextWatcher();
+    }
+
+    private void updateTextWatcher() {
+        if (getEditText_registeredCarrierNumber() != null) {
+
+            String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
+            String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
+
+            editText_registeredCarrierNumber.removeTextChangedListener(textWatcher);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                textWatcher = new PhoneNumberFormattingTextWatcher(selectedCountry.getNameCode());
+            } else {
+                textWatcher = new PhoneNumberFormattingTextWatcher();
+            }
+            editText_registeredCarrierNumber.addTextChangedListener(textWatcher);
+
+            //text watcher stops working when it finds non digit character in previous phone code. This will reset its function
+            editText_registeredCarrierNumber.setText("");
+            editText_registeredCarrierNumber.setText(digitsValue);
+            editText_registeredCarrierNumber.setSelection(editText_registeredCarrierNumber.getText().length());
+        }
     }
 
     Language getCustomDefaultLanguage() {
@@ -366,6 +395,12 @@ public class CountryCodePicker extends RelativeLayout {
 
     void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
         this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        updateTextWatcher();
+    }
+
+    private TextWatcher getFormatterTextWatcher() {
+        return null;
     }
 
     private LayoutInflater getmInflater() {
