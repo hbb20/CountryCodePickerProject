@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.8'
+          compile 'com.hbb20:ccp:1.8.1'
         }
       ````
 
@@ -512,6 +512,10 @@ Change log
 
 ##### version 1.8
 - Fast Scroller with index.
+
+##### version 1.8.1
+- New flag of Iraq
+- Mexico name correction for Spanish language
 
 ## Credits
 - Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
