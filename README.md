@@ -405,7 +405,7 @@ Features
          android:id="@+id/ccp"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         app:ccp_hidePhoneCode="false"
+         app:ccp_showPhoneCode="false"
          app:ccpLanguage="JAPANESE" />
       ````
 
