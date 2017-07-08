@@ -175,7 +175,7 @@ class Country implements Comparable<Country> {
         if (codePicker.customMasterCountriesList != null && codePicker.customMasterCountriesList.size() > 0) {
             return codePicker.getCustomMasterCountriesList();
         } else {
-            return getLibraryMasterCountryList(context, codePicker.getCustomDefaultLanguage());
+            return getLibraryMasterCountryList(context, codePicker.getLanguageToApply());
         }
     }
 
