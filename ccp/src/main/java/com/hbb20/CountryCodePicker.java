@@ -6,6 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.TelephonyManager;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -218,6 +219,10 @@ public class CountryCodePicker extends RelativeLayout {
                 setSelectedCountry(defaultCountry);
             }
 
+            //set auto detected country
+            if (autoDetectCountryEnabled) {
+                selectDeviceCountry();
+            }
 
             //content color
             int contentColor;
@@ -268,6 +273,19 @@ public class CountryCodePicker extends RelativeLayout {
             a.recycle();
         }
         Log.d(TAG, "end:xmlWidth " + xmlWidth);
+    }
+
+    /**
+     * loads current country in ccp using telephony manager
+     */
+    public void selectDeviceCountry() {
+        try {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            String currentCountryISO = telephonyManager.getSimCountryIso();
+            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), currentCountryISO));
+        } catch (Exception e) {
+            Log.w(TAG, "applyCustomProperty: could not set country from sim");
+        }
     }
 
     /**
@@ -342,11 +360,13 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     void setSelectedCountry(Country selectedCountry) {
-        this.selectedCountry = selectedCountry;
+
         //as soon as country is selected, textView should be updated
         if (selectedCountry == null) {
             selectedCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
         }
+
+        this.selectedCountry = selectedCountry;
 
         String displayText = "";
 
@@ -402,7 +422,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private void updateTextWatcher() {
-        if (getEditText_registeredCarrierNumber() != null) {
+        if (getEditText_registeredCarrierNumber() != null && selectedCountry != null) {
 
             String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
             String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);

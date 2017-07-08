@@ -516,7 +516,10 @@ Change log
 ##### version 2.0 (not released yet)
 - Clear search query
 - Attributes has prefix of ccp and ccpDialog (to avoid name space clashes) 
-- Supports "match_parent" width attribute
+- Supports "match_parent" width attribute and additionally gives text gravity option
+- As you type formatting of carrier number in registerCarrierNumberEditText
+- Feature of auto-detect language (disabled by default)
+- Feature of auto-detect country (enabled by default)
 
 
 ## Credits
