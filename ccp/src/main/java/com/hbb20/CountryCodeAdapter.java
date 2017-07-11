@@ -96,13 +96,19 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 }
             });
 
-            if (codePicker.isDialogKeyboardAutoPopup()) {
-                InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (inputMethodManager != null) {
-                    inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            /*if (codePicker.isDialogKeyboardAutoPopup()) {
+                try {
+                    if(editText_search.getVisibility()==View.VISIBLE) {
+                        editText_search.requestFocus();
+                        editText_search.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 0, 0, 0));
+                        editText_search.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 0, 0, 0));
+                        editText_search.setSelection(editText_search.getText().toString().length());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-
+*/
             this.editText_search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

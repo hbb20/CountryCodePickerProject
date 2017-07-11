@@ -111,7 +111,8 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:ccp_autoDetectCountry="true"
+                                app:ccpDialog_keyboardAutoPopup="false"
+                                app:ccp_autoDetectLanguage="true"
                                 app:ccp_defaultLanguage="GUJARATI"
                                 app:ccp_defaultNameCode="us"/>
 
@@ -123,7 +124,9 @@
                                 android:inputType="phone"
                                 android:singleLine="true"
                                 android:textColor="@android:color/black"/>
+
                         </LinearLayout>
+
                     </LinearLayout>
                 </RelativeLayout>
 

@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -27,6 +28,11 @@ class CountryCodeDialog {
         List<Country> masterCountries = Country.getCustomMasterCountryList(context, codePicker);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
+
+        //keyboard
+        if (codePicker.isSelectionDialogShowSearch() && codePicker.isDialogKeyboardAutoPopup()) {
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        }
 
         //dialog views
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
@@ -75,6 +81,8 @@ class CountryCodeDialog {
         } else {
             fastScroller.setVisibility(View.GONE);
         }
+
+
         dialog.show();
     }
 }

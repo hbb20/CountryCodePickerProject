@@ -520,6 +520,9 @@ Change log
 - As you type formatting of carrier number in registerCarrierNumberEditText
 - Feature of auto-detect language (disabled by default)
 - Feature of auto-detect country (enabled by default)
+- Validity checker for full number
+- PhoneNumber validity change listener
+- Differentiate countries with "+1" based on area code.
 
 
 ## Credits

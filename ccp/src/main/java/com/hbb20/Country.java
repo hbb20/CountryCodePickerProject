@@ -23,6 +23,27 @@ class Country implements Comparable<Country> {
     static CountryCodePicker.Language loadedLibraryMasterListLanguage;
     static String dialogTitle, searchHintMessage, noResultFoundAckMessage;
     static List<Country> loadedLibraryMaterList;
+    private static String ANTIGUA_AND_BARBUDA_AREA_CODES = "268";
+    private static String ANGUILLA_AREA_CODES = "264";
+    private static String BARBADOS_AREA_CODES = "246";
+    private static String BERMUDA_AREA_CODES = "441";
+    private static String BAHAMAS_AREA_CODES = "242";
+    private static String CANADA_AREA_CODES = "204/226/236/249/250/289/306/343/365/403/416/418/431/437/438/450/506/514/519/579/581/587/600/601/604/613/639/647/705/709/769/778/780/782/807/819/825/867/873/902/905/";
+    private static String DOMINICA_AREA_CODES = "767";
+    private static String DOMINICAN_REPUBLIC_AREA_CODES = "809/829/849";
+    private static String GRENADA_AREA_CODES = "473";
+    private static String JAMAICA_AREA_CODES = "876";
+    private static String SAINT_KITTS_AND_NEVIS_AREA_CODES = "869";
+    private static String CAYMAN_ISLANDS_AREA_CODES = "345";
+    private static String SAINT_LUCIA_AREA_CODES = "758";
+    private static String MONTSERRAT_AREA_CODES = "664";
+    private static String PUERTO_RICO_AREA_CODES = "787";
+    private static String SINT_MAARTEN_AREA_CODES = "721";
+    private static String TURKS_AND_CAICOS_ISLANDS_AREA_CODES = "649";
+    private static String TRINIDAD_AND_TOBAGO_AREA_CODES = "868";
+    private static String SAINT_VINCENT_AND_THE_GRENADINES_AREA_CODES = "784";
+    private static String BRITISH_VIRGIN_ISLANDS_AREA_CODES = "284";
+    private static String US_VIRGIN_ISLANDS_AREA_CODES = "340";
     String nameCode;
     String phoneCode;
     String name, englishName;
@@ -141,7 +162,6 @@ class Country implements Comparable<Country> {
 
     /**
      * Search a country which matches @param code.
-     *
      * @param context
      * @param preferredCountries is list of preference countries.
      * @param code               phone code. i.e "91" or "1"
@@ -246,6 +266,7 @@ class Country implements Comparable<Country> {
      */
     static Country getCountryForNumber(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, String fullNumber) {
         int firstDigit;
+        //String plainNumber = PhoneNumberUtil.getInstance().normalizeDigitsOnly(fullNumber);
         if (fullNumber.length() != 0) {
             if (fullNumber.charAt(0) == '+') {
                 firstDigit = 1;
@@ -255,9 +276,13 @@ class Country implements Comparable<Country> {
             Country country = null;
             for (int i = firstDigit; i < firstDigit + 4; i++) {
                 String code = fullNumber.substring(firstDigit, i);
-                country = Country.getCountryForCode(context, language, preferredCountries, code);
-                if (country != null) {
-                    return country;
+                if (code.equals("1")) {
+                    return getNANPACountryForAreaCode(context, language, preferredCountries, fullNumber);
+                } else {
+                    country = Country.getCountryForCode(context, language, preferredCountries, code);
+                    if (country != null) {
+                        return country;
+                    }
                 }
             }
         }
@@ -980,6 +1005,57 @@ class Country implements Comparable<Country> {
         return countries;
     }
 
+    /**
+     * This function will detect NANP country based on area code.
+     * North American Numbering Plan Administration handles numbering with +1 country code.
+     * Area codes are taken from https://www.areacodelocations.info/areacodelist.html
+     *
+     * @param context
+     * @param language
+     * @param preferredCountries
+     * @param phoneNumber        @return
+     */
+    private static Country getNANPACountryForAreaCode(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, String phoneNumber) {
+        String nameCode = "us";
+        String areaCode = "";
+        //trim out + from number
+        phoneNumber = phoneNumber.replace("+", "");
+        if (phoneNumber.length() >= 4 && phoneNumber.charAt(0) == '1') { //minimum 4 digits are required to detect and first digit must be 1 (
+            areaCode = phoneNumber.substring(1, 4);
+        }
+
+        //when number is partial and area code can not be detected, in that case country will be detected normally
+        if (areaCode.length() != 3) {
+            return Country.getCountryForCode(context, language, preferredCountries, "1");
+        }
+
+        //if valid area code is detected then detect country based on it.
+        if (ANTIGUA_AND_BARBUDA_AREA_CODES.contains(areaCode)) nameCode = "ag";
+        else if (ANGUILLA_AREA_CODES.contains(areaCode)) nameCode = "ai";
+        else if (BARBADOS_AREA_CODES.contains(areaCode)) nameCode = "bb";
+        else if (BERMUDA_AREA_CODES.contains(areaCode)) nameCode = "bm";
+        else if (BAHAMAS_AREA_CODES.contains(areaCode)) nameCode = "bs";
+        else if (CANADA_AREA_CODES.contains(areaCode)) nameCode = "ca";
+        else if (DOMINICA_AREA_CODES.contains(areaCode)) nameCode = "dm";
+        else if (DOMINICAN_REPUBLIC_AREA_CODES.contains(areaCode)) nameCode = "do";
+        else if (GRENADA_AREA_CODES.contains(areaCode)) nameCode = "gd";
+        else if (JAMAICA_AREA_CODES.contains(areaCode)) nameCode = "jm";
+        else if (SAINT_KITTS_AND_NEVIS_AREA_CODES.contains(areaCode)) nameCode = "kn";
+        else if (CAYMAN_ISLANDS_AREA_CODES.contains(areaCode)) nameCode = "ky";
+        else if (SAINT_LUCIA_AREA_CODES.contains(areaCode)) nameCode = "lc";
+        else if (MONTSERRAT_AREA_CODES.contains(areaCode)) nameCode = "ms";
+        else if (PUERTO_RICO_AREA_CODES.contains(areaCode)) nameCode = "pr";
+        else if (SINT_MAARTEN_AREA_CODES.contains(areaCode)) nameCode = "sx";
+        else if (TURKS_AND_CAICOS_ISLANDS_AREA_CODES.contains(areaCode)) nameCode = "tc";
+        else if (TRINIDAD_AND_TOBAGO_AREA_CODES.contains(areaCode)) nameCode = "tt";
+        else if (SAINT_VINCENT_AND_THE_GRENADINES_AREA_CODES.contains(areaCode)) nameCode = "vc";
+        else if (BRITISH_VIRGIN_ISLANDS_AREA_CODES.contains(areaCode)) nameCode = "vg";
+        else if (US_VIRGIN_ISLANDS_AREA_CODES.contains(areaCode)) nameCode = "vi";
+        else
+            nameCode = "us"; // if no other country had the the area code, by default it will set US.
+        return getCountryForNameCodeFromLibraryMasterList(context, language, nameCode);
+    }
+
     public String getEnglishName() {
         return englishName;
     }
@@ -1028,20 +1104,6 @@ class Country implements Comparable<Country> {
         return nameCode.toUpperCase() + " +" + phoneCode + "(" + name + ")";
     }
 
-
-    /*public static List<Country> getLibraryMasterCountriesSpanish() {
-        List<Country> countries = new ArrayList<>();
-
-        return countries;
-    }*/
-
-
-/*public static List<Country> getLibraryMasterCountriesSpanish() {
-        List<Country> countries = new ArrayList<>();
-
-        return countries;
-    }*/
-
     /**
      * If country have query word in name or name code or phone code, this will return true.
      *
@@ -1052,7 +1114,6 @@ class Country implements Comparable<Country> {
         query = query.toLowerCase();
         return getName().toLowerCase().contains(query) || getNameCode().toLowerCase().contains(query) || getPhoneCode().toLowerCase().contains(query) || getEnglishName().toLowerCase().contains(query);
     }
-
 
     @Override
     public int compareTo(@NonNull Country o) {

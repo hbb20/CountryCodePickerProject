@@ -24,6 +24,7 @@
         <attr name="ccp_showPhoneCode" format="boolean"/>
         <attr name="ccp_autoDetectLanguage" format="boolean"/>
         <attr name="ccp_autoDetectCountry" format="boolean"/>
+        <attr name="ccp_autoFormatNumber" format="boolean"/>
 
         <!--CCP Dialog properties-->
         <attr name="ccpDialog_keyboardAutoPopup" format="boolean"/>

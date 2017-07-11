@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.TelephonyManager;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -21,7 +22,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,10 +79,13 @@ public class CountryCodePicker extends RelativeLayout {
 
     boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
-    boolean autoDetectLanguageEnabled, autoDetectCountryEnabled;
+    boolean autoDetectLanguageEnabled, autoDetectCountryEnabled, numberAutoFormattingEnabled;
     String xmlWidth = "notSet";
+    TextWatcher validityTextWatcher;
     PhoneNumberFormattingTextWatcher textWatcher;
+    boolean reportedValidity;
     private OnCountryChangeListener onCountryChangeListener;
+    private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
     private int fastScrollerHandleColor;
     private int fastScrollerBubbleTextAppearance;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
@@ -90,13 +96,11 @@ public class CountryCodePicker extends RelativeLayout {
             }
         }
     };
-
     public CountryCodePicker(Context context) {
         super(context);
         this.context = context;
         init(null);
     }
-
     public CountryCodePicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
@@ -107,6 +111,17 @@ public class CountryCodePicker extends RelativeLayout {
         super(context, attrs, defStyleAttr);
         this.context = context;
         init(attrs);
+    }
+
+    private boolean isNumberAutoFormattingEnabled() {
+        return numberAutoFormattingEnabled;
+    }
+
+    public void setNumberAutoFormattingEnabled(boolean numberAutoFormattingEnabled) {
+        this.numberAutoFormattingEnabled = numberAutoFormattingEnabled;
+        if (editText_registeredCarrierNumber != null) {
+            updateFormattingTextWatcher();
+        }
     }
 
     private void init(AttributeSet attrs) {
@@ -169,6 +184,9 @@ public class CountryCodePicker extends RelativeLayout {
             //show flag
             showFlag(a.getBoolean(R.styleable.CountryCodePicker_ccp_showFlag, true));
 
+            //number auto formatting
+            numberAutoFormattingEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoFormatNumber, true);
+
             //autopop keyboard
             setDialogKeyboardAutoPopup(a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_keyboardAutoPopup, true));
 
@@ -189,11 +207,10 @@ public class CountryCodePicker extends RelativeLayout {
             refreshPreferredCountries();
 
             //text gravity
-            int textGravity = 1;
             if (a.hasValue(R.styleable.CountryCodePicker_ccp_textGravity)) {
-                textGravity = a.getInt(R.styleable.CountryCodePicker_ccp_textGravity, 1);
+                ccpTextgGravity = a.getInt(R.styleable.CountryCodePicker_ccp_textGravity, TEXT_GRAVITY_RIGHT);
             }
-            applyTextGravity(textGravity);
+            applyTextGravity(ccpTextgGravity);
 
             //default country
             defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_ccp_defaultNameCode);
@@ -221,7 +238,7 @@ public class CountryCodePicker extends RelativeLayout {
 
             //set auto detected country
             if (autoDetectCountryEnabled) {
-                selectDeviceCountry();
+                selectCountryFromSimInfo();
             }
 
             //content color
@@ -264,7 +281,7 @@ public class CountryCodePicker extends RelativeLayout {
                 setArrowSize(arrowSize);
             }
 
-            selectionDialogShowSearch = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_keyboardAutoPopup, true);
+            selectionDialogShowSearch = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_allowSearch, true);
             setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
 
         } catch (Exception e) {
@@ -278,7 +295,7 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * loads current country in ccp using telephony manager
      */
-    public void selectDeviceCountry() {
+    public void selectCountryFromSimInfo() {
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             String currentCountryISO = telephonyManager.getSimCountryIso();
@@ -407,7 +424,13 @@ public class CountryCodePicker extends RelativeLayout {
         imageViewFlag.setImageResource(selectedCountry.getFlagID());
         //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
 
-        updateTextWatcher();
+        updateFormattingTextWatcher();
+
+        //notify to registered validity listener
+        if (editText_registeredCarrierNumber != null && phoneNumberValidityChangeListener != null) {
+            reportedValidity = isValidFullNumber();
+            phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
+        }
     }
 
     public Language getLanguageToApply() {
@@ -421,20 +444,21 @@ public class CountryCodePicker extends RelativeLayout {
         this.languageToApply = languageToApply;
     }
 
-    private void updateTextWatcher() {
+    private void updateFormattingTextWatcher() {
         if (getEditText_registeredCarrierNumber() != null && selectedCountry != null) {
 
             String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
             String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
 
             editText_registeredCarrierNumber.removeTextChangedListener(textWatcher);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                textWatcher = new PhoneNumberFormattingTextWatcher(selectedCountry.getNameCode());
-            } else {
-                textWatcher = new PhoneNumberFormattingTextWatcher();
+            if (numberAutoFormattingEnabled) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    textWatcher = new PhoneNumberFormattingTextWatcher(selectedCountry.getNameCode());
+                } else {
+                    textWatcher = new PhoneNumberFormattingTextWatcher();
+                }
+                editText_registeredCarrierNumber.addTextChangedListener(textWatcher);
             }
-            editText_registeredCarrierNumber.addTextChangedListener(textWatcher);
 
             //text watcher stops working when it finds non digit character in previous phone code. This will reset its function
             editText_registeredCarrierNumber.setText("");
@@ -506,12 +530,72 @@ public class CountryCodePicker extends RelativeLayout {
     void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
         this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
         PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
-        updateTextWatcher();
+        updateFormattingTextWatcher();
+        updateValidityTextWatcher();
     }
 
-    private TextWatcher getFormatterTextWatcher() {
-        return null;
+    private void updateValidityTextWatcher() {
+        try {
+            editText_registeredCarrierNumber.removeTextChangedListener(validityTextWatcher);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //initial REPORTING
+        reportedValidity = isValidFullNumber();
+        if (phoneNumberValidityChangeListener != null) {
+            phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
+        }
+
+        validityTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (phoneNumberValidityChangeListener != null) {
+                    boolean currentValidity;
+                    currentValidity = isValidFullNumber();
+                    if (currentValidity != reportedValidity) {
+                        reportedValidity = currentValidity;
+                        phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
+                    }
+                }
+            }
+        };
+
+        editText_registeredCarrierNumber.addTextChangedListener(validityTextWatcher);
     }
+
+    public void setPhoneNumberValidityChangeListener(PhoneNumberValidityChangeListener phoneNumberValidityChangeListener) {
+        this.phoneNumberValidityChangeListener = phoneNumberValidityChangeListener;
+        if (editText_registeredCarrierNumber != null) {
+            reportedValidity = isValidFullNumber();
+            phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
+        }
+    }
+
+    private boolean isValidFullNumber() {
+        try {
+            if (getEditText_registeredCarrierNumber() != null && getEditText_registeredCarrierNumber().getText().length() != 0) {
+                Phonenumber.PhoneNumber phoneNumber = PhoneNumberUtil.getInstance().parse("+" + selectedCountry.getPhoneCode() + getEditText_registeredCarrierNumber().getText().toString(), selectedCountry.getNameCode());
+                return PhoneNumberUtil.getInstance().isValidNumber(phoneNumber);
+            } else {
+                return false;
+            }
+        } catch (NumberParseException e) {
+            //            when number could not be parsed, its not valid
+            return false;
+        }
+    }
+
 
     private LayoutInflater getmInflater() {
         return mInflater;
@@ -1259,4 +1343,10 @@ public class CountryCodePicker extends RelativeLayout {
     public interface OnCountryChangeListener {
         void onCountrySelected();
     }
+
+    public interface PhoneNumberValidityChangeListener {
+
+        void onValidityChanged(boolean isValidNumber);
+    }
+
 }
