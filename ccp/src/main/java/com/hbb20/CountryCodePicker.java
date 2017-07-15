@@ -481,7 +481,7 @@ public class CountryCodePicker extends RelativeLayout {
         }
 
         // adds name code if required
-        if (!showNameCode) {
+        if (showNameCode) {
             if (showFullName) {
                 displayText += " (" + selectedCountry.getNameCode().toUpperCase() + ")";
             } else {
