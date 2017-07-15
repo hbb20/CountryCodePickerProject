@@ -52,7 +52,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     }
 
     private void setSearchBar() {
-        if (codePicker.isSelectionDialogShowSearch()) {
+        if (codePicker.isSearchAllowed()) {
             imgClearQuery.setVisibility(View.GONE);
             setTextWatcher();
             setQueryClearListener();
@@ -223,6 +223,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         ImageView imageViewFlag;
         LinearLayout linearFlagHolder;
         View divider;
+
         public CountryCodeViewHolder(View itemView) {
             super(itemView);
             relativeLayout_main = (RelativeLayout) itemView;
@@ -238,7 +239,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 divider.setVisibility(View.GONE);
                 textView_name.setVisibility(View.VISIBLE);
                 textView_code.setVisibility(View.VISIBLE);
-                if (codePicker.isShowPhoneCode()) {
+                if (codePicker.isCcpDialogShowPhoneCode()) {
                     textView_code.setVisibility(View.VISIBLE);
                 } else {
                     textView_code.setVisibility(View.GONE);

@@ -58,7 +58,7 @@
                     android:layout_marginRight="16dp"
                     android:inputType="number"
                     android:singleLine="true"
-                    android:text="+819017901357"/>
+                    android:text="+1246325321"/>
                 <Button
                     android:id="@+id/button_loadFullNumber"
                     android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:singleLine="true"
-                    android:text="Load +819017901357 to CCP"/>
+                    android:text="Load +1246325321 to CCP"/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -131,7 +131,6 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:background="#e5e5e5"
@@ -170,6 +169,25 @@
                         </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_validity"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_validity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -195,17 +213,30 @@
                         android:text="Get full number with + from CCP" />
                 </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editText_getFullNumber"
+                <Button
+                    android:id="@+id/button_getFormattedFullNumberWithPlus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:maxLines="2"
+                    android:text="Get formatted full number from CCP"/>
+
+                <TextView
+                    android:id="@+id/textView_getFullNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:editable="false"
+                    android:gravity="center"
                     android:hint="Full number"
                     android:inputType="number"
                     android:singleLine="true"
-                    android:text="" />
+                    android:text=""
+                    android:textSize="20sp"/>
 
                 <TextView
                     style="@style/pointText"

@@ -496,7 +496,7 @@ Change log
 - Now "Results not found" text is shifted to top to avoid it from being hidden under bigger keyboards.
 
 ##### version 1.7.7
-- Option to hide phone code. Allows developers to us CCP as Country Selector and not code selector.
+- Option to hide phone code. Allows developers to use CCP as Country Selector and not code selector.
 
 ##### version 1.7.8
 - Option to add border to ccp flag. This gives more clarity to flag if flag and background has same or almost similar color.
@@ -513,16 +513,23 @@ Change log
 ##### version 1.8
 - Fast Scroller with index.
 
-##### version 2.0 (not released yet)
+##### version 2.0
 - Clear search query
-- Attributes has prefix of ccp and ccpDialog (to avoid name space clashes) 
-- Supports "match_parent" width attribute and additionally gives text gravity option
-- As you type formatting of carrier number in registerCarrierNumberEditText
+- All attributes has prefix of ccp and ccpDialog (to avoid name space clashes) i.e "textSize" is now "ccp_textSize".
+- Few attribute name changes to follow convention 
+    - defaultCode => ccp_default_PhoneCode
+    - hideNameCode => ccp_showNameCode
+    - keyboardAutoPopOnSearch => ccpDialog_keyboardAutoPopup
+    - selectionDialogShowSearch => ccpDialog_allowSearch
+    - ccpClickable => ccp_clickable
+    - ccpSearchBox_showPhoneCode => ccpDialog_showPhoneCode
+- Supports "match_parent" width attribute with text gravity option
+- As you type formatting of carrier number in registerCarrierNumberEditText (Enabled by default)
 - Feature of auto-detect language (disabled by default)
 - Feature of auto-detect country (enabled by default)
 - Validity checker for full number
 - PhoneNumber validity change listener
-- Differentiate countries with "+1" based on area code.
+- Differentiate countries with "+1" based on area code. Now full number that starts with +1 will set correct country. 
 
 
 ## Credits

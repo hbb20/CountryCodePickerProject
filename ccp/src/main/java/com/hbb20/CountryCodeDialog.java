@@ -30,7 +30,7 @@ class CountryCodeDialog {
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
 
         //keyboard
-        if (codePicker.isSelectionDialogShowSearch() && codePicker.isDialogKeyboardAutoPopup()) {
+        if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }
 
@@ -48,7 +48,7 @@ class CountryCodeDialog {
         textView_noResult.setText(codePicker.getNoResultFoundText());
 
         //this will make dialog compact
-        if (!codePicker.isSelectionDialogShowSearch()) {
+        if (!codePicker.isSearchAllowed()) {
             RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) recyclerView_countryDialog.getLayoutParams();
             params.height = RecyclerView.LayoutParams.WRAP_CONTENT;
             recyclerView_countryDialog.setLayoutParams(params);
