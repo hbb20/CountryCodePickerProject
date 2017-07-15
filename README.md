@@ -25,6 +25,7 @@ How to add to your project
           compile 'com.hbb20:ccp:2.0.0'
         }
       ````
+      *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
 
    2. Add ccp view to xml layout
    
@@ -513,7 +514,8 @@ Change log
 ##### version 1.8
 - Fast Scroller with index.
 
-##### version 2.0
+##### version 2.0.0 
+*If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
 - Clear search query
 - All attributes has prefix of ccp and ccpDialog (to avoid name space clashes) i.e "textSize" is now "ccp_textSize".
 - Few attribute name changes to follow convention 
