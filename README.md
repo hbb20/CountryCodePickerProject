@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.8.1'
+          compile 'com.hbb20:ccp:1.8'
         }
       ````
 
@@ -62,28 +62,28 @@ Features
       #### A. Through xml
        
          ##### Using country code name
-        - Add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+        - Add app:ccp_defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
 	        <com.hbb20.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:defaultNameCode="US"  />
+	         app:ccp_defaultNameCode="US"  />
 	      ```` 
 	      
        ##### Using phone code
-        - add app:defaultCode="81" (replace 81 with your default country code) to xml layout.Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for country codes.
-        - Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US.  Use app:defaultNameCode or app:countryPreference to overcome issue.
+        - add app:ccp_defaultPhoneCode="81" (replace 81 with your default country code) to xml layout.Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for country codes.
+        - Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US.  Use app:ccp_defaultNameCode or app:ccp_countryPreference to overcome issue.
 	
 	       ````xml
 	        <com.hbb20.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:defaultCode="81" />
+	         app:ccp_defaultPhoneCode="81" />
 	      ````
-  			_app:defaultNameCode has higher priority than app:defaultCode._
+  			_app:ccp_defaultNameCode has higher priority than app:ccp_defaultPhoneCode._
   			
   		####  B. Programmatically
          ##### Using country name code
@@ -147,14 +147,14 @@ Features
    
   - #### Set through xml
   
-    - Add app:countryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+    - Add app:ccp_countryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
        ````xml
         <com.hbb20.CountryCodePicker
          android:id="@+id/ccp"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         app:countryPreference="US,IN,NZ"  />
+         app:ccp_countryPreference="US,IN,NZ"  />
       ````
   
    - #### Programmatically
@@ -208,13 +208,13 @@ Features
   - Color of CCP content can be changed according to different background.
     
     #### Using XML
-    - Add app:contentColor property to xml layout
+    - Add app:ccp_contentColor property to xml layout
    
       ````xml
       <com.hbb20.CountryCodePicker
             android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          app:contentColor="@color/custom_color"/>                        
+          app:ccp_contentColor="@color/custom_color"/>                        
       ````
     
     - <img src="https://farm6.staticflickr.com/5590/30736274540_b156916b98_z.jpg" width="300">
@@ -229,13 +229,13 @@ Features
   - Everytime when textSize is updated, arrowsize will be updated itself. 
   - <img src="https://farm6.staticflickr.com/5743/30296515043_78d70ff6ba_z.jpg" width="300">  
    #### Using XML
-   - Add app:contentColor property to xml layout
+   - Add app:ccp_contentColor property to xml layout
   
       ````xml
         <com.hbb20.CountryCodePicker
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         app:textSize="26sp"/>                        
+         app:ccp_textSize="26sp"/>                        
       ````
 
    #### Programmatically
@@ -245,13 +245,13 @@ Features
   - Size if Down arrow of CCP view can be modified in order to match rest of the view of form.
     
     #### Using XML
-    - Add app:contentColor property to xml layout
+    - Add app:ccp_contentColor property to xml layout
 	      
 	````xml
 	      <com.hbb20.CountryCodePicker
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
-	       app:arrowSize="26sp"/>                        
+	       app:ccp_arrowSize="26sp"/>                        
 	  ````
 
     #### Programmatically
@@ -261,17 +261,17 @@ Features
   - By default, text of CCP contains coutry's name code. i.e "(US) +1". Coutnry name code can be removed if required. 
     
     #### Using XML
-    - Add app:hideCodeName property to xml layout
+    - Add app:ccp_showCodeName property to xml layout
 	      
 	````xml
 	      <com.hbb20.CountryCodePicker
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
-	       app:hideNameCode="true"/>                        
+	       app:ccp_showNameCode="true"/>                        
 	  ````
 
     #### Programmatically
-    - To set textSize programmatically, use ```` hideNameCode() ```` method.
+    - To set textSize programmatically, use ```` showNameCode() ```` method.
   
   ### 10. Custom master country list
   
@@ -283,14 +283,14 @@ Features
     - Preferred country list will be a subset of custom master list. If some xyz country is not in custom master list, it won't be added to preferred country list.
    
   - #### Set through xml
-       - add app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+       - add app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
 	        <com.hbb20.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"  />
+	         app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"  />
 	      ````
   
    - #### Programmatically 
@@ -318,33 +318,33 @@ Features
 - <img src="https://farm6.staticflickr.com/5738/30736274420_213808d03b_z.jpg" width="300"> 
    
   - #### Set through xml
-       - add app:ccpLanguage="JAPANESE" to xml layout
+       - add app:ccp_defaultLanguage="JAPANESE" to xml layout
 
 	       ````xml
 	        <com.hbb20.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:ccpLanguage="JAPANESE"  />
+	         app:ccp_defaultLanguage="JAPANESE"  />
 	      ````
   
   - #### Programmatically
-       - Use ```` changeLanguage()```` method.
+       - Use ```` changeDefaultLanguage()```` method.
 
  ### 13. National Flag Thumbnail
  - Added flag thambnail to ccp and selector dialog
  - More thumbnail packs can be added
  - By default flag will be added to the ccp view
  - #### Set through xml
-      - add app:showFlag="false" to remove flag using xml layout
+      - add app:ccp_showFlag="false" to remove flag using xml layout
 
       ````xml
         <com.hbb20.CountryCodePicker
          android:id="@+id/ccp"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         app:showFlag="false"
-         app:ccpLanguage="JAPANESE"  />
+         app:ccp_showFlag="false"
+         app:ccp_defaultLanguage="JAPANESE"  />
       ````
 
      - #### Programmatically
@@ -353,19 +353,19 @@ Features
  ### 14. Show Full Country Name
    - Developer might wish to show full country name instead of only code name
    - `showFullName` will replace name code with full name.
-   - If name code was hidden using app:hideNameCode="true" then this will not work.
+   - If name code was hidden using app:ccp_showNameCode="true" then this will not work.
    - Some country names are real long so go for this option only if your UI has dedicated enough space for it.
    - <img src="https://farm6.staticflickr.com/5514/31103136845_1abdfcfe81_z.jpg" width="300"> 
    - #### Set through xml
-      - add app:showFullName="true" to show full name instead of name code
+      - add app:ccp_showFullName="true" to show full name instead of name code
 	    
        ````xml
         <com.hbb20.CountryCodePicker
          android:id="@+id/ccp"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         app:showFullName="true"
-         app:ccpLanguage="JAPANESE"  />
+         app:ccp_showFullName="true"
+         app:ccp_defaultLanguage="JAPANESE"  />
       ````
 
    - #### Programmatically
@@ -376,16 +376,16 @@ Features
 
    - Developer can toggle click lister of ccp
    - #### Set through xml
-      - add app:ccpClickable="false" to disable click listening
+      - add app:ccp_clickable="false" to disable click listening
 	    
        ````xml
         <com.hbb20.CountryCodePicker
          android:id="@+id/ccp"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         app:showFullName="true"
-         app:ccpLanguage="JAPANESE" 
-         app:ccpClickable="false"/>
+         app:ccp_showFullName="true"
+         app:ccp_defaultLanguage="JAPANESE" 
+         app:ccp_clickable="false"/>
       ````
 
    - #### Programmatically
@@ -405,8 +405,8 @@ Features
          android:id="@+id/ccp"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         app:ccp_showPhoneCode="false"
-         app:ccpLanguage="JAPANESE" />
+         app:ccp_hidePhoneCode="false"
+         app:ccp_defaultLanguage="JAPANESE" />
       ````
 
    - #### Programmatically
@@ -496,7 +496,7 @@ Change log
 - Now "Results not found" text is shifted to top to avoid it from being hidden under bigger keyboards.
 
 ##### version 1.7.7
-- Option to hide phone code. Allows developers to us CCP as Country Selector and not code selector.
+- Option to hide phone code. Allows developers to use CCP as Country Selector and not code selector.
 
 ##### version 1.7.8
 - Option to add border to ccp flag. This gives more clarity to flag if flag and background has same or almost similar color.
@@ -513,9 +513,24 @@ Change log
 ##### version 1.8
 - Fast Scroller with index.
 
-##### version 1.8.1
-- New flag of Iraq
-- Mexico name correction for Spanish language
+##### version 2.0
+- Clear search query
+- All attributes has prefix of ccp and ccpDialog (to avoid name space clashes) i.e "textSize" is now "ccp_textSize".
+- Few attribute name changes to follow convention 
+    - defaultCode => ccp_default_PhoneCode
+    - hideNameCode => ccp_showNameCode
+    - keyboardAutoPopOnSearch => ccpDialog_keyboardAutoPopup
+    - selectionDialogShowSearch => ccpDialog_allowSearch
+    - ccpClickable => ccp_clickable
+    - ccpSearchBox_showPhoneCode => ccpDialog_showPhoneCode
+- Supports "match_parent" width attribute with text gravity option
+- As you type formatting of carrier number in registerCarrierNumberEditText (Enabled by default)
+- Feature of auto-detect language (disabled by default)
+- Feature of auto-detect country (enabled by default)
+- Validity checker for full number
+- PhoneNumber validity change listener
+- Differentiate countries with "+1" based on area code. Now full number that starts with +1 will set correct country. 
+
 
 ## Credits
 - Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)

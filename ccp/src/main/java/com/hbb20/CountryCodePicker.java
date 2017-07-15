@@ -4,10 +4,17 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.os.Build;
+import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.PhoneNumberUtils;
+import android.telephony.TelephonyManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -15,9 +22,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by hbb20 on 11/1/16.
@@ -27,6 +40,8 @@ public class CountryCodePicker extends RelativeLayout {
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
+    private static int TEXT_GRAVITY_LEFT = -1, TEXT_GRAVITY_RIGHT = 1, TEXT_GRAVITY_CENTER = 0;
+    private static String ANDROID_NAME_SPACE = "http://schemas.android.com/apk/res/android";
     int defaultCountryCode;
     String defaultCountryNameCode;
     Context context;
@@ -43,26 +58,36 @@ public class CountryCodePicker extends RelativeLayout {
     Country defaultCountry;
     RelativeLayout relativeClickConsumer;
     CountryCodePicker codePicker;
-    boolean hideNameCode = false;
+    TextGravity currentTextGravity;
+    boolean showNameCode = false;
     boolean showPhoneCode = true;
+    boolean ccpDialogShowPhoneCode = true;
     boolean showFlag = true;
     boolean showFullName = false;
-    boolean useFullName = false;
-    boolean selectionDialogShowSearch = true;
+    boolean showFastScroller;
+    boolean searchAllowed = true;
     int contentColor;
     int borderFlagColor;
-    boolean showFastScroller;
     List<Country> preferredCountries;
+    int ccpTextgGravity = TEXT_GRAVITY_CENTER;
     //this will be "AU,IN,US"
     String countryPreference;
     int fastScrollerBubbleColor = -1;
     List<Country> customMasterCountriesList;
     //this will be "AU,IN,US"
     String customMasterCountries;
-    Language customLanguage = Language.ENGLISH;
-    boolean keyboardAutoPopOnSearch = true;
+    Language customDefaultLanguage = Language.ENGLISH;
+    Language languageToApply = Language.ENGLISH;
+
+    boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
+    boolean autoDetectLanguageEnabled, autoDetectCountryEnabled, numberAutoFormattingEnabled;
+    String xmlWidth = "notSet";
+    TextWatcher validityTextWatcher;
+    PhoneNumberFormattingTextWatcher textWatcher;
+    boolean reportedValidity;
     private OnCountryChangeListener onCountryChangeListener;
+    private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
     private int fastScrollerHandleColor;
     private int fastScrollerBubbleTextAppearance;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
@@ -92,10 +117,35 @@ public class CountryCodePicker extends RelativeLayout {
         init(attrs);
     }
 
+    private boolean isNumberAutoFormattingEnabled() {
+        return numberAutoFormattingEnabled;
+    }
+
+    /**
+     * This will set boolean for numberAutoFormattingEnabled and refresh formattingTextWatcher
+     *
+     * @param numberAutoFormattingEnabled
+     */
+    public void setNumberAutoFormattingEnabled(boolean numberAutoFormattingEnabled) {
+        this.numberAutoFormattingEnabled = numberAutoFormattingEnabled;
+        if (editText_registeredCarrierNumber != null) {
+            updateFormattingTextWatcher();
+        }
+    }
+
     private void init(AttributeSet attrs) {
-        //        Log.d(TAG, "Initialization of CCP");
         mInflater = LayoutInflater.from(context);
-        holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
+
+        xmlWidth = attrs.getAttributeValue(ANDROID_NAME_SPACE, "layout_width");
+        Log.d(TAG, "init:xmlWidth " + xmlWidth);
+        removeAllViewsInLayout();
+        //at run time, match parent value returns LayoutParams.MATCH_PARENT ("-1"), for some android xml preview it returns "fill_parent"
+        if (xmlWidth != null && (xmlWidth.equals(LayoutParams.MATCH_PARENT + "") || xmlWidth.equals(LayoutParams.FILL_PARENT + "") || xmlWidth.equals("fill_parent") || xmlWidth.equals("match_parent"))) {
+            holderView = mInflater.inflate(R.layout.layout_full_width_code_picker, this, true);
+        } else {
+            holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
+        }
+
         textView_selectedCountry = (TextView) holderView.findViewById(R.id.textView_selectedCountry);
         holder = (RelativeLayout) holderView.findViewById(R.id.countryCodeHolder);
         imageViewArrow = (ImageView) holderView.findViewById(R.id.imageView_arrow);
@@ -114,13 +164,16 @@ public class CountryCodePicker extends RelativeLayout {
         //default country code
         try {
             //hide nameCode. If someone wants only phone code to avoid name collision for same country phone code.
-            hideNameCode = a.getBoolean(R.styleable.CountryCodePicker_hideNameCode, false);
+            showNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showNameCode, false);
 
             //show phone code.
             showPhoneCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showPhoneCode, true);
 
+            //show phone code on dialog
+            ccpDialogShowPhoneCode = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showPhoneCode, showPhoneCode);
+
             //show full name
-            showFullName = a.getBoolean(R.styleable.CountryCodePicker_showFullName, false);
+            showFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
 
             //show fast scroller
             showFastScroller = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFastScroller, true);
@@ -134,34 +187,50 @@ public class CountryCodePicker extends RelativeLayout {
             //scroller text appearance
             fastScrollerBubbleTextAppearance = a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleTextAppearance, -1);
 
+            //auto detect language
+            autoDetectLanguageEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectLanguage, false);
+
+            //auto detect county
+            autoDetectCountryEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectCountry, true);
+
             //show flag
-            showFlag(a.getBoolean(R.styleable.CountryCodePicker_showFlag, true));
+            showFlag(a.getBoolean(R.styleable.CountryCodePicker_ccp_showFlag, true));
+
+            //number auto formatting
+            numberAutoFormattingEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoFormatNumber, true);
 
             //autopop keyboard
-            setKeyboardAutoPopOnSearch(a.getBoolean(R.styleable.CountryCodePicker_keyboardAutoPopOnSearch, true));
+            setDialogKeyboardAutoPopup(a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_keyboardAutoPopup, true));
 
-            //if custom language is specified, then set it as custom
+            //if custom default language is specified, then set it as custom
             int attrLanguage = 3; //for english
-            if (a.hasValue(R.styleable.CountryCodePicker_ccpLanguage)) {
-                attrLanguage = a.getInt(R.styleable.CountryCodePicker_ccpLanguage, 1);
+            if (a.hasValue(R.styleable.CountryCodePicker_ccp_defaultLanguage)) {
+                attrLanguage = a.getInt(R.styleable.CountryCodePicker_ccp_defaultLanguage, 1);
             }
-            customLanguage = getLanguageEnum(attrLanguage);
+            customDefaultLanguage = getLanguageEnum(attrLanguage);
+            updateLanguageToApply();
 
             //custom master list
-            customMasterCountries = a.getString(R.styleable.CountryCodePicker_customMasterCountries);
+            customMasterCountries = a.getString(R.styleable.CountryCodePicker_ccp_customMasterCountries);
             refreshCustomMasterList();
 
             //preference
-            countryPreference = a.getString(R.styleable.CountryCodePicker_countryPreference);
+            countryPreference = a.getString(R.styleable.CountryCodePicker_ccp_countryPreference);
             refreshPreferredCountries();
 
+            //text gravity
+            if (a.hasValue(R.styleable.CountryCodePicker_ccp_textGravity)) {
+                ccpTextgGravity = a.getInt(R.styleable.CountryCodePicker_ccp_textGravity, TEXT_GRAVITY_RIGHT);
+            }
+            applyTextGravity(ccpTextgGravity);
+
             //default country
-            defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_defaultNameCode);
+            defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_ccp_defaultNameCode);
             boolean setUsingNameCode = false;
             if (defaultCountryNameCode != null && defaultCountryNameCode.length() != 0) {
-                if (Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode) != null) {
+                if (Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode) != null) {
                     setUsingNameCode = true;
-                    setDefaultCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode));
+                    setDefaultCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode));
                     setSelectedCountry(defaultCountry);
                 }
             }
@@ -169,23 +238,27 @@ public class CountryCodePicker extends RelativeLayout {
 
             //if default country is not set using name code.
             if (!setUsingNameCode) {
-                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_defaultCode, -1);
+                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_ccp_defaultPhoneCode, -1);
 
                 //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
-                if (Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode) == null) {
+                if (Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode) == null) {
                     defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
                 }
                 setDefaultCountryUsingPhoneCode(defaultCountryCode);
                 setSelectedCountry(defaultCountry);
             }
 
+            //set auto detected country
+            if (isAutoDetectCountryEnabled()) {
+                selectCountryFromSimInfo();
+            }
 
             //content color
             int contentColor;
             if (isInEditMode()) {
-                contentColor = a.getColor(R.styleable.CountryCodePicker_contentColor, 0);
+                contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, 0);
             } else {
-                contentColor = a.getColor(R.styleable.CountryCodePicker_contentColor, context.getResources().getColor(R.color.defaultContentColor));
+                contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, context.getResources().getColor(R.color.defaultContentColor));
             }
             if (contentColor != 0) {
                 setContentColor(contentColor);
@@ -203,7 +276,7 @@ public class CountryCodePicker extends RelativeLayout {
             }
 
             //text size
-            int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_textSize, 0);
+            int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_ccp_textSize, 0);
             if (textSize > 0) {
                 textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 setFlagSize(textSize);
@@ -214,23 +287,161 @@ public class CountryCodePicker extends RelativeLayout {
                 setTextSize(defaultSize);
             }
 
-            //if arrow arrow size is explicitly defined
-            int arrowSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_arrowSize, 0);
+            //if arrow size is explicitly defined
+            int arrowSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_ccp_arrowSize, 0);
             if (arrowSize > 0) {
                 setArrowSize(arrowSize);
             }
 
-            selectionDialogShowSearch = a.getBoolean(R.styleable.CountryCodePicker_selectionDialogShowSearch, true);
-            setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccpClickable, true));
+            searchAllowed = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_allowSearch, true);
+            setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
 
         } catch (Exception e) {
             textView_selectedCountry.setText(e.getMessage());
         } finally {
             a.recycle();
         }
-
+        Log.d(TAG, "end:xmlWidth " + xmlWidth);
     }
 
+    boolean isCcpDialogShowPhoneCode() {
+        return ccpDialogShowPhoneCode;
+    }
+
+    /**
+     * To show/hide phone code from country selection dialog
+     * @param ccpDialogShowPhoneCode
+     */
+    public void setCcpDialogShowPhoneCode(boolean ccpDialogShowPhoneCode) {
+        this.ccpDialogShowPhoneCode = ccpDialogShowPhoneCode;
+    }
+
+    boolean isShowPhoneCode() {
+        return showPhoneCode;
+    }
+
+    /**
+     * To show/hide phone code from ccp view
+     *
+     * @param showPhoneCode
+     */
+    public void setShowPhoneCode(boolean showPhoneCode) {
+        this.showPhoneCode = showPhoneCode;
+        setSelectedCountry(selectedCountry);
+    }
+
+    int getFastScrollerBubbleTextAppearance() {
+        return fastScrollerBubbleTextAppearance;
+    }
+
+    /**
+     * This sets text appearance for fast scroller index character
+     *
+     * @param fastScrollerBubbleTextAppearance should be reference id of textappereance style. i.e. R.style.myBubbleTextAppearance
+     */
+    public void setFastScrollerBubbleTextAppearance(int fastScrollerBubbleTextAppearance) {
+        this.fastScrollerBubbleTextAppearance = fastScrollerBubbleTextAppearance;
+    }
+
+    int getFastScrollerHandleColor() {
+        return fastScrollerHandleColor;
+    }
+
+    /**
+     * This should be the color for fast scroller handle.
+     *
+     * @param fastScrollerHandleColor
+     */
+    public void setFastScrollerHandleColor(int fastScrollerHandleColor) {
+        this.fastScrollerHandleColor = fastScrollerHandleColor;
+    }
+
+    int getFastScrollerBubbleColor() {
+        return fastScrollerBubbleColor;
+    }
+
+    /**
+     * Sets bubble color for fast scroller
+     *
+     * @param fastScrollerBubbleColor
+     */
+    public void setFastScrollerBubbleColor(int fastScrollerBubbleColor) {
+        this.fastScrollerBubbleColor = fastScrollerBubbleColor;
+    }
+
+    TextGravity getCurrentTextGravity() {
+        return currentTextGravity;
+    }
+
+    /**
+     * When width is set "match_parent", this gravity will set placement of text (Between flag and down arrow).
+     *
+     * @param textGravity expected placement
+     */
+    public void setCurrentTextGravity(TextGravity textGravity) {
+        this.currentTextGravity = textGravity;
+        applyTextGravity(textGravity.enumIndex);
+    }
+
+    private void applyTextGravity(int enumIndex) {
+        if (enumIndex == TextGravity.LEFT.enumIndex) {
+            textView_selectedCountry.setGravity(Gravity.LEFT);
+        } else if (enumIndex == TextGravity.CENTER.enumIndex) {
+            textView_selectedCountry.setGravity(Gravity.CENTER);
+        } else {
+            textView_selectedCountry.setGravity(Gravity.RIGHT);
+        }
+    }
+
+    /**
+     * which language to show is decided based on
+     * autoDetectLanguage flag
+     * if autoDetectLanguage is true, then it should check language based on locale, if no language is found based on locale, customDefault language will returned
+     * else autoDetectLanguage is false, then customDefaultLanguage will be returned.
+     *
+     * @return
+     */
+    private void updateLanguageToApply() {
+        //when in edit mode, it will return default language only
+        if (isInEditMode()) {
+            if (customDefaultLanguage != null) {
+                languageToApply = customDefaultLanguage;
+            } else {
+                languageToApply = Language.ENGLISH;
+            }
+        } else {
+            if (isAutoDetectLanguageEnabled()) {
+                Language localeBasedLanguage = getCCPLanguageFromLocale();
+                if (localeBasedLanguage == null) { //if no language is found from locale
+                    if (getCustomDefaultLanguage() != null) { //and custom language is defined
+                        languageToApply = getCustomDefaultLanguage();
+                    } else {
+                        languageToApply = Language.ENGLISH;
+                    }
+                } else {
+                    languageToApply = localeBasedLanguage;
+                }
+            } else {
+                if (getCustomDefaultLanguage() != null) {
+                    languageToApply = customDefaultLanguage;
+                } else {
+                    languageToApply = Language.ENGLISH;  //library default
+                }
+            }
+        }
+        Log.d(TAG, "updateLanguageToApply: " + languageToApply);
+    }
+
+    private Language getCCPLanguageFromLocale() {
+        Locale currentLocale = context.getResources().getConfiguration().locale;
+        Log.d(TAG, "getCCPLanguageFromLocale: current locale language" + currentLocale.getLanguage());
+        for (Language language : Language.values()) {
+            if (language.getCode().equalsIgnoreCase(currentLocale.getLanguage())) {
+                return language;
+            }
+        }
+        return null;
+    }
 
     private Country getDefaultCountry() {
         return defaultCountry;
@@ -254,11 +465,13 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     void setSelectedCountry(Country selectedCountry) {
-        this.selectedCountry = selectedCountry;
+
         //as soon as country is selected, textView should be updated
         if (selectedCountry == null) {
-            selectedCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
+            selectedCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
         }
+
+        this.selectedCountry = selectedCountry;
 
         String displayText = "";
 
@@ -268,7 +481,7 @@ public class CountryCodePicker extends RelativeLayout {
         }
 
         // adds name code if required
-        if (!hideNameCode) {
+        if (!showNameCode) {
             if (showFullName) {
                 displayText += " (" + selectedCountry.getNameCode().toUpperCase() + ")";
             } else {
@@ -298,14 +511,58 @@ public class CountryCodePicker extends RelativeLayout {
 
         imageViewFlag.setImageResource(selectedCountry.getFlagID());
         //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
+
+        updateFormattingTextWatcher();
+
+        //notify to registered validity listener
+        if (editText_registeredCarrierNumber != null && phoneNumberValidityChangeListener != null) {
+            reportedValidity = isValidFullNumber();
+            phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
+        }
     }
 
-    Language getCustomLanguage() {
-        return customLanguage;
+    Language getLanguageToApply() {
+        if (languageToApply == null) {
+            updateLanguageToApply();
+        }
+        return languageToApply;
     }
 
-    private void setCustomLanguage(Language customLanguage) {
-        this.customLanguage = customLanguage;
+    void setLanguageToApply(Language languageToApply) {
+        this.languageToApply = languageToApply;
+    }
+
+    private void updateFormattingTextWatcher() {
+        if (getEditText_registeredCarrierNumber() != null && selectedCountry != null) {
+
+            String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
+            String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
+
+            editText_registeredCarrierNumber.removeTextChangedListener(textWatcher);
+            if (numberAutoFormattingEnabled) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    textWatcher = new PhoneNumberFormattingTextWatcher(selectedCountry.getNameCode());
+                } else {
+                    textWatcher = new PhoneNumberFormattingTextWatcher();
+                }
+                editText_registeredCarrierNumber.addTextChangedListener(textWatcher);
+            }
+
+            //text watcher stops working when it finds non digit character in previous phone code. This will reset its function
+            editText_registeredCarrierNumber.setText("");
+            editText_registeredCarrierNumber.setText(digitsValue);
+            editText_registeredCarrierNumber.setSelection(editText_registeredCarrierNumber.getText().length());
+        }
+    }
+
+    Language getCustomDefaultLanguage() {
+        return customDefaultLanguage;
+    }
+
+    private void setCustomDefaultLanguage(Language customDefaultLanguage) {
+        this.customDefaultLanguage = customDefaultLanguage;
+        updateLanguageToApply();
+        setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(context, getLanguageToApply(), selectedCountry.getNameCode()));
     }
 
     private View getHolderView() {
@@ -324,26 +581,102 @@ public class CountryCodePicker extends RelativeLayout {
         this.holder = holder;
     }
 
-    boolean isKeyboardAutoPopOnSearch() {
-        return keyboardAutoPopOnSearch;
+    boolean isAutoDetectLanguageEnabled() {
+        return autoDetectLanguageEnabled;
+    }
+
+    boolean isAutoDetectCountryEnabled() {
+        return autoDetectCountryEnabled;
+    }
+
+    boolean isDialogKeyboardAutoPopup() {
+        return dialogKeyboardAutoPopup;
     }
 
     /**
-     * By default, keyboard is poped every time ccp is clicked and selection dialog is opened.
+     * By default, keyboard pops up every time ccp is clicked and selection dialog is opened.
      *
-     * @param keyboardAutoPopOnSearch true: to open keyboard automatically when selection dialog is opened
+     * @param dialogKeyboardAutoPopup true: to open keyboard automatically when selection dialog is opened
      *                                false: to avoid auto pop of keyboard
      */
-    public void setKeyboardAutoPopOnSearch(boolean keyboardAutoPopOnSearch) {
-        this.keyboardAutoPopOnSearch = keyboardAutoPopOnSearch;
+    public void setDialogKeyboardAutoPopup(boolean dialogKeyboardAutoPopup) {
+        this.dialogKeyboardAutoPopup = dialogKeyboardAutoPopup;
+    }
+
+    boolean isShowFastScroller() {
+        return showFastScroller;
+    }
+
+    /**
+     * Set visibility of fast scroller.
+     *
+     * @param showFastScroller
+     */
+    public void setShowFastScroller(boolean showFastScroller) {
+        this.showFastScroller = showFastScroller;
     }
 
     EditText getEditText_registeredCarrierNumber() {
         return editText_registeredCarrierNumber;
     }
 
+    /**
+     * this will register editText and will apply required text watchers
+     *
+     * @param editText_registeredCarrierNumber
+     */
     void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
         this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        updateFormattingTextWatcher();
+        updateValidityTextWatcher();
+    }
+
+    /**
+     * This function will
+     * - remove existing, if any, validityTextWatcher
+     * - prepare new validityTextWatcher
+     * - attach validityTextWatcher
+     * - do initial reporting to watcher
+     */
+    private void updateValidityTextWatcher() {
+        try {
+            editText_registeredCarrierNumber.removeTextChangedListener(validityTextWatcher);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //initial REPORTING
+        reportedValidity = isValidFullNumber();
+        if (phoneNumberValidityChangeListener != null) {
+            phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
+        }
+
+        validityTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (phoneNumberValidityChangeListener != null) {
+                    boolean currentValidity;
+                    currentValidity = isValidFullNumber();
+                    if (currentValidity != reportedValidity) {
+                        reportedValidity = currentValidity;
+                        phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
+                    }
+                }
+            }
+        };
+
+        editText_registeredCarrierNumber.addTextChangedListener(validityTextWatcher);
     }
 
     private LayoutInflater getmInflater() {
@@ -363,7 +696,7 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             List<Country> localCountryList = new ArrayList<>();
             for (String nameCode : countryPreference.split(",")) {
-                Country country = Country.getCountryForNameCodeFromCustomMasterList(getContext(), customMasterCountriesList, customLanguage, nameCode);
+                Country country = Country.getCountryForNameCodeFromCustomMasterList(getContext(), customMasterCountriesList, getLanguageToApply(), nameCode);
                 if (country != null) {
                     if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
                         localCountryList.add(country);
@@ -396,7 +729,7 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             List<Country> localCountryList = new ArrayList<>();
             for (String nameCode : customMasterCountries.split(",")) {
-                Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, nameCode);
+                Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), nameCode);
                 if (country != null) {
                     if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
                         localCountryList.add(country);
@@ -424,10 +757,20 @@ public class CountryCodePicker extends RelativeLayout {
         return customMasterCountriesList;
     }
 
+    /**
+     * Publicly available functions from library
+     */
+
+    /**
+     * @param customMasterCountriesList is list of countries that we need as custom master list
+     */
     void setCustomMasterCountriesList(List<Country> customMasterCountriesList) {
         this.customMasterCountriesList = customMasterCountriesList;
     }
 
+    /**
+     * @return comma separated custom master countries' name code. i.e "gb,us,nz,in,pk"
+     */
     String getCustomMasterCountries() {
         return customMasterCountries;
     }
@@ -444,6 +787,31 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setCustomMasterCountries(String customMasterCountries) {
         this.customMasterCountries = customMasterCountries;
+    }
+
+    /**
+     * @return true if ccp is enabled for click
+     */
+    boolean isCcpClickable() {
+        return ccpClickable;
+    }
+
+    /**
+     * Allow click and open dialog
+     *
+     * @param ccpClickable
+     */
+    public void setCcpClickable(boolean ccpClickable) {
+        this.ccpClickable = ccpClickable;
+        if (!ccpClickable) {
+            relativeClickConsumer.setOnClickListener(null);
+            relativeClickConsumer.setClickable(false);
+            relativeClickConsumer.setEnabled(false);
+        } else {
+            relativeClickConsumer.setOnClickListener(countryCodeHolderClickListener);
+            relativeClickConsumer.setClickable(true);
+            relativeClickConsumer.setEnabled(true);
+        }
     }
 
     /**
@@ -485,6 +853,10 @@ public class CountryCodePicker extends RelativeLayout {
         return carrierNumber;
     }
 
+    /**
+     * Related to selected country
+     */
+
     //add entry here
     private Language getLanguageEnum(int index) {
         if (index < Language.values().length) {
@@ -495,30 +867,24 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     String getDialogTitle() {
-        return Country.getDialogTitle(context, customLanguage);
+        return Country.getDialogTitle(context, getLanguageToApply());
     }
 
     String getSearchHintText() {
-        return Country.getSearchHintMessage(context, customLanguage);
+        return Country.getSearchHintMessage(context, getLanguageToApply());
     }
 
     /**
-     * Related to default country
+     * @return translated text for "No Results Found" message.
      */
-
     String getNoResultFoundText() {
-        return Country.getNoResultFoundAckMessage(context, customLanguage);
+        return Country.getNoResultFoundAckMessage(context, getLanguageToApply());
     }
-
-    /**
-     * Publicly available functions from library
-     */
-
 
     /**
      * This method is not encouraged because this might set some other country which have same country code as of yours. e.g 1 is common for US and canada.
      * If you are trying to set US ( and countryPreference is not set) and you pass 1 as @param defaultCountryCode, it will set canada (prior in list due to alphabetical order)
-     * Rather use setDefaultCountryUsingNameCode("us"); or setDefaultCountryUsingNameCode("US");
+     * Rather use @function setDefaultCountryUsingNameCode("us"); or setDefaultCountryUsingNameCode("US");
      * <p>
      * Default country code defines your default country.
      * Whenever invalid / improper number is found in setCountryForPhoneCode() /  setFullNumber(), it CCP will set to default country.
@@ -531,7 +897,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     @Deprecated
     public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
-        Country defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country defaultCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             //            Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
         } else { //if correct country is found, set the country
@@ -551,7 +917,7 @@ public class CountryCodePicker extends RelativeLayout {
      *                               if you want to set JP +81(Japan) as default country, defaultCountryCode =  "JP" or "jp"
      */
     public void setDefaultCountryUsingNameCode(String defaultCountryNameCode) {
-        Country defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (defaultCountry == null) { //if no correct country is found
             //            Log.d(TAG, "No country for nameCode " + defaultCountryNameCode + " is found");
         } else { //if correct country is found, set the country
@@ -618,10 +984,6 @@ public class CountryCodePicker extends RelativeLayout {
     public String getDefaultCountryNameCode() {
         return getDefaultCountry().nameCode.toUpperCase();
     }
-
-    /**
-     * Related to selected country
-     */
 
     /**
      * reset the default country as selected country.
@@ -699,10 +1061,10 @@ public class CountryCodePicker extends RelativeLayout {
      *                    If you want to set JP +81(Japan), countryCode= 81
      */
     public void setCountryForPhoneCode(int countryCode) {
-        Country country = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country country = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (country == null) {
             if (defaultCountry == null) {
-                defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
+                defaultCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
             }
             setSelectedCountry(defaultCountry);
         } else {
@@ -718,10 +1080,10 @@ public class CountryCodePicker extends RelativeLayout {
      *                        If you want to set JP +81(Japan), countryCode= JP
      */
     public void setCountryForNameCode(String countryNameCode) {
-        Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), customLanguage, countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (country == null) {
             if (defaultCountry == null) {
-                defaultCountry = Country.getCountryForCode(getContext(), customLanguage, preferredCountries, defaultCountryCode);
+                defaultCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
             }
             setSelectedCountry(defaultCountry);
         } else {
@@ -748,6 +1110,7 @@ public class CountryCodePicker extends RelativeLayout {
         String fullNumber;
         if (editText_registeredCarrierNumber != null) {
             fullNumber = getSelectedCountry().getPhoneCode() + editText_registeredCarrierNumber.getText().toString();
+            fullNumber = PhoneNumberUtil.normalizeDigitsOnly(fullNumber);
         } else {
             fullNumber = getSelectedCountry().getPhoneCode();
             Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
@@ -763,7 +1126,7 @@ public class CountryCodePicker extends RelativeLayout {
      * @param fullNumber is combination of country code and carrier number, (country_code+carrier_number) for example if country is India (+91) and carrier/mobile number is 8866667722 then full number will be 9188666667722 or +918866667722. "+" in starting of number is optional.
      */
     public void setFullNumber(String fullNumber) {
-        Country country = Country.getCountryForNumber(getContext(), customLanguage, preferredCountries, fullNumber);
+        Country country = Country.getCountryForNumber(getContext(), getLanguageToApply(), preferredCountries, fullNumber);
         setSelectedCountry(country);
         String carrierNumber = detectCarrierNumber(fullNumber, country);
         if (getEditText_registeredCarrierNumber() != null) {
@@ -771,6 +1134,28 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
         }
+    }
+
+    /**
+     * This function combines selected country code from CCP and carrier number from @param editTextCarrierNumber
+     * This will return formatted number.
+     *
+     * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "918866667722"
+     */
+    public String getFormattedFullNumber() {
+        String formattedFullNumber;
+        Phonenumber.PhoneNumber phoneNumber;
+        if (editText_registeredCarrierNumber != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                formattedFullNumber = PhoneNumberUtils.formatNumber(getFullNumberWithPlus(), getSelectedCountryCode());
+            } else {
+                formattedFullNumber = PhoneNumberUtils.formatNumber(getFullNumberWithPlus());
+            }
+        } else {
+            formattedFullNumber = getSelectedCountry().getPhoneCode();
+            Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
+        }
+        return formattedFullNumber;
     }
 
     /**
@@ -829,7 +1214,7 @@ public class CountryCodePicker extends RelativeLayout {
      *
      * @param arrowSize size in pixels
      */
-    private void setArrowSize(int arrowSize) {
+    public void setArrowSize(int arrowSize) {
         if (arrowSize > 0) {
             LayoutParams params = (LayoutParams) imageViewArrow.getLayoutParams();
             params.width = arrowSize;
@@ -841,11 +1226,11 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * If nameCode of country in CCP view is not required use this to show/hide country name code of ccp view.
      *
-     * @param hideNameCode true will remove country name code from ccp view, it will result  " +91 "
-     *                     false will show country name code in ccp view, it will result " (IN) +91 "
+     * @param showNameCode true will show country name code in ccp view, it will result " (IN) +91 "
+     *                     false will remove country name code from ccp view, it will result  " +91 "
      */
-    public void hideNameCode(boolean hideNameCode) {
-        this.hideNameCode = hideNameCode;
+    public void showNameCode(boolean showNameCode) {
+        this.showNameCode = showNameCode;
         setSelectedCountry(selectedCountry);
     }
 
@@ -862,11 +1247,13 @@ public class CountryCodePicker extends RelativeLayout {
 
     /**
      * Language will be applied to country select dialog
+     * If autoDetectCountry is true, ccp will try to detect language from locale.
+     * Detected language is supported If no language is detected or detected language is not supported by ccp, it will set default language as set.
      *
      * @param language
      */
-    public void changeLanguage(Language language) {
-        setCustomLanguage(language);
+    public void changeDefaultLanguage(Language language) {
+        setCustomDefaultLanguage(language);
     }
 
     /**
@@ -934,118 +1321,118 @@ public class CountryCodePicker extends RelativeLayout {
      *
      * @return true if search is set allowed
      */
-    public boolean isSelectionDialogShowSearch() {
-        return selectionDialogShowSearch;
+    public boolean isSearchAllowed() {
+        return searchAllowed;
     }
 
     /**
      * SelectionDialogSearch is the facility to search through the list of country while selecting.
      *
-     * @param selectionDialogShowSearch true will allow search and false will hide search box
+     * @param searchAllowed true will allow search and false will hide search box
      */
-    public void setSelectionDialogShowSearch(boolean selectionDialogShowSearch) {
-        this.selectionDialogShowSearch = selectionDialogShowSearch;
-    }
-
-    public boolean isCcpClickable() {
-        return ccpClickable;
+    public void setSearchAllowed(boolean searchAllowed) {
+        this.searchAllowed = searchAllowed;
     }
 
     /**
-     * Allow click and open dialog
+     * Sets validity change listener.
+     * First call back will be sent right away.
      *
-     * @param ccpClickable
+     * @param phoneNumberValidityChangeListener
      */
-    public void setCcpClickable(boolean ccpClickable) {
-        this.ccpClickable = ccpClickable;
-        if (!ccpClickable) {
-            relativeClickConsumer.setOnClickListener(null);
-            relativeClickConsumer.setClickable(false);
-            relativeClickConsumer.setEnabled(false);
-        } else {
-            relativeClickConsumer.setOnClickListener(countryCodeHolderClickListener);
-            relativeClickConsumer.setClickable(true);
-            relativeClickConsumer.setEnabled(true);
+    public void setPhoneNumberValidityChangeListener(PhoneNumberValidityChangeListener phoneNumberValidityChangeListener) {
+        this.phoneNumberValidityChangeListener = phoneNumberValidityChangeListener;
+        if (editText_registeredCarrierNumber != null) {
+            reportedValidity = isValidFullNumber();
+            phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
         }
     }
 
-
-    public boolean isShowPhoneCode() {
-        return showPhoneCode;
-    }
-
-    public void setShowPhoneCode(boolean showPhoneCode) {
-        this.showPhoneCode = showPhoneCode;
-        setSelectedCountry(selectedCountry);
-    }
-
-    int getFastScrollerHandleColor() {
-        return fastScrollerHandleColor;
+    /**
+     * This function will check the validity of entered number.
+     * It will use PhoneNumberUtil to check validity
+     *
+     * @return true if entered carrier number is valid else false
+     */
+    public boolean isValidFullNumber() {
+        try {
+            if (getEditText_registeredCarrierNumber() != null && getEditText_registeredCarrierNumber().getText().length() != 0) {
+                Phonenumber.PhoneNumber phoneNumber = PhoneNumberUtil.getInstance().parse("+" + selectedCountry.getPhoneCode() + getEditText_registeredCarrierNumber().getText().toString(), selectedCountry.getNameCode());
+                return PhoneNumberUtil.getInstance().isValidNumber(phoneNumber);
+            } else if (getEditText_registeredCarrierNumber() == null) {
+                Toast.makeText(context, "No editText for Carrier number found.", Toast.LENGTH_SHORT).show();
+                return false;
+            } else {
+                return false;
+            }
+        } catch (NumberParseException e) {
+            //            when number could not be parsed, its not valid
+            return false;
+        }
     }
 
     /**
-     * This should be the color for fast scroller handle.
-     *
-     * @param fastScrollerHandleColor
+     * loads current country in ccp using telephony manager
      */
-    public void setFastScrollerHandleColor(int fastScrollerHandleColor) {
-        this.fastScrollerHandleColor = fastScrollerHandleColor;
+    public void selectCountryFromSimInfo() {
+        try {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            String currentCountryISO = telephonyManager.getSimCountryIso();
+            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), currentCountryISO));
+        } catch (Exception e) {
+            Log.w(TAG, "applyCustomProperty: could not set country from sim");
+        }
     }
 
-    int getFastScrollerBubbleTextAppearance() {
-        return fastScrollerBubbleTextAppearance;
-    }
-
-    /**
-     * This sets text appearance for fast scroller index character
-     *
-     * @param fastScrollerBubbleTextAppearance should be reference id of textappereance style. i.e. R.style.myBubbleTextAppearance
-     */
-    public void setFastScrollerBubbleTextAppearance(int fastScrollerBubbleTextAppearance) {
-        this.fastScrollerBubbleTextAppearance = fastScrollerBubbleTextAppearance;
-    }
-
-    boolean isShowFastScroller() {
-        return showFastScroller;
-    }
-
-    /**
-     * Set visibility of fast scroller.
-     *
-     * @param showFastScroller
-     */
-    public void setShowFastScroller(boolean showFastScroller) {
-        this.showFastScroller = showFastScroller;
-    }
-
-    int getFastScrollerBubbleColor() {
-        return fastScrollerBubbleColor;
-    }
-
-    /**
-     * Sets bubble color for fast scroller
-     *
-     * @param fastScrollerBubbleColor
-     */
-    public void setFastScrollerBubbleColor(int fastScrollerBubbleColor) {
-        this.fastScrollerBubbleColor = fastScrollerBubbleColor;
-    }
 
     /**
      * Update every time new language is supported #languageSupport
      */
     //add an entry for your language in attrs.xml's <attr name="language" format="enum"> enum.
-    //add getMasterListForLanguage() to Country.java
-
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC, BENGALI, CHINESE_SIMPLIFIED, ENGLISH, FRENCH, GERMAN, GUJARATI, HINDI, JAPANESE, INDONESIA, PORTUGUESE, RUSSIAN, SPANISH, HEBREW, CHINESE_TRADITIONAL, KOREAN
+        ARABIC("ar"), BENGALI("bn"), CHINESE_SIMPLIFIED("zh"), ENGLISH("en"), FRENCH("fr"), GERMAN("de"), GUJARATI("gu"), HINDI("hi"), JAPANESE("ja"), INDONESIA("in"), PORTUGUESE("pt"), RUSSIAN("ru"), SPANISH("es"), HEBREW("iw"), CHINESE_TRADITIONAL("zh"), KOREAN("ko");
+
+        String code;
+
+        Language(String code) {
+            this.code = code;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
     }
 
-    /*
-    interface to set change listener
+    /**
+     * When width is "match_parent", this gravity will decide the placement of text.
+     */
+    public enum TextGravity {
+        LEFT(-1), CENTER(0), RIGHT(1);
+
+        int enumIndex;
+
+        TextGravity(int i) {
+            enumIndex = i;
+        }
+    }
+
+    /**
+     * interface to set change listener
      */
     public interface OnCountryChangeListener {
         void onCountrySelected();
     }
+
+    /**
+     * Interface to check phone number validity change listener
+     */
+    public interface PhoneNumberValidityChangeListener {
+        void onValidityChanged(boolean isValidNumber);
+    }
+
 }

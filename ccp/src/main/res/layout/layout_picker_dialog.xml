@@ -14,26 +14,45 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/secondary_text_light" />
 
-    <EditText
-        android:id="@+id/editText_search"
+    <RelativeLayout
+        android:id="@+id/rl_query_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_title"
-        android:hint="@string/search_hint"
-        android:imeOptions="flagNoExtractUi"
-        android:singleLine="true"
-        android:textColor="@android:color/primary_text_light_nodisable" />
+        android:layout_below="@+id/textView_title">
+
+        <EditText
+            android:id="@+id/editText_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/img_clear_query"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="@android:color/primary_text_light_nodisable"/>
+
+        <ImageView
+            android:id="@+id/img_clear_query"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:alpha="0.7"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="4dp"
+            android:src="@drawable/ic_clear_black_24dp"/>
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_countryDialog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/editText_search"
+        android:layout_below="@+id/rl_query_holder"
         android:dividerHeight="2dp" />
 
     <com.futuremind.recyclerviewfastscroll.FastScroller
         android:id="@+id/fastscroll"
-        fastscroll__bubbleColor=""
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignBottom="@+id/recycler_countryDialog"
@@ -46,12 +65,11 @@
         android:id="@+id/textView_noresult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText_search"
+        android:layout_below="@+id/rl_query_holder"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="@string/no_result_found"
         android:textColor="@android:color/primary_text_light"
-        android:visibility="gone"
-        />
+        android:visibility="gone"/>
 
 </RelativeLayout>

@@ -48,7 +48,7 @@
                     <TextView
                         style="@style/pointText"
                         android:paddingLeft="32dp"
-                        android:text='add app:ccpLanguage="RUSSIAN" to xml layout.' />
+                        android:text='add app:ccp_defaultLanguage="RUSSIAN" to xml layout.'/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -72,9 +72,9 @@
                                 <com.hbb20.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="ARABIC"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="sa" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultLanguage="ARABIC"
+                                    app:ccp_defaultNameCode="sa"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -94,9 +94,9 @@
                                 <com.hbb20.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="CHINESE_TRADITIONAL"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="cn" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultLanguage="CHINESE_TRADITIONAL"
+                                    app:ccp_defaultNameCode="cn"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -116,9 +116,9 @@
                                 <com.hbb20.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="ENGLISH"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="us" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultLanguage="ENGLISH"
+                                    app:ccp_defaultNameCode="us"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -138,8 +138,8 @@
                                 <com.hbb20.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="HINDI"
-                                    app:contentColor="@android:color/white" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultLanguage="HINDI"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -159,9 +159,9 @@
                                 <com.hbb20.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="GERMAN"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="de" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultLanguage="GERMAN"
+                                    app:ccp_defaultNameCode="de"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -181,9 +181,9 @@
                                 <com.hbb20.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="RUSSIAN"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="ru" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultLanguage="RUSSIAN"
+                                    app:ccp_defaultNameCode="ru"/>
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -211,7 +211,7 @@
                 <TextView
                     style="@style/pointText"
                     android:paddingLeft="32dp"
-                    android:text="To set language programmatically, use changeLanguage() method." />
+                    android:text="To set language programmatically, use changeDefaultLanguage() method."/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -274,8 +274,8 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:contentColor="@color/card_background"
-                                app:defaultNameCode="IN" />
+                                app:ccp_contentColor="@color/card_background"
+                                app:ccp_defaultNameCode="IN"/>
 
                             <EditText
                                 android:layout_width="match_parent"

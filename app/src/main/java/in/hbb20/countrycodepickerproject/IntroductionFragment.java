@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.hbb20.CountryCodePicker;
 
 
 /**
@@ -16,10 +19,14 @@ public class IntroductionFragment extends Fragment {
 
 
     Button buttonGo;
+    CountryCodePicker countryCodePicker;
+    EditText etPhone;
+    boolean isFirst = true;
+
+
     public IntroductionFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,7 +39,12 @@ public class IntroductionFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         assignViews();
+        setCCPValidityListener();
         setClickListener();
+    }
+
+    private void setCCPValidityListener() {
+
     }
 
     private void setClickListener() {
@@ -46,5 +58,8 @@ public class IntroductionFragment extends Fragment {
 
     private void assignViews() {
         buttonGo=(Button)getView().findViewById(R.id.button_letsGo);
+        etPhone = (EditText) getView().findViewById(R.id.et_phone);
+        countryCodePicker = (CountryCodePicker) getView().findViewById(R.id.ccp);
+        countryCodePicker.registerCarrierNumberEditText(etPhone);
     }
 }

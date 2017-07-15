@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.hbb20.CountryCodePicker;
 
@@ -20,18 +22,21 @@ import com.hbb20.CountryCodePicker;
 public class FullNumberFragment extends Fragment {
 
 
-    EditText editTextLoadFullNumber,editTextLoadCarrierNumber,editTextGetFullNumber,editTextGetCarrierNumber;
-    CountryCodePicker ccpLoadNumber,ccpGetNumber;
-    Button buttonLoadNumber,buttonGetNumber,buttonGetNumberWithPlus;
+    EditText editTextLoadFullNumber, editTextLoadCarrierNumber, editTextGetCarrierNumber;
+    TextView editTextGetFullNumber;
+    CountryCodePicker ccpLoadNumber, ccpGetNumber;
+    TextView tvValidity;
+    ImageView imgValidity;
+    Button buttonLoadNumber, buttonGetNumber, buttonGetNumberWithPlus, buttonFormattedFullNumber;
     Button buttonNext;
+
     public FullNumberFragment() {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_full_number, container, false);
     }
@@ -54,7 +59,7 @@ public class FullNumberFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                buttonLoadNumber.setText("Load "+s+" to CCP.");
+                buttonLoadNumber.setText("Load " + s + " to CCP.");
             }
 
             @Override
@@ -69,6 +74,13 @@ public class FullNumberFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ccpLoadNumber.setFullNumber(editTextLoadFullNumber.getText().toString());
+            }
+        });
+
+        buttonFormattedFullNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editTextGetFullNumber.setText(ccpGetNumber.getFormattedFullNumber());
             }
         });
 
@@ -97,22 +109,38 @@ public class FullNumberFragment extends Fragment {
     private void registerCarrierEditText() {
         ccpLoadNumber.registerCarrierNumberEditText(editTextLoadCarrierNumber);
         ccpGetNumber.registerCarrierNumberEditText(editTextGetCarrierNumber);
+        ccpGetNumber.setPhoneNumberValidityChangeListener(new CountryCodePicker.PhoneNumberValidityChangeListener() {
+            @Override
+            public void onValidityChanged(boolean isValidNumber) {
+                if (isValidNumber) {
+                    imgValidity.setImageDrawable(getResources().getDrawable(R.drawable.ic_assignment_turned_in_black_24dp));
+                    tvValidity.setText("Valid Number");
+                } else {
+                    imgValidity.setImageDrawable(getResources().getDrawable(R.drawable.ic_assignment_late_black_24dp));
+                    tvValidity.setText("Invalid Number");
+                }
+            }
+        });
     }
 
     private void assignView() {
         //load number
-        editTextLoadFullNumber=(EditText)getView().findViewById(R.id.editText_loadFullNumber);
-        editTextLoadCarrierNumber=(EditText)getView().findViewById(R.id.editText_loadCarrierNumber);
-        ccpLoadNumber=(CountryCodePicker)getView().findViewById(R.id.ccp_loadFullNumber);
-        buttonLoadNumber=(Button)getView().findViewById(R.id.button_loadFullNumber);
+        editTextLoadFullNumber = (EditText) getView().findViewById(R.id.editText_loadFullNumber);
+        editTextLoadCarrierNumber = (EditText) getView().findViewById(R.id.editText_loadCarrierNumber);
+        ccpLoadNumber = (CountryCodePicker) getView().findViewById(R.id.ccp_loadFullNumber);
+        buttonLoadNumber = (Button) getView().findViewById(R.id.button_loadFullNumber);
 
         //get number
-        editTextGetCarrierNumber=(EditText)getView().findViewById(R.id.editText_getCarrierNumber);
-        editTextGetFullNumber=(EditText)getView().findViewById(R.id.editText_getFullNumber);
-        buttonGetNumber=(Button)getView().findViewById(R.id.button_getFullNumber);
-        buttonGetNumberWithPlus=(Button)getView().findViewById(R.id.button_getFullNumberWithPlus);
-        ccpGetNumber=(CountryCodePicker)getView().findViewById(R.id.ccp_getFullNumber);
+        editTextGetCarrierNumber = (EditText) getView().findViewById(R.id.editText_getCarrierNumber);
+        editTextGetFullNumber = (TextView) getView().findViewById(R.id.textView_getFullNumber);
+        buttonGetNumber = (Button) getView().findViewById(R.id.button_getFullNumber);
+        buttonGetNumberWithPlus = (Button) getView().findViewById(R.id.button_getFullNumberWithPlus);
+        ccpGetNumber = (CountryCodePicker) getView().findViewById(R.id.ccp_getFullNumber);
+        buttonFormattedFullNumber = (Button) getView().findViewById(R.id.button_getFormattedFullNumberWithPlus);
+        tvValidity = (TextView) getView().findViewById(R.id.tv_validity);
+        imgValidity = (ImageView) getView().findViewById(R.id.img_validity);
 
-        buttonNext=(Button)getView().findViewById(R.id.button_next);
+        buttonNext = (Button) getView().findViewById(R.id.button_next);
+
     }
 }
