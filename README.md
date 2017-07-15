@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.8'
+          compile 'com.hbb20:ccp:2.0.0'
         }
       ````
 
@@ -398,14 +398,14 @@ Features
    - Only problem was phone code on ccp view and selector dialog.
    - By hiding that phone code, CCP will work perfect as country selector.
    - #### Set through xml
-      - add app:ccp_hidePhoneCode="false" to hide phone code from ccp and search box both
+      - add app:ccp_showPhoneCode="false" to hide phone code from ccp and search box both
 	    
        ````xml
         <com.hbb20.CountryCodePicker
          android:id="@+id/ccp"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         app:ccp_hidePhoneCode="false"
+         app:ccp_showPhoneCode="false"
          app:ccp_defaultLanguage="JAPANESE" />
       ````
 
