@@ -72,7 +72,7 @@ public class CountryCodePicker extends RelativeLayout {
     int ccpTextgGravity = TEXT_GRAVITY_CENTER;
     //this will be "AU,IN,US"
     String countryPreference;
-    int fastScrollerBubbleColor = -1;
+    int fastScrollerBubbleColor = 0;
     List<Country> customMasterCountriesList;
     //this will be "AU,IN,US"
     String customMasterCountries;
@@ -89,6 +89,7 @@ public class CountryCodePicker extends RelativeLayout {
     private OnCountryChangeListener onCountryChangeListener;
     private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
     private int fastScrollerHandleColor;
+    private int dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
     private int fastScrollerBubbleTextAppearance;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
@@ -164,7 +165,7 @@ public class CountryCodePicker extends RelativeLayout {
         //default country code
         try {
             //hide nameCode. If someone wants only phone code to avoid name collision for same country phone code.
-            showNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showNameCode, false);
+            showNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showNameCode, true);
 
             //show phone code.
             showPhoneCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showPhoneCode, true);
@@ -179,13 +180,13 @@ public class CountryCodePicker extends RelativeLayout {
             showFastScroller = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFastScroller, true);
 
             //bubble color
-            fastScrollerBubbleColor = a.getColor(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleColor, -1);
+            fastScrollerBubbleColor = a.getColor(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleColor, 0);
 
             //scroller handle color
-            fastScrollerHandleColor = a.getColor(R.styleable.CountryCodePicker_ccpDialog_fastScroller_handleColor, -1);
+            fastScrollerHandleColor = a.getColor(R.styleable.CountryCodePicker_ccpDialog_fastScroller_handleColor, 0);
 
             //scroller text appearance
-            fastScrollerBubbleTextAppearance = a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleTextAppearance, -1);
+            fastScrollerBubbleTextAppearance = a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleTextAppearance, 0);
 
             //auto detect language
             autoDetectLanguageEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectLanguage, false);
@@ -274,6 +275,11 @@ public class CountryCodePicker extends RelativeLayout {
             if (borderFlagColor != 0) {
                 setFlagBorderColor(borderFlagColor);
             }
+
+            //dialog colors
+            setDialogBackgroundColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_backgroundColor, 0));
+            setDialogTextColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_textColor, 0));
+            setDialogSearchEditTextTintColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_searchEditTextTint, 0));
 
             //text size
             int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_ccp_textSize, 0);
@@ -687,6 +693,54 @@ public class CountryCodePicker extends RelativeLayout {
         return countryCodeHolderClickListener;
     }
 
+    int getDialogBackgroundColor() {
+        return dialogBackgroundColor;
+    }
+
+    /**
+     * This will be color of dialog background
+     *
+     * @param dialogBackgroundColor
+     */
+    public void setDialogBackgroundColor(int dialogBackgroundColor) {
+        this.dialogBackgroundColor = dialogBackgroundColor;
+    }
+
+    int getDialogSearchEditTextTintColor() {
+        return dialogSearchEditTextTintColor;
+    }
+
+    /**
+     * If device is running >=LOLLIPOP, this will change tint of search edittext background.
+     *
+     * @param dialogSearchEditTextTintColor
+     */
+    public void setDialogSearchEditTextTintColor(int dialogSearchEditTextTintColor) {
+        this.dialogSearchEditTextTintColor = dialogSearchEditTextTintColor;
+    }
+
+    int getDialogTextColor() {
+        return dialogTextColor;
+    }
+
+    /**
+     * This color will be applied to
+     * Title of dialog
+     * Name of country
+     * Phone code of country
+     * "X" button to clear query
+     * preferred country divider if preferred countries defined (semi transparent)
+     *
+     * @param dialogTextColor
+     */
+    public void setDialogTextColor(int dialogTextColor) {
+        this.dialogTextColor = dialogTextColor;
+    }
+
+    /**
+     * Publicly available functions from library
+     */
+
     /**
      * this will load preferredCountries based on countryPreference
      */
@@ -756,10 +810,6 @@ public class CountryCodePicker extends RelativeLayout {
     List<Country> getCustomMasterCountriesList() {
         return customMasterCountriesList;
     }
-
-    /**
-     * Publicly available functions from library
-     */
 
     /**
      * @param customMasterCountriesList is list of countries that we need as custom master list
@@ -1383,7 +1433,6 @@ public class CountryCodePicker extends RelativeLayout {
             Log.w(TAG, "applyCustomProperty: could not set country from sim");
         }
     }
-
 
     /**
      * Update every time new language is supported #languageSupport

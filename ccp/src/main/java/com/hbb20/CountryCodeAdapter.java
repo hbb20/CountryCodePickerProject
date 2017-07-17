@@ -232,6 +232,12 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             imageViewFlag = (ImageView) relativeLayout_main.findViewById(R.id.image_flag);
             linearFlagHolder = (LinearLayout) relativeLayout_main.findViewById(R.id.linear_flag_holder);
             divider = relativeLayout_main.findViewById(R.id.preferenceDivider);
+
+            if (codePicker.getDialogTextColor() != 0) {
+                textView_name.setTextColor(codePicker.getDialogTextColor());
+                textView_code.setTextColor(codePicker.getDialogTextColor());
+                divider.setBackgroundColor(codePicker.getDialogTextColor());
+            }
         }
 
         public void setCountry(Country country) {

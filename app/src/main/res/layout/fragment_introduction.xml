@@ -112,8 +112,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 app:ccpDialog_keyboardAutoPopup="false"
-                                app:ccp_autoDetectLanguage="true"
-                                app:ccp_defaultLanguage="GUJARATI"
+                                app:ccp_autoDetectCountry="true"
                                 app:ccp_defaultNameCode="us"/>
 
                             <EditText

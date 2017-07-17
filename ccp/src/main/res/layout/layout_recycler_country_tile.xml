@@ -58,5 +58,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:alpha="0.2"
         android:background="#898989" />
 </RelativeLayout>

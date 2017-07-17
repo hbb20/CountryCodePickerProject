@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:2.0.0'
+          compile 'com.hbb20:ccp:2.0.1'
         }
       ````
       *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -516,7 +516,7 @@ Change log
 
 ##### version 2.0.0 
 *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
-- Clear search query
+- Clear search query "X" button
 - All attributes has prefix of ccp and ccpDialog (to avoid name space clashes) i.e "textSize" is now "ccp_textSize".
 - Few attribute name changes to follow convention 
     - defaultCode => ccp_default_PhoneCode
@@ -531,7 +531,11 @@ Change log
 - Feature of auto-detect country (enabled by default)
 - Validity checker for full number
 - PhoneNumber validity change listener
-- Differentiate countries with "+1" based on area code. Now full number that starts with +1 will set correct country. 
+- Differentiate countries with "+1" based on area code. Now full number that starts with +1 will set correct country.
+ 
+##### version 2.0.1
+- Minor bug fix for showing name code
+- Allowed customization of ccpDialog theme by changing colors of background, text and editText.  
 
 
 ## Credits
