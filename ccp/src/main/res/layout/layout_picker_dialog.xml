@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/img_clear_query"
+            android:layout_toStartOf="@+id/img_clear_query"
             android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
             android:singleLine="true"

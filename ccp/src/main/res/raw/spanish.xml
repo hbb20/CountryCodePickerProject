@@ -128,7 +128,7 @@
             name_code="bl"
             phone_code="590"/>
         <country
-            name="islas Bermudas"
+            name="Islas Bermudas"
             english_name="Bermuda"
             name_code="bm"
             phone_code="1"/>
@@ -203,7 +203,7 @@
             name_code="ch"
             phone_code="41"/>
         <country
-            name="Côte D &amp; apos; Marfil"
+            name="Costa de Marfil"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225"/>
@@ -538,12 +538,12 @@
             name_code="kn"
             phone_code="1"/>
         <country
-            name="República de s; Corea, Personas &amp; apos Democrática"
+            name="Corea del Norte, República Popular Democrática"
             english_name="North Korea"
             name_code="kp"
             phone_code="850"/>
         <country
-            name="Corea"
+            name="Corea del Sur"
             english_name="South Korea"
             name_code="kr"
             phone_code="82"/>
@@ -653,7 +653,7 @@
             name_code="mk"
             phone_code="389"/>
         <country
-            name="mali"
+            name="Malí"
             english_name="Mali"
             name_code="ml"
             phone_code="223"/>
@@ -668,7 +668,7 @@
             name_code="mn"
             phone_code="976"/>
         <country
-            name="macao"
+            name="Macao"
             english_name="Macao"
             name_code="mo"
             phone_code="853"/>
@@ -793,7 +793,7 @@
             name_code="pe"
             phone_code="51"/>
         <country
-            name="Polinesia francés"
+            name="Polinesia Francesa"
             english_name="French Polynesia"
             name_code="pf"
             phone_code="689"/>
@@ -853,7 +853,7 @@
             name_code="py"
             phone_code="595"/>
         <country
-            name="Katar"
+            name="Qatar"
             english_name="Qatar"
             name_code="qa"
             phone_code="974"/>
@@ -873,7 +873,7 @@
             name_code="rs"
             phone_code="381"/>
         <country
-            name="Federación Rusa"
+            name="Rusia, Federación"
             english_name="Russian Federation"
             name_code="ru"
             phone_code="7"/>
@@ -963,12 +963,12 @@
             name_code="sv"
             phone_code="503"/>
         <country
-            name="Sint Maarten"
+            name="San Martín"
             english_name="Sint Maarten"
             name_code="sx"
             phone_code="1"/>
         <country
-            name="República Árabe Siria"
+            name="Siria, República Árabe"
             english_name="Syrian Arab Republic"
             name_code="sy"
             phone_code="963"/>
@@ -988,7 +988,7 @@
             name_code="td"
             phone_code="235"/>
         <country
-            name="Ir"
+            name="Togo"
             english_name="Togo"
             name_code="tg"
             phone_code="228"/>

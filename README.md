@@ -537,12 +537,17 @@ Change log
 - Minor bug fix for showing name code
 - Allowed customization of ccpDialog theme by changing colors of background, text and editText.  
 
+##### version 2.0.2
+- Few countries' name corrected for spanish language 
+- RTL layout [bug](https://github.com/hbb20/CountryCodePickerProject/issues/75) fix for dialog  
+
 
 ## Credits
 - Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
 - Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
 - Indonesia translation by [Maulana Firdaus](https://github.com/firdausmaulan)
-- [Fast Scroller library](https://github.com/FutureMind/recycler-fast-scroll) by [Future Minds](https://github.com/FutureMind) 
+- [Fast Scroller library](https://github.com/FutureMind/recycler-fast-scroll) by [Future Minds](https://github.com/FutureMind)
+- Spanish translation by [Armando Gomez](https://github.com/ArmandoGomez)
 
 ## License
 

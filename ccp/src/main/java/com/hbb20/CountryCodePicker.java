@@ -711,7 +711,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
-     * If device is running >=LOLLIPOP, this will change tint of search edittext background.
+     * If device is running above or equal LOLLIPOP version, this will change tint of search edittext background.
      *
      * @param dialogSearchEditTextTintColor
      */
