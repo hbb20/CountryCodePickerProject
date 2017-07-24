@@ -1098,12 +1098,12 @@
         name_code="vg"
         phone_code="1"/>
     <country
-        name="TODO: replace with  translated country name"
+        name="Американські Віргінські Острови"
         english_name="US Virgin Islands"
         name_code="vi"
         phone_code="1"/>
     <country
-        name="Американські Віргінські Острови"
+        name="В'єтнам"
         english_name="Viet Nam"
         name_code="vn"
         phone_code="84"/>
