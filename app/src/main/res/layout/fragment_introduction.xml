@@ -109,7 +109,7 @@
 
                             <com.hbb20.CountryCodePicker
                                 app:ccpDialog_backgroundColor="@android:color/holo_blue_dark"
-                                app:ccpDialog_textColor="@android:color/black"
+                                app:ccpDialog_textColor="@android:color/white"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
 

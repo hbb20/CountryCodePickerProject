@@ -32,10 +32,14 @@ class CountryCodeDialog {
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
         final TextView textViewTitle=(TextView) dialog.findViewById(R.id.textView_title);
         textViewTitle.setText(codePicker.getDialogTitle());
+        textViewTitle.setTextColor(dialogTextColor);
         final EditText editText_search = (EditText) dialog.findViewById(R.id.editText_search);
         editText_search.setHint(codePicker.getSearchHintText());
+        editText_search.setTextColor(dialogTextColor);
+        editText_search.setHintTextColor(dialogTextColor);
         TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noresult);
         textView_noResult.setText(codePicker.getNoResultFoundText());
+        textView_noResult.setTextColor(dialogTextColor);
         final CountryCodeAdapter cca = new CountryCodeAdapter(context, masterCountries, codePicker, editText_search, textView_noResult, dialog, dialogTextColor);
 
         //this will make dialog compact
