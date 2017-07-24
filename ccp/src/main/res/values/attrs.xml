@@ -57,6 +57,7 @@
             <enum name="HEBREW" value="13"/>
             <enum name="CHINESE_TRADITIONAL" value="14"/>
             <enum name="KOREAN" value="15"/>
+            <enum name="UKRAINIAN" value="16"/>
         </attr>
     </declare-styleable>
 </resources>
