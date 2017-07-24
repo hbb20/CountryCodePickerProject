@@ -8,8 +8,8 @@ android {
         applicationId "in.hbb20.countrycodepickerproject"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 5
-        versionName "1.7.6"
+        versionCode 6
+        versionName "1.9.0"
     }
     buildTypes {
         release {
