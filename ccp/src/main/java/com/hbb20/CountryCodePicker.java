@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -63,13 +64,15 @@ public class CountryCodePicker extends RelativeLayout {
     boolean keyboardAutoPopOnSearch = true;
     boolean ccpClickable = true;
     private OnCountryChangeListener onCountryChangeListener;
+    private int dialogBackgroundColor;
+    private int dialogTextColor;
     private int fastScrollerHandleColor;
     private int fastScrollerBubbleTextAppearance;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (isCcpClickable()) {
-                CountryCodeDialog.openCountryCodeDialog(codePicker);
+                CountryCodeDialog.openCountryCodeDialog(codePicker, dialogBackgroundColor, dialogTextColor);
             }
         }
     };
@@ -133,6 +136,12 @@ public class CountryCodePicker extends RelativeLayout {
 
             //scroller text appearance
             fastScrollerBubbleTextAppearance = a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_fastScroller_bubbleTextAppearance, -1);
+
+            //dialog background color
+            dialogBackgroundColor = a.getColor(R.styleable.CountryCodePicker_ccpDialog_backgroundColor, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
+
+            //dialog text color
+            dialogTextColor = a.getColor(R.styleable.CountryCodePicker_ccpDialog_textColor, ContextCompat.getColor(context, R.color.defaultContentColor));
 
             //show flag
             showFlag(a.getBoolean(R.styleable.CountryCodePicker_showFlag, true));
@@ -1003,6 +1012,32 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setFastScrollerBubbleTextAppearance(int fastScrollerBubbleTextAppearance) {
         this.fastScrollerBubbleTextAppearance = fastScrollerBubbleTextAppearance;
+    }
+
+    public int getDialogBackgroundColor() {
+        return dialogBackgroundColor;
+    }
+
+    /**
+     * This should be the color for dialog background.
+     *
+     * @param dialogBackgroundColor
+     */
+    public void setDialogBackgroundColor(int dialogBackgroundColor) {
+        this.dialogBackgroundColor = dialogBackgroundColor;
+    }
+
+    public int getDialogTextColor() {
+        return dialogTextColor;
+    }
+
+    /**
+     * This should be the color for dialog text.
+     *
+     * @param dialogTextColor
+     */
+    public void setDialogTextColor(int dialogTextColor) {
+        this.dialogTextColor = dialogTextColor;
     }
 
     boolean isShowFastScroller() {

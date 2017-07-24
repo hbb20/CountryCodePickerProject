@@ -2,6 +2,8 @@ package com.hbb20;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,7 +20,7 @@ import java.util.List;
  * Created by hbb20 on 11/1/16.
  */
 class CountryCodeDialog {
-    public static void openCountryCodeDialog(CountryCodePicker codePicker) {
+    public static void openCountryCodeDialog(CountryCodePicker codePicker, int dialogBackgroundColor, int dialogTextColor) {
         Context context=codePicker.getContext();
         final Dialog dialog = new Dialog(context);
         codePicker.refreshCustomMasterList();
@@ -26,6 +28,7 @@ class CountryCodeDialog {
         List<Country> masterCountries = Country.getCustomMasterCountryList(context, codePicker);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
+        dialog.getWindow().findViewById(R.id.container).setBackgroundColor(dialogBackgroundColor);
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
         final TextView textViewTitle=(TextView) dialog.findViewById(R.id.textView_title);
         textViewTitle.setText(codePicker.getDialogTitle());
@@ -33,7 +36,7 @@ class CountryCodeDialog {
         editText_search.setHint(codePicker.getSearchHintText());
         TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noresult);
         textView_noResult.setText(codePicker.getNoResultFoundText());
-        final CountryCodeAdapter cca = new CountryCodeAdapter(context, masterCountries, codePicker, editText_search, textView_noResult, dialog);
+        final CountryCodeAdapter cca = new CountryCodeAdapter(context, masterCountries, codePicker, editText_search, textView_noResult, dialog, dialogTextColor);
 
         //this will make dialog compact
         if (!codePicker.isSelectionDialogShowSearch()) {

@@ -2,6 +2,8 @@ package com.hbb20;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,8 +34,9 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     Dialog dialog;
     Context context;
     int prefferedCountriesCount = 0;
+    int dialogTextColor;
 
-    CountryCodeAdapter(Context context, List<Country> countries, CountryCodePicker codePicker, final EditText editText_search, TextView textView_noResult, Dialog dialog) {
+    CountryCodeAdapter(Context context, List<Country> countries, CountryCodePicker codePicker, final EditText editText_search, TextView textView_noResult, Dialog dialog, int dialogTextColor) {
         this.context = context;
         this.masterCountries = countries;
         this.codePicker = codePicker;
@@ -42,6 +45,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         this.editText_search = editText_search;
         this.inflater = LayoutInflater.from(context);
         this.filteredCountries = getFilteredCountries("");
+        this.dialogTextColor = dialogTextColor;
         setSearchBar();
     }
 
@@ -206,6 +210,9 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 textView_name.setText(country.getName() + " (" + country.getNameCode().toUpperCase() + ")");
                 textView_code.setText("+" + country.getPhoneCode());
                 imageViewFlag.setImageResource(country.getFlagID());
+
+                textView_name.setTextColor(dialogTextColor);
+                textView_code.setTextColor(dialogTextColor);
             }else{
                 divider.setVisibility(View.VISIBLE);
                 textView_name.setVisibility(View.GONE);
