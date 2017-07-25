@@ -10,9 +10,11 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -1117,6 +1119,6 @@ class Country implements Comparable<Country> {
 
     @Override
     public int compareTo(@NonNull Country o) {
-        return getName().compareTo(o.getName());
+        return Collator.getInstance().compare(getName(), o.getName());
     }
 }
