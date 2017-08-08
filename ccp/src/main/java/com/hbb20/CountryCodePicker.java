@@ -9,6 +9,7 @@ import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -250,7 +251,7 @@ public class CountryCodePicker extends RelativeLayout {
             }
 
             //set auto detected country
-            if (isAutoDetectCountryEnabled()) {
+            if (isAutoDetectCountryEnabled() && !isInEditMode()) {
                 selectCountryFromSimInfo();
             }
 
@@ -467,6 +468,9 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private Country getSelectedCountry() {
+        if(selectedCountry==null){
+            setSelectedCountry(getDefaultCountry());
+        }
         return selectedCountry;
     }
 
@@ -1423,14 +1427,20 @@ public class CountryCodePicker extends RelativeLayout {
 
     /**
      * loads current country in ccp using telephony manager
+     * if it fails to detect country, it will set default country in CCP view
      */
     public void selectCountryFromSimInfo() {
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             String currentCountryISO = telephonyManager.getSimCountryIso();
-            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), currentCountryISO));
+            if(!TextUtils.isEmpty(currentCountryISO)) {
+                setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), currentCountryISO));
+            }else{
+                setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(),getLanguageToApply(),getDefaultCountryNameCode()));
+            }
         } catch (Exception e) {
             Log.w(TAG, "applyCustomProperty: could not set country from sim");
+            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(),getLanguageToApply(),getDefaultCountryNameCode()));
         }
     }
 
