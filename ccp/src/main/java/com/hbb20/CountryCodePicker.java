@@ -204,11 +204,9 @@ public class CountryCodePicker extends RelativeLayout {
             //autopop keyboard
             setDialogKeyboardAutoPopup(a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_keyboardAutoPopup, true));
 
-            //if custom default language is specified, then set it as custom
-            int attrLanguage = 3; //for english
-            if (a.hasValue(R.styleable.CountryCodePicker_ccp_defaultLanguage)) {
-                attrLanguage = a.getInt(R.styleable.CountryCodePicker_ccp_defaultLanguage, 1);
-            }
+            //if custom default language is specified, then set it as custom else sets english as custom
+            int attrLanguage;
+            attrLanguage = a.getInt(R.styleable.CountryCodePicker_ccp_defaultLanguage, Language.ENGLISH.ordinal());
             customDefaultLanguage = getLanguageEnum(attrLanguage);
             updateLanguageToApply();
 
@@ -252,7 +250,7 @@ public class CountryCodePicker extends RelativeLayout {
 
             //set auto detected country
             if (isAutoDetectCountryEnabled() && !isInEditMode()) {
-                selectCountryFromSimInfo();
+                selectCountryFromNetworkAndSimInfo();
             }
 
             //content color
@@ -317,6 +315,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     /**
      * To show/hide phone code from country selection dialog
+     *
      * @param ccpDialogShowPhoneCode
      */
     public void setCcpDialogShowPhoneCode(boolean ccpDialogShowPhoneCode) {
@@ -468,7 +467,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private Country getSelectedCountry() {
-        if(selectedCountry==null){
+        if (selectedCountry == null) {
             setSelectedCountry(getDefaultCountry());
         }
         return selectedCountry;
@@ -1427,20 +1426,30 @@ public class CountryCodePicker extends RelativeLayout {
 
     /**
      * loads current country in ccp using telephony manager
+     * it looks for registered network country.
+     * When user's device is not registered to any network then it will try to get country from SIM card details.
      * if it fails to detect country, it will set default country in CCP view
      */
-    public void selectCountryFromSimInfo() {
+    public void selectCountryFromNetworkAndSimInfo() {
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            String currentCountryISO = telephonyManager.getSimCountryIso();
-            if(!TextUtils.isEmpty(currentCountryISO)) {
-                setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), currentCountryISO));
-            }else{
-                setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(),getLanguageToApply(),getDefaultCountryNameCode()));
+            //try to get country using Network ISO
+            String currentCountryIso = telephonyManager.getNetworkCountryIso();
+
+            //Network ISO can be null if network is not available and phone is not registered to any network. SIM country can be used as other option.
+            if (TextUtils.isEmpty(currentCountryIso)) {
+                currentCountryIso = telephonyManager.getSimCountryIso();
+            }
+            if (!TextUtils.isEmpty(currentCountryIso)) {
+                Log.d(TAG, "selectCountryFromNetworkAndSimInfo: current country ISO is" + currentCountryIso);
+                setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), currentCountryIso));
+            } else {
+                Log.d(TAG, "selectCountryFromNetworkAndSimInfo: No current sim info found.");
+                setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode()));
             }
         } catch (Exception e) {
             Log.w(TAG, "applyCustomProperty: could not set country from sim");
-            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(),getLanguageToApply(),getDefaultCountryNameCode()));
+            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode()));
         }
     }
 
@@ -1450,7 +1459,24 @@ public class CountryCodePicker extends RelativeLayout {
     //add an entry for your language in attrs.xml's <attr name="language" format="enum"> enum.
     //add here so that language can be set programmatically
     public enum Language {
-        ARABIC("ar"), BENGALI("bn"), CHINESE_SIMPLIFIED("zh"), ENGLISH("en"), FRENCH("fr"), GERMAN("de"), GUJARATI("gu"), HINDI("hi"), JAPANESE("ja"), INDONESIA("in"), PORTUGUESE("pt"), RUSSIAN("ru"), SPANISH("es"), HEBREW("iw"), CHINESE_TRADITIONAL("zh"), KOREAN("ko"), UKRAINIAN("uk");
+        ARABIC("ar"),
+        BENGALI("bn"),
+        CHINESE_SIMPLIFIED("zh"),
+        CHINESE_TRADITIONAL("zh"),
+        ENGLISH("en"),
+        FRENCH("fr"),
+        GERMAN("de"),
+        GUJARATI("gu"),
+        HEBREW("iw"),
+        HINDI("hi"),
+        INDONESIA("in"),
+        JAPANESE("ja"),
+        KOREAN("ko"),
+        PORTUGUESE("pt"),
+        RUSSIAN("ru"),
+        SPANISH("es"),
+        TURKISH("tr"),
+        UKRAINIAN("uk");
 
         String code;
 
