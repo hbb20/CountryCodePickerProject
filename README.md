@@ -1,4 +1,4 @@
-Country Code Picker Library
+'Country Code Picker Library
 ===========================
 
 Country Code Picker (CCP) <img src="https://farm6.staticflickr.com/5726/30960801342_6e65c7ddd5_m.jpg" width="80">  is an android library which provides an easy way to search and select country phone code for the telephone number.
@@ -22,7 +22,7 @@ How to add to your project
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:2.0.2'
+          compile 'com.hbb20:ccp:2.0.3'
         }
       ````
       *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -542,13 +542,17 @@ Change log
 - RTL layout [bug](https://github.com/hbb20/CountryCodePickerProject/issues/75) fix for dialog  
 
 
+##### version 2.0.3
+- Turkish language support
+- Issue for initial popped status of keyboard for some specific devices irrespective of ccpDialog_keyboardAutoPopup value.
+
 ## Credits
+- [Fast Scroller library](https://github.com/FutureMind/recycler-fast-scroll) by [Future Minds](https://github.com/FutureMind)
 - Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
 - Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
 - Indonesia translation by [Maulana Firdaus](https://github.com/firdausmaulan)
-- [Fast Scroller library](https://github.com/FutureMind/recycler-fast-scroll) by [Future Minds](https://github.com/FutureMind)
 - Spanish translation by [Armando Gomez](https://github.com/ArmandoGomez)
-
+- Turkish translation by [Ugurcan Yildirim](https://github.com/ugurcany)
 ## License
 
 [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
