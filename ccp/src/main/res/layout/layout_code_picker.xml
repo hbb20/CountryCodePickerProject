@@ -65,7 +65,7 @@
             android:layout_toRightOf="@+id/textView_selectedCountry"
             android:adjustViewBounds="true"
             android:alpha="0.6"
-            android:src="@drawable/ic_arrow_drop_down_black_24dp"
+            android:src="@drawable/ccp_down_arrow"
             android:tint="@android:color/black" />
     </RelativeLayout>
 </RelativeLayout>
