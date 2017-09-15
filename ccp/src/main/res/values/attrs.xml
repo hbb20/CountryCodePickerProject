@@ -52,7 +52,7 @@
             <enum name="HEBREW" value="8" />
             <enum name="HINDI" value="9" />
             <enum name="INDONESIA" value="10" />
-            <enum name="ITALY" value = "11"/>
+            <enum name="ITALIAN" value = "11"/>
             <enum name="JAPANESE" value="12" />
             <enum name="KOREAN" value="13" />
             <enum name="PORTUGUESE" value="14" />
