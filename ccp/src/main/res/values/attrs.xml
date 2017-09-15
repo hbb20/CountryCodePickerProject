@@ -52,13 +52,14 @@
             <enum name="HEBREW" value="8" />
             <enum name="HINDI" value="9" />
             <enum name="INDONESIA" value="10" />
-            <enum name="JAPANESE" value="11" />
-            <enum name="KOREAN" value="12" />
-            <enum name="PORTUGUESE" value="13" />
-            <enum name="RUSSIAN" value="14" />
-            <enum name="SPANISH" value="15" />
-            <enum name="TURKISH" value="16" />
-            <enum name="UKRAINIAN" value="17" />
+            <enum name="ITALY" value = "11"/>
+            <enum name="JAPANESE" value="12" />
+            <enum name="KOREAN" value="13" />
+            <enum name="PORTUGUESE" value="14" />
+            <enum name="RUSSIAN" value="15" />
+            <enum name="SPANISH" value="16" />
+            <enum name="TURKISH" value="17" />
+            <enum name="UKRAINIAN" value="18" />
         </attr>
     </declare-styleable>
 </resources>
