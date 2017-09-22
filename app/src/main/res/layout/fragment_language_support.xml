@@ -74,6 +74,7 @@
                                     android:layout_height="wrap_content"
                                     app:ccp_contentColor="@android:color/white"
                                     app:ccp_defaultLanguage="ARABIC"
+                                    app:ccp_autoDetectCountry="false"
                                     app:ccp_defaultNameCode="sa"/>
 
                                 <TextView
@@ -96,6 +97,7 @@
                                     android:layout_height="wrap_content"
                                     app:ccp_contentColor="@android:color/white"
                                     app:ccp_defaultLanguage="CHINESE_TRADITIONAL"
+                                    app:ccp_autoDetectCountry="false"
                                     app:ccp_defaultNameCode="cn"/>
 
                                 <TextView
@@ -118,6 +120,7 @@
                                     android:layout_height="wrap_content"
                                     app:ccp_contentColor="@android:color/white"
                                     app:ccp_defaultLanguage="ENGLISH"
+                                    app:ccp_autoDetectCountry="false"
                                     app:ccp_defaultNameCode="us"/>
 
                                 <TextView
@@ -139,6 +142,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:ccp_contentColor="@android:color/white"
+                                    app:ccp_autoDetectCountry="false"
                                     app:ccp_defaultLanguage="HINDI"/>
 
                                 <TextView
@@ -161,6 +165,7 @@
                                     android:layout_height="wrap_content"
                                     app:ccp_contentColor="@android:color/white"
                                     app:ccp_defaultLanguage="GERMAN"
+                                    app:ccp_autoDetectCountry="false"
                                     app:ccp_defaultNameCode="de"/>
 
                                 <TextView
@@ -183,6 +188,7 @@
                                     android:layout_height="wrap_content"
                                     app:ccp_contentColor="@android:color/white"
                                     app:ccp_defaultLanguage="RUSSIAN"
+                                    app:ccp_autoDetectCountry="false"
                                     app:ccp_defaultNameCode="ru"/>
 
                                 <TextView

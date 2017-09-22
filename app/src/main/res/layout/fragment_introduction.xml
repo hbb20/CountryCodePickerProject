@@ -115,7 +115,7 @@
                                 app:ccp_autoDetectCountry="false"
                                 app:ccpDialog_allowSearch="true"
                                 app:ccp_countryPreference="TR,RO,DE"
-                                app:ccp_defaultPhoneCode="40" />
+                                app:ccp_defaultLanguage="PORTUGUESE" />
                             <EditText
                                 android:id="@+id/et_phone"
                                 android:layout_width="match_parent"
