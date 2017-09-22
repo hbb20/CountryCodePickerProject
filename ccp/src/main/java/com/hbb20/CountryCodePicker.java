@@ -96,7 +96,7 @@ public class CountryCodePicker extends RelativeLayout {
         @Override
         public void onClick(View v) {
             if (isCcpClickable()) {
-                CountryCodeDialog.openCountryCodeDialog(codePicker);
+                launchCountrySelectionDialog();
             }
         }
     };
@@ -1399,6 +1399,15 @@ public class CountryCodePicker extends RelativeLayout {
             reportedValidity = isValidFullNumber();
             phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
         }
+    }
+
+    /**
+     * Opens country selection dialog.
+     * By default this is called from ccp click.
+     * Developer can use this to trigger manually.
+     */
+    public void launchCountrySelectionDialog() {
+        CountryCodeDialog.openCountryCodeDialog(codePicker);
     }
 
     /**

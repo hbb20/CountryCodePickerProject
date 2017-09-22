@@ -109,6 +109,7 @@ public class FullNumberFragment extends Fragment {
     private void registerCarrierEditText() {
         ccpLoadNumber.registerCarrierNumberEditText(editTextLoadCarrierNumber);
         ccpGetNumber.registerCarrierNumberEditText(editTextGetCarrierNumber);
+        ccpLoadNumber.getFullNumberWithPlus();
         ccpGetNumber.setPhoneNumberValidityChangeListener(new CountryCodePicker.PhoneNumberValidityChangeListener() {
             @Override
             public void onValidityChanged(boolean isValidNumber) {

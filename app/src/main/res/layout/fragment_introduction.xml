@@ -111,8 +111,11 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:ccp_defaultNameCode="us"/>
-
+                                android:layout_gravity="center_vertical"
+                                app:ccp_autoDetectCountry="false"
+                                app:ccpDialog_allowSearch="true"
+                                app:ccp_countryPreference="TR,RO,DE"
+                                app:ccp_defaultPhoneCode="40" />
                             <EditText
                                 android:id="@+id/et_phone"
                                 android:layout_width="match_parent"
