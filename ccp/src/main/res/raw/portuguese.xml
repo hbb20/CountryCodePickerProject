@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <messages>
-        <ccp_dialog_title translation="Selecione o pais"/>
+        <ccp_dialog_title translation="Selecione o país"/>
         <ccp_dialog_search_hint_message translation="pesquisa ..."/>
-        <ccp_dialog_no_result_ack_message translation="resultar não encontrado"/>
+        <ccp_dialog_no_result_ack_message translation="resultado não encontrado"/>
     </messages>
 
     <countries>
