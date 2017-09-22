@@ -1043,8 +1043,8 @@
             name_code="tv"
             phone_code="688"/>
         <country
-            name="台湾、中国の省"
-            english_name="Taiwan, Province Of China"
+            name="台湾"
+            english_name="Taiwan"
             name_code="tw"
             phone_code="886"/>
         <country
