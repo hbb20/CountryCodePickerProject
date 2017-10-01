@@ -185,19 +185,24 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     @Override
     public void onBindViewHolder(CountryCodeViewHolder countryCodeViewHolder, final int i) {
         countryCodeViewHolder.setCountry(filteredCountries.get(i));
-        countryCodeViewHolder.getMainView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (filteredCountries != null && filteredCountries.size() > i) {
-                    codePicker.setSelectedCountry(filteredCountries.get(i));
+        if (filteredCountries.get(i) != null) {
+            countryCodeViewHolder.getMainView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (filteredCountries != null && filteredCountries.size() > i) {
+                        codePicker.setSelectedCountry(filteredCountries.get(i));
+                    }
+                    if (view != null && filteredCountries.get(i) != null) {
+                        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                        dialog.dismiss();
+                    }
                 }
-                if (view != null && filteredCountries.get(i)!=null) {
-                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                    dialog.dismiss();
-                }
-            }
-        });
+            });
+        } else {
+            countryCodeViewHolder.getMainView().setOnClickListener(null);
+        }
+
     }
 
     @Override
