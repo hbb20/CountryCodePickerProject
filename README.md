@@ -49,9 +49,9 @@ If you prefer experience along with explanations, an demo android app is availab
 * [Country Selection Change Listener](https://github.com/hbb20/CountryCodePickerProject/wiki/Country-Change-Listener)
 * [Multi-language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Multi-Language-Support)
 * Customizable [CCP theme](https://github.com/hbb20/CountryCodePickerProject/wiki/CCP-Theme-Customization) and [Dialog Theme](https://github.com/hbb20/CountryCodePickerProject/wiki/CCP-Dialog-Theme-Customization) 
-* [Auto detect Country](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties/_edit#appccp_autodetectlanguagetrue-default--false-)
-* [Auto detect Language](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties/_edit#appccp_autodetectlanguagetrue-default--false-)
-* [Fast Scroller](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties/_edit#appccpdialog_showfastscrollerfalse-default-true-) 
+* [Auto detect Country](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_autodetectlanguagetrue-default--false-)
+* [Auto detect Language](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_autodetectlanguagetrue-default--false-)
+* [Fast Scroller](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccpdialog_showfastscrollerfalse-default-true-) 
 
 
 ## Available XML properties
