@@ -18,7 +18,7 @@ Introduction
     - <img src="https://farm6.staticflickr.com/5625/30296514763_e3af239e2c_z.jpg" width="300">     <img src="https://farm5.staticflickr.com/4343/23591138638_45d0f08daf_b.jpg" width="400">    
     
 * Tapping on CCP will open a dialog to search and select country (Left: Phone code selector. Right: Country Selector)
-    - <img src="https://farm6.staticflickr.com/5686/30982885732_9e91ede573_b.jpg" width="300">   <img src=https://farm5.staticflickr.com/4384/37440899521_d19781dc52_b.jpg" width="300">
+    - <img src="https://farm6.staticflickr.com/5686/30982885732_9e91ede573_b.jpg" width="300"> <img src="https://farm5.staticflickr.com/4384/37440899521_d19781dc52_b.jpg" width="300">
 
 How to add to your project
 --------------
