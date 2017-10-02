@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/hbb20/CountryCodePickerProject'
     gitUrl = 'https://github.com/hbb20/CountryCodePickerProject.git'
 
-    libraryVersion = '2.0.3'
+    libraryVersion = '2.0.4'
 
     developerId = 'hbb20'
     developerName = 'Harsh Bhakta'
@@ -32,7 +32,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -54,7 +54,7 @@ dependencies {
     compile 'com.android.support:support-v4:26+'
     compile 'com.android.support:cardview-v7:26+'
     compile 'com.futuremind.recyclerfastscroll:fastscroll:0.2.5'
-    compile 'com.googlecode.libphonenumber:libphonenumber:8.5.2'
+    compile 'com.googlecode.libphonenumber:libphonenumber:8.8.2'
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
