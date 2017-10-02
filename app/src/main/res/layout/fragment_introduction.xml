@@ -112,10 +112,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                app:ccp_autoDetectCountry="false"
                                 app:ccpDialog_allowSearch="true"
-                                app:ccp_countryPreference="TR,RO,DE"
-                                app:ccp_defaultLanguage="PORTUGUESE" />
+                                app:ccp_countryPreference="US,IN,NZ"
+                                app:ccp_defaultLanguage="ENGLISH" />
                             <EditText
                                 android:id="@+id/et_phone"
                                 android:layout_width="match_parent"
