@@ -57,8 +57,6 @@ If you prefer experience along with explanations, an demo android app is availab
 ## Available XML properties
 To check all xml properties available for CCP and CCP Selection Dialog, please visit the [wiki page](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties).
 
-
-
 Change log
 --------
 ##### version 2.0.4
@@ -90,6 +88,8 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Ukrainian language support by [VyacheslavMartynenko](https://github.com/VyacheslavMartynenko)
 - Italian language support by [Fabrizio Gueli](https://github.com/fabriziogueli)
 
+## Want to add new language support?
+Follow the [guide to add new language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Add-New-Language-Support).
 
 ## License
 
