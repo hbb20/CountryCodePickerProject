@@ -474,6 +474,11 @@
             phone_code="44"/>
         <country
             name="TODO: replace with  translated country name"
+            english_name="Iceland"
+            name_code="is"
+            phone_code="354" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="India"
             name_code="in"
             phone_code="91"/>

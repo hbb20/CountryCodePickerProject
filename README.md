@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
     dependencies {
-      compile 'com.hbb20:ccp:2.0.4'
+      compile 'com.hbb20:ccp:2.0.5'
     }
   ````
   *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -59,6 +59,11 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 
 Change log
 --------
+
+##### version 2.0.5
+- Adds country "Iceland"
+- Updates country auto detection method and order (1. Locale, 2. Network, 3. SIM).  
+
 ##### version 2.0.4
 - Ukrainian language support
 - Italian language support
@@ -68,10 +73,6 @@ Change log
 ##### version 2.0.3
 - Turkish language support
 - Issue for initial popped status of keyboard for some specific devices irrespective of ccpDialog_keyboardAutoPopup value.
-
-##### version 2.0.2
-- Few countries' name corrected for spanish language 
-- RTL layout [bug](https://github.com/hbb20/CountryCodePickerProject/issues/75) fix for dialog  
 
 
 For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).
