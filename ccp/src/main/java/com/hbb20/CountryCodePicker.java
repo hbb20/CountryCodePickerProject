@@ -250,7 +250,7 @@ public class CountryCodePicker extends RelativeLayout {
 
             //set auto detected country
             if (isAutoDetectCountryEnabled() && !isInEditMode()) {
-                selectCountryFromNetworkAndSimInfo();
+                setAutoDetectedCountry();
             }
 
             //content color
@@ -1434,30 +1434,43 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
-     * loads current country in ccp using telephony manager
-     * it looks for registered network country.
+     * loads current country in ccp using locale and telephony manager
+     * first it will look for locale. Mostly it will get the country.
+     * but in case it fails it will look for registered network country.
      * When user's device is not registered to any network then it will try to get country from SIM card details.
      * if it fails to detect country, it will set default country in CCP view
      */
-    public void selectCountryFromNetworkAndSimInfo() {
+    public void setAutoDetectedCountry() {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            //try to get country using Network ISO
-            String currentCountryIso = telephonyManager.getNetworkCountryIso();
+
+            String currentCountryIso = context.getResources().getConfiguration().locale.getCountry();
+            Log.d(TAG, "setAutoDetectedCountry: localeCountry is" + currentCountryIso);
+            //if it fails, try networkCountryIso
+            if (TextUtils.isEmpty(currentCountryIso)) {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+                //try to get country using Network ISO
+                currentCountryIso = telephonyManager.getNetworkCountryIso();
+                Log.d(TAG, "setAutoDetectedCountry: networkCountry:" + currentCountryIso);
+            }
 
             //Network ISO can be null if network is not available and phone is not registered to any network. SIM country can be used as other option.
             if (TextUtils.isEmpty(currentCountryIso)) {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
                 currentCountryIso = telephonyManager.getSimCountryIso();
+                Log.d(TAG, "setAutoDetectedCountry: simCountry:" + currentCountryIso);
             }
+
+            //if any of above method found country, then load it.
             if (!TextUtils.isEmpty(currentCountryIso)) {
-                Log.d(TAG, "selectCountryFromNetworkAndSimInfo: current country ISO is" + currentCountryIso);
+                Log.d(TAG, "setAutoDetectedCountry: Finally detected country" + currentCountryIso);
                 setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), currentCountryIso));
             } else {
-                Log.d(TAG, "selectCountryFromNetworkAndSimInfo: No current sim info found.");
+                Log.d(TAG, "setAutoDetectedCountry:  Could not find the country");
                 setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode()));
             }
         } catch (Exception e) {
-            Log.w(TAG, "applyCustomProperty: could not set country from sim");
+            e.printStackTrace();
+            Log.w(TAG, "setAutoDetectCountry: Exception" + e.getMessage());
             setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode()));
         }
     }

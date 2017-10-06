@@ -473,6 +473,11 @@
             name_code="im"
             phone_code="44"/>
         <country
+            name="冰島"
+            english_name="Iceland"
+            name_code="is"
+            phone_code="354" />
+        <country
             name="印度"
             english_name="India"
             name_code="in"
