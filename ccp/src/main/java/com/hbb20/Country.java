@@ -999,7 +999,7 @@ class Country implements Comparable<Country> {
         countries.add(new Country("vi", "1", "US Virgin Islands"));
         countries.add(new Country("uz", "998", "Uzbekistan"));
         countries.add(new Country("vu", "678", "Vanuatu"));
-        countries.add(new Country("va", "39", "Holy See (vatican City State)"));
+        countries.add(new Country("va", "379", "Holy See (vatican City State)"));
         countries.add(new Country("ve", "58", "Venezuela, Bolivarian Republic Of"));
         countries.add(new Country("vn", "84", "Viet Nam"));
         countries.add(new Country("wf", "681", "Wallis And Futuna"));
