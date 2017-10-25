@@ -88,7 +88,8 @@ class Country implements Comparable<Country> {
         try {
             XmlPullParserFactory xmlFactoryObject = XmlPullParserFactory.newInstance();
             XmlPullParser xmlPullParser = xmlFactoryObject.newPullParser();
-            InputStream ins = context.getResources().openRawResource(context.getResources().getIdentifier(language.toString().toLowerCase(), "raw", context.getPackageName()));
+            InputStream ins = context.getResources().openRawResource(context.getResources().getIdentifier(language
+                .toString().toLowerCase(Locale.ROOT), "raw", context.getPackageName()));
             xmlPullParser.setInput(ins, null);
             int event = xmlPullParser.getEventType();
             while (event != XmlPullParser.END_DOCUMENT) {
