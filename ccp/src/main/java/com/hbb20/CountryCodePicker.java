@@ -70,6 +70,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showFastScroller;
     boolean searchAllowed = true;
     boolean showArrow = true;
+    boolean showCloseIcon = false;
     int contentColor;
     int borderFlagColor;
     List<Country> preferredCountries;
@@ -202,6 +203,9 @@ public class CountryCodePicker extends RelativeLayout {
             //show arrow
             showArrow = a.getBoolean(R.styleable.CountryCodePicker_ccp_showArrow, true);
             refreshArrowViewVisibility();
+
+            //show close icon
+            showCloseIcon = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showCloseIcon, false);
 
             //show flag
             showFlag(a.getBoolean(R.styleable.CountryCodePicker_ccp_showFlag, true));
@@ -646,6 +650,19 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setShowFastScroller(boolean showFastScroller) {
         this.showFastScroller = showFastScroller;
+    }
+
+    protected boolean isShowCloseIcon() {
+        return showCloseIcon;
+    }
+
+    /**
+     * if true, this will give explicit close icon in CCP dialog
+     *
+     * @param showCloseIcon
+     */
+    public void showCloseIcon(boolean showCloseIcon) {
+        this.showCloseIcon = showCloseIcon;
     }
 
     EditText getEditText_registeredCarrierNumber() {

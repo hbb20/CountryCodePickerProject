@@ -63,6 +63,10 @@ Change log
 ##### version 2.0.6 (under development)
 - Dialog events callback listeners
 - Option to change visibility of down arrow
+- Adds UAE as part of name
+- Country name corrections for German language
+- Corrects phone code for holy see
+- Fixes crash for turkish language (for some devices)
 - 
 
 ##### version 2.0.5

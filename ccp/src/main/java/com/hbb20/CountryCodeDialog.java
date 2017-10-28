@@ -50,21 +50,37 @@ class CountryCodeDialog {
         final EditText editText_search = (EditText) dialog.findViewById(R.id.editText_search);
         TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noresult);
         RelativeLayout rlHolder = (RelativeLayout) dialog.findViewById(R.id.rl_holder);
+        ImageView imgDismiss = (ImageView) dialog.findViewById(R.id.img_dismiss);
 
         //dialog background color
         if (codePicker.getDialogBackgroundColor() != 0) {
             rlHolder.setBackgroundColor(codePicker.getDialogBackgroundColor());
         }
 
+        //close button visibility
+        if (codePicker.isShowCloseIcon()) {
+            imgDismiss.setVisibility(View.VISIBLE);
+            imgDismiss.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
+        } else {
+            imgDismiss.setVisibility(View.GONE);
+        }
+
         //clear button color and title color
         if (codePicker.getDialogTextColor() != 0) {
             int textColor = codePicker.getDialogTextColor();
             imgClearQuery.setColorFilter(textColor);
+            imgDismiss.setColorFilter(textColor);
             textViewTitle.setTextColor(textColor);
             textView_noResult.setTextColor(textColor);
             editText_search.setTextColor(textColor);
             editText_search.setHintTextColor(Color.argb(100, Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
         }
+
 
         //editText tint
         if (codePicker.getDialogSearchEditTextTintColor() != 0) {

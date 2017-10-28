@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/rl_holder"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="8dp">
+    android:id="@+id/rl_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-    <TextView
-        android:id="@+id/textView_title"
+    <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/select_country"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/secondary_text_light" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_toLeftOf="@+id/img_dismiss"
+            android:text="@string/select_country"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/secondary_text_light" />
+
+        <ImageView
+            android:id="@+id/img_dismiss"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:alpha="0.7"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="4dp"
+            android:src="@drawable/ic_clear_black_24dp" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_query_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_title">
+        android:layout_below="@+id/rl_title">
 
         <EditText
             android:id="@+id/editText_search"
@@ -30,7 +50,7 @@
             android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
             android:singleLine="true"
-            android:textColor="@android:color/primary_text_light_nodisable"/>
+            android:textColor="@android:color/primary_text_light_nodisable" />
 
         <ImageView
             android:id="@+id/img_clear_query"
@@ -42,8 +62,8 @@
             android:alpha="0.7"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:padding="4dp"
-            android:src="@drawable/ic_clear_black_24dp"/>
+            android:padding="10dp"
+            android:src="@drawable/ic_backspace_black_24dp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -61,7 +81,7 @@
         android:layout_alignEnd="@+id/recycler_countryDialog"
         android:layout_alignRight="@+id/recycler_countryDialog"
         android:layout_alignTop="@+id/recycler_countryDialog"
-        android:orientation="vertical"/>
+        android:orientation="vertical" />
 
     <TextView
         android:id="@+id/textView_noresult"
@@ -72,6 +92,6 @@
         android:layout_marginTop="16dp"
         android:text="@string/no_result_found"
         android:textColor="@android:color/primary_text_light"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </RelativeLayout>

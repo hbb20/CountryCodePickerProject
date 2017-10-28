@@ -114,6 +114,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 app:ccpDialog_allowSearch="true"
+                                app:ccpDialog_showCloseIcon="true"
                                 app:ccp_countryPreference="US,IN,NZ"
                                 app:ccp_defaultLanguage="ENGLISH" />
 
