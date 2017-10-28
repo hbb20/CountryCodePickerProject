@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
     dependencies {
-      compile 'com.hbb20:ccp:2.0.5'
+      compile 'com.hbb20:ccp:2.0.6'
     }
   ````
   *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -67,7 +67,7 @@ Change log
 - Country name corrections for German language
 - Corrects phone code for holy see
 - Fixes crash for turkish language (for some devices)
-- 
+- Option to get country's english name irrespective of selected language
 
 ##### version 2.0.5
 - Adds country "Iceland"
@@ -77,12 +77,6 @@ Change log
 - Ukrainian language support
 - Italian language support
 - Updated libphonenumber library version to 8.8.2
-
-
-##### version 2.0.3
-- Turkish language support
-- Issue for initial popped status of keyboard for some specific devices irrespective of ccpDialog_keyboardAutoPopup value.
-
 
 For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).
 
@@ -97,6 +91,10 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Turkish translation by [Ugurcan Yildirim](https://github.com/ugurcany)
 - Ukrainian language support by [VyacheslavMartynenko](https://github.com/VyacheslavMartynenko)
 - Italian language support by [Fabrizio Gueli](https://github.com/fabriziogueli)
+- Korean language support by [kduhyun](https://github.com/kduhyun)
+- Portuguese translation corrections by [Elifázio Bernardes da Silva](https://github.com/elifazio)
+- Flag border color option by [Maulana Firdaus](https://github.com/firdausmaulan)
+
 
 ## Want to add new language support?
 Follow the [guide to add new language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Add-New-Language-Support).
