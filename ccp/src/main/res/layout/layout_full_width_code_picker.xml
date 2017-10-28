@@ -39,7 +39,7 @@
         <!--</LinearLayout>-->
         <TextView
             android:id="@+id/textView_selectedCountry"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/linear_flag_holder"
@@ -47,6 +47,7 @@
             android:layout_toRightOf="@+id/linear_flag_holder"
             android:layout_toStartOf="@+id/imageView_arrow"
             android:text="(IN) +91"
+            android:gravity="center"
             android:textColor="@android:color/black"
             android:textSize="18sp"/>
 

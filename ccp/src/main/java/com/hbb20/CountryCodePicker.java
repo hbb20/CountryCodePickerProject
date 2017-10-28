@@ -69,6 +69,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showFullName = false;
     boolean showFastScroller;
     boolean searchAllowed = true;
+    boolean showArrow = true;
     int contentColor;
     int borderFlagColor;
     List<Country> preferredCountries;
@@ -198,6 +199,10 @@ public class CountryCodePicker extends RelativeLayout {
             //auto detect county
             autoDetectCountryEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectCountry, true);
 
+            //show arrow
+            showArrow = a.getBoolean(R.styleable.CountryCodePicker_ccp_showArrow, true);
+            refreshArrowViewVisibility();
+
             //show flag
             showFlag(a.getBoolean(R.styleable.CountryCodePicker_ccp_showFlag, true));
 
@@ -310,6 +315,14 @@ public class CountryCodePicker extends RelativeLayout {
             a.recycle();
         }
         Log.d(TAG, "end:xmlWidth " + xmlWidth);
+    }
+
+    private void refreshArrowViewVisibility() {
+        if (showArrow) {
+            imageViewArrow.setVisibility(VISIBLE);
+        } else {
+            imageViewArrow.setVisibility(GONE);
+        }
     }
 
     boolean isCcpDialogShowPhoneCode() {
@@ -1295,6 +1308,16 @@ public class CountryCodePicker extends RelativeLayout {
     public void showNameCode(boolean showNameCode) {
         this.showNameCode = showNameCode;
         setSelectedCountry(selectedCountry);
+    }
+
+    /**
+     * This can change visility of arrow.
+     *
+     * @param showArrow true will show arrow and false will hide arrow from there.
+     */
+    public void showArrow(boolean showArrow) {
+        this.showArrow = showArrow;
+        refreshArrowViewVisibility();
     }
 
     /**

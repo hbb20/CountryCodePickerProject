@@ -62,7 +62,8 @@ Change log
 
 ##### version 2.0.6 (under development)
 - Dialog events callback listeners
--
+- Option to change visibility of down arrow
+- 
 
 ##### version 2.0.5
 - Adds country "Iceland"

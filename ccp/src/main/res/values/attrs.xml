@@ -6,6 +6,7 @@
         <attr name="ccp_contentColor" format="color"/>
         <attr name="ccp_textSize" format="dimension"/>
         <attr name="ccp_arrowSize" format="dimension"/>
+        <attr name="ccp_showArrow" format="boolean" />
         <attr name="ccp_customMasterCountries" format="string"/>
         <attr name="ccp_flagBorderColor" format="color"/>
         <attr name="ccp_countryPreference" format="string"/>
