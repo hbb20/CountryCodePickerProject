@@ -48,7 +48,7 @@
             name_code="ao"
             phone_code="244"/>
         <country
-            name="Antarktika"
+            name="Antarktis"
             english_name="Antarctica"
             name_code="aq"
             phone_code="672"/>
@@ -123,7 +123,7 @@
             name_code="bj"
             phone_code="229"/>
         <country
-            name="saint Barthélemy"
+            name="Saint-Barthélemy"
             english_name="Saint Barthélemy"
             name_code="bl"
             phone_code="590"/>
@@ -133,12 +133,12 @@
             name_code="bm"
             phone_code="1"/>
         <country
-            name="Brunei Darussalam"
+            name="Brunei"
             english_name="Brunei Darussalam"
             name_code="bn"
             phone_code="673"/>
         <country
-            name="Bolivien, Plurinationaler Staat"
+            name="Bolivien"
             english_name="Bolivia, Plurinational State Of"
             name_code="bo"
             phone_code="591"/>
@@ -178,12 +178,12 @@
             name_code="ca"
             phone_code="1"/>
         <country
-            name="Cocos (Keeling) Islands"
+            name="Kokosinseln"
             english_name="Cocos (keeling) Islands"
             name_code="cc"
             phone_code="61"/>
         <country
-            name="Kongo, Demokratische Republik der"
+            name="Demokratische Republik Kongo"
             english_name="Congo, The Democratic Republic Of The"
             name_code="cd"
             phone_code="243"/>
@@ -203,7 +203,7 @@
             name_code="ch"
             phone_code="41"/>
         <country
-            name="Côte D &amp; apos; ivoire"
+            name="Elfenbeinküste"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225"/>
@@ -333,17 +333,17 @@
             name_code="fj"
             phone_code="679"/>
         <country
-            name="Falklandinseln (Malvinas)"
+            name="Falklandinseln"
             english_name="Falkland Islands (malvinas)"
             name_code="fk"
             phone_code="500"/>
         <country
-            name="Mikronesien, Föderierte Staaten von"
+            name="Mikronesien"
             english_name="Micronesia, Federated States Of"
             name_code="fm"
             phone_code="691"/>
         <country
-            name="Färöer Inseln"
+            name="Färöer"
             english_name="Faroe Islands"
             name_code="fo"
             phone_code="298"/>
@@ -418,7 +418,7 @@
             name_code="gt"
             phone_code="502"/>
         <country
-            name="Guinea-Bissaus"
+            name="Guinea-Bissau"
             english_name="Guinea-bissau"
             name_code="gw"
             phone_code="245"/>
@@ -488,7 +488,7 @@
             name_code="iq"
             phone_code="964"/>
         <country
-            name="Iran, Islamische Republik"
+            name="Iran"
             english_name="Iran, Islamic Republic Of"
             name_code="ir"
             phone_code="98"/>
@@ -543,12 +543,12 @@
             name_code="kn"
             phone_code="1"/>
         <country
-            name="Korea"
+            name="Nordkorea"
             english_name="North Korea"
             name_code="kp"
             phone_code="850"/>
         <country
-            name="Korea, Republik von"
+            name="Südkorea"
             english_name="South Korea"
             name_code="kr"
             phone_code="82"/>
@@ -653,7 +653,7 @@
             name_code="mh"
             phone_code="692"/>
         <country
-            name="Mazedonien, die ehemalige jugoslawische Republik"
+            name="Mazedonien, Republik"
             english_name="Macedonia, The Former Yugoslav Republic Of"
             name_code="mk"
             phone_code="389"/>
@@ -798,7 +798,7 @@
             name_code="pe"
             phone_code="51"/>
         <country
-            name="Französisch Polynesien"
+            name="Französisch-Polynesien"
             english_name="French Polynesia"
             name_code="pf"
             phone_code="689"/>
@@ -863,7 +863,7 @@
             name_code="qa"
             phone_code="974"/>
         <country
-            name="Wiedervereinigung"
+            name="La Réunion"
             english_name="Réunion"
             name_code="re"
             phone_code="262"/>
@@ -918,7 +918,7 @@
             name_code="sg"
             phone_code="65"/>
         <country
-            name="St. Helena, Ascension und Tristan da Cunha"
+            name="St. Helena"
             english_name="Saint Helena, Ascension And Tristan Da Cunha"
             name_code="sh"
             phone_code="290"/>
@@ -993,7 +993,7 @@
             name_code="td"
             phone_code="235"/>
         <country
-            name="Gehen"
+            name="Togo"
             english_name="Togo"
             name_code="tg"
             phone_code="228"/>
@@ -1033,7 +1033,7 @@
             name_code="to"
             phone_code="676"/>
         <country
-            name="Truthahn"
+            name="Türkei"
             english_name="Turkey"
             name_code="tr"
             phone_code="90"/>
@@ -1083,7 +1083,7 @@
             name_code="uz"
             phone_code="998"/>
         <country
-            name="Heiliger Stuhl (Vatikanstadt)"
+            name="Vatikanstadt"
             english_name="Holy See (vatican City State)"
             name_code="va"
             phone_code="39"/>
