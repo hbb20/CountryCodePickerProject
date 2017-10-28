@@ -60,6 +60,10 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 Change log
 --------
 
+##### version 2.0.6 (under development)
+- Dialog events callback listeners
+-
+
 ##### version 2.0.5
 - Adds country "Iceland"
 - Updates country auto detection method and order (1. Locale, 2. Network, 3. SIM).  

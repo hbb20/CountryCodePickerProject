@@ -69,6 +69,7 @@
                             android:hint="Enter number with national code"
                             android:inputType="phone"
                             android:singleLine="true"
+                            android:enabled="false"
                             android:textColor="@android:color/black"/>
 
                         <TextView
@@ -122,6 +123,7 @@
                                 android:hint="phone number"
                                 android:inputType="phone"
                                 android:singleLine="true"
+                                android:enabled="false"
                                 android:textColor="@android:color/black"/>
 
                         </LinearLayout>

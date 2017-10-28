@@ -1,6 +1,8 @@
 package com.hbb20;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
@@ -89,6 +91,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean reportedValidity;
     private OnCountryChangeListener onCountryChangeListener;
     private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
+    private DialogEventsListener dialogEventsListener;
     private int fastScrollerHandleColor;
     private int dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
     private int fastScrollerBubbleTextAppearance;
@@ -334,6 +337,13 @@ public class CountryCodePicker extends RelativeLayout {
     public void setShowPhoneCode(boolean showPhoneCode) {
         this.showPhoneCode = showPhoneCode;
         setSelectedCountry(selectedCountry);
+    }
+
+    /**
+     * @return registered dialog event listener
+     */
+    protected DialogEventsListener getDialogEventsListener() {
+        return dialogEventsListener;
     }
 
     int getFastScrollerBubbleTextAppearance() {
@@ -1476,6 +1486,14 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
+     * Dialog events listener will give call backs on various dialog events
+     * @param dialogEventsListener
+     */
+    public void setDialogEventsListener(DialogEventsListener dialogEventsListener) {
+        this.dialogEventsListener = dialogEventsListener;
+    }
+
+    /**
      * Update every time new language is supported #languageSupport
      */
     //add an entry for your language in attrs.xml's <attr name="language" format="enum"> enum.
@@ -1541,6 +1559,14 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public interface PhoneNumberValidityChangeListener {
         void onValidityChanged(boolean isValidNumber);
+    }
+
+    public interface DialogEventsListener {
+        void onCcpDialogOpen(Dialog dialog);
+
+        void onCcpDialogDismiss(DialogInterface dialogInterface);
+
+        void onCcpDialogCancel(DialogInterface dialogInterface);
     }
 
 }

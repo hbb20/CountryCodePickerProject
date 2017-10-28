@@ -1,7 +1,9 @@
 package com.hbb20;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -10,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -23,8 +26,8 @@ import java.util.List;
  * Created by hbb20 on 11/1/16.
  */
 class CountryCodeDialog {
-    public static void openCountryCodeDialog(CountryCodePicker codePicker) {
-        Context context=codePicker.getContext();
+    public static void openCountryCodeDialog(final CountryCodePicker codePicker) {
+        final Context context = codePicker.getContext();
         final Dialog dialog = new Dialog(context);
         codePicker.refreshCustomMasterList();
         codePicker.refreshPreferredCountries();
@@ -41,7 +44,7 @@ class CountryCodeDialog {
 
         //dialog views
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
-        final TextView textViewTitle=(TextView) dialog.findViewById(R.id.textView_title);
+        final TextView textViewTitle = (TextView) dialog.findViewById(R.id.textView_title);
         RelativeLayout rlQueryHolder = (RelativeLayout) dialog.findViewById(R.id.rl_query_holder);
         ImageView imgClearQuery = (ImageView) dialog.findViewById(R.id.img_clear_query);
         final EditText editText_search = (EditText) dialog.findViewById(R.id.editText_search);
@@ -111,7 +114,43 @@ class CountryCodeDialog {
             fastScroller.setVisibility(View.GONE);
         }
 
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                hideKeyboard(context);
+                if (codePicker.getDialogEventsListener() != null) {
+                    codePicker.getDialogEventsListener().onCcpDialogDismiss(dialogInterface);
+                }
+            }
+        });
+
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                hideKeyboard(context);
+                if (codePicker.getDialogEventsListener() != null) {
+                    codePicker.getDialogEventsListener().onCcpDialogCancel(dialogInterface);
+                }
+            }
+        });
 
         dialog.show();
+        if (codePicker.getDialogEventsListener() != null) {
+            codePicker.getDialogEventsListener().onCcpDialogOpen(dialog);
+        }
+    }
+
+    private static void hideKeyboard(Context context) {
+        if (context instanceof Activity) {
+            Activity activity = (Activity) context;
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            //Find the currently focused view, so we can grab the correct window token from it.
+            View view = activity.getCurrentFocus();
+            //If no view currently has focus, create a new one, just so we can grab a window token from it
+            if (view == null) {
+                view = new View(activity);
+            }
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }
