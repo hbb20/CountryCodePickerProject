@@ -1119,6 +1119,17 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
+     * To get name of selected country in English.
+     *
+     * @return String value of country name in English language, selected in CCP
+     * i.e if selected country is IN +91(India)  returns: "India" no matter what language is currently selected.
+     * if selected country is JP +81(Japan) returns: "Japan"
+     */
+    public String getSelectedCountryEnglishName() {
+        return getSelectedCountry().getEnglishName();
+    }
+
+    /**
      * To get name code of selected country.
      *
      * @return String value of country name, selected in CCP
