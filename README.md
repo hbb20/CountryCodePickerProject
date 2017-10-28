@@ -60,7 +60,7 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 Change log
 --------
 
-##### version 2.0.6 (under development)
+##### version 2.0.6 (Oct 28, 2017)
 - Dialog events callback listeners
 - Option to change visibility of down arrow
 - Adds UAE as part of name
