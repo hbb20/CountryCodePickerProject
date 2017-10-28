@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
     dependencies {
-      compile 'com.hbb20:ccp:2.0.6'
+      compile 'com.hbb20:ccp:2.0.7'
     }
   ````
   *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -60,7 +60,7 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 Change log
 --------
 
-##### version 2.0.6 (Oct 28, 2017)
+##### version 2.0.7 (Oct 28, 2017)
 - Dialog events callback listeners
 - Option to change visibility of down arrow
 - Adds UAE as part of name
@@ -68,6 +68,7 @@ Change log
 - Corrects phone code for holy see
 - Fixes crash for turkish language (for some devices)
 - Option to get country's english name irrespective of selected language
+- Corrects Turkey flag 
 
 ##### version 2.0.5
 - Adds country "Iceland"
