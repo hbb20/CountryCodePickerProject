@@ -991,7 +991,7 @@ class Country implements Comparable<Country> {
         countries.add(new Country("tm", "993", "Turkmenistan"));
         countries.add(new Country("tc", "1", "Turks and Caicos Islands"));
         countries.add(new Country("tv", "688", "Tuvalu"));
-        countries.add(new Country("ae", "971", "United Arab Emirates"));
+        countries.add(new Country("ae", "971", "United Arab Emirates (UAE)"));
         countries.add(new Country("ug", "256", "Uganda"));
         countries.add(new Country("gb", "44", "United Kingdom"));
         countries.add(new Country("ua", "380", "Ukraine"));
