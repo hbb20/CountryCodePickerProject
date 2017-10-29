@@ -59,6 +59,8 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 
 Change log
 --------
+##### upcoming release (under development)
+- Corrects Myanmar flag
 
 ##### version 2.0.7 (Oct 28, 2017)
 - Dialog events callback listeners
