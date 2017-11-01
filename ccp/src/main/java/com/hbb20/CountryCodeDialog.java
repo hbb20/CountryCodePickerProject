@@ -42,6 +42,7 @@ class CountryCodeDialog {
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         }
 
+
         //dialog views
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
         final TextView textViewTitle = (TextView) dialog.findViewById(R.id.textView_title);
@@ -51,6 +52,24 @@ class CountryCodeDialog {
         TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noresult);
         RelativeLayout rlHolder = (RelativeLayout) dialog.findViewById(R.id.rl_holder);
         ImageView imgDismiss = (ImageView) dialog.findViewById(R.id.img_dismiss);
+
+        // type faces
+        //set type faces
+        try {
+            if (codePicker.getDialogTypeFace() != null) {
+                if (codePicker.getDialogTypeFaceStyle() != CountryCodePicker.DEFAULT_UNSET) {
+                    textView_noResult.setTypeface(codePicker.getDialogTypeFace(), codePicker.getDialogTypeFaceStyle());
+                    editText_search.setTypeface(codePicker.getDialogTypeFace(), codePicker.getDialogTypeFaceStyle());
+                    textViewTitle.setTypeface(codePicker.getDialogTypeFace(), codePicker.getDialogTypeFaceStyle());
+                } else {
+                    textView_noResult.setTypeface(codePicker.getDialogTypeFace());
+                    editText_search.setTypeface(codePicker.getDialogTypeFace());
+                    textViewTitle.setTypeface(codePicker.getDialogTypeFace());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //dialog background color
         if (codePicker.getDialogBackgroundColor() != 0) {

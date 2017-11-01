@@ -243,6 +243,20 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 textView_code.setTextColor(codePicker.getDialogTextColor());
                 divider.setBackgroundColor(codePicker.getDialogTextColor());
             }
+
+            try {
+                if (codePicker.getDialogTypeFace() != null) {
+                    if (codePicker.getDialogTypeFaceStyle() != CountryCodePicker.DEFAULT_UNSET) {
+                        textView_code.setTypeface(codePicker.getDialogTypeFace(), codePicker.getDialogTypeFaceStyle());
+                        textView_name.setTypeface(codePicker.getDialogTypeFace(), codePicker.getDialogTypeFaceStyle());
+                    } else {
+                        textView_code.setTypeface(codePicker.getDialogTypeFace());
+                        textView_name.setTypeface(codePicker.getDialogTypeFace());
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         public void setCountry(Country country) {

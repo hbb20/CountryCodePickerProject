@@ -61,6 +61,7 @@ Change log
 --------
 ##### upcoming release (under development)
 - Corrects Myanmar flag
+- Applies TypeFace to dialog text as well
 
 ##### version 2.0.7 (Oct 28, 2017)
 - Dialog events callback listeners

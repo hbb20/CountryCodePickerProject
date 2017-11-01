@@ -40,6 +40,7 @@ import java.util.Locale;
  */
 public class CountryCodePicker extends RelativeLayout {
 
+    static final int DEFAULT_UNSET = -99;
     static String TAG = "CCP";
     static String BUNDLE_SELECTED_CODE = "selectedCode";
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
@@ -73,6 +74,8 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showCloseIcon = false;
     int contentColor;
     int borderFlagColor;
+    Typeface dialogTypeFace;
+    int dialogTypeFaceStyle;
     List<Country> preferredCountries;
     int ccpTextgGravity = TEXT_GRAVITY_CENTER;
     //this will be "AU,IN,US"
@@ -361,6 +364,15 @@ public class CountryCodePicker extends RelativeLayout {
      */
     protected DialogEventsListener getDialogEventsListener() {
         return dialogEventsListener;
+    }
+
+    /**
+     * Dialog events listener will give call backs on various dialog events
+     *
+     * @param dialogEventsListener
+     */
+    public void setDialogEventsListener(DialogEventsListener dialogEventsListener) {
+        this.dialogEventsListener = dialogEventsListener;
     }
 
     int getFastScrollerBubbleTextAppearance() {
@@ -766,6 +778,18 @@ public class CountryCodePicker extends RelativeLayout {
         return dialogTextColor;
     }
 
+    int getDialogTypeFaceStyle() {
+        return dialogTypeFaceStyle;
+    }
+
+    Typeface getDialogTypeFace() {
+        return dialogTypeFace;
+    }
+
+    /**
+     * Publicly available functions from library
+     */
+
     /**
      * This color will be applied to
      * Title of dialog
@@ -779,10 +803,6 @@ public class CountryCodePicker extends RelativeLayout {
     public void setDialogTextColor(int dialogTextColor) {
         this.dialogTextColor = dialogTextColor;
     }
-
-    /**
-     * Publicly available functions from library
-     */
 
     /**
      * this will load preferredCountries based on countryPreference
@@ -1378,6 +1398,38 @@ public class CountryCodePicker extends RelativeLayout {
     public void setTypeFace(Typeface typeFace) {
         try {
             textView_selectedCountry.setTypeface(typeFace);
+            setDialogTypeFace(typeFace);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * To change font of ccp views along with style.
+     *
+     * @param typeFace
+     * @param style
+     */
+    public void setDialogTypeFace(Typeface typeFace, int style) {
+        try {
+            dialogTypeFace = typeFace;
+            if (dialogTypeFace == null) {
+                style = DEFAULT_UNSET;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * To change font of ccp views
+     *
+     * @param typeFace
+     */
+    public void setDialogTypeFace(Typeface typeFace) {
+        try {
+            dialogTypeFace = typeFace;
+            dialogTypeFaceStyle = DEFAULT_UNSET;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1392,6 +1444,7 @@ public class CountryCodePicker extends RelativeLayout {
     public void setTypeFace(Typeface typeFace, int style) {
         try {
             textView_selectedCountry.setTypeface(typeFace, style);
+            setDialogTypeFace(typeFace, style);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1534,14 +1587,6 @@ public class CountryCodePicker extends RelativeLayout {
             Log.w(TAG, "setAutoDetectCountry: Exception" + e.getMessage());
             setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode()));
         }
-    }
-
-    /**
-     * Dialog events listener will give call backs on various dialog events
-     * @param dialogEventsListener
-     */
-    public void setDialogEventsListener(DialogEventsListener dialogEventsListener) {
-        this.dialogEventsListener = dialogEventsListener;
     }
 
     /**
