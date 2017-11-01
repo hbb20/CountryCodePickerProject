@@ -90,7 +90,7 @@ class Country implements Comparable<Country> {
             XmlPullParser xmlPullParser = xmlFactoryObject.newPullParser();
             InputStream ins = context.getResources().openRawResource(context.getResources().getIdentifier(language
                 .toString().toLowerCase(Locale.ROOT), "raw", context.getPackageName()));
-            xmlPullParser.setInput(ins, null);
+            xmlPullParser.setInput(ins, "UTF-8");
             int event = xmlPullParser.getEventType();
             while (event != XmlPullParser.END_DOCUMENT) {
                 String name = xmlPullParser.getName();
