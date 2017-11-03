@@ -1599,6 +1599,7 @@ public class CountryCodePicker extends RelativeLayout {
         BENGALI("bn"),
         CHINESE_SIMPLIFIED("zh"),
         CHINESE_TRADITIONAL("zh"),
+        DUTCH("nl"),
         ENGLISH("en"),
         FRENCH("fr"),
         GERMAN("de"),
