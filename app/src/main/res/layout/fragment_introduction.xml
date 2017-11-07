@@ -116,7 +116,7 @@
                                 app:ccpDialog_allowSearch="true"
                                 app:ccpDialog_showCloseIcon="true"
                                 app:ccp_countryPreference="US,IN,NZ"
-                                app:ccp_defaultLanguage="ENGLISH" />
+                                app:ccp_defaultLanguage="DUTCH" />
 
                             <EditText
                                 android:id="@+id/et_phone"
