@@ -301,10 +301,6 @@ public class CountryCodePicker extends RelativeLayout {
                 textView_selectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 setFlagSize(textSize);
                 setArrowSize(textSize);
-            } else { //no textsize specified
-                DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                int defaultSize = Math.round(18 * (dm.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-                setTextSize(defaultSize);
             }
 
             //if arrow size is explicitly defined
