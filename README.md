@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
     dependencies {
-      compile 'com.hbb20:ccp:2.0.8'
+      compile 'com.hbb20:ccp:2.0.9'
     }
   ````
   *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -59,6 +59,10 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 
 Change log
 --------
+##### version 2.0.9 (Nov 10, 2017)
+- Adds dutch language support
+- Updates build tool version
+
 ##### version 2.0.8 (Nov 1, 2017)
 - Corrects Myanmar flag
 - Applies TypeFace to dialog text as well. [Read wiki.](https://github.com/hbb20/CountryCodePickerProject/wiki/Custom-TypeFace-(FontFamily))
@@ -98,6 +102,7 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Korean language support by [kduhyun](https://github.com/kduhyun)
 - Portuguese translation corrections by [Elifázio Bernardes da Silva](https://github.com/elifazio)
 - Flag border color option by [Maulana Firdaus](https://github.com/firdausmaulan)
+- Dutch language support by [Bozintan Iuliana](https://github.com/IulianaDiana)
 
 
 ## Want to add new language support?
