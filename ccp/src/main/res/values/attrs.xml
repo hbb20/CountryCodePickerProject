@@ -11,6 +11,7 @@
         <attr name="ccp_flagBorderColor" format="color"/>
         <attr name="ccp_countryPreference" format="string"/>
         <attr name="ccp_defaultNameCode" format="string"/>
+        <attr name="ccp_rememberLastSelection" format="boolean" />
         <attr name="ccp_textGravity" format="enum">
             <enum name="LEFT" value="-1"/>
             <enum name="RIGHT" value="1"/>
@@ -26,6 +27,7 @@
         <attr name="ccp_autoDetectLanguage" format="boolean"/>
         <attr name="ccp_autoDetectCountry" format="boolean"/>
         <attr name="ccp_autoFormatNumber" format="boolean"/>
+        <attr name="ccp_selectionMemoryTag" format="string" />
 
         <!--CCP Dialog properties-->
         <attr name="ccpDialog_keyboardAutoPopup" format="boolean"/>

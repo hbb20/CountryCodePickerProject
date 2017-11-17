@@ -190,7 +190,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 @Override
                 public void onClick(View view) {
                     if (filteredCountries != null && filteredCountries.size() > i) {
-                        codePicker.setSelectedCountry(filteredCountries.get(i));
+                        codePicker.onUserTappedCountry(filteredCountries.get(i));
                     }
                     if (view != null && filteredCountries.get(i) != null) {
                         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);

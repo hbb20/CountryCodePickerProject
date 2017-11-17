@@ -3,6 +3,7 @@ package com.hbb20;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
@@ -44,6 +45,7 @@ public class CountryCodePicker extends RelativeLayout {
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
     private static int TEXT_GRAVITY_LEFT = -1, TEXT_GRAVITY_RIGHT = 1, TEXT_GRAVITY_CENTER = 0;
     private static String ANDROID_NAME_SPACE = "http://schemas.android.com/apk/res/android";
+    String CCP_PREF_FILE = "CCP_PREF_FILE";
     int defaultCountryCode;
     String defaultCountryNameCode;
     Context context;
@@ -72,6 +74,8 @@ public class CountryCodePicker extends RelativeLayout {
     boolean searchAllowed = true;
     boolean showArrow = true;
     boolean showCloseIcon = false;
+    boolean rememberLastSelection = false;
+    String selectionMemoryTag = "ccp_last_selection";
     int contentColor;
     int borderFlagColor;
     Typeface dialogTypeFace;
@@ -200,6 +204,15 @@ public class CountryCodePicker extends RelativeLayout {
             //auto detect language
             autoDetectLanguageEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectLanguage, false);
 
+            //remember last selection
+            rememberLastSelection = a.getBoolean(R.styleable.CountryCodePicker_ccp_rememberLastSelection, false);
+
+            //memory tag name for selection
+            selectionMemoryTag = a.getString(R.styleable.CountryCodePicker_ccp_selectionMemoryTag);
+            if (selectionMemoryTag == null) {
+                selectionMemoryTag = "CCP_last_selection";
+            }
+
             //country auto detection pref
             int autoDetectionPrefValue = a.getInt(R.styleable.CountryCodePicker_ccp_countryAutoDetectionPref, 123);
             selectedAutoDetectionPref = AutoDetectionPref.getPrefForValue(String.valueOf(autoDetectionPrefValue));
@@ -272,6 +285,11 @@ public class CountryCodePicker extends RelativeLayout {
                 setAutoDetectedCountry(true);
             }
 
+            //set last selection
+            if (rememberLastSelection && !isInEditMode()) {
+                loadLastSelectedCountryInCCP();
+            }
+
             //content color
             int contentColor;
             if (isInEditMode()) {
@@ -330,6 +348,45 @@ public class CountryCodePicker extends RelativeLayout {
         } else {
             imageViewArrow.setVisibility(GONE);
         }
+    }
+
+    /**
+     * this will read last selected country name code from the shared pref.
+     * if that name code is not null, load that country in the CCP
+     * else leaves as it is.(when used for the first time)
+     */
+    private void loadLastSelectedCountryInCCP() {
+        //get the shared pref
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                CCP_PREF_FILE, Context.MODE_PRIVATE);
+
+        // read last selection value
+        String lastSelectedCountryNameCode = sharedPref.getString(selectionMemoryTag, null);
+
+        //if last selection value is not null, load it into the CCP
+        if (lastSelectedCountryNameCode != null) {
+            setCountryForNameCode(lastSelectedCountryNameCode);
+        }
+    }
+
+    /**
+     * This will store the selected name code in the preferences
+     *
+     * @param selectedCountryNameCode name code of the selected country
+     */
+    void storeSelectedCountryNameCode(String selectedCountryNameCode) {
+        //get the shared pref
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                CCP_PREF_FILE, Context.MODE_PRIVATE);
+
+        //we want to write in shared pref, so lets get editor for it
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        // add our last selection country name code in pref
+        editor.putString(selectionMemoryTag, selectedCountryNameCode);
+
+        //finally save it...
+        editor.apply();
     }
 
     boolean isCcpDialogShowPhoneCode() {
@@ -1684,6 +1741,13 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setCountryAutoDetectionPref(AutoDetectionPref selectedAutoDetectionPref) {
         this.selectedAutoDetectionPref = selectedAutoDetectionPref;
+    }
+
+    protected void onUserTappedCountry(Country country) {
+        if (codePicker.rememberLastSelection) {
+            codePicker.storeSelectedCountryNameCode(country.getNameCode());
+        }
+        setSelectedCountry(country);
     }
 
     /**
