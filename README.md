@@ -59,6 +59,13 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 
 Change log
 --------
+
+##### version 2.1.0 (under development)
+- Introduces countryAutoDetectionPref (Default: SIM then NETWORK then LOCALE)
+- Now default value for ccp_autoDetectCountry is *false* instead of true.
+- Option to remember last selection
+- 
+
 ##### version 2.0.9 (Nov 10, 2017)
 - Adds dutch language support
 - Updates build tool version
@@ -76,15 +83,6 @@ Change log
 - Fixes crash for turkish language (for some devices)
 - Option to get country's english name irrespective of selected language
 - Corrects Turkey flag 
-
-##### version 2.0.5
-- Adds country "Iceland"
-- Updates country auto detection method and order (1. Locale, 2. Network, 3. SIM).  
-
-##### version 2.0.4
-- Ukrainian language support
-- Italian language support
-- Updated libphonenumber library version to 8.8.2
 
 For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).
 

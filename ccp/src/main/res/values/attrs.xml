@@ -64,5 +64,23 @@
             <enum name="TURKISH" value="18" />
             <enum name="UKRAINIAN" value="19" />
         </attr>
+
+        <attr name="ccp_countryAutoDetectionPref" format="enum">
+            <enum name="SIM_ONLY" value="1" />
+            <enum name="NETWORK_ONLY" value="2" />
+            <enum name="LOCALE_ONLY" value="3" />
+            <enum name="SIM_NETWORK" value="12" />
+            <enum name="NETWORK_SIM" value="21" />
+            <enum name="SIM_LOCALE" value="13" />
+            <enum name="LOCALE_SIM" value="31" />
+            <enum name="NETWORK_LOCALE" value="23" />
+            <enum name="LOCALE_NETWORK" value="32" />
+            <enum name="SIM_NETWORK_LOCALE" value="123" />
+            <enum name="SIM_LOCALE_NETWORK" value="132" />
+            <enum name="NETWORK_SIM_LOCALE" value="213" />
+            <enum name="NETWORK_LOCALE_SIM" value="231" />
+            <enum name="LOCALE_SIM_NETWORK" value="312" />
+            <enum name="LOCALE_NETWORK_SIM" value="321" />
+        </attr>
     </declare-styleable>
 </resources>

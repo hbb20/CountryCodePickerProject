@@ -11,10 +11,8 @@ import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -63,6 +61,8 @@ public class CountryCodePicker extends RelativeLayout {
     RelativeLayout relativeClickConsumer;
     CountryCodePicker codePicker;
     TextGravity currentTextGravity;
+    // see attr.xml to see corresponding values for pref
+    AutoDetectionPref selectedAutoDetectionPref;
     boolean showNameCode = false;
     boolean showPhoneCode = true;
     boolean ccpDialogShowPhoneCode = true;
@@ -200,8 +200,12 @@ public class CountryCodePicker extends RelativeLayout {
             //auto detect language
             autoDetectLanguageEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectLanguage, false);
 
+            //country auto detection pref
+            int autoDetectionPrefValue = a.getInt(R.styleable.CountryCodePicker_ccp_countryAutoDetectionPref, 123);
+            selectedAutoDetectionPref = AutoDetectionPref.getPrefForValue(String.valueOf(autoDetectionPrefValue));
+
             //auto detect county
-            autoDetectCountryEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectCountry, true);
+            autoDetectCountryEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectCountry, false);
 
             //show arrow
             showArrow = a.getBoolean(R.styleable.CountryCodePicker_ccp_showArrow, true);
@@ -265,7 +269,7 @@ public class CountryCodePicker extends RelativeLayout {
 
             //set auto detected country
             if (isAutoDetectCountryEnabled() && !isInEditMode()) {
-                setAutoDetectedCountry();
+                setAutoDetectedCountry(true);
             }
 
             //content color
@@ -774,18 +778,6 @@ public class CountryCodePicker extends RelativeLayout {
         return dialogTextColor;
     }
 
-    int getDialogTypeFaceStyle() {
-        return dialogTypeFaceStyle;
-    }
-
-    Typeface getDialogTypeFace() {
-        return dialogTypeFace;
-    }
-
-    /**
-     * Publicly available functions from library
-     */
-
     /**
      * This color will be applied to
      * Title of dialog
@@ -798,6 +790,32 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setDialogTextColor(int dialogTextColor) {
         this.dialogTextColor = dialogTextColor;
+    }
+
+    int getDialogTypeFaceStyle() {
+        return dialogTypeFaceStyle;
+    }
+
+    /**
+     * Publicly available functions from library
+     */
+
+    Typeface getDialogTypeFace() {
+        return dialogTypeFace;
+    }
+
+    /**
+     * To change font of ccp views
+     *
+     * @param typeFace
+     */
+    public void setDialogTypeFace(Typeface typeFace) {
+        try {
+            dialogTypeFace = typeFace;
+            dialogTypeFaceStyle = DEFAULT_UNSET;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -1098,6 +1116,7 @@ public class CountryCodePicker extends RelativeLayout {
      * reset the default country as selected country.
      */
     public void resetToDefaultCountry() {
+        defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode());
         setSelectedCountry(defaultCountry);
     }
 
@@ -1418,20 +1437,6 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
-     * To change font of ccp views
-     *
-     * @param typeFace
-     */
-    public void setDialogTypeFace(Typeface typeFace) {
-        try {
-            dialogTypeFace = typeFace;
-            dialogTypeFaceStyle = DEFAULT_UNSET;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * To change font of ccp views along with style.
      *
      * @param typeFace
@@ -1545,44 +1550,140 @@ public class CountryCodePicker extends RelativeLayout {
 
     /**
      * loads current country in ccp using locale and telephony manager
-     * first it will look for locale. Mostly it will get the country.
-     * but in case it fails it will look for registered network country.
-     * When user's device is not registered to any network then it will try to get country from SIM card details.
-     * if it fails to detect country, it will set default country in CCP view
+     * this will follow specified order in countryAutoDetectionPref
+     *
+     * @param loadDefaultWhenFails: if all of pref methods fail to detect country then should this
+     *                              function load default country or not is decided with this flag
      */
-    public void setAutoDetectedCountry() {
+    public void setAutoDetectedCountry(boolean loadDefaultWhenFails) {
         try {
-
-            String currentCountryIso = context.getResources().getConfiguration().locale.getCountry();
-            Log.d(TAG, "setAutoDetectedCountry: localeCountry is" + currentCountryIso);
-            //if it fails, try networkCountryIso
-            if (TextUtils.isEmpty(currentCountryIso)) {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-                //try to get country using Network ISO
-                currentCountryIso = telephonyManager.getNetworkCountryIso();
-                Log.d(TAG, "setAutoDetectedCountry: networkCountry:" + currentCountryIso);
+            boolean successfullyDetected = false;
+            for (int i = 0; i < selectedAutoDetectionPref.representation.length(); i++) {
+                switch (selectedAutoDetectionPref.representation.charAt(i)) {
+                    case '1':
+                        Log.d(TAG, "setAutoDetectedCountry: Setting using SIM");
+                        successfullyDetected = detectSIMCountry(false);
+                        Log.d(TAG, "setAutoDetectedCountry: Result of sim country detection:" + successfullyDetected + " current country:" + getSelectedCountryNameCode());
+                        break;
+                    case '2':
+                        Log.d(TAG, "setAutoDetectedCountry: Setting using NETWORK");
+                        successfullyDetected = detectNetworkCountry(false);
+                        Log.d(TAG, "setAutoDetectedCountry: Result of network country detection:" + successfullyDetected + " current country:" + getSelectedCountryNameCode());
+                        break;
+                    case '3':
+                        Log.d(TAG, "setAutoDetectedCountry: Setting using LOCALE");
+                        successfullyDetected = detectLocaleCountry(false);
+                        Log.d(TAG, "setAutoDetectedCountry: Result of LOCALE country detection:" + successfullyDetected + " current country:" + getSelectedCountryNameCode());
+                        break;
+                }
+                if (successfullyDetected) {
+                    break;
+                }
             }
 
-            //Network ISO can be null if network is not available and phone is not registered to any network. SIM country can be used as other option.
-            if (TextUtils.isEmpty(currentCountryIso)) {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-                currentCountryIso = telephonyManager.getSimCountryIso();
-                Log.d(TAG, "setAutoDetectedCountry: simCountry:" + currentCountryIso);
-            }
-
-            //if any of above method found country, then load it.
-            if (!TextUtils.isEmpty(currentCountryIso)) {
-                Log.d(TAG, "setAutoDetectedCountry: Finally detected country" + currentCountryIso);
-                setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), currentCountryIso));
-            } else {
-                Log.d(TAG, "setAutoDetectedCountry:  Could not find the country");
-                setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode()));
+            if (!successfullyDetected && loadDefaultWhenFails) {
+                resetToDefaultCountry();
             }
         } catch (Exception e) {
             e.printStackTrace();
             Log.w(TAG, "setAutoDetectCountry: Exception" + e.getMessage());
-            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode()));
+            if (loadDefaultWhenFails) {
+                resetToDefaultCountry();
+            }
         }
+    }
+
+    /**
+     * This will detect country from SIM info and then load it into CCP.
+     *
+     * @param loadDefaultWhenFails true if want to reset to default country when sim country cannot be detected. if false, then it
+     *                             will not change currently selected country
+     * @return true if it successfully sets country, false otherwise
+     */
+    public boolean detectSIMCountry(boolean loadDefaultWhenFails) {
+        try {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            String simCountryISO = telephonyManager.getSimCountryIso();
+            if (simCountryISO == null || simCountryISO.isEmpty()) {
+                if (loadDefaultWhenFails) {
+                    resetToDefaultCountry();
+                }
+                return false;
+            }
+            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), simCountryISO));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (loadDefaultWhenFails) {
+                resetToDefaultCountry();
+            }
+            return false;
+        }
+    }
+
+    /**
+     * This will detect country from NETWORK info and then load it into CCP.
+     *
+     * @param loadDefaultWhenFails true if want to reset to default country when network country cannot be detected. if false, then it
+     *                             will not change currently selected country
+     * @return true if it successfully sets country, false otherwise
+     */
+    public boolean detectNetworkCountry(boolean loadDefaultWhenFails) {
+        try {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            String networkCountryISO = telephonyManager.getNetworkCountryIso();
+            if (networkCountryISO == null || networkCountryISO.isEmpty()) {
+                if (loadDefaultWhenFails) {
+                    resetToDefaultCountry();
+                }
+                return false;
+            }
+            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), networkCountryISO));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (loadDefaultWhenFails) {
+                resetToDefaultCountry();
+            }
+            return false;
+        }
+    }
+
+    /**
+     * This will detect country from LOCALE info and then load it into CCP.
+     *
+     * @param loadDefaultWhenFails true if want to reset to default country when locale country cannot be detected. if false, then it
+     *                             will not change currently selected country
+     * @return true if it successfully sets country, false otherwise
+     */
+    public boolean detectLocaleCountry(boolean loadDefaultWhenFails) {
+        try {
+            String localeCountryISO = context.getResources().getConfiguration().locale.getCountry();
+            if (localeCountryISO == null || localeCountryISO.isEmpty()) {
+                if (loadDefaultWhenFails) {
+                    resetToDefaultCountry();
+                }
+                return false;
+            }
+            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), localeCountryISO));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (loadDefaultWhenFails) {
+                resetToDefaultCountry();
+            }
+            return false;
+        }
+    }
+
+    /**
+     * This will update the pref for country auto detection.
+     * Remeber, this will not call setAutoDetectedCountry() to update country. This must be called separately.
+     *
+     * @param selectedAutoDetectionPref new detection pref
+     */
+    public void setCountryAutoDetectionPref(AutoDetectionPref selectedAutoDetectionPref) {
+        this.selectedAutoDetectionPref = selectedAutoDetectionPref;
     }
 
     /**
@@ -1624,6 +1725,39 @@ public class CountryCodePicker extends RelativeLayout {
 
         public void setCode(String code) {
             this.code = code;
+        }
+    }
+
+    public enum AutoDetectionPref {
+        SIM_ONLY("1"),
+        NETWORK_ONLY("2"),
+        LOCALE_ONLY("3"),
+        SIM_NETWORK("12"),
+        NETWORK_SIM("21"),
+        SIM_LOCALE("13"),
+        LOCALE_SIM("31"),
+        NETWORK_LOCALE("23"),
+        LOCALE_NETWORK("32"),
+        SIM_NETWORK_LOCALE("123"),
+        SIM_LOCALE_NETWORK("132"),
+        NETWORK_SIM_LOCALE("213"),
+        NETWORK_LOCALE_SIM("231"),
+        LOCALE_SIM_NETWORK("312"),
+        LOCALE_NETWORK_SIM("321");
+
+        String representation;
+
+        AutoDetectionPref(String representation) {
+            this.representation = representation;
+        }
+
+        public static AutoDetectionPref getPrefForValue(String value) {
+            for (AutoDetectionPref autoDetectionPref : AutoDetectionPref.values()) {
+                if (autoDetectionPref.representation.equals(value)) {
+                    return autoDetectionPref;
+                }
+            }
+            return SIM_NETWORK_LOCALE;
         }
     }
 

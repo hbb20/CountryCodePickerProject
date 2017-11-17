@@ -51,13 +51,13 @@ public class IntroductionFragment extends Fragment {
         buttonGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ExampleActivity)getActivity()).viewPager.setCurrentItem(1);
+                ((ExampleActivity) getActivity()).viewPager.setCurrentItem(1);
             }
         });
     }
 
     private void assignViews() {
-        buttonGo=(Button)getView().findViewById(R.id.button_letsGo);
+        buttonGo = (Button) getView().findViewById(R.id.button_letsGo);
         etPhone = (EditText) getView().findViewById(R.id.et_phone);
         countryCodePicker = (CountryCodePicker) getView().findViewById(R.id.ccp);
         countryCodePicker.registerCarrierNumberEditText(etPhone);
