@@ -26,13 +26,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.i18n.phonenumbers.NumberParseException;
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.Phonenumber;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import io.michaelrocks.libphonenumber.android.NumberParseException;
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
+import io.michaelrocks.libphonenumber.android.Phonenumber;
 
 /**
  * Created by hbb20 on 11/1/16.
@@ -65,6 +65,7 @@ public class CountryCodePicker extends RelativeLayout {
     TextGravity currentTextGravity;
     // see attr.xml to see corresponding values for pref
     AutoDetectionPref selectedAutoDetectionPref;
+    PhoneNumberUtil phoneUtil;
     boolean showNameCode = false;
     boolean showPhoneCode = true;
     boolean ccpDialogShowPhoneCode = true;
@@ -745,7 +746,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
         this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
-        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+
         updateFormattingTextWatcher();
         updateValidityTextWatcher();
     }
@@ -1591,8 +1592,8 @@ public class CountryCodePicker extends RelativeLayout {
     public boolean isValidFullNumber() {
         try {
             if (getEditText_registeredCarrierNumber() != null && getEditText_registeredCarrierNumber().getText().length() != 0) {
-                Phonenumber.PhoneNumber phoneNumber = PhoneNumberUtil.getInstance().parse("+" + selectedCountry.getPhoneCode() + getEditText_registeredCarrierNumber().getText().toString(), selectedCountry.getNameCode());
-                return PhoneNumberUtil.getInstance().isValidNumber(phoneNumber);
+                Phonenumber.PhoneNumber phoneNumber = getPhoneUtil().parse("+" + selectedCountry.getPhoneCode() + getEditText_registeredCarrierNumber().getText().toString(), selectedCountry.getNameCode());
+                return getPhoneUtil().isValidNumber(phoneNumber);
             } else if (getEditText_registeredCarrierNumber() == null) {
                 Toast.makeText(context, "No editText for Carrier number found.", Toast.LENGTH_SHORT).show();
                 return false;
@@ -1603,6 +1604,13 @@ public class CountryCodePicker extends RelativeLayout {
             //            when number could not be parsed, its not valid
             return false;
         }
+    }
+
+    private PhoneNumberUtil getPhoneUtil() {
+        if (phoneUtil == null) {
+            phoneUtil = PhoneNumberUtil.createInstance(context);
+        }
+        return phoneUtil;
     }
 
     /**

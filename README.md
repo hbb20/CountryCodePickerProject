@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
     dependencies {
-      compile 'com.hbb20:ccp:2.0.9'
+      compile 'com.hbb20:ccp:2.1.0'
     }
   ````
   *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -60,11 +60,11 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 Change log
 --------
 
-##### version 2.1.0 (under development)
-- Introduces countryAutoDetectionPref (Default: SIM then NETWORK then LOCALE)
+##### version 2.1.0 (Nov 17, 2017)
+- Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE)
 - Now default value for ccp_autoDetectCountry is *false* instead of true.
-- Option to remember last selection
-- 
+- Option to remember last selection.
+- Uses android's port instead of libphonenumber. ([Suggestion](https://github.com/hbb20/CountryCodePickerProject/issues/127))
 
 ##### version 2.0.9 (Nov 10, 2017)
 - Adds dutch language support
@@ -90,6 +90,7 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 
 ## Credits
 - [Fast Scroller library](https://github.com/FutureMind/recycler-fast-scroll) by [Future Minds](https://github.com/FutureMind)
+- Optimized [Android port](https://github.com/MichaelRocks/libphonenumber-android) of [libphonenumber](https://github.com/googlei18n/libphonenumber) by [Michael Rozumyanskiy](https://github.com/MichaelRocks) 
 - Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
 - Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
 - Indonesia translation by [Maulana Firdaus](https://github.com/firdausmaulan)
