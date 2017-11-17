@@ -30,6 +30,12 @@ Add this to your gradle file and sync
       compile 'com.hbb20:ccp:2.1.0'
     }
   ````
+  What's new?
+  > - Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE) [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/Auto-detect-country)
+  > - Now default value for ccp_autoDetectCountry is *false* instead of true.
+  > - Option to remember last selection. [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_rememberlastselectiontrue-default--false-)
+  > - Uses android's port instead of libphonenumber. ([Suggestion](https://github.com/hbb20/CountryCodePickerProject/issues/127))
+
   *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
 
 Features
@@ -49,8 +55,9 @@ If you prefer experience along with explanations, an demo android app is availab
 * [Country Selection Change Listener](https://github.com/hbb20/CountryCodePickerProject/wiki/Country-Change-Listener)
 * [Multi-language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Multi-Language-Support)
 * Customizable [CCP theme](https://github.com/hbb20/CountryCodePickerProject/wiki/CCP-Theme-Customization) and [Dialog Theme](https://github.com/hbb20/CountryCodePickerProject/wiki/CCP-Dialog-Theme-Customization) 
-* [Auto detect Country](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_autodetectlanguagetrue-default--false-)
+* [Auto detect Country](https://github.com/hbb20/CountryCodePickerProject/wiki/Auto-detect-country)
 * [Auto detect Language](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_autodetectlanguagetrue-default--false-)
+* [Remembers last selection](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_rememberlastselectiontrue-default--false-)
 * [Fast Scroller](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccpdialog_showfastscrollerfalse-default-true-) 
 
 
@@ -61,9 +68,9 @@ Change log
 --------
 
 ##### version 2.1.0 (Nov 17, 2017)
-- Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE)
+- Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE) [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/Auto-detect-country)
 - Now default value for ccp_autoDetectCountry is *false* instead of true.
-- Option to remember last selection.
+- Option to remember last selection. [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_rememberlastselectiontrue-default--false-)
 - Uses android's port instead of libphonenumber. ([Suggestion](https://github.com/hbb20/CountryCodePickerProject/issues/127))
 
 ##### version 2.0.9 (Nov 10, 2017)
