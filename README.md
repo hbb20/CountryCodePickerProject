@@ -81,15 +81,6 @@ Change log
 - Corrects Myanmar flag
 - Applies TypeFace to dialog text as well. [Read wiki.](https://github.com/hbb20/CountryCodePickerProject/wiki/Custom-TypeFace-(FontFamily))
 
-##### version 2.0.7 (Oct 28, 2017)
-- Dialog events callback listeners
-- Option to change visibility of down arrow
-- Adds UAE as part of name
-- Country name corrections for German language
-- Corrects phone code for holy see
-- Fixes crash for turkish language (for some devices)
-- Option to get country's english name irrespective of selected language
-- Corrects Turkey flag 
 
 For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).
 
@@ -111,8 +102,11 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Dutch language support by [Bozintan Iuliana](https://github.com/IulianaDiana)
 
 
-## Want to add new language support?
-Follow the [guide to add new language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Add-New-Language-Support).
+# Contribution
+- To add a new country, follow the [guide for add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).
+- To add a new Language support, follow the [guide for add new language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Add-New-Language-Support).
+
+
 
 ## License
 
