@@ -1094,7 +1094,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
      * @param preferredCountries
      * @param phoneNumber        @return
      */
-    private static CCPCountry getNANPACountryForAreaCode(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, String phoneNumber) {
+    static CCPCountry getNANPACountryForAreaCode(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, String phoneNumber) {
         String nameCode = "us";
         String areaCode = "";
         //trim out + from number

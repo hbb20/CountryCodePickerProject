@@ -26,6 +26,7 @@
         <attr name="ccp_showPhoneCode" format="boolean"/>
         <attr name="ccp_autoDetectLanguage" format="boolean"/>
         <attr name="ccp_autoDetectCountry" format="boolean"/>
+        <attr name="ccp_areaCodeDetectedCountry" format="boolean" />
         <attr name="ccp_autoFormatNumber" format="boolean"/>
         <attr name="ccp_selectionMemoryTag" format="string" />
 

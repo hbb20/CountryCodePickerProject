@@ -76,6 +76,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showArrow = true;
     boolean showCloseIcon = false;
     boolean rememberLastSelection = false;
+    boolean detectCountryWithAreaCode = true;
     String selectionMemoryTag = "ccp_last_selection";
     int contentColor;
     int borderFlagColor;
@@ -99,6 +100,9 @@ public class CountryCodePicker extends RelativeLayout {
     TextWatcher validityTextWatcher;
     PhoneNumberFormattingTextWatcher textWatcher;
     boolean reportedValidity;
+    TextWatcher areaCodeCountryDetectorTextWatcher;
+    boolean countryDetectionBasedOnAreaAllowed;
+    String lastCheckedAreaCode = null;
     private OnCountryChangeListener onCountryChangeListener;
     private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
     private DialogEventsListener dialogEventsListener;
@@ -204,6 +208,9 @@ public class CountryCodePicker extends RelativeLayout {
 
             //auto detect language
             autoDetectLanguageEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectLanguage, false);
+
+            //detect country from area code
+            detectCountryWithAreaCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_areaCodeDetectedCountry, true);
 
             //remember last selection
             rememberLastSelection = a.getBoolean(R.styleable.CountryCodePicker_ccp_rememberLastSelection, false);
@@ -609,6 +616,10 @@ public class CountryCodePicker extends RelativeLayout {
 
     void setSelectedCountry(CCPCountry selectedCCPCountry) {
 
+        //force disable area code country detection
+        countryDetectionBasedOnAreaAllowed = false;
+        lastCheckedAreaCode = "";
+
         //as soon as country is selected, textView should be updated
         if (selectedCCPCountry == null) {
             selectedCCPCountry = CCPCountry.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
@@ -662,6 +673,9 @@ public class CountryCodePicker extends RelativeLayout {
             reportedValidity = isValidFullNumber();
             phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
         }
+
+        //remove force lock
+        countryDetectionBasedOnAreaAllowed = true;
     }
 
     Language getLanguageToApply() {
@@ -682,6 +696,7 @@ public class CountryCodePicker extends RelativeLayout {
             String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
 
             editText_registeredCarrierNumber.removeTextChangedListener(textWatcher);
+            editText_registeredCarrierNumber.removeTextChangedListener(areaCodeCountryDetectorTextWatcher);
             if (numberAutoFormattingEnabled) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     textWatcher = new PhoneNumberFormattingTextWatcher(selectedCCPCountry.getNameCode());
@@ -691,11 +706,72 @@ public class CountryCodePicker extends RelativeLayout {
                 editText_registeredCarrierNumber.addTextChangedListener(textWatcher);
             }
 
+            //if country detection from area code is enabled, then it will add areaCodeCountryDetectorTextWatcher
+            if (detectCountryWithAreaCode) {
+                areaCodeCountryDetectorTextWatcher = getCountryDetectorTextWatcher();
+                editText_registeredCarrierNumber.addTextChangedListener(areaCodeCountryDetectorTextWatcher);
+            }
+
             //text watcher stops working when it finds non digit character in previous phone code. This will reset its function
             editText_registeredCarrierNumber.setText("");
             editText_registeredCarrierNumber.setText(digitsValue);
             editText_registeredCarrierNumber.setSelection(editText_registeredCarrierNumber.getText().length());
         }
+    }
+
+    /**
+     * This updates country dynamically as user types in area code
+     *
+     * @return
+     */
+    private TextWatcher getCountryDetectorTextWatcher() {
+
+        if (editText_registeredCarrierNumber != null) {
+            if (areaCodeCountryDetectorTextWatcher == null) {
+                areaCodeCountryDetectorTextWatcher = new TextWatcher() {
+                    String lastCheckedNumber = null;
+
+
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        CCPCountry selectedCountry = getSelectedCountry();
+                        if (selectedCountry != null && (lastCheckedNumber == null || !lastCheckedNumber.equals(s.toString())) && countryDetectionBasedOnAreaAllowed) {
+                            //possible countries
+                            if (selectedCountry.getPhoneCode().equals("1")) {
+                                String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
+                                if (enteredValue.length() >= 3) {
+                                    String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
+
+                                    if (digitsValue.length() >= 3) {
+                                        String currentAreaCode = digitsValue.substring(0, 3);
+                                        if (!currentAreaCode.equals(lastCheckedAreaCode)) {
+                                            CCPCountry detectedCountry = CCPCountry.getNANPACountryForAreaCode(context, getLanguageToApply(), null, 1 + digitsValue);
+                                            if (!detectedCountry.equals(selectedCountry)) {
+                                                setSelectedCountry(detectedCountry);
+                                            }
+                                            lastCheckedAreaCode = currentAreaCode;
+                                        }
+                                    }
+                                }
+
+                            }
+                            lastCheckedNumber = s.toString();
+                        }
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                };
+            }
+        }
+        return areaCodeCountryDetectorTextWatcher;
     }
 
     Language getCustomDefaultLanguage() {
@@ -1794,6 +1870,11 @@ public class CountryCodePicker extends RelativeLayout {
             codePicker.storeSelectedCountryNameCode(CCPCountry.getNameCode());
         }
         setSelectedCountry(CCPCountry);
+    }
+
+    public void setDetectCountryWithAreaCode(boolean detectCountryWithAreaCode) {
+        this.detectCountryWithAreaCode = detectCountryWithAreaCode;
+        updateFormattingTextWatcher();
     }
 
     /**
