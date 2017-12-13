@@ -481,8 +481,6 @@ class Country implements Comparable<Country> {
                 return R.drawable.flag_hungary;
             case "id": //indonesia
                 return R.drawable.flag_indonesia;
-            case "ic": //iceland
-                return R.drawable.flag_iceland;
             case "ie": //ireland
                 return R.drawable.flag_ireland;
             case "il": //israel
