@@ -66,6 +66,9 @@ To check all xml properties available for CCP and CCP Selection Dialog, please v
 
 Change log
 --------
+##### version 2.1.1 (under development)
+- Opens Country class (Renamed to "CCPCountry" to avoid naming confusion)
+- Fixes preview in Android Studio 3
 
 ##### version 2.1.0 (Nov 17, 2017)
 - Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE) [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/Auto-detect-country)

@@ -58,8 +58,8 @@ public class CountryCodePicker extends RelativeLayout {
     ImageView imageViewFlag;
     LinearLayout linearFlagBorder;
     LinearLayout linearFlagHolder;
-    Country selectedCountry;
-    Country defaultCountry;
+    CCPCountry selectedCCPCountry;
+    CCPCountry defaultCCPCountry;
     RelativeLayout relativeClickConsumer;
     CountryCodePicker codePicker;
     TextGravity currentTextGravity;
@@ -81,12 +81,12 @@ public class CountryCodePicker extends RelativeLayout {
     int borderFlagColor;
     Typeface dialogTypeFace;
     int dialogTypeFaceStyle;
-    List<Country> preferredCountries;
+    List<CCPCountry> preferredCountries;
     int ccpTextgGravity = TEXT_GRAVITY_CENTER;
     //this will be "AU,IN,US"
     String countryPreference;
     int fastScrollerBubbleColor = 0;
-    List<Country> customMasterCountriesList;
+    List<CCPCountry> customMasterCountriesList;
     //this will be "AU,IN,US"
     String customMasterCountries;
     Language customDefaultLanguage = Language.ENGLISH;
@@ -249,7 +249,10 @@ public class CountryCodePicker extends RelativeLayout {
 
             //preference
             countryPreference = a.getString(R.styleable.CountryCodePicker_ccp_countryPreference);
-            refreshPreferredCountries();
+            //as3 is raising problem while rendering preview. to avoid such issue, it will update preferred list only on run time.
+            if (!isInEditMode()) {
+                refreshPreferredCountries();
+            }
 
             //text gravity
             if (a.hasValue(R.styleable.CountryCodePicker_ccp_textGravity)) {
@@ -258,28 +261,61 @@ public class CountryCodePicker extends RelativeLayout {
             applyTextGravity(ccpTextgGravity);
 
             //default country
+            //AS 3 has some problem with reading list so this is to make CCP preview work
             defaultCountryNameCode = a.getString(R.styleable.CountryCodePicker_ccp_defaultNameCode);
             boolean setUsingNameCode = false;
             if (defaultCountryNameCode != null && defaultCountryNameCode.length() != 0) {
-                if (Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode) != null) {
+                if (!isInEditMode()) {
+                    if (CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode) != null) {
+                        setUsingNameCode = true;
+                        setDefaultCountry(CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode));
+                        setSelectedCountry(defaultCCPCountry);
+                    }
+                } else {
+                    if (CCPCountry.getCountryForNameCodeFromEnglishList(defaultCountryNameCode) != null) {
+                        setUsingNameCode = true;
+                        setDefaultCountry(CCPCountry.getCountryForNameCodeFromEnglishList(defaultCountryNameCode));
+                        setSelectedCountry(defaultCCPCountry);
+                    }
+                }
+
+                //when it was not set means something was wrong with name code
+                if (!setUsingNameCode) {
+                    setDefaultCountry(CCPCountry.getCountryForNameCodeFromEnglishList("IN"));
+                    setSelectedCountry(defaultCCPCountry);
                     setUsingNameCode = true;
-                    setDefaultCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode));
+                }
+            }
+
+            //if default country is not set using name code.
+            int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_ccp_defaultPhoneCode, -1);
+            if (!setUsingNameCode && defaultCountryCode != -1) {
+                if (!isInEditMode()) {
+                    //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
+                    if (defaultCountryCode != -1 && CCPCountry.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode) == null) {
+                        defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
+                    }
+                    setDefaultCountryUsingPhoneCode(defaultCountryCode);
+                    setSelectedCountry(defaultCCPCountry);
+                } else {
+                    //when it is in edit mode, we will check in english list only.
+                    CCPCountry defaultCountry = CCPCountry.getCountryForCodeFromEnglishList(defaultCountryCode + "");
+                    if (defaultCountry == null) {
+                        defaultCountry = CCPCountry.getCountryForCodeFromEnglishList(LIB_DEFAULT_COUNTRY_CODE + "");
+                    }
+                    setDefaultCountry(defaultCountry);
                     setSelectedCountry(defaultCountry);
                 }
             }
 
-
-            //if default country is not set using name code.
-            if (!setUsingNameCode) {
-                int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_ccp_defaultPhoneCode, -1);
-
-                //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
-                if (Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode) == null) {
-                    defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
+            //if default country is not set using nameCode or phone code, let's set library default as default
+            if (getDefaultCountry() == null) {
+                setDefaultCountry(CCPCountry.getCountryForNameCodeFromEnglishList("IN"));
+                if (getSelectedCountry() == null) {
+                    setSelectedCountry(defaultCCPCountry);
                 }
-                setDefaultCountryUsingPhoneCode(defaultCountryCode);
-                setSelectedCountry(defaultCountry);
             }
+
 
             //set auto detected country
             if (isAutoDetectCountryEnabled() && !isInEditMode()) {
@@ -336,7 +372,8 @@ public class CountryCodePicker extends RelativeLayout {
             setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
 
         } catch (Exception e) {
-            textView_selectedCountry.setText(e.getMessage());
+            textView_selectedCountry.setTextSize(10);
+            textView_selectedCountry.setText(e.toString());
         } finally {
             a.recycle();
         }
@@ -414,7 +451,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setShowPhoneCode(boolean showPhoneCode) {
         this.showPhoneCode = showPhoneCode;
-        setSelectedCountry(selectedCountry);
+        setSelectedCountry(selectedCCPCountry);
     }
 
     /**
@@ -546,12 +583,12 @@ public class CountryCodePicker extends RelativeLayout {
         return null;
     }
 
-    private Country getDefaultCountry() {
-        return defaultCountry;
+    private CCPCountry getDefaultCountry() {
+        return defaultCCPCountry;
     }
 
-    private void setDefaultCountry(Country defaultCountry) {
-        this.defaultCountry = defaultCountry;
+    private void setDefaultCountry(CCPCountry defaultCCPCountry) {
+        this.defaultCCPCountry = defaultCCPCountry;
         //        Log.d(TAG, "Setting default country:" + defaultCountry.logString());
     }
 
@@ -563,35 +600,35 @@ public class CountryCodePicker extends RelativeLayout {
         this.textView_selectedCountry = textView_selectedCountry;
     }
 
-    private Country getSelectedCountry() {
-        if (selectedCountry == null) {
+    private CCPCountry getSelectedCountry() {
+        if (selectedCCPCountry == null) {
             setSelectedCountry(getDefaultCountry());
         }
-        return selectedCountry;
+        return selectedCCPCountry;
     }
 
-    void setSelectedCountry(Country selectedCountry) {
+    void setSelectedCountry(CCPCountry selectedCCPCountry) {
 
         //as soon as country is selected, textView should be updated
-        if (selectedCountry == null) {
-            selectedCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
+        if (selectedCCPCountry == null) {
+            selectedCCPCountry = CCPCountry.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
         }
 
-        this.selectedCountry = selectedCountry;
+        this.selectedCCPCountry = selectedCCPCountry;
 
         String displayText = "";
 
         // add full name to if required
         if (showFullName) {
-            displayText = displayText + selectedCountry.getName();
+            displayText = displayText + selectedCCPCountry.getName();
         }
 
         // adds name code if required
         if (showNameCode) {
             if (showFullName) {
-                displayText += " (" + selectedCountry.getNameCode().toUpperCase() + ")";
+                displayText += " (" + selectedCCPCountry.getNameCode().toUpperCase() + ")";
             } else {
-                displayText += " " + selectedCountry.getNameCode().toUpperCase();
+                displayText += " " + selectedCCPCountry.getNameCode().toUpperCase();
             }
         }
 
@@ -600,14 +637,14 @@ public class CountryCodePicker extends RelativeLayout {
             if (displayText.length() > 0) {
                 displayText += "  ";
             }
-            displayText += "+" + selectedCountry.getPhoneCode();
+            displayText += "+" + selectedCCPCountry.getPhoneCode();
         }
 
         textView_selectedCountry.setText(displayText);
 
         //avoid blank state of ccp
         if (showFlag == false && displayText.length() == 0) {
-            displayText += "+" + selectedCountry.getPhoneCode();
+            displayText += "+" + selectedCCPCountry.getPhoneCode();
             textView_selectedCountry.setText(displayText);
         }
 
@@ -615,7 +652,7 @@ public class CountryCodePicker extends RelativeLayout {
             onCountryChangeListener.onCountrySelected();
         }
 
-        imageViewFlag.setImageResource(selectedCountry.getFlagID());
+        imageViewFlag.setImageResource(selectedCCPCountry.getFlagID());
         //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
 
         updateFormattingTextWatcher();
@@ -639,7 +676,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private void updateFormattingTextWatcher() {
-        if (getEditText_registeredCarrierNumber() != null && selectedCountry != null) {
+        if (getEditText_registeredCarrierNumber() != null && selectedCCPCountry != null) {
 
             String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
             String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
@@ -647,7 +684,7 @@ public class CountryCodePicker extends RelativeLayout {
             editText_registeredCarrierNumber.removeTextChangedListener(textWatcher);
             if (numberAutoFormattingEnabled) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    textWatcher = new PhoneNumberFormattingTextWatcher(selectedCountry.getNameCode());
+                    textWatcher = new PhoneNumberFormattingTextWatcher(selectedCCPCountry.getNameCode());
                 } else {
                     textWatcher = new PhoneNumberFormattingTextWatcher();
                 }
@@ -668,7 +705,7 @@ public class CountryCodePicker extends RelativeLayout {
     private void setCustomDefaultLanguage(Language customDefaultLanguage) {
         this.customDefaultLanguage = customDefaultLanguage;
         updateLanguageToApply();
-        setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(context, getLanguageToApply(), selectedCountry.getNameCode()));
+        setSelectedCountry(CCPCountry.getCountryForNameCodeFromLibraryMasterList(context, getLanguageToApply(), selectedCCPCountry.getNameCode()));
     }
 
     private View getHolderView() {
@@ -883,26 +920,26 @@ public class CountryCodePicker extends RelativeLayout {
         if (countryPreference == null || countryPreference.length() == 0) {
             preferredCountries = null;
         } else {
-            List<Country> localCountryList = new ArrayList<>();
+            List<CCPCountry> localCCPCountryList = new ArrayList<>();
             for (String nameCode : countryPreference.split(",")) {
-                Country country = Country.getCountryForNameCodeFromCustomMasterList(getContext(), customMasterCountriesList, getLanguageToApply(), nameCode);
-                if (country != null) {
-                    if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
-                        localCountryList.add(country);
+                CCPCountry ccpCountry = CCPCountry.getCountryForNameCodeFromCustomMasterList(getContext(), customMasterCountriesList, getLanguageToApply(), nameCode);
+                if (ccpCountry != null) {
+                    if (!isAlreadyInList(ccpCountry, localCCPCountryList)) { //to avoid duplicate entry of country
+                        localCCPCountryList.add(ccpCountry);
                     }
                 }
             }
 
-            if (localCountryList.size() == 0) {
+            if (localCCPCountryList.size() == 0) {
                 preferredCountries = null;
             } else {
-                preferredCountries = localCountryList;
+                preferredCountries = localCCPCountryList;
             }
         }
         if (preferredCountries != null) {
             //            Log.d("preference list", preferredCountries.size() + " countries");
-            for (Country country : preferredCountries) {
-                country.log();
+            for (CCPCountry CCPCountry : preferredCountries) {
+                CCPCountry.log();
             }
         } else {
             //            Log.d("preference list", " has no country");
@@ -916,40 +953,40 @@ public class CountryCodePicker extends RelativeLayout {
         if (customMasterCountries == null || customMasterCountries.length() == 0) {
             customMasterCountriesList = null;
         } else {
-            List<Country> localCountryList = new ArrayList<>();
+            List<CCPCountry> localCCPCountryList = new ArrayList<>();
             for (String nameCode : customMasterCountries.split(",")) {
-                Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), nameCode);
-                if (country != null) {
-                    if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
-                        localCountryList.add(country);
+                CCPCountry ccpCountry = CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), nameCode);
+                if (ccpCountry != null) {
+                    if (!isAlreadyInList(ccpCountry, localCCPCountryList)) { //to avoid duplicate entry of country
+                        localCCPCountryList.add(ccpCountry);
                     }
                 }
             }
 
-            if (localCountryList.size() == 0) {
+            if (localCCPCountryList.size() == 0) {
                 customMasterCountriesList = null;
             } else {
-                customMasterCountriesList = localCountryList;
+                customMasterCountriesList = localCCPCountryList;
             }
         }
         if (customMasterCountriesList != null) {
             //            Log.d("custom master list:", customMasterCountriesList.size() + " countries");
-            for (Country country : customMasterCountriesList) {
-                country.log();
+            for (CCPCountry CCPCountry : customMasterCountriesList) {
+                CCPCountry.log();
             }
         } else {
             //            Log.d("custom master list", " has no country");
         }
     }
 
-    List<Country> getCustomMasterCountriesList() {
+    List<CCPCountry> getCustomMasterCountriesList() {
         return customMasterCountriesList;
     }
 
     /**
      * @param customMasterCountriesList is list of countries that we need as custom master list
      */
-    void setCustomMasterCountriesList(List<Country> customMasterCountriesList) {
+    void setCustomMasterCountriesList(List<CCPCountry> customMasterCountriesList) {
         this.customMasterCountriesList = customMasterCountriesList;
     }
 
@@ -1002,14 +1039,14 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * This will match name code of all countries of list against the country's name code.
      *
-     * @param country
-     * @param countryList list of countries against which country will be checked.
+     * @param CCPCountry
+     * @param CCPCountryList list of countries against which country will be checked.
      * @return if country name code is found in list, returns true else return false
      */
-    private boolean isAlreadyInList(Country country, List<Country> countryList) {
-        if (country != null && countryList != null) {
-            for (Country iterationCountry : countryList) {
-                if (iterationCountry.getNameCode().equalsIgnoreCase(country.getNameCode())) {
+    private boolean isAlreadyInList(CCPCountry CCPCountry, List<CCPCountry> CCPCountryList) {
+        if (CCPCountry != null && CCPCountryList != null) {
+            for (CCPCountry iterationCCPCountry : CCPCountryList) {
+                if (iterationCCPCountry.getNameCode().equalsIgnoreCase(CCPCountry.getNameCode())) {
                     return true;
                 }
             }
@@ -1021,18 +1058,18 @@ public class CountryCodePicker extends RelativeLayout {
      * This function removes possible country code from fullNumber and set rest of the number as carrier number.
      *
      * @param fullNumber combination of country code and carrier number.
-     * @param country    selected country in CCP to detect country code part.
+     * @param CCPCountry selected country in CCP to detect country code part.
      */
-    private String detectCarrierNumber(String fullNumber, Country country) {
+    private String detectCarrierNumber(String fullNumber, CCPCountry CCPCountry) {
         String carrierNumber;
-        if (country == null || fullNumber == null) {
+        if (CCPCountry == null || fullNumber == null) {
             carrierNumber = fullNumber;
         } else {
-            int indexOfCode = fullNumber.indexOf(country.getPhoneCode());
+            int indexOfCode = fullNumber.indexOf(CCPCountry.getPhoneCode());
             if (indexOfCode == -1) {
                 carrierNumber = fullNumber;
             } else {
-                carrierNumber = fullNumber.substring(indexOfCode + country.getPhoneCode().length());
+                carrierNumber = fullNumber.substring(indexOfCode + CCPCountry.getPhoneCode().length());
             }
         }
         return carrierNumber;
@@ -1052,18 +1089,18 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     String getDialogTitle() {
-        return Country.getDialogTitle(context, getLanguageToApply());
+        return CCPCountry.getDialogTitle(context, getLanguageToApply());
     }
 
     String getSearchHintText() {
-        return Country.getSearchHintMessage(context, getLanguageToApply());
+        return CCPCountry.getSearchHintMessage(context, getLanguageToApply());
     }
 
     /**
      * @return translated text for "No Results Found" message.
      */
     String getNoResultFoundText() {
-        return Country.getNoResultFoundAckMessage(context, getLanguageToApply());
+        return CCPCountry.getNoResultFoundAckMessage(context, getLanguageToApply());
     }
 
     /**
@@ -1082,12 +1119,12 @@ public class CountryCodePicker extends RelativeLayout {
      */
     @Deprecated
     public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
-        Country defaultCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
-        if (defaultCountry == null) { //if no correct country is found
+        CCPCountry defaultCCPCountry = CCPCountry.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        if (defaultCCPCountry == null) { //if no correct country is found
             //            Log.d(TAG, "No country for code " + defaultCountryCode + " is found");
         } else { //if correct country is found, set the country
             this.defaultCountryCode = defaultCountryCode;
-            setDefaultCountry(defaultCountry);
+            setDefaultCountry(defaultCCPCountry);
         }
     }
 
@@ -1102,12 +1139,12 @@ public class CountryCodePicker extends RelativeLayout {
      *                               if you want to set JP +81(Japan) as default country, defaultCountryCode =  "JP" or "jp"
      */
     public void setDefaultCountryUsingNameCode(String defaultCountryNameCode) {
-        Country defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
-        if (defaultCountry == null) { //if no correct country is found
+        CCPCountry defaultCCPCountry = CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), defaultCountryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        if (defaultCCPCountry == null) { //if no correct country is found
             //            Log.d(TAG, "No country for nameCode " + defaultCountryNameCode + " is found");
         } else { //if correct country is found, set the country
-            this.defaultCountryNameCode = defaultCountry.getNameCode();
-            setDefaultCountry(defaultCountry);
+            this.defaultCountryNameCode = defaultCCPCountry.getNameCode();
+            setDefaultCountry(defaultCCPCountry);
         }
     }
 
@@ -1117,7 +1154,7 @@ public class CountryCodePicker extends RelativeLayout {
      * if default country is JP +81(Japan) returns: "81"
      */
     public String getDefaultCountryCode() {
-        return defaultCountry.phoneCode;
+        return defaultCCPCountry.phoneCode;
     }
 
     /**
@@ -1174,8 +1211,8 @@ public class CountryCodePicker extends RelativeLayout {
      * reset the default country as selected country.
      */
     public void resetToDefaultCountry() {
-        defaultCountry = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode());
-        setSelectedCountry(defaultCountry);
+        defaultCCPCountry = CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), getDefaultCountryNameCode());
+        setSelectedCountry(defaultCCPCountry);
     }
 
     /**
@@ -1258,14 +1295,14 @@ public class CountryCodePicker extends RelativeLayout {
      *                    If you want to set JP +81(Japan), countryCode= 81
      */
     public void setCountryForPhoneCode(int countryCode) {
-        Country country = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
-        if (country == null) {
-            if (defaultCountry == null) {
-                defaultCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
+        CCPCountry ccpCountry = CCPCountry.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        if (ccpCountry == null) {
+            if (defaultCCPCountry == null) {
+                defaultCCPCountry = ccpCountry.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
             }
-            setSelectedCountry(defaultCountry);
+            setSelectedCountry(defaultCCPCountry);
         } else {
-            setSelectedCountry(country);
+            setSelectedCountry(ccpCountry);
         }
     }
 
@@ -1277,12 +1314,12 @@ public class CountryCodePicker extends RelativeLayout {
      *                        If you want to set JP +81(Japan), countryCode= JP
      */
     public void setCountryForNameCode(String countryNameCode) {
-        Country country = Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+        CCPCountry country = CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
         if (country == null) {
-            if (defaultCountry == null) {
-                defaultCountry = Country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
+            if (defaultCCPCountry == null) {
+                defaultCCPCountry = country.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
             }
-            setSelectedCountry(defaultCountry);
+            setSelectedCountry(defaultCCPCountry);
         } else {
             setSelectedCountry(country);
         }
@@ -1323,11 +1360,12 @@ public class CountryCodePicker extends RelativeLayout {
      * @param fullNumber is combination of country code and carrier number, (country_code+carrier_number) for example if country is India (+91) and carrier/mobile number is 8866667722 then full number will be 9188666667722 or +918866667722. "+" in starting of number is optional.
      */
     public void setFullNumber(String fullNumber) {
-        Country country = Country.getCountryForNumber(getContext(), getLanguageToApply(), preferredCountries, fullNumber);
+        CCPCountry country = CCPCountry.getCountryForNumber(getContext(), getLanguageToApply(), preferredCountries, fullNumber);
         setSelectedCountry(country);
         String carrierNumber = detectCarrierNumber(fullNumber, country);
         if (getEditText_registeredCarrierNumber() != null) {
             getEditText_registeredCarrierNumber().setText(carrierNumber);
+            updateFormattingTextWatcher();
         } else {
             Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
         }
@@ -1428,7 +1466,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void showNameCode(boolean showNameCode) {
         this.showNameCode = showNameCode;
-        setSelectedCountry(selectedCountry);
+        setSelectedCountry(selectedCCPCountry);
     }
 
     /**
@@ -1539,7 +1577,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     public void showFullName(boolean showFullName) {
         this.showFullName = showFullName;
-        setSelectedCountry(selectedCountry);
+        setSelectedCountry(selectedCCPCountry);
     }
 
     /**
@@ -1592,7 +1630,7 @@ public class CountryCodePicker extends RelativeLayout {
     public boolean isValidFullNumber() {
         try {
             if (getEditText_registeredCarrierNumber() != null && getEditText_registeredCarrierNumber().getText().length() != 0) {
-                Phonenumber.PhoneNumber phoneNumber = getPhoneUtil().parse("+" + selectedCountry.getPhoneCode() + getEditText_registeredCarrierNumber().getText().toString(), selectedCountry.getNameCode());
+                Phonenumber.PhoneNumber phoneNumber = getPhoneUtil().parse("+" + selectedCCPCountry.getPhoneCode() + getEditText_registeredCarrierNumber().getText().toString(), selectedCCPCountry.getNameCode());
                 return getPhoneUtil().isValidNumber(phoneNumber);
             } else if (getEditText_registeredCarrierNumber() == null) {
                 Toast.makeText(context, "No editText for Carrier number found.", Toast.LENGTH_SHORT).show();
@@ -1675,7 +1713,7 @@ public class CountryCodePicker extends RelativeLayout {
                 }
                 return false;
             }
-            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), simCountryISO));
+            setSelectedCountry(CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), simCountryISO));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -1703,7 +1741,7 @@ public class CountryCodePicker extends RelativeLayout {
                 }
                 return false;
             }
-            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), networkCountryISO));
+            setSelectedCountry(CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), networkCountryISO));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -1730,7 +1768,7 @@ public class CountryCodePicker extends RelativeLayout {
                 }
                 return false;
             }
-            setSelectedCountry(Country.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), localeCountryISO));
+            setSelectedCountry(CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), localeCountryISO));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -1751,11 +1789,11 @@ public class CountryCodePicker extends RelativeLayout {
         this.selectedAutoDetectionPref = selectedAutoDetectionPref;
     }
 
-    protected void onUserTappedCountry(Country country) {
+    protected void onUserTappedCountry(CCPCountry CCPCountry) {
         if (codePicker.rememberLastSelection) {
-            codePicker.storeSelectedCountryNameCode(country.getNameCode());
+            codePicker.storeSelectedCountryNameCode(CCPCountry.getNameCode());
         }
-        setSelectedCountry(country);
+        setSelectedCountry(CCPCountry);
     }
 
     /**

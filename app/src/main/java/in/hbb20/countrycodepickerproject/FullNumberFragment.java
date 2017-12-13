@@ -48,6 +48,7 @@ public class FullNumberFragment extends Fragment {
         registerCarrierEditText();
         setClickListener();
         addTextWatcher();
+
     }
 
     private void addTextWatcher() {
@@ -122,6 +123,8 @@ public class FullNumberFragment extends Fragment {
                 }
             }
         });
+
+        ccpLoadNumber.registerCarrierNumberEditText(editTextLoadCarrierNumber);
     }
 
     private void assignView() {

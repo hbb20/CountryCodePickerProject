@@ -20,11 +20,12 @@ import java.util.Locale;
 /**
  * Created by hbb20 on 11/1/16.
  */
-class Country implements Comparable<Country> {
+public class CCPCountry implements Comparable<CCPCountry> {
+    static int DEFAULT_FLAG_RES = -99;
     static String TAG = "Class Country";
     static CountryCodePicker.Language loadedLibraryMasterListLanguage;
     static String dialogTitle, searchHintMessage, noResultFoundAckMessage;
-    static List<Country> loadedLibraryMaterList;
+    static List<CCPCountry> loadedLibraryMaterList;
     private static String ANTIGUA_AND_BARBUDA_AREA_CODES = "268";
     private static String ANGUILLA_AREA_CODES = "264";
     private static String BARBADOS_AREA_CODES = "246";
@@ -49,31 +50,33 @@ class Country implements Comparable<Country> {
     String nameCode;
     String phoneCode;
     String name, englishName;
+    int flagResID = DEFAULT_FLAG_RES;
 
-    public Country() {
+    public CCPCountry() {
 
     }
 
-    public Country(String nameCode, String phoneCode, String name) {
+    public CCPCountry(String nameCode, String phoneCode, String name, int flagResID) {
         this.nameCode = nameCode;
         this.phoneCode = phoneCode;
         this.name = name;
+        this.flagResID = flagResID;
     }
 
-    public static CountryCodePicker.Language getLoadedLibraryMasterListLanguage() {
+    static CountryCodePicker.Language getLoadedLibraryMasterListLanguage() {
         return loadedLibraryMasterListLanguage;
     }
 
-    public static void setLoadedLibraryMasterListLanguage(CountryCodePicker.Language loadedLibraryMasterListLanguage) {
-        Country.loadedLibraryMasterListLanguage = loadedLibraryMasterListLanguage;
+    static void setLoadedLibraryMasterListLanguage(CountryCodePicker.Language loadedLibraryMasterListLanguage) {
+        CCPCountry.loadedLibraryMasterListLanguage = loadedLibraryMasterListLanguage;
     }
 
-    public static List<Country> getLoadedLibraryMaterList() {
+    public static List<CCPCountry> getLoadedLibraryMaterList() {
         return loadedLibraryMaterList;
     }
 
-    public static void setLoadedLibraryMaterList(List<Country> loadedLibraryMaterList) {
-        Country.loadedLibraryMaterList = loadedLibraryMaterList;
+    static void setLoadedLibraryMaterList(List<CCPCountry> loadedLibraryMaterList) {
+        CCPCountry.loadedLibraryMaterList = loadedLibraryMaterList;
     }
 
     /**
@@ -82,14 +85,14 @@ class Country implements Comparable<Country> {
      * @param context: required to access application resources (where country.xml is).
      * @return List of all the countries available in xml file.
      */
-    public static void loadDataFromXML(Context context, CountryCodePicker.Language language) {
-        List<Country> countries = new ArrayList<Country>();
-        String tempDialogTitle = "", tempSeachHint = "", tempNoResultAck = "";
+    static void loadDataFromXML(Context context, CountryCodePicker.Language language) {
+        List<CCPCountry> countries = new ArrayList<CCPCountry>();
+        String tempDialogTitle = "", tempSearchHint = "", tempNoResultAck = "";
         try {
             XmlPullParserFactory xmlFactoryObject = XmlPullParserFactory.newInstance();
             XmlPullParser xmlPullParser = xmlFactoryObject.newPullParser();
             InputStream ins = context.getResources().openRawResource(context.getResources().getIdentifier(language
-                .toString().toLowerCase(Locale.ROOT), "raw", context.getPackageName()));
+                    .toString().toLowerCase(Locale.ROOT), "raw", context.getPackageName()));
             xmlPullParser.setInput(ins, "UTF-8");
             int event = xmlPullParser.getEventType();
             while (event != XmlPullParser.END_DOCUMENT) {
@@ -99,16 +102,16 @@ class Country implements Comparable<Country> {
                         break;
                     case XmlPullParser.END_TAG:
                         if (name.equals("country")) {
-                            Country country = new Country();
-                            country.setNameCode(xmlPullParser.getAttributeValue(null, "name_code").toUpperCase());
-                            country.setPhoneCode(xmlPullParser.getAttributeValue(null, "phone_code"));
-                            country.setEnglishName(xmlPullParser.getAttributeValue(null, "english_name"));
-                            country.setName(xmlPullParser.getAttributeValue(null, "name"));
-                            countries.add(country);
+                            CCPCountry ccpCountry = new CCPCountry();
+                            ccpCountry.setNameCode(xmlPullParser.getAttributeValue(null, "name_code").toUpperCase());
+                            ccpCountry.setPhoneCode(xmlPullParser.getAttributeValue(null, "phone_code"));
+                            ccpCountry.setEnglishName(xmlPullParser.getAttributeValue(null, "english_name"));
+                            ccpCountry.setName(xmlPullParser.getAttributeValue(null, "name"));
+                            countries.add(ccpCountry);
                         } else if (name.equals("ccp_dialog_title")) {
                             tempDialogTitle = xmlPullParser.getAttributeValue(null, "translation");
                         } else if (name.equals("ccp_dialog_search_hint_message")) {
-                            tempSeachHint = xmlPullParser.getAttributeValue(null, "translation");
+                            tempSearchHint = xmlPullParser.getAttributeValue(null, "translation");
                         } else if (name.equals("ccp_dialog_no_result_ack_message")) {
                             tempNoResultAck = xmlPullParser.getAttributeValue(null, "translation");
                         }
@@ -134,7 +137,7 @@ class Country implements Comparable<Country> {
         }
 
         dialogTitle = tempDialogTitle.length() > 0 ? tempDialogTitle : "Select a country";
-        searchHintMessage = tempSeachHint.length() > 0 ? tempSeachHint : "Search...";
+        searchHintMessage = tempSearchHint.length() > 0 ? tempSearchHint : "Search...";
         noResultFoundAckMessage = tempNoResultAck.length() > 0 ? tempNoResultAck : "Results not found";
         loadedLibraryMaterList = countries;
 
@@ -163,8 +166,21 @@ class Country implements Comparable<Country> {
         return noResultFoundAckMessage;
     }
 
+    public static void setDialogTitle(String dialogTitle) {
+        CCPCountry.dialogTitle = dialogTitle;
+    }
+
+    public static void setSearchHintMessage(String searchHintMessage) {
+        CCPCountry.searchHintMessage = searchHintMessage;
+    }
+
+    public static void setNoResultFoundAckMessage(String noResultFoundAckMessage) {
+        CCPCountry.noResultFoundAckMessage = noResultFoundAckMessage;
+    }
+
     /**
      * Search a country which matches @param code.
+     *
      * @param context
      * @param preferredCountries is list of preference countries.
      * @param code               phone code. i.e "91" or "1"
@@ -172,28 +188,48 @@ class Country implements Comparable<Country> {
      * or returns null if no country matches given code.
      * if same code (e.g. +1) available for more than one country ( US, canada) , this function will return preferred country.
      */
-    private static Country getCountryForCode(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, String code) {
+    public static CCPCountry getCountryForCode(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, String code) {
 
         /**
          * check in preferred countries
          */
         if (preferredCountries != null && !preferredCountries.isEmpty()) {
-            for (Country country : preferredCountries) {
-                if (country.getPhoneCode().equals(code)) {
-                    return country;
+            for (CCPCountry CCPCountry : preferredCountries) {
+                if (CCPCountry.getPhoneCode().equals(code)) {
+                    return CCPCountry;
                 }
             }
         }
 
-        for (Country country : getLibraryMasterCountryList(context, language)) {
-            if (country.getPhoneCode().equals(code)) {
-                return country;
+        for (CCPCountry CCPCountry : getLibraryMasterCountryList(context, language)) {
+            if (CCPCountry.getPhoneCode().equals(code)) {
+                return CCPCountry;
             }
         }
         return null;
     }
 
-    public static List<Country> getCustomMasterCountryList(Context context, CountryCodePicker codePicker) {
+    /**
+     * @param code phone code. i.e "91" or "1"
+     * @return Country that has phone code as @param code.
+     * or returns null if no country matches given code.
+     * if same code (e.g. +1) available for more than one country ( US, canada) , this function will return preferred country.
+     * @avoid Search a country which matches @param code. This method is just to support correct preview
+     */
+    static CCPCountry getCountryForCodeFromEnglishList(String code) {
+
+        List<CCPCountry> countries;
+        countries = getLibraryMasterCountriesEnglish();
+
+        for (CCPCountry ccpCountry : countries) {
+            if (ccpCountry.getPhoneCode().equals(code)) {
+                return ccpCountry;
+            }
+        }
+        return null;
+    }
+
+    static List<CCPCountry> getCustomMasterCountryList(Context context, CountryCodePicker codePicker) {
         codePicker.refreshCustomMasterList();
         if (codePicker.customMasterCountriesList != null && codePicker.customMasterCountriesList.size() > 0) {
             return codePicker.getCustomMasterCountriesList();
@@ -209,13 +245,13 @@ class Country implements Comparable<Country> {
      * @param customMasterCountriesList
      * @param nameCode                  country name code. i.e US or us or Au. See countries.xml for all code names.  @return Country that has phone code as @param code.
      */
-    public static Country getCountryForNameCodeFromCustomMasterList(Context context, List<Country> customMasterCountriesList, CountryCodePicker.Language language, String nameCode) {
+    static CCPCountry getCountryForNameCodeFromCustomMasterList(Context context, List<CCPCountry> customMasterCountriesList, CountryCodePicker.Language language, String nameCode) {
         if (customMasterCountriesList == null || customMasterCountriesList.size() == 0) {
             return getCountryForNameCodeFromLibraryMasterList(context, language, nameCode);
         } else {
-            for (Country country : customMasterCountriesList) {
-                if (country.getNameCode().equalsIgnoreCase(nameCode)) {
-                    return country;
+            for (CCPCountry ccpCountry : customMasterCountriesList) {
+                if (ccpCountry.getNameCode().equalsIgnoreCase(nameCode)) {
+                    return ccpCountry;
                 }
             }
         }
@@ -230,11 +266,31 @@ class Country implements Comparable<Country> {
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      */
-    public static Country getCountryForNameCodeFromLibraryMasterList(Context context, CountryCodePicker.Language language, String nameCode) {
-        List<Country> countries = Country.getLibraryMasterCountryList(context, language);
-        for (Country country : countries) {
-            if (country.getNameCode().equalsIgnoreCase(nameCode)) {
-                return country;
+    public static CCPCountry getCountryForNameCodeFromLibraryMasterList(Context context, CountryCodePicker.Language language, String nameCode) {
+        List<CCPCountry> countries;
+        countries = CCPCountry.getLibraryMasterCountryList(context, language);
+        for (CCPCountry ccpCountry : countries) {
+            if (ccpCountry.getNameCode().equalsIgnoreCase(nameCode)) {
+                return ccpCountry;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Search a country which matches @param nameCode.
+     * This searches through local english name list. This should be used only for the preview purpose.
+     *
+     * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
+     * @return Country that has phone code as @param code.
+     * or returns null if no country matches given code.
+     */
+    static CCPCountry getCountryForNameCodeFromEnglishList(String nameCode) {
+        List<CCPCountry> countries;
+        countries = getLibraryMasterCountriesEnglish();
+        for (CCPCountry CCPCountry : countries) {
+            if (CCPCountry.getNameCode().equalsIgnoreCase(nameCode)) {
+                return CCPCountry;
             }
         }
         return null;
@@ -249,7 +305,7 @@ class Country implements Comparable<Country> {
      * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      */
-    static Country getCountryForCode(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, int code) {
+    static CCPCountry getCountryForCode(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, int code) {
         return getCountryForCode(context, language, preferredCountries, code + "");
     }
 
@@ -267,7 +323,7 @@ class Country implements Comparable<Country> {
      * Country IN +91(India) for  918866667722
      * null for 2956635321 ( as neither of "2", "29" and "295" matches any country code)
      */
-    static Country getCountryForNumber(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, String fullNumber) {
+    static CCPCountry getCountryForNumber(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, String fullNumber) {
         int firstDigit;
         //String plainNumber = PhoneNumberUtil.getInstance().normalizeDigitsOnly(fullNumber);
         if (fullNumber.length() != 0) {
@@ -276,15 +332,15 @@ class Country implements Comparable<Country> {
             } else {
                 firstDigit = 0;
             }
-            Country country = null;
+            CCPCountry ccpCountry = null;
             for (int i = firstDigit; i < firstDigit + 4; i++) {
                 String code = fullNumber.substring(firstDigit, i);
                 if (code.equals("1")) {
                     return getNANPACountryForAreaCode(context, language, preferredCountries, fullNumber);
                 } else {
-                    country = Country.getCountryForCode(context, language, preferredCountries, code);
-                    if (country != null) {
-                        return country;
+                    ccpCountry = CCPCountry.getCountryForCode(context, language, preferredCountries, code);
+                    if (ccpCountry != null) {
+                        return ccpCountry;
                     }
                 }
             }
@@ -293,13 +349,30 @@ class Country implements Comparable<Country> {
     }
 
     /**
+     * Finds country code by matching substring from left to right from full number.
+     * For example. if full number is +819017901357
+     * function will ignore "+" and try to find match for first character "8"
+     * if any country found for code "8", will return that country. If not, then it will
+     * try to find country for "81". and so on till first 3 characters ( maximum number of characters in country code is 3).
+     *
+     * @param context
+     * @param fullNumber full number ( "+" (optional)+ country code + carrier number) i.e. +819017901357 / 819017901357 / 918866667722
+     * @return Country JP +81(Japan) for +819017901357 or 819017901357
+     * Country IN +91(India) for  918866667722
+     * null for 2956635321 ( as neither of "2", "29" and "295" matches any country code)
+     */
+    public static CCPCountry getCountryForNumber(Context context, CountryCodePicker.Language language, String fullNumber) {
+        return getCountryForNumber(context, language, null, fullNumber);
+    }
+
+    /**
      * Returns image res based on country name code
      *
-     * @param country
+     * @param CCPCountry
      * @return
      */
-    static int getFlagResID(Country country) {
-        switch (country.getNameCode().toLowerCase()) {
+    static int getFlagMasterResID(CCPCountry CCPCountry) {
+        switch (CCPCountry.getNameCode().toLowerCase()) {
             //this should be sorted based on country name code.
             case "ad": //andorra
                 return R.drawable.flag_andorra;
@@ -770,244 +843,244 @@ class Country implements Comparable<Country> {
      *
      * @return
      */
-    public static List<Country> getLibraryMasterCountryList(Context context, CountryCodePicker.Language language) {
+    public static List<CCPCountry> getLibraryMasterCountryList(Context context, CountryCodePicker.Language language) {
         if (loadedLibraryMasterListLanguage == null || language != loadedLibraryMasterListLanguage || loadedLibraryMaterList == null || loadedLibraryMaterList.size() == 0) { //when it is required to load country in country list
             loadDataFromXML(context, language);
         }
         return loadedLibraryMaterList;
     }
 
-    public static List<Country> getLibraryMasterCountriesEnglish() {
-        List<Country> countries = new ArrayList<>();
-        countries.add(new Country("ad", "376", "Andorra"));
-        countries.add(new Country("ae", "971", "United Arab Emirates (UAE)"));
-        countries.add(new Country("af", "93", "Afghanistan"));
-        countries.add(new Country("ag", "1", "Antigua and Barbuda"));
-        countries.add(new Country("ai", "1", "Anguilla"));
-        countries.add(new Country("al", "355", "Albania"));
-        countries.add(new Country("am", "374", "Armenia"));
-        countries.add(new Country("ao", "244", "Angola"));
-        countries.add(new Country("aq", "672", "Antarctica"));
-        countries.add(new Country("ar", "54", "Argentina"));
-        countries.add(new Country("at", "43", "Austria"));
-        countries.add(new Country("au", "61", "Australia"));
-        countries.add(new Country("aw", "297", "Aruba"));
-        countries.add(new Country("az", "994", "Azerbaijan"));
-        countries.add(new Country("ba", "387", "Bosnia And Herzegovina"));
-        countries.add(new Country("bb", "1", "Barbados"));
-        countries.add(new Country("bd", "880", "Bangladesh"));
-        countries.add(new Country("be", "32", "Belgium"));
-        countries.add(new Country("bf", "226", "Burkina Faso"));
-        countries.add(new Country("bg", "359", "Bulgaria"));
-        countries.add(new Country("bh", "973", "Bahrain"));
-        countries.add(new Country("bi", "257", "Burundi"));
-        countries.add(new Country("bj", "229", "Benin"));
-        countries.add(new Country("bl", "590", "Saint Barthélemy"));
-        countries.add(new Country("bm", "1", "Bermuda"));
-        countries.add(new Country("bn", "673", "Brunei Darussalam"));
-        countries.add(new Country("bo", "591", "Bolivia, Plurinational State Of"));
-        countries.add(new Country("br", "55", "Brazil"));
-        countries.add(new Country("bs", "1", "Bahamas"));
-        countries.add(new Country("bt", "975", "Bhutan"));
-        countries.add(new Country("bw", "267", "Botswana"));
-        countries.add(new Country("by", "375", "Belarus"));
-        countries.add(new Country("bz", "501", "Belize"));
-        countries.add(new Country("ca", "1", "Canada"));
-        countries.add(new Country("cc", "61", "Cocos (keeling) Islands"));
-        countries.add(new Country("cd", "243", "Congo, The Democratic Republic Of The"));
-        countries.add(new Country("cf", "236", "Central African Republic"));
-        countries.add(new Country("cg", "242", "Congo"));
-        countries.add(new Country("ch", "41", "Switzerland"));
-        countries.add(new Country("ci", "225", "Côte D'ivoire"));
-        countries.add(new Country("ck", "682", "Cook Islands"));
-        countries.add(new Country("cl", "56", "Chile"));
-        countries.add(new Country("cm", "237", "Cameroon"));
-        countries.add(new Country("cn", "86", "China"));
-        countries.add(new Country("co", "57", "Colombia"));
-        countries.add(new Country("cr", "506", "Costa Rica"));
-        countries.add(new Country("cu", "53", "Cuba"));
-        countries.add(new Country("cv", "238", "Cape Verde"));
-        countries.add(new Country("cx", "61", "Christmas Island"));
-        countries.add(new Country("cy", "357", "Cyprus"));
-        countries.add(new Country("cz", "420", "Czech Republic"));
-        countries.add(new Country("de", "49", "Germany"));
-        countries.add(new Country("dj", "253", "Djibouti"));
-        countries.add(new Country("dk", "45", "Denmark"));
-        countries.add(new Country("dm", "1", "Dominica"));
-        countries.add(new Country("do", "1", "Dominican Republic"));
-        countries.add(new Country("dz", "213", "Algeria"));
-        countries.add(new Country("ec", "593", "Ecuador"));
-        countries.add(new Country("ee", "372", "Estonia"));
-        countries.add(new Country("eg", "20", "Egypt"));
-        countries.add(new Country("er", "291", "Eritrea"));
-        countries.add(new Country("es", "34", "Spain"));
-        countries.add(new Country("et", "251", "Ethiopia"));
-        countries.add(new Country("fi", "358", "Finland"));
-        countries.add(new Country("fj", "679", "Fiji"));
-        countries.add(new Country("fk", "500", "Falkland Islands (malvinas)"));
-        countries.add(new Country("fm", "691", "Micronesia, Federated States Of"));
-        countries.add(new Country("fo", "298", "Faroe Islands"));
-        countries.add(new Country("fr", "33", "France"));
-        countries.add(new Country("ga", "241", "Gabon"));
-        countries.add(new Country("gb", "44", "United Kingdom"));
-        countries.add(new Country("gd", "1", "Grenada"));
-        countries.add(new Country("ge", "995", "Georgia"));
-        countries.add(new Country("gf", "594", "French Guyana"));
-        countries.add(new Country("gh", "233", "Ghana"));
-        countries.add(new Country("gi", "350", "Gibraltar"));
-        countries.add(new Country("gl", "299", "Greenland"));
-        countries.add(new Country("gm", "220", "Gambia"));
-        countries.add(new Country("gn", "224", "Guinea"));
-        countries.add(new Country("gq", "240", "Equatorial Guinea"));
-        countries.add(new Country("gr", "30", "Greece"));
-        countries.add(new Country("gt", "502", "Guatemala"));
-        countries.add(new Country("gw", "245", "Guinea-bissau"));
-        countries.add(new Country("gy", "592", "Guyana"));
-        countries.add(new Country("hk", "852", "Hong Kong"));
-        countries.add(new Country("hn", "504", "Honduras"));
-        countries.add(new Country("hr", "385", "Croatia"));
-        countries.add(new Country("ht", "509", "Haiti"));
-        countries.add(new Country("hu", "36", "Hungary"));
-        countries.add(new Country("id", "62", "Indonesia"));
-        countries.add(new Country("ie", "353", "Ireland"));
-        countries.add(new Country("il", "972", "Israel"));
-        countries.add(new Country("im", "44", "Isle Of Man"));
-        countries.add(new Country("is", "354", "Iceland"));
-        countries.add(new Country("in", "91", "India"));
-        countries.add(new Country("iq", "964", "Iraq"));
-        countries.add(new Country("ir", "98", "Iran, Islamic Republic Of"));
-        countries.add(new Country("it", "39", "Italy"));
-        countries.add(new Country("jm", "1", "Jamaica"));
-        countries.add(new Country("jo", "962", "Jordan"));
-        countries.add(new Country("jp", "81", "Japan"));
-        countries.add(new Country("ke", "254", "Kenya"));
-        countries.add(new Country("kg", "996", "Kyrgyzstan"));
-        countries.add(new Country("kh", "855", "Cambodia"));
-        countries.add(new Country("ki", "686", "Kiribati"));
-        countries.add(new Country("km", "269", "Comoros"));
-        countries.add(new Country("kn", "1", "Saint Kitts and Nevis"));
-        countries.add(new Country("kp", "850", "North Korea"));
-        countries.add(new Country("kr", "82", "South Korea"));
-        countries.add(new Country("kw", "965", "Kuwait"));
-        countries.add(new Country("ky", "1", "Cayman Islands"));
-        countries.add(new Country("kz", "7", "Kazakhstan"));
-        countries.add(new Country("la", "856", "Lao People's Democratic Republic"));
-        countries.add(new Country("lb", "961", "Lebanon"));
-        countries.add(new Country("lc", "1", "Saint Lucia"));
-        countries.add(new Country("li", "423", "Liechtenstein"));
-        countries.add(new Country("lk", "94", "Sri Lanka"));
-        countries.add(new Country("lr", "231", "Liberia"));
-        countries.add(new Country("ls", "266", "Lesotho"));
-        countries.add(new Country("lt", "370", "Lithuania"));
-        countries.add(new Country("lu", "352", "Luxembourg"));
-        countries.add(new Country("lv", "371", "Latvia"));
-        countries.add(new Country("ly", "218", "Libya"));
-        countries.add(new Country("ma", "212", "Morocco"));
-        countries.add(new Country("mc", "377", "Monaco"));
-        countries.add(new Country("md", "373", "Moldova, Republic Of"));
-        countries.add(new Country("me", "382", "Montenegro"));
-        countries.add(new Country("mg", "261", "Madagascar"));
-        countries.add(new Country("mh", "692", "Marshall Islands"));
-        countries.add(new Country("mk", "389", "Macedonia, The Former Yugoslav Republic Of"));
-        countries.add(new Country("ml", "223", "Mali"));
-        countries.add(new Country("mm", "95", "Myanmar"));
-        countries.add(new Country("mn", "976", "Mongolia"));
-        countries.add(new Country("mo", "853", "Macao"));
-        countries.add(new Country("mq", "596", "Martinique"));
-        countries.add(new Country("mr", "222", "Mauritania"));
-        countries.add(new Country("ms", "1", "Montserrat"));
-        countries.add(new Country("mt", "356", "Malta"));
-        countries.add(new Country("mu", "230", "Mauritius"));
-        countries.add(new Country("mv", "960", "Maldives"));
-        countries.add(new Country("mw", "265", "Malawi"));
-        countries.add(new Country("mx", "52", "Mexico"));
-        countries.add(new Country("my", "60", "Malaysia"));
-        countries.add(new Country("mz", "258", "Mozambique"));
-        countries.add(new Country("na", "264", "Namibia"));
-        countries.add(new Country("nc", "687", "New Caledonia"));
-        countries.add(new Country("ne", "227", "Niger"));
-        countries.add(new Country("ng", "234", "Nigeria"));
-        countries.add(new Country("ni", "505", "Nicaragua"));
-        countries.add(new Country("nl", "31", "Netherlands"));
-        countries.add(new Country("no", "47", "Norway"));
-        countries.add(new Country("np", "977", "Nepal"));
-        countries.add(new Country("nr", "674", "Nauru"));
-        countries.add(new Country("nu", "683", "Niue"));
-        countries.add(new Country("nz", "64", "New Zealand"));
-        countries.add(new Country("om", "968", "Oman"));
-        countries.add(new Country("pa", "507", "Panama"));
-        countries.add(new Country("pe", "51", "Peru"));
-        countries.add(new Country("pf", "689", "French Polynesia"));
-        countries.add(new Country("pg", "675", "Papua New Guinea"));
-        countries.add(new Country("ph", "63", "Philippines"));
-        countries.add(new Country("pk", "92", "Pakistan"));
-        countries.add(new Country("pl", "48", "Poland"));
-        countries.add(new Country("pm", "508", "Saint Pierre And Miquelon"));
-        countries.add(new Country("pn", "870", "Pitcairn"));
-        countries.add(new Country("pr", "1", "Puerto Rico"));
-        countries.add(new Country("ps", "970", "Palestine"));
-        countries.add(new Country("pt", "351", "Portugal"));
-        countries.add(new Country("pw", "680", "Palau"));
-        countries.add(new Country("py", "595", "Paraguay"));
-        countries.add(new Country("qa", "974", "Qatar"));
-        countries.add(new Country("re", "262", "Réunion"));
-        countries.add(new Country("ro", "40", "Romania"));
-        countries.add(new Country("rs", "381", "Serbia"));
-        countries.add(new Country("ru", "7", "Russian Federation"));
-        countries.add(new Country("rw", "250", "Rwanda"));
-        countries.add(new Country("sa", "966", "Saudi Arabia"));
-        countries.add(new Country("sb", "677", "Solomon Islands"));
-        countries.add(new Country("sc", "248", "Seychelles"));
-        countries.add(new Country("sd", "249", "Sudan"));
-        countries.add(new Country("se", "46", "Sweden"));
-        countries.add(new Country("sg", "65", "Singapore"));
-        countries.add(new Country("sh", "290", "Saint Helena, Ascension And Tristan Da Cunha"));
-        countries.add(new Country("si", "386", "Slovenia"));
-        countries.add(new Country("sk", "421", "Slovakia"));
-        countries.add(new Country("sl", "232", "Sierra Leone"));
-        countries.add(new Country("sm", "378", "San Marino"));
-        countries.add(new Country("sn", "221", "Senegal"));
-        countries.add(new Country("so", "252", "Somalia"));
-        countries.add(new Country("sr", "597", "Suriname"));
-        countries.add(new Country("st", "239", "Sao Tome And Principe"));
-        countries.add(new Country("sv", "503", "El Salvador"));
-        countries.add(new Country("sx", "1", "Sint Maarten"));
-        countries.add(new Country("sy", "963", "Syrian Arab Republic"));
-        countries.add(new Country("sz", "268", "Swaziland"));
-        countries.add(new Country("tc", "1", "Turks and Caicos Islands"));
-        countries.add(new Country("td", "235", "Chad"));
-        countries.add(new Country("tg", "228", "Togo"));
-        countries.add(new Country("th", "66", "Thailand"));
-        countries.add(new Country("tj", "992", "Tajikistan"));
-        countries.add(new Country("tk", "690", "Tokelau"));
-        countries.add(new Country("tl", "670", "Timor-leste"));
-        countries.add(new Country("tm", "993", "Turkmenistan"));
-        countries.add(new Country("tn", "216", "Tunisia"));
-        countries.add(new Country("to", "676", "Tonga"));
-        countries.add(new Country("tr", "90", "Turkey"));
-        countries.add(new Country("tt", "1", "Trinidad &amp; Tobago"));
-        countries.add(new Country("tv", "688", "Tuvalu"));
-        countries.add(new Country("tw", "886", "Taiwan"));
-        countries.add(new Country("tz", "255", "Tanzania, United Republic Of"));
-        countries.add(new Country("ua", "380", "Ukraine"));
-        countries.add(new Country("ug", "256", "Uganda"));
-        countries.add(new Country("us", "1", "United States"));
-        countries.add(new Country("uy", "598", "Uruguay"));
-        countries.add(new Country("uz", "998", "Uzbekistan"));
-        countries.add(new Country("va", "379", "Holy See (vatican City State)"));
-        countries.add(new Country("vc", "1", "Saint Vincent &amp; The Grenadines"));
-        countries.add(new Country("ve", "58", "Venezuela, Bolivarian Republic Of"));
-        countries.add(new Country("vg", "1", "British Virgin Islands"));
-        countries.add(new Country("vi", "1", "US Virgin Islands"));
-        countries.add(new Country("vn", "84", "Viet Nam"));
-        countries.add(new Country("vu", "678", "Vanuatu"));
-        countries.add(new Country("wf", "681", "Wallis And Futuna"));
-        countries.add(new Country("ws", "685", "Samoa"));
-        countries.add(new Country("ye", "967", "Yemen"));
-        countries.add(new Country("yt", "262", "Mayotte"));
-        countries.add(new Country("za", "27", "South Africa"));
-        countries.add(new Country("zm", "260", "Zambia"));
-        countries.add(new Country("zw", "263", "Zimbabwe"));
+    public static List<CCPCountry> getLibraryMasterCountriesEnglish() {
+        List<CCPCountry> countries = new ArrayList<>();
+        countries.add(new CCPCountry("ad", "376", "Andorra", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ae", "971", "United Arab Emirates (UAE)", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("af", "93", "Afghanistan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ag", "1", "Antigua and Barbuda", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ai", "1", "Anguilla", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("al", "355", "Albania", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("am", "374", "Armenia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ao", "244", "Angola", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("aq", "672", "Antarctica", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ar", "54", "Argentina", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("at", "43", "Austria", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("au", "61", "Australia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("aw", "297", "Aruba", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("az", "994", "Azerbaijan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ba", "387", "Bosnia And Herzegovina", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bb", "1", "Barbados", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bd", "880", "Bangladesh", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("be", "32", "Belgium", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bf", "226", "Burkina Faso", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bg", "359", "Bulgaria", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bh", "973", "Bahrain", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bi", "257", "Burundi", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bj", "229", "Benin", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bl", "590", "Saint Barthélemy", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bm", "1", "Bermuda", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bn", "673", "Brunei Darussalam", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bo", "591", "Bolivia, Plurinational State Of", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("br", "55", "Brazil", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bs", "1", "Bahamas", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bt", "975", "Bhutan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bw", "267", "Botswana", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("by", "375", "Belarus", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("bz", "501", "Belize", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ca", "1", "Canada", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cc", "61", "Cocos (keeling) Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cd", "243", "Congo, The Democratic Republic Of The", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cf", "236", "Central African Republic", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cg", "242", "Congo", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ch", "41", "Switzerland", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ci", "225", "Côte D'ivoire", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ck", "682", "Cook Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cl", "56", "Chile", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cm", "237", "Cameroon", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cn", "86", "China", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("co", "57", "Colombia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cr", "506", "Costa Rica", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cu", "53", "Cuba", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cv", "238", "Cape Verde", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cx", "61", "Christmas Island", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cy", "357", "Cyprus", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cz", "420", "Czech Republic", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("de", "49", "Germany", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("dj", "253", "Djibouti", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("dk", "45", "Denmark", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("dm", "1", "Dominica", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("do", "1", "Dominican Republic", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("dz", "213", "Algeria", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ec", "593", "Ecuador", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ee", "372", "Estonia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("eg", "20", "Egypt", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("er", "291", "Eritrea", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("es", "34", "Spain", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("et", "251", "Ethiopia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("fi", "358", "Finland", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("fj", "679", "Fiji", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("fk", "500", "Falkland Islands (malvinas)", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("fm", "691", "Micronesia, Federated States Of", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("fo", "298", "Faroe Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("fr", "33", "France", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ga", "241", "Gabon", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gb", "44", "United Kingdom", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gd", "1", "Grenada", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ge", "995", "Georgia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gf", "594", "French Guyana", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gh", "233", "Ghana", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gi", "350", "Gibraltar", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gl", "299", "Greenland", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gm", "220", "Gambia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gn", "224", "Guinea", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gq", "240", "Equatorial Guinea", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gr", "30", "Greece", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gt", "502", "Guatemala", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gw", "245", "Guinea-bissau", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gy", "592", "Guyana", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("hk", "852", "Hong Kong", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("hn", "504", "Honduras", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("hr", "385", "Croatia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ht", "509", "Haiti", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("hu", "36", "Hungary", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("id", "62", "Indonesia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ie", "353", "Ireland", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("il", "972", "Israel", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("im", "44", "Isle Of Man", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("is", "354", "Iceland", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("in", "91", "India", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("iq", "964", "Iraq", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ir", "98", "Iran, Islamic Republic Of", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("it", "39", "Italy", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("jm", "1", "Jamaica", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("jo", "962", "Jordan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("jp", "81", "Japan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ke", "254", "Kenya", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("kg", "996", "Kyrgyzstan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("kh", "855", "Cambodia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ki", "686", "Kiribati", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("km", "269", "Comoros", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("kn", "1", "Saint Kitts and Nevis", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("kp", "850", "North Korea", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("kr", "82", "South Korea", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("kw", "965", "Kuwait", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ky", "1", "Cayman Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("kz", "7", "Kazakhstan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("la", "856", "Lao People's Democratic Republic", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("lb", "961", "Lebanon", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("lc", "1", "Saint Lucia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("li", "423", "Liechtenstein", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("lk", "94", "Sri Lanka", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("lr", "231", "Liberia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ls", "266", "Lesotho", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("lt", "370", "Lithuania", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("lu", "352", "Luxembourg", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("lv", "371", "Latvia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ly", "218", "Libya", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ma", "212", "Morocco", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mc", "377", "Monaco", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("md", "373", "Moldova, Republic Of", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("me", "382", "Montenegro", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mg", "261", "Madagascar", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mh", "692", "Marshall Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mk", "389", "Macedonia, The Former Yugoslav Republic Of", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ml", "223", "Mali", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mm", "95", "Myanmar", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mn", "976", "Mongolia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mo", "853", "Macao", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mq", "596", "Martinique", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mr", "222", "Mauritania", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ms", "1", "Montserrat", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mt", "356", "Malta", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mu", "230", "Mauritius", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mv", "960", "Maldives", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mw", "265", "Malawi", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mx", "52", "Mexico", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("my", "60", "Malaysia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mz", "258", "Mozambique", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("na", "264", "Namibia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("nc", "687", "New Caledonia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ne", "227", "Niger", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ng", "234", "Nigeria", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ni", "505", "Nicaragua", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("nl", "31", "Netherlands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("no", "47", "Norway", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("np", "977", "Nepal", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("nr", "674", "Nauru", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("nu", "683", "Niue", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("nz", "64", "New Zealand", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("om", "968", "Oman", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pa", "507", "Panama", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pe", "51", "Peru", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pf", "689", "French Polynesia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pg", "675", "Papua New Guinea", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ph", "63", "Philippines", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pk", "92", "Pakistan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pl", "48", "Poland", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pm", "508", "Saint Pierre And Miquelon", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pn", "870", "Pitcairn", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pr", "1", "Puerto Rico", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ps", "970", "Palestine", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pt", "351", "Portugal", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("pw", "680", "Palau", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("py", "595", "Paraguay", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("qa", "974", "Qatar", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("re", "262", "Réunion", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ro", "40", "Romania", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("rs", "381", "Serbia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ru", "7", "Russian Federation", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("rw", "250", "Rwanda", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sa", "966", "Saudi Arabia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sb", "677", "Solomon Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sc", "248", "Seychelles", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sd", "249", "Sudan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("se", "46", "Sweden", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sg", "65", "Singapore", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sh", "290", "Saint Helena, Ascension And Tristan Da Cunha", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("si", "386", "Slovenia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sk", "421", "Slovakia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sl", "232", "Sierra Leone", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sm", "378", "San Marino", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sn", "221", "Senegal", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("so", "252", "Somalia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sr", "597", "Suriname", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("st", "239", "Sao Tome And Principe", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sv", "503", "El Salvador", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sx", "1", "Sint Maarten", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sy", "963", "Syrian Arab Republic", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("sz", "268", "Swaziland", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tc", "1", "Turks and Caicos Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("td", "235", "Chad", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tg", "228", "Togo", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("th", "66", "Thailand", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tj", "992", "Tajikistan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tk", "690", "Tokelau", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tl", "670", "Timor-leste", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tm", "993", "Turkmenistan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tn", "216", "Tunisia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("to", "676", "Tonga", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tr", "90", "Turkey", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tt", "1", "Trinidad &amp; Tobago", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tv", "688", "Tuvalu", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tw", "886", "Taiwan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("tz", "255", "Tanzania, United Republic Of", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ua", "380", "Ukraine", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ug", "256", "Uganda", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("us", "1", "United States", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("uy", "598", "Uruguay", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("uz", "998", "Uzbekistan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("va", "379", "Holy See (vatican City State)", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("vc", "1", "Saint Vincent &amp; The Grenadines", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ve", "58", "Venezuela, Bolivarian Republic Of", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("vg", "1", "British Virgin Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("vi", "1", "US Virgin Islands", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("vn", "84", "Viet Nam", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("vu", "678", "Vanuatu", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("wf", "681", "Wallis And Futuna", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ws", "685", "Samoa", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("ye", "967", "Yemen", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("yt", "262", "Mayotte", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("za", "27", "South Africa", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("zm", "260", "Zambia", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("zw", "263", "Zimbabwe", DEFAULT_FLAG_RES));
         return countries;
     }
 
@@ -1021,7 +1094,7 @@ class Country implements Comparable<Country> {
      * @param preferredCountries
      * @param phoneNumber        @return
      */
-    private static Country getNANPACountryForAreaCode(Context context, CountryCodePicker.Language language, List<Country> preferredCountries, String phoneNumber) {
+    private static CCPCountry getNANPACountryForAreaCode(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, String phoneNumber) {
         String nameCode = "us";
         String areaCode = "";
         //trim out + from number
@@ -1032,7 +1105,7 @@ class Country implements Comparable<Country> {
 
         //when number is partial and area code can not be detected, in that case country will be detected normally
         if (areaCode.length() != 3) {
-            return Country.getCountryForCode(context, language, preferredCountries, "1");
+            return CCPCountry.getCountryForCode(context, language, preferredCountries, "1");
         }
 
         //if valid area code is detected then detect country based on it.
@@ -1071,7 +1144,10 @@ class Country implements Comparable<Country> {
     }
 
     public int getFlagID() {
-        return getFlagResID(this);
+        if (flagResID == -99) {
+            flagResID = getFlagMasterResID(this);
+        }
+        return flagResID;
     }
 
     public String getNameCode() {
@@ -1106,7 +1182,7 @@ class Country implements Comparable<Country> {
         }
     }
 
-    public String logString() {
+    String logString() {
         return nameCode.toUpperCase() + " +" + phoneCode + "(" + name + ")";
     }
 
@@ -1116,13 +1192,13 @@ class Country implements Comparable<Country> {
      * @param query
      * @return
      */
-    public boolean isEligibleForQuery(String query) {
+    boolean isEligibleForQuery(String query) {
         query = query.toLowerCase();
         return getName().toLowerCase().contains(query) || getNameCode().toLowerCase().contains(query) || getPhoneCode().toLowerCase().contains(query) || getEnglishName().toLowerCase().contains(query);
     }
 
     @Override
-    public int compareTo(@NonNull Country o) {
+    public int compareTo(@NonNull CCPCountry o) {
         return Collator.getInstance().compare(getName(), o.getName());
     }
 }
