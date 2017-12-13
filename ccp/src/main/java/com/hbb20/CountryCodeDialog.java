@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 
 import com.futuremind.recyclerviewfastscroll.FastScroller;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 /**
@@ -105,6 +108,7 @@ class CountryCodeDialog {
         if (codePicker.getDialogSearchEditTextTintColor() != 0) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 editText_search.setBackgroundTintList(ColorStateList.valueOf(codePicker.getDialogSearchEditTextTintColor()));
+                setCursorColor(editText_search, codePicker.getDialogSearchEditTextTintColor());
             }
         }
 
@@ -186,6 +190,65 @@ class CountryCodeDialog {
                 view = new View(activity);
             }
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    private static final Field
+            sEditorField,
+            sCursorDrawableField,
+            sCursorDrawableResourceField;
+
+    static {
+        Field editorField = null;
+        Field cursorDrawableField = null;
+        Field cursorDrawableResourceField = null;
+        boolean exceptionThrown = false;
+        try {
+            cursorDrawableResourceField = TextView.class.getDeclaredField("mCursorDrawableRes");
+            cursorDrawableResourceField.setAccessible(true);
+            final Class<?> drawableFieldClass;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+                drawableFieldClass = TextView.class;
+            } else {
+                editorField = TextView.class.getDeclaredField("mEditor");
+                editorField.setAccessible(true);
+                drawableFieldClass = editorField.getType();
+            }
+            cursorDrawableField = drawableFieldClass.getDeclaredField("mCursorDrawable");
+            cursorDrawableField.setAccessible(true);
+        } catch (Exception e) {
+            exceptionThrown = true;
+        }
+        if (exceptionThrown) {
+            sEditorField = null;
+            sCursorDrawableField = null;
+            sCursorDrawableResourceField = null;
+        } else {
+            sEditorField = editorField;
+            sCursorDrawableField = cursorDrawableField;
+            sCursorDrawableResourceField = cursorDrawableResourceField;
+        }
+    }
+
+    static void setCursorColor(EditText editText, int color) {
+        if (sCursorDrawableField == null) {
+            return;
+        }
+        try {
+            final Drawable drawable = getDrawable(editText.getContext(),
+                    sCursorDrawableResourceField.getInt(editText));
+            drawable.setColorFilter(color, PorterDuff.Mode.SRC_IN);
+            sCursorDrawableField.set(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN
+                    ? editText : sEditorField.get(editText), new Drawable[]{drawable, drawable});
+        } catch (Exception ignored) {
+        }
+    }
+
+    private static Drawable getDrawable(Context context, int id) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            return context.getResources().getDrawable(id);
+        } else {
+            return context.getDrawable(id);
         }
     }
 }
