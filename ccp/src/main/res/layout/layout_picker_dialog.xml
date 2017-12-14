@@ -29,7 +29,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:alpha="0.7"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/ccp_selectable_bg"
             android:clickable="true"
             android:padding="4dp"
             android:src="@drawable/ic_clear_black_24dp" />
@@ -60,7 +60,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:alpha="0.7"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/ccp_selectable_bg"
             android:clickable="true"
             android:padding="10dp"
             android:src="@drawable/ic_backspace_black_24dp" />
