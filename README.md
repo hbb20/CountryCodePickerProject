@@ -27,16 +27,14 @@ Add this to your gradle file and sync
 
   ````groovy
     dependencies {
-      compile 'com.hbb20:ccp:2.1.0'
+      compile 'com.hbb20:ccp:2.1.1'
     }
   ````
   What's new?
-  > - Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE) [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/Auto-detect-country)
-  > - Now default value for ccp_autoDetectCountry is *false* instead of true.
-  > - Option to remember last selection. [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_rememberlastselectiontrue-default--false-)
-  > - Uses android's port instead of libphonenumber. ([Suggestion](https://github.com/hbb20/CountryCodePickerProject/issues/127))
+  > - Auto detects country while typing area code (among multiple countries with code "+1") 
+  > - Option to remember last selection.
 
-  *If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
+  * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
 
 Features
 --------
@@ -62,10 +60,16 @@ If you prefer experience along with explanations, an demo android app is availab
 
 
 ## Available XML properties
-To check all xml properties available for CCP and CCP Selection Dialog, please visit the [wiki page](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties).
+To check all xml properties available for CCP and CCP Selection ppDialog, please visit the [wiki page](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties).
 
 Change log
 --------
+##### version 2.1.1 (Dec 13, 2017)
+- Opens Country class (Renamed to "CCPCountry" to avoid naming confusion) ([issue#136](https://github.com/hbb20/CountryCodePickerProject/issues/136))
+- Fixes preview in Android Studio 3
+- Auto detects country while typing based on area code (for countries with code "+1") ([issue#140](https://github.com/hbb20/CountryCodePickerProject/issues/140))
+- Cursor color follows ccpDialog_searchEditTextTint color ([issue#131](https://github.com/hbb20/CountryCodePickerProject/issues/131))
+- Possible fix for crash ([issue#67](https://github.com/hbb20/CountryCodePickerProject/issues/67))
 
 ##### version 2.1.0 (Nov 17, 2017)
 - Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE) [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/Auto-detect-country)
@@ -81,15 +85,6 @@ Change log
 - Corrects Myanmar flag
 - Applies TypeFace to dialog text as well. [Read wiki.](https://github.com/hbb20/CountryCodePickerProject/wiki/Custom-TypeFace-(FontFamily))
 
-##### version 2.0.7 (Oct 28, 2017)
-- Dialog events callback listeners
-- Option to change visibility of down arrow
-- Adds UAE as part of name
-- Country name corrections for German language
-- Corrects phone code for holy see
-- Fixes crash for turkish language (for some devices)
-- Option to get country's english name irrespective of selected language
-- Corrects Turkey flag 
 
 For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).
 
@@ -111,8 +106,11 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Dutch language support by [Bozintan Iuliana](https://github.com/IulianaDiana)
 
 
-## Want to add new language support?
-Follow the [guide to add new language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Add-New-Language-Support).
+# Contribution
+- To add a new country, follow the [guide for add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).
+- To add a new Language support, follow the [guide for add new language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Add-New-Language-Support).
+
+
 
 ## License
 
