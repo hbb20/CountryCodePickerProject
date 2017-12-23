@@ -13,7 +13,8 @@
 
                 <TextView
                     style="@style/fragmentTitle"
-                    android:text="Introduction" />
+                    android:text="Introduction"
+                   />
 
                 <TextView
                     style="@style/fragmentSubTitle"
@@ -113,6 +114,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                app:ccp_defaultLanguage="PUNJABI"
                                 app:ccpDialog_allowSearch="true"
                                 app:ccp_defaultNameCode="nz"
                                 app:ccp_rememberLastSelection="true"
