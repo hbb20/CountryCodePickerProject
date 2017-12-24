@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import in.hbb20.countrycodepickerproject.R;
+
 public class HomeActivity extends AppCompatActivity {
 
     TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;
