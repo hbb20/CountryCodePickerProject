@@ -64,6 +64,10 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 --------
+##### Next version (Under development)
+- Adds Punjabi language support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/141) By [Dhruv Bhakta](https://github.com/DBB411)
+
+
 ##### version 2.1.1 (Dec 13, 2017)
 - Opens Country class (Renamed to "CCPCountry" to avoid naming confusion) ([issue#136](https://github.com/hbb20/CountryCodePickerProject/issues/136))
 - Fixes preview in Android Studio 3
@@ -104,6 +108,7 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Portuguese translation corrections by [Elifázio Bernardes da Silva](https://github.com/elifazio)
 - Flag border color option by [Maulana Firdaus](https://github.com/firdausmaulan)
 - Dutch language support by [Bozintan Iuliana](https://github.com/IulianaDiana)
+- Punjabi language support by [Dhruv Bhakta](https://github.com/DBB411)
 
 
 # Contribution
