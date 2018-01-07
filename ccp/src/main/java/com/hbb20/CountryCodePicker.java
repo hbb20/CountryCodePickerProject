@@ -599,12 +599,20 @@ public class CountryCodePicker extends RelativeLayout {
         //        Log.d(TAG, "Setting default country:" + defaultCountry.logString());
     }
 
-    private TextView getTextView_selectedCountry() {
+    public TextView getTextView_selectedCountry() {
         return textView_selectedCountry;
     }
 
-    private void setTextView_selectedCountry(TextView textView_selectedCountry) {
+    public void setTextView_selectedCountry(TextView textView_selectedCountry) {
         this.textView_selectedCountry = textView_selectedCountry;
+    }
+
+    public ImageView getImageViewFlag() {
+        return imageViewFlag;
+    }
+
+    public void setImageViewFlag(ImageView imageViewFlag) {
+        this.imageViewFlag = imageViewFlag;
     }
 
     private CCPCountry getSelectedCountry() {
@@ -1987,5 +1995,6 @@ public class CountryCodePicker extends RelativeLayout {
 
         void onCcpDialogCancel(DialogInterface dialogInterface);
     }
+
 
 }

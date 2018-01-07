@@ -66,6 +66,8 @@ Change log
 --------
 ##### Next version (Under development)
 - Adds Punjabi language support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/141) By [Dhruv Bhakta](https://github.com/DBB411)
+- Corrected Arabic translation by [Ahmed Wahdan](https://github.com/WahdanZ)
+- Country name textView, Flag imageView, Arrow imageView are now publicly accessible through getter-setters.  
 
 
 ##### version 2.1.1 (Dec 13, 2017)
