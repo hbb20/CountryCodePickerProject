@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <messages>
-        <ccp_dialog_title translation="حدد الدولة"/>
+        <ccp_dialog_title translation="اختار دولة" />
         <ccp_dialog_search_hint_message translation="بحث"/>
-        <ccp_dialog_no_result_ack_message translation="يؤدي لم يتم العثور"/>
+        <ccp_dialog_no_result_ack_message translation=" لا يوجد نتائج" />
     </messages>
 
     <countries>
@@ -28,7 +28,7 @@
             name_code="ag"
             phone_code="1"/>
         <country
-            name="أنغيلا"
+            name="أنغويلا"
             english_name="Anguilla"
             name_code="ai"
             phone_code="1"/>
@@ -83,7 +83,7 @@
             name_code="ba"
             phone_code="387"/>
         <country
-            name="بربادوس"
+            name="باربادوس"
             english_name="Barbados"
             name_code="bb"
             phone_code="1"/>
@@ -133,12 +133,12 @@
             name_code="bm"
             phone_code="1"/>
         <country
-            name="بروناي دار السلام"
+            name="بروناي"
             english_name="Brunei Darussalam"
             name_code="bn"
             phone_code="673"/>
         <country
-            name="دولة بوليفيا المتعددة القوميات"
+            name="بوليفيا"
             english_name="Bolivia, Plurinational State Of"
             name_code="bo"
             phone_code="591"/>
@@ -148,7 +148,7 @@
             name_code="br"
             phone_code="55"/>
         <country
-            name="الباهاما"
+            name="باهاماس"
             english_name="Bahamas"
             name_code="bs"
             phone_code="1"/>
@@ -178,12 +178,12 @@
             name_code="ca"
             phone_code="1"/>
         <country
-            name="جزر كوكوس (كيلينغ)"
+            name="جزر كوكوس"
             english_name="Cocos (keeling) Islands"
             name_code="cc"
             phone_code="61"/>
         <country
-            name="الكونغو، جمهورية الكونغو الديمقراطية لل"
+            name="الكونفو"
             english_name="Congo, The Democratic Republic Of The"
             name_code="cd"
             phone_code="243"/>
@@ -203,7 +203,7 @@
             name_code="ch"
             phone_code="41"/>
         <country
-            name="كوت D &amp; أبوس]؛ ديفوار"
+            name="ساحل العاج"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225"/>
@@ -333,17 +333,17 @@
             name_code="fj"
             phone_code="679"/>
         <country
-            name="جزر فوكلاند (مالفيناس)"
+            name="جزر فوكلاند"
             english_name="Falkland Islands (malvinas)"
             name_code="fk"
             phone_code="500"/>
         <country
-            name="ولايات ميكرونيزيا الموحدة من"
+            name="ولايات ميكرونيسيا المتحدة"
             english_name="Micronesia, Federated States Of"
             name_code="fm"
             phone_code="691"/>
         <country
-            name="جزر صناعية"
+            name="جزر فارو"
             english_name="Faroe Islands"
             name_code="fo"
             phone_code="298"/>
@@ -373,7 +373,7 @@
             name_code="ge"
             phone_code="995"/>
         <country
-            name="جويانا الفرنسية"
+            name="غويانا الفرنسية"
             english_name="French Guyana"
             name_code="gf"
             phone_code="594"/>
@@ -388,7 +388,7 @@
             name_code="gi"
             phone_code="350"/>
         <country
-            name="الأرض الخضراء"
+            name="جرينلاند"
             english_name="Greenland"
             name_code="gl"
             phone_code="299"/>
@@ -448,7 +448,7 @@
             name_code="ht"
             phone_code="509"/>
         <country
-            name="هنغاريا"
+            name="المجر"
             english_name="Hungary"
             name_code="hu"
             phone_code="36"/>
@@ -458,7 +458,7 @@
             name_code="id"
             phone_code="62"/>
         <country
-            name="أيرلندا"
+            name="جمهورية أيرلندا"
             english_name="Ireland"
             name_code="ie"
             phone_code="353"/>
@@ -468,12 +468,12 @@
             name_code="il"
             phone_code="972"/>
         <country
-            name="جزيرة آيل أوف مان"
+            name="جزيرة مان"
             english_name="Isle Of Man"
             name_code="im"
             phone_code="44"/>
         <country
-            name="أيسلندا"
+            name="آيسلندا"
             english_name="Iceland"
             name_code="is"
             phone_code="354" />
@@ -488,7 +488,7 @@
             name_code="iq"
             phone_code="964"/>
         <country
-            name="إيران، الجمهورية الإسلامية"
+            name="إيران"
             english_name="Iran, Islamic Republic Of"
             name_code="ir"
             phone_code="98"/>
@@ -528,7 +528,7 @@
             name_code="kh"
             phone_code="855"/>
         <country
-            name="كيريباس"
+            name="كيريباتي"
             english_name="Kiribati"
             name_code="ki"
             phone_code="686"/>
@@ -543,12 +543,12 @@
             name_code="kn"
             phone_code="1"/>
         <country
-            name="كوريا الشعبية الديمقراطية تضمينه في جمهورية"
+            name="كوريا الشمالية"
             english_name="North Korea"
             name_code="kp"
             phone_code="850"/>
         <country
-            name="كوريا"
+            name="كوريا الجنوبية"
             english_name="South Korea"
             name_code="kr"
             phone_code="82"/>
@@ -568,7 +568,7 @@
             name_code="kz"
             phone_code="7"/>
         <country
-            name="جمهورية الكونغو الديمقراطية ثانية؛ لاو &amp; أبوس]"
+            name="لاوس"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856"/>
@@ -633,7 +633,7 @@
             name_code="mc"
             phone_code="377"/>
         <country
-            name="جمهورية مولدوفا"
+            name="مولدافيا"
             english_name="Moldova, Republic Of"
             name_code="md"
             phone_code="373"/>
@@ -828,7 +828,7 @@
             name_code="pm"
             phone_code="508"/>
         <country
-            name="بيتكيرن"
+            name="جزر بيتكيرن"
             english_name="Pitcairn"
             name_code="pn"
             phone_code="870"/>
@@ -863,7 +863,7 @@
             name_code="qa"
             phone_code="974"/>
         <country
-            name="الاجتماع"
+            name="لا ريونيون"
             english_name="Réunion"
             name_code="re"
             phone_code="262"/>
@@ -878,7 +878,7 @@
             name_code="rs"
             phone_code="381"/>
         <country
-            name="الفيدرالية الروسية"
+            name="روسيا"
             english_name="Russian Federation"
             name_code="ru"
             phone_code="7"/>
@@ -903,7 +903,7 @@
             name_code="sc"
             phone_code="248"/>
         <country
-            name="سودان"
+            name="السودان"
             english_name="Sudan"
             name_code="sd"
             phone_code="249"/>
@@ -918,7 +918,7 @@
             name_code="sg"
             phone_code="65"/>
         <country
-            name="سانت هيلانة وأسنسيون وتريستان دا كونها"
+            name="سانت هيلانة"
             english_name="Saint Helena, Ascension And Tristan Da Cunha"
             name_code="sh"
             phone_code="290"/>
@@ -973,7 +973,7 @@
             name_code="sx"
             phone_code="1"/>
         <country
-            name="الجمهورية العربية السورية"
+            name="سوريا"
             english_name="Syrian Arab Republic"
             name_code="sy"
             phone_code="963"/>
@@ -1013,7 +1013,7 @@
             name_code="tk"
             phone_code="690"/>
         <country
-            name="تيمور ليشتي"
+            name="تيمور الشرقية"
             english_name="Timor-leste"
             name_code="tl"
             phone_code="670"/>
@@ -1033,12 +1033,12 @@
             name_code="to"
             phone_code="676"/>
         <country
-            name="ديك رومي"
+            name="تركيا"
             english_name="Turkey"
             name_code="tr"
             phone_code="90"/>
         <country
-            name="ترينيداد وتوباجو"
+            name="ترينيداد وتوباغو"
             english_name="Trinidad &amp; Tobago"
             name_code="tt"
             phone_code="1"/>
@@ -1053,7 +1053,7 @@
             name_code="tw"
             phone_code="886"/>
         <country
-            name="جمهورية تنزانيا المتحدة"
+            name="تنزانيا"
             english_name="Tanzania, United Republic Of"
             name_code="tz"
             phone_code="255"/>
@@ -1083,22 +1083,22 @@
             name_code="uz"
             phone_code="998"/>
         <country
-            name="الكرسي الرسولي (دولة الفاتيكان)"
+            name="الفاتيكان"
             english_name="Holy See (vatican City State)"
             name_code="va"
             phone_code="379" />
         <country
-            name="سانت فنسنت وجزر غرينادين"
+            name="سانت فينسنت والغرينادين"
             english_name="Saint Vincent &amp; The Grenadines"
             name_code="vc"
             phone_code="1"/>
         <country
-            name="فنزويلا، جمهورية البوليفارية"
+            name="فنزويلا"
             english_name="Venezuela, Bolivarian Republic Of"
             name_code="ve"
             phone_code="58"/>
         <country
-            name="جزر فيرجن البريطانية"
+            name="جزر العذراء البريطانية"
             english_name="British Virgin Islands"
             name_code="vg"
             phone_code="1"/>

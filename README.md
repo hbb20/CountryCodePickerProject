@@ -109,6 +109,7 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Flag border color option by [Maulana Firdaus](https://github.com/firdausmaulan)
 - Dutch language support by [Bozintan Iuliana](https://github.com/IulianaDiana)
 - Punjabi language support by [Dhruv Bhakta](https://github.com/DBB411)
+- Arabic translation corrections by [Ahmed Wahdan](https://github.com/WahdanZ)
 
 
 # Contribution
