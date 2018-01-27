@@ -26,10 +26,11 @@ How to add to your project
 Add this to your gradle file and sync
 
   ````groovy
-    dependencies {
-      compile 'com.hbb20:ccp:2.1.2'
-    }
-  ````
+          dependencies {
+            implementation 'com.hbb20:ccp:2.1.2'
+          }
+   ````
+
   What's new?
   > - Auto detects country while typing area code (among multiple countries with code "+1") 
   > - Option to remember last selection.
@@ -64,6 +65,10 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 --------
+##### upcoming version
+- Corrected dimension of French Guiana flag ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/148) by [Gautier MECHLING](https://github.com/Nilhcem))
+- Feature to exclude specific countries from the list. 
+
 ##### version 2.1.2 (Jan 6, 2018)
 - Adds Punjabi language support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/141) By [Dhruv Bhakta](https://github.com/DBB411)
 - Corrected Arabic translation by [Ahmed Wahdan](https://github.com/WahdanZ)
@@ -82,14 +87,6 @@ Change log
 - Now default value for ccp_autoDetectCountry is *false* instead of true.
 - Option to remember last selection. [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_rememberlastselectiontrue-default--false-)
 - Uses android's port instead of libphonenumber. ([Suggestion](https://github.com/hbb20/CountryCodePickerProject/issues/127))
-
-##### version 2.0.9 (Nov 10, 2017)
-- Adds dutch language support
-- Updates build tool version
-
-##### version 2.0.8 (Nov 1, 2017)
-- Corrects Myanmar flag
-- Applies TypeFace to dialog text as well. [Read wiki.](https://github.com/hbb20/CountryCodePickerProject/wiki/Custom-TypeFace-(FontFamily))
 
 
 For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).

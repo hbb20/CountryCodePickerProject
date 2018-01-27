@@ -117,13 +117,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                app:ccp_defaultLanguage="PUNJABI"
-                                app:ccpDialog_allowSearch="true"
-                                app:ccp_defaultNameCode="nz"
-                                app:ccp_rememberLastSelection="true"
                                 app:ccp_countryAutoDetectionPref="SIM_NETWORK_LOCALE"
-                                app:ccpDialog_showCloseIcon="true"
-                                app:ccp_countryPreference="US,IN,NZ" />
+                                app:ccp_countryPreference="pk,in,us"
+                                app:ccp_excludedCountries="pk" />
 
 
                             <EditText

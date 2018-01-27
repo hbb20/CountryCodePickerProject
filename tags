@@ -169,7 +169,7 @@ context	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    Context context
 countryCodeHolderClickListener	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {$/;"	f	class:CountryCodePicker
 countryPreference	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String countryPreference;$/;"	f	class:CountryCodePicker
 customDefaultLanguage	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    Language customDefaultLanguage = Language.ENGLISH;$/;"	f	class:CountryCodePicker
-customMasterCountries	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String customMasterCountries;$/;"	f	class:CountryCodePicker
+customMasterCountriesParam	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    String customMasterCountriesParam;$/;"	f	class:CountryCodePicker
 customMasterCountriesList	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    List<Country> customMasterCountriesList;$/;"	f	class:CountryCodePicker
 defaultCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    Country defaultCountry;$/;"	f	class:CountryCodePicker
 defaultCountryCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    int defaultCountryCode;$/;"	f	class:CountryCodePicker
@@ -364,7 +364,7 @@ setCountryForNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    p
 setCountryForPhoneCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setCountryForPhoneCode(int countryCode) {$/;"	m	class:CountryCodePicker
 setCountryPreference	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setCountryPreference(String countryPreference) {$/;"	m	class:CountryCodePicker
 setCustomLanguage	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void setCustomLanguage(Language customDefaultLanguage) {$/;"	m	class:CountryCodePicker	file:
-setCustomMasterCountries	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setCustomMasterCountries(String customMasterCountries) {$/;"	m	class:CountryCodePicker
+setCustomMasterCountries	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setCustomMasterCountries(String customMasterCountriesParam) {$/;"	m	class:CountryCodePicker
 setCustomMasterCountriesList	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    void setCustomMasterCountriesList(List<Country> customMasterCountriesList) {$/;"	m	class:CountryCodePicker
 setDefaultCountry	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    private void setDefaultCountry(Country defaultCountry) {$/;"	m	class:CountryCodePicker	file:
 setDefaultCountryUsingNameCode	ccp/src/main/java/com/hbb20/CountryCodePicker.java	/^    public void setDefaultCountryUsingNameCode(String defaultCountryNameCode) {$/;"	m	class:CountryCodePicker

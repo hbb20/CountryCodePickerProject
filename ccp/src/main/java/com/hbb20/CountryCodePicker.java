@@ -89,7 +89,7 @@ public class CountryCodePicker extends RelativeLayout {
     int fastScrollerBubbleColor = 0;
     List<CCPCountry> customMasterCountriesList;
     //this will be "AU,IN,US"
-    String customMasterCountries;
+    String customMasterCountriesParam, excludedCountriesParam;
     Language customDefaultLanguage = Language.ENGLISH;
     Language languageToApply = Language.ENGLISH;
 
@@ -251,8 +251,11 @@ public class CountryCodePicker extends RelativeLayout {
             updateLanguageToApply();
 
             //custom master list
-            customMasterCountries = a.getString(R.styleable.CountryCodePicker_ccp_customMasterCountries);
-            refreshCustomMasterList();
+            customMasterCountriesParam = a.getString(R.styleable.CountryCodePicker_ccp_customMasterCountries);
+            excludedCountriesParam = a.getString(R.styleable.CountryCodePicker_ccp_excludedCountries);
+            if (!isInEditMode()) {
+                refreshCustomMasterList();
+            }
 
             //preference
             countryPreference = a.getString(R.styleable.CountryCodePicker_ccp_countryPreference);
@@ -1034,11 +1037,33 @@ public class CountryCodePicker extends RelativeLayout {
      * this will load preferredCountries based on countryPreference
      */
     void refreshCustomMasterList() {
-        if (customMasterCountries == null || customMasterCountries.length() == 0) {
-            customMasterCountriesList = null;
+        //if no custom list specified then check for exclude list
+        if (customMasterCountriesParam == null || customMasterCountriesParam.length() == 0) {
+            //if excluded param is also blank, then do nothing
+            if (excludedCountriesParam != null && excludedCountriesParam.length() != 0) {
+                excludedCountriesParam = excludedCountriesParam.toLowerCase();
+                List<CCPCountry> libraryMasterList = CCPCountry.getLibraryMasterCountryList(context, getLanguageToApply());
+                List<CCPCountry> localCCPCountryList = new ArrayList<>();
+                for (CCPCountry ccpCountry : libraryMasterList) {
+                    //if the country name code is in the excluded list, avoid it.
+                    if (!excludedCountriesParam.contains(ccpCountry.getNameCode().toLowerCase())) {
+                        localCCPCountryList.add(ccpCountry);
+                    }
+                }
+
+                if (localCCPCountryList.size() > 0) {
+                    customMasterCountriesList = localCCPCountryList;
+                } else {
+                    customMasterCountriesList = null;
+                }
+
+            } else {
+                customMasterCountriesList = null;
+            }
         } else {
+            //else add custom list
             List<CCPCountry> localCCPCountryList = new ArrayList<>();
-            for (String nameCode : customMasterCountries.split(",")) {
+            for (String nameCode : customMasterCountriesParam.split(",")) {
                 CCPCountry ccpCountry = CCPCountry.getCountryForNameCodeFromLibraryMasterList(getContext(), getLanguageToApply(), nameCode);
                 if (ccpCountry != null) {
                     if (!isAlreadyInList(ccpCountry, localCCPCountryList)) { //to avoid duplicate entry of country
@@ -1053,10 +1078,11 @@ public class CountryCodePicker extends RelativeLayout {
                 customMasterCountriesList = localCCPCountryList;
             }
         }
+
         if (customMasterCountriesList != null) {
             //            Log.d("custom master list:", customMasterCountriesList.size() + " countries");
-            for (CCPCountry CCPCountry : customMasterCountriesList) {
-                CCPCountry.log();
+            for (CCPCountry ccpCountry : customMasterCountriesList) {
+                ccpCountry.log();
             }
         } else {
             //            Log.d("custom master list", " has no country");
@@ -1077,8 +1103,8 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * @return comma separated custom master countries' name code. i.e "gb,us,nz,in,pk"
      */
-    String getCustomMasterCountries() {
-        return customMasterCountries;
+    String getCustomMasterCountriesParam() {
+        return customMasterCountriesParam;
     }
 
     /**
@@ -1088,11 +1114,11 @@ public class CountryCodePicker extends RelativeLayout {
      * When not defined or null or blank is set, it will use library's default master list
      * Custom master list will only limit the visibility of irrelevant country from selection dialog. But all other functions like setCountryForCodeName() or setFullNumber() will consider all the countries.
      *
-     * @param customMasterCountries is country name codes separated by comma. e.g. "us,in,nz"
+     * @param customMasterCountriesParam is country name codes separated by comma. e.g. "us,in,nz"
      *                              if null or "" , will remove custom countries and library default will be used.
      */
-    public void setCustomMasterCountries(String customMasterCountries) {
-        this.customMasterCountries = customMasterCountries;
+    public void setCustomMasterCountriesParam(String customMasterCountriesParam) {
+        this.customMasterCountriesParam = customMasterCountriesParam;
     }
 
     /**
