@@ -48,7 +48,6 @@ public class FullNumberFragment extends Fragment {
         registerCarrierEditText();
         setClickListener();
         addTextWatcher();
-
     }
 
     private void addTextWatcher() {
@@ -110,7 +109,6 @@ public class FullNumberFragment extends Fragment {
     private void registerCarrierEditText() {
         ccpLoadNumber.registerCarrierNumberEditText(editTextLoadCarrierNumber);
         ccpGetNumber.registerCarrierNumberEditText(editTextGetCarrierNumber);
-        ccpLoadNumber.getFullNumberWithPlus();
         ccpGetNumber.setPhoneNumberValidityChangeListener(new CountryCodePicker.PhoneNumberValidityChangeListener() {
             @Override
             public void onValidityChanged(boolean isValidNumber) {

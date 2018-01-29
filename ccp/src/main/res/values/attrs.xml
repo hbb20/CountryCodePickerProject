@@ -6,17 +6,32 @@
         <attr name="ccp_contentColor" format="color"/>
         <attr name="ccp_textSize" format="dimension"/>
         <attr name="ccp_arrowSize" format="dimension"/>
-        <attr name="ccp_showArrow" format="boolean" />
         <attr name="ccp_customMasterCountries" format="string"/>
         <attr name="ccp_excludedCountries" format="string" />
         <attr name="ccp_flagBorderColor" format="color"/>
         <attr name="ccp_countryPreference" format="string"/>
         <attr name="ccp_defaultNameCode" format="string"/>
-        <attr name="ccp_rememberLastSelection" format="boolean" />
+        <attr name="ccp_selectionMemoryTag" format="string" />
+
         <attr name="ccp_textGravity" format="enum">
             <enum name="LEFT" value="-1"/>
             <enum name="RIGHT" value="1"/>
             <enum name="CENTER" value="0"/>
+        </attr>
+        <attr name="ccp_hintExampleNumberType" format="enum">
+            <enum name="MOBILE" value="0" />
+            <enum name="FIXED_LINE" value="1" />
+            <enum name="FIXED_LINE_OR_MOBILE" value="2" />
+            <enum name="TOLL_FREE" value="3" />
+            <enum name="PREMIUM_RATE" value="4" />
+            <enum name="SHARED_COST" value="5" />
+            <enum name="VOIP" value="6" />
+            <enum name="PERSONAL_NUMBER" value="7" />
+            <enum name="PAGER" value="8" />
+            <enum name="UAN" value="9" />
+            <enum name="VOICEMAIL" value="10" />
+            <enum name="UNKNOWN" value="11" />
+
         </attr>
 
         <!--CCP bool properties-->
@@ -29,7 +44,9 @@
         <attr name="ccp_autoDetectCountry" format="boolean"/>
         <attr name="ccp_areaCodeDetectedCountry" format="boolean" />
         <attr name="ccp_autoFormatNumber" format="boolean"/>
-        <attr name="ccp_selectionMemoryTag" format="string" />
+        <attr name="ccp_hintExampleNumber" format="boolean" />
+        <attr name="ccp_rememberLastSelection" format="boolean" />
+        <attr name="ccp_showArrow" format="boolean" />
 
         <!--CCP Dialog properties-->
         <attr name="ccpDialog_keyboardAutoPopup" format="boolean"/>

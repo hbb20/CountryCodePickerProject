@@ -98,6 +98,7 @@
                                 android:id="@+id/ccp_loadFullNumber"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                app:ccp_hintExampleNumber="true"
                                 app:ccp_countryPreference="us,in" />
 
                             <EditText
@@ -161,7 +162,10 @@
                             <com.hbb20.CountryCodePicker
                                 android:id="@+id/ccp_getFullNumber"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                app:ccp_hintExampleNumber="true"
+                                app:ccp_hintExampleNumberType="FIXED_LINE"
+                                app:ccp_selectionMemoryTag="getFullNumber" />
 
                             <EditText
                                 android:id="@+id/editText_getCarrierNumber"

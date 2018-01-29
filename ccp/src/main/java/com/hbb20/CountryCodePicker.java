@@ -77,6 +77,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showCloseIcon = false;
     boolean rememberLastSelection = false;
     boolean detectCountryWithAreaCode = true;
+    PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
     String selectionMemoryTag = "ccp_last_selection";
     int contentColor;
     int borderFlagColor;
@@ -95,7 +96,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
-    boolean autoDetectLanguageEnabled, autoDetectCountryEnabled, numberAutoFormattingEnabled;
+    boolean autoDetectLanguageEnabled, autoDetectCountryEnabled, numberAutoFormattingEnabled, hintExampleNumberEnabled;
     String xmlWidth = "notSet";
     TextWatcher validityTextWatcher;
     PhoneNumberFormattingTextWatcher textWatcher;
@@ -185,6 +186,9 @@ public class CountryCodePicker extends RelativeLayout {
             //hide nameCode. If someone wants only phone code to avoid name collision for same country phone code.
             showNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showNameCode, true);
 
+            //number auto formatting
+            numberAutoFormattingEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoFormatNumber, true);
+
             //show phone code.
             showPhoneCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_showPhoneCode, true);
 
@@ -215,6 +219,13 @@ public class CountryCodePicker extends RelativeLayout {
             //remember last selection
             rememberLastSelection = a.getBoolean(R.styleable.CountryCodePicker_ccp_rememberLastSelection, false);
 
+            //example number hint enabled?
+            hintExampleNumberEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_hintExampleNumber, false);
+
+            //example number hint type
+            int hintNumberTypeIndex = a.getInt(R.styleable.CountryCodePicker_ccp_hintExampleNumberType, 0);
+            hintExampleNumberType = PhoneNumberType.values()[hintNumberTypeIndex];
+
             //memory tag name for selection
             selectionMemoryTag = a.getString(R.styleable.CountryCodePicker_ccp_selectionMemoryTag);
             if (selectionMemoryTag == null) {
@@ -237,9 +248,6 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show flag
             showFlag(a.getBoolean(R.styleable.CountryCodePicker_ccp_showFlag, true));
-
-            //number auto formatting
-            numberAutoFormattingEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoFormatNumber, true);
 
             //autopop keyboard
             setDialogKeyboardAutoPopup(a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_keyboardAutoPopup, true));
@@ -679,14 +687,76 @@ public class CountryCodePicker extends RelativeLayout {
 
         updateFormattingTextWatcher();
 
+        updateHint();
+
         //notify to registered validity listener
         if (editText_registeredCarrierNumber != null && phoneNumberValidityChangeListener != null) {
             reportedValidity = isValidFullNumber();
             phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
         }
 
+
         //remove force lock
         countryDetectionBasedOnAreaAllowed = true;
+    }
+
+    /**
+     * updates hint
+     */
+    private void updateHint() {
+        if (editText_registeredCarrierNumber != null && hintExampleNumberEnabled) {
+            Phonenumber.PhoneNumber exampleNumber = getPhoneUtil().getExampleNumberForType(getSelectedCountryNameCode(), getSelectedHintNumberType());
+            if (exampleNumber != null) {
+                String formattedNumber = exampleNumber.getNationalNumber() + "";
+                Log.d(TAG, "updateHint: " + formattedNumber);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    formattedNumber = PhoneNumberUtils.formatNumber(formattedNumber, getSelectedCountryNameCode());
+                } else {
+                    formattedNumber = PhoneNumberUtils.formatNumber(formattedNumber);
+                }
+                editText_registeredCarrierNumber.setHint(formattedNumber);
+                Log.d(TAG, "updateHint: after format " + formattedNumber + " " + selectionMemoryTag);
+            } else {
+                Log.w(TAG, "updateHint: No example number found for this country (" + getSelectedCountryNameCode() + ") or this type (" + hintExampleNumberType.name() + ").");
+            }
+        }
+    }
+
+    /**
+     * this function maps CountryCodePicker.PhoneNumberType to PhoneNumberUtil.PhoneNumberType.
+     *
+     * @return respective PhoneNumberUtil.PhoneNumberType based on selected CountryCodePicker.PhoneNumberType.
+     */
+    private PhoneNumberUtil.PhoneNumberType getSelectedHintNumberType() {
+        switch (hintExampleNumberType) {
+            case MOBILE:
+                return PhoneNumberUtil.PhoneNumberType.MOBILE;
+            case FIXED_LINE:
+                return PhoneNumberUtil.PhoneNumberType.FIXED_LINE;
+            case FIXED_LINE_OR_MOBILE:
+                return PhoneNumberUtil.PhoneNumberType.FIXED_LINE_OR_MOBILE;
+            case TOLL_FREE:
+                return PhoneNumberUtil.PhoneNumberType.TOLL_FREE;
+            case PREMIUM_RATE:
+                return PhoneNumberUtil.PhoneNumberType.PREMIUM_RATE;
+            case SHARED_COST:
+                return PhoneNumberUtil.PhoneNumberType.SHARED_COST;
+            case VOIP:
+                return PhoneNumberUtil.PhoneNumberType.VOIP;
+            case PERSONAL_NUMBER:
+                return PhoneNumberUtil.PhoneNumberType.PERSONAL_NUMBER;
+            case PAGER:
+                return PhoneNumberUtil.PhoneNumberType.PAGER;
+            case UAN:
+                return PhoneNumberUtil.PhoneNumberType.UAN;
+            case VOICEMAIL:
+                return PhoneNumberUtil.PhoneNumberType.VOICEMAIL;
+            case UNKNOWN:
+
+                return PhoneNumberUtil.PhoneNumberType.UNKNOWN;
+            default:
+                return PhoneNumberUtil.PhoneNumberType.MOBILE;
+        }
     }
 
     Language getLanguageToApply() {
@@ -701,8 +771,8 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     private void updateFormattingTextWatcher() {
-        if (getEditText_registeredCarrierNumber() != null && selectedCCPCountry != null) {
-
+        if (editText_registeredCarrierNumber != null && selectedCCPCountry != null) {
+            Log.d(TAG, "updateFormattingTextWatcher: " + selectionMemoryTag);
             String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
             String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
 
@@ -715,6 +785,7 @@ public class CountryCodePicker extends RelativeLayout {
                     textWatcher = new PhoneNumberFormattingTextWatcher();
                 }
                 editText_registeredCarrierNumber.addTextChangedListener(textWatcher);
+                Log.d(TAG, "updateFormattingTextWatcher: Right After adding textWatcher " + selectionMemoryTag);
             }
 
             //if country detection from area code is enabled, then it will add areaCodeCountryDetectorTextWatcher
@@ -727,6 +798,12 @@ public class CountryCodePicker extends RelativeLayout {
             editText_registeredCarrierNumber.setText("");
             editText_registeredCarrierNumber.setText(digitsValue);
             editText_registeredCarrierNumber.setSelection(editText_registeredCarrierNumber.getText().length());
+        } else {
+            if (editText_registeredCarrierNumber == null) {
+                Log.d(TAG, "updateFormattingTextWatcher: EditText not registered " + selectionMemoryTag);
+            } else {
+                Log.d(TAG, "updateFormattingTextWatcher: selected country is null " + selectionMemoryTag);
+            }
         }
     }
 
@@ -860,6 +937,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     EditText getEditText_registeredCarrierNumber() {
+        Log.d(TAG, "getEditText_registeredCarrierNumber");
         return editText_registeredCarrierNumber;
     }
 
@@ -870,9 +948,10 @@ public class CountryCodePicker extends RelativeLayout {
      */
     void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
         this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
-
-        updateFormattingTextWatcher();
+        Log.d(TAG, "setEditText_registeredCarrierNumber: carrierEditTextAttached " + selectionMemoryTag);
         updateValidityTextWatcher();
+        updateFormattingTextWatcher();
+        updateHint();
     }
 
     /**
@@ -1115,7 +1194,7 @@ public class CountryCodePicker extends RelativeLayout {
      * Custom master list will only limit the visibility of irrelevant country from selection dialog. But all other functions like setCountryForCodeName() or setFullNumber() will consider all the countries.
      *
      * @param customMasterCountriesParam is country name codes separated by comma. e.g. "us,in,nz"
-     *                              if null or "" , will remove custom countries and library default will be used.
+     *                                   if null or "" , will remove custom countries and library default will be used.
      */
     public void setCustomMasterCountriesParam(String customMasterCountriesParam) {
         this.customMasterCountriesParam = customMasterCountriesParam;
@@ -1443,6 +1522,9 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void registerCarrierNumberEditText(EditText editTextCarrierNumber) {
         setEditText_registeredCarrierNumber(editTextCarrierNumber);
+        if (editTextCarrierNumber != null && this.editText_registeredCarrierNumber == null) {
+
+        }
     }
 
     /**
@@ -1451,13 +1533,18 @@ public class CountryCodePicker extends RelativeLayout {
      * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "918866667722"
      */
     public String getFullNumber() {
-        String fullNumber;
+        String fullNumber = getSelectedCountryCode();
         if (editText_registeredCarrierNumber != null) {
-            fullNumber = getSelectedCountry().getPhoneCode() + editText_registeredCarrierNumber.getText().toString();
-            fullNumber = PhoneNumberUtil.normalizeDigitsOnly(fullNumber);
-        } else {
-            fullNumber = getSelectedCountry().getPhoneCode();
-            Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
+            PhoneNumberUtil phoneNumberUtil = getPhoneUtil();
+            try {
+                String phoneCode = getSelectedCountryCode();
+                String nameCode = getSelectedCountryNameCode();
+                String nationalPhone = PhoneNumberUtil.normalizeDigitsOnly(editText_registeredCarrierNumber.getText().toString());
+                Phonenumber.PhoneNumber phoneNumber = phoneNumberUtil.parse(nationalPhone, nameCode);
+                fullNumber = "" + phoneNumber.getCountryCode() + phoneNumber.getNationalNumber();
+            } catch (NumberParseException e) {
+                e.printStackTrace();
+            }
         }
         return fullNumber;
     }
@@ -1954,6 +2041,36 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
+    public enum PhoneNumberType {
+        MOBILE,
+        FIXED_LINE,
+        // In some regions (e.g. the USA), it is impossible to distinguish between fixed-line and
+        // mobile numbers by looking at the phone number itself.
+        FIXED_LINE_OR_MOBILE,
+        // Freephone lines
+        TOLL_FREE,
+        PREMIUM_RATE,
+        // The cost of this call is shared between the caller and the recipient, and is hence typically
+        // less than PREMIUM_RATE calls. See // http://en.wikipedia.org/wiki/Shared_Cost_Service for
+        // more information.
+        SHARED_COST,
+        // Voice over IP numbers. This includes TSoIP (Telephony Service over IP).
+        VOIP,
+        // A personal number is associated with a particular person, and may be routed to either a
+        // MOBILE or FIXED_LINE number. Some more information can be found here:
+        // http://en.wikipedia.org/wiki/Personal_Numbers
+        PERSONAL_NUMBER,
+        PAGER,
+        // Used for "Universal Access Numbers" or "Company Numbers". They may be further routed to
+        // specific offices, but allow one number to be used for a company.
+        UAN,
+        // Used for "Voice Mail Access Numbers".
+        VOICEMAIL,
+        // A phone number is of type UNKNOWN when it does not fit any of the known patterns for a
+        // specific region.
+        UNKNOWN
+    }
+
     public enum AutoDetectionPref {
         SIM_ONLY("1"),
         NETWORK_ONLY("2"),
@@ -1998,6 +2115,16 @@ public class CountryCodePicker extends RelativeLayout {
         TextGravity(int i) {
             enumIndex = i;
         }
+    }
+
+    public void setHintExampleNumberEnabled(boolean hintExampleNumberEnabled) {
+        this.hintExampleNumberEnabled = hintExampleNumberEnabled;
+        updateHint();
+    }
+
+    public void setHintExampleNumberType(PhoneNumberType hintExampleNumberType) {
+        this.hintExampleNumberType = hintExampleNumberType;
+        updateHint();
     }
 
     /**
