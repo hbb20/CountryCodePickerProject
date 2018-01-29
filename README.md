@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.1.2'
+            implementation 'com.hbb20:ccp:2.1.3'
           }
    ````
 
@@ -65,7 +65,9 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 --------
-##### upcoming version
+##### version 2.1.3 (Jan 29, 2018)
+- Handles national trunk prefixes correctly. [Issue#149](https://github.com/hbb20/CountryCodePickerProject/issues/149)
+- Feature to add selected country's example number as hint of carrier number edit text.
 - Corrected dimension of French Guiana flag ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/148) by [Gautier MECHLING](https://github.com/Nilhcem))
 - Feature to exclude specific countries from the list. 
 

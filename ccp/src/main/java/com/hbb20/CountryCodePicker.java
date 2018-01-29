@@ -99,7 +99,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean autoDetectLanguageEnabled, autoDetectCountryEnabled, numberAutoFormattingEnabled, hintExampleNumberEnabled;
     String xmlWidth = "notSet";
     TextWatcher validityTextWatcher;
-    PhoneNumberFormattingTextWatcher textWatcher;
+    PhoneNumberFormattingTextWatcher formattingTextWatcher;
     boolean reportedValidity;
     TextWatcher areaCodeCountryDetectorTextWatcher;
     boolean countryDetectionBasedOnAreaAllowed;
@@ -694,8 +694,6 @@ public class CountryCodePicker extends RelativeLayout {
             reportedValidity = isValidFullNumber();
             phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
         }
-
-
         //remove force lock
         countryDetectionBasedOnAreaAllowed = true;
     }
@@ -776,16 +774,21 @@ public class CountryCodePicker extends RelativeLayout {
             String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
             String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
 
-            editText_registeredCarrierNumber.removeTextChangedListener(textWatcher);
-            editText_registeredCarrierNumber.removeTextChangedListener(areaCodeCountryDetectorTextWatcher);
+            if (formattingTextWatcher != null) {
+                editText_registeredCarrierNumber.removeTextChangedListener(formattingTextWatcher);
+            }
+
+            if (areaCodeCountryDetectorTextWatcher != null) {
+                editText_registeredCarrierNumber.removeTextChangedListener(areaCodeCountryDetectorTextWatcher);
+            }
+
             if (numberAutoFormattingEnabled) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    textWatcher = new PhoneNumberFormattingTextWatcher(selectedCCPCountry.getNameCode());
+                    formattingTextWatcher = new PhoneNumberFormattingTextWatcher(selectedCCPCountry.getNameCode());
                 } else {
-                    textWatcher = new PhoneNumberFormattingTextWatcher();
+                    formattingTextWatcher = new PhoneNumberFormattingTextWatcher();
                 }
-                editText_registeredCarrierNumber.addTextChangedListener(textWatcher);
-                Log.d(TAG, "updateFormattingTextWatcher: Right After adding textWatcher " + selectionMemoryTag);
+                editText_registeredCarrierNumber.addTextChangedListener(formattingTextWatcher);
             }
 
             //if country detection from area code is enabled, then it will add areaCodeCountryDetectorTextWatcher
@@ -1522,9 +1525,6 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void registerCarrierNumberEditText(EditText editTextCarrierNumber) {
         setEditText_registeredCarrierNumber(editTextCarrierNumber);
-        if (editTextCarrierNumber != null && this.editText_registeredCarrierNumber == null) {
-
-        }
     }
 
     /**
@@ -1998,6 +1998,16 @@ public class CountryCodePicker extends RelativeLayout {
         updateFormattingTextWatcher();
     }
 
+    public void setHintExampleNumberEnabled(boolean hintExampleNumberEnabled) {
+        this.hintExampleNumberEnabled = hintExampleNumberEnabled;
+        updateHint();
+    }
+
+    public void setHintExampleNumberType(PhoneNumberType hintExampleNumberType) {
+        this.hintExampleNumberType = hintExampleNumberType;
+        updateHint();
+    }
+
     /**
      * Update every time new language is supported #languageSupport
      */
@@ -2115,16 +2125,6 @@ public class CountryCodePicker extends RelativeLayout {
         TextGravity(int i) {
             enumIndex = i;
         }
-    }
-
-    public void setHintExampleNumberEnabled(boolean hintExampleNumberEnabled) {
-        this.hintExampleNumberEnabled = hintExampleNumberEnabled;
-        updateHint();
-    }
-
-    public void setHintExampleNumberType(PhoneNumberType hintExampleNumberType) {
-        this.hintExampleNumberType = hintExampleNumberType;
-        updateHint();
     }
 
     /**
