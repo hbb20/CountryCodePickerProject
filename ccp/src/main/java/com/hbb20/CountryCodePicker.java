@@ -1199,8 +1199,20 @@ public class CountryCodePicker extends RelativeLayout {
      * @param customMasterCountriesParam is country name codes separated by comma. e.g. "us,in,nz"
      *                                   if null or "" , will remove custom countries and library default will be used.
      */
-    public void setCustomMasterCountriesParam(String customMasterCountriesParam) {
+    public void setCustomMasterCountries(String customMasterCountriesParam) {
         this.customMasterCountriesParam = customMasterCountriesParam;
+    }
+
+    /**
+     * This can be used to remove certain countries from the list by keeping all the others.
+     * This will be ignored if you have specified your own country master list.
+     *
+     * @param excludedCountries is country name codes separated by comma. e.g. "us,in,nz"
+     *                          null or "" means no country is excluded.
+     */
+    public void setExcludedCountries(String excludedCountries) {
+        this.excludedCountriesParam = excludedCountries;
+        refreshCustomMasterList();
     }
 
     /**

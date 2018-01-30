@@ -53,7 +53,7 @@ public class CustomMasterFragment extends Fragment {
                 String customMasterCountries;
                 try {
                     customMasterCountries = editTextCountryCustomMaster.getText().toString();
-                    ccp.setCustomMasterCountriesParam(customMasterCountries);
+                    ccp.setCustomMasterCountries(customMasterCountries);
                     Toast.makeText(getActivity(), "Master list has been changed. Tap on ccp to see the changes.", Toast.LENGTH_LONG).show();
                 } catch (Exception ex) {
 
