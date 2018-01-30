@@ -32,7 +32,8 @@ Add this to your gradle file and sync
    ````
 
   What's new?
-  > - Auto detects country while typing area code (among multiple countries with code "+1") 
+  > - Feature to exclude specific countries from the list. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Exclude-specific-countries)
+  > - Feature to set example phone number as placeholder hint of edittext [Wiki page](https://github.com/hbb20/CountryCodePickerProject/wiki/Example-phone-number-as-edittext-hint)  
   > - Option to remember last selection.
 
   * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -67,9 +68,9 @@ Change log
 --------
 ##### version 2.1.4 (Jan 29, 2018)
 - Handles national trunk prefixes correctly. [Issue#149](https://github.com/hbb20/CountryCodePickerProject/issues/149)
-- Feature to add selected country's example number as hint of carrier number edit text.
+- Feature to add selected country's example number as hint of carrier number edit text. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Example-phone-number-as-edittext-hint)
 - Corrected dimension of French Guiana flag ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/148) by [Gautier MECHLING](https://github.com/Nilhcem))
-- Feature to exclude specific countries from the list. 
+- Feature to exclude specific countries from the list. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Exclude-specific-countries)
 
 ##### version 2.1.2 (Jan 6, 2018)
 - Adds Punjabi language support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/141) By [Dhruv Bhakta](https://github.com/DBB411)
@@ -83,13 +84,6 @@ Change log
 - Auto detects country while typing based on area code (for countries with code "+1") ([issue#140](https://github.com/hbb20/CountryCodePickerProject/issues/140))
 - Cursor color follows ccpDialog_searchEditTextTint color ([issue#131](https://github.com/hbb20/CountryCodePickerProject/issues/131))
 - Possible fix for crash ([issue#67](https://github.com/hbb20/CountryCodePickerProject/issues/67))
-
-##### version 2.1.0 (Nov 17, 2017)
-- Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE) [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/Auto-detect-country)
-- Now default value for ccp_autoDetectCountry is *false* instead of true.
-- Option to remember last selection. [Read more](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccp_rememberlastselectiontrue-default--false-)
-- Uses android's port instead of libphonenumber. ([Suggestion](https://github.com/hbb20/CountryCodePickerProject/issues/127))
-
 
 For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).
 
