@@ -822,6 +822,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_wallis_and_futuna;
             case "ws": //samoa
                 return R.drawable.flag_samoa;
+            case "xk": //kosovo
+                return R.drawable.flag_kosovo;
             case "ye": //yemen
                 return R.drawable.flag_yemen;
             case "yt": //mayotte
@@ -1076,6 +1078,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("vu", "678", "Vanuatu", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("wf", "681", "Wallis And Futuna", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ws", "685", "Samoa", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("xk", "383", "Kosovo", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ye", "967", "Yemen", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("yt", "262", "Mayotte", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("za", "27", "South Africa", DEFAULT_FLAG_RES));
