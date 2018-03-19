@@ -270,7 +270,11 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                     textView_code.setVisibility(View.GONE);
                 }
                 linearFlagHolder.setVisibility(View.VISIBLE);
-                textView_name.setText(CCPCountry.getName() + " (" + CCPCountry.getNameCode().toUpperCase() + ")");
+                if (codePicker.getCcpDialogShowNameCode()) {
+                    textView_name.setText(CCPCountry.getName() + " (" + CCPCountry.getNameCode().toUpperCase() + ")");
+                } else {
+                    textView_name.setText(CCPCountry.getName());
+                }
                 textView_code.setText("+" + CCPCountry.getPhoneCode());
                 imageViewFlag.setImageResource(CCPCountry.getFlagID());
             }else{

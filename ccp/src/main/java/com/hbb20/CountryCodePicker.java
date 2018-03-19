@@ -77,6 +77,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showCloseIcon = false;
     boolean rememberLastSelection = false;
     boolean detectCountryWithAreaCode = true;
+    boolean ccpDialogShowNameCode = true;
     PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
     String selectionMemoryTag = "ccp_last_selection";
     int contentColor;
@@ -194,6 +195,9 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show phone code on dialog
             ccpDialogShowPhoneCode = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showPhoneCode, showPhoneCode);
+
+            //show name code on dialog
+            ccpDialogShowNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showNameCode, true);
 
             //show full name
             showFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
@@ -456,6 +460,22 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setCcpDialogShowPhoneCode(boolean ccpDialogShowPhoneCode) {
         this.ccpDialogShowPhoneCode = ccpDialogShowPhoneCode;
+    }
+
+    /**
+     * To show/hide name code from country selection dialog
+     *
+     * @param ccpDialogShowNameCode
+     */
+    public void setCcpDialogShowNameCode(boolean ccpDialogShowNameCode) {
+        this.ccpDialogShowNameCode = ccpDialogShowNameCode;
+    }
+
+    /**
+     * To show/hide name code from country selection dialog
+     */
+    public boolean getCcpDialogShowNameCode() {
+        return this.ccpDialogShowNameCode;
     }
 
     boolean isShowPhoneCode() {

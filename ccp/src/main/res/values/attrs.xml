@@ -52,6 +52,7 @@
         <attr name="ccpDialog_keyboardAutoPopup" format="boolean"/>
         <attr name="ccpDialog_allowSearch" format="boolean"/>
         <attr name="ccpDialog_showPhoneCode" format="boolean"/>
+        <attr name="ccpDialog_showNameCode" format="boolean" />
         <attr name="ccpDialog_showFastScroller" format="boolean"/>
         <attr name="ccpDialog_fastScroller_bubbleColor" format="color"/>
         <attr name="ccpDialog_fastScroller_handleColor" format="color"/>
