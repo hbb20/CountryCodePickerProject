@@ -1128,6 +1128,11 @@
             name_code="ws"
             phone_code="685"/>
         <country
+            name="Косово"
+            english_name="Kosovo"
+            name_code="xk"
+            phone_code="383"/>
+        <country
             name="Йемен"
             english_name="Yemen"
             name_code="ye"
