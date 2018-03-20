@@ -268,11 +268,6 @@
             name_code="de"
             phone_code="49" />
         <country
-            name="ग्वाडेलोप"
-            english_name="Guadeloupe"
-            name_code="gp"
-            phone_code="590" />
-        <country
             name="जिबूती"
             english_name="Djibouti"
             name_code="dj"
@@ -407,6 +402,11 @@
             english_name="Guinea"
             name_code="gn"
             phone_code="224" />
+        <country
+            name="ग्वाडेलोप"
+            english_name="Guadeloupe"
+            name_code="gp"
+            phone_code="590" />
         <country
             name="भूमध्यवर्ती गिनी"
             english_name="Equatorial Guinea"

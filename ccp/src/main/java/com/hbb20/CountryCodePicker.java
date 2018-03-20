@@ -869,7 +869,22 @@ public class CountryCodePicker extends RelativeLayout {
                                         }
                                     }
                                 }
+                            } else if (selectedCountry.getPhoneCode().equals("44")) {
+                                String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
+                                if (enteredValue.length() >= 4) {
+                                    String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
 
+                                    if (digitsValue.length() >= 4) {
+                                        String currentAreaCode = digitsValue.substring(0, 4);
+                                        if (!currentAreaCode.equals(lastCheckedAreaCode)) {
+                                            CCPCountry detectedCountry = CCPCountry.getCountry44ForAreaCode(context, getLanguageToApply(), null, 44 + digitsValue);
+                                            if (detectedCountry != null && !detectedCountry.equals(selectedCountry)) {
+                                                setSelectedCountry(detectedCountry);
+                                            }
+                                            lastCheckedAreaCode = currentAreaCode;
+                                        }
+                                    }
+                                }
                             }
                             lastCheckedNumber = s.toString();
                         }

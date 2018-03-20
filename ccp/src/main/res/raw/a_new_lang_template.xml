@@ -269,11 +269,6 @@
             phone_code="49" />
         <country
             name="TODO: replace with  translated country name"
-            english_name="Guadeloupe"
-            name_code="gp"
-            phone_code="590" />
-        <country
-            name="TODO: replace with  translated country name"
             english_name="Djibouti"
             name_code="dj"
             phone_code="253" />
@@ -407,6 +402,11 @@
             english_name="Guinea"
             name_code="gn"
             phone_code="224" />
+        <country
+            name="TODO: replace with  translated country name"
+            english_name="Guadeloupe"
+            name_code="gp"
+            phone_code="590" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Equatorial Guinea"
