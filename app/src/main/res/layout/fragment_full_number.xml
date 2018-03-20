@@ -164,7 +164,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 app:ccp_hintExampleNumber="true"
-                                app:ccp_hintExampleNumberType="FIXED_LINE"
+                                app:ccp_hintExampleNumberFormat="NATIONAL"
                                 app:ccp_selectionMemoryTag="getFullNumber" />
 
                             <EditText
