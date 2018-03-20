@@ -268,6 +268,11 @@
             name_code="de"
             phone_code="49" />
         <country
+            name="Guadeloupe"
+            english_name="Guadeloupe"
+            name_code="gp"
+            phone_code="590" />
+        <country
             name="Cibuti"
             english_name="Djibouti"
             name_code="dj"
@@ -1131,7 +1136,7 @@
             name="Kosova"
             english_name="Kosovo"
             name_code="xk"
-            phone_code="383"/>
+            phone_code="383" />
         <country
             name="Yemen"
             english_name="Yemen"
