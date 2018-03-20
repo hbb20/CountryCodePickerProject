@@ -1301,7 +1301,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     private String detectCarrierNumber(String fullNumber, CCPCountry CCPCountry) {
         String carrierNumber;
-        if (CCPCountry == null || fullNumber == null) {
+        if (CCPCountry == null || fullNumber == null || fullNumber.isEmpty()) {
             carrierNumber = fullNumber;
         } else {
             int indexOfCode = fullNumber.indexOf(CCPCountry.getPhoneCode());
@@ -1605,6 +1605,8 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setFullNumber(String fullNumber) {
         CCPCountry country = CCPCountry.getCountryForNumber(getContext(), getLanguageToApply(), preferredCountries, fullNumber);
+        if (country == null)
+            country = getDefaultCountry();
         setSelectedCountry(country);
         String carrierNumber = detectCarrierNumber(fullNumber, country);
         if (getEditText_registeredCarrierNumber() != null) {
