@@ -27,13 +27,13 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.1.4'
+            implementation 'com.hbb20:ccp:2.1.5'
           }
    ````
 
   What's new?
-  > - Feature to exclude specific countries from the list. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Exclude-specific-countries)
-  > - Feature to set example phone number as placeholder hint of edittext [Wiki page](https://github.com/hbb20/CountryCodePickerProject/wiki/Example-phone-number-as-edittext-hint)  
+  > - Swedish language support
+  > - Feature to exclude specific countries from the list. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Exclude-specific-countries)  
   > - Option to remember last selection.
 
   * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
@@ -66,6 +66,14 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 --------
+##### Version 2.1.5 (March 20, 2018)
+- Adds Swedish language support ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/167) by [Tobias Hillén](https://github.com/tobiashillen))
+- Adds Kosovo Country  ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/166) by [Aleksei Kliuev](https://github.com/aleksei-klv))
+- Adds Guadeloupe Countries [Issue#170](https://github.com/hbb20/CountryCodePickerProject/issues/170)
+- Understands difference between Isle of Man country and UK numbers. [Issue#168](https://github.com/hbb20/CountryCodePickerProject/issues/168)
+- Feature to remove country name code from CCP Dialog [Issue#159](https://github.com/hbb20/CountryCodePickerProject/issues/159)
+- Adds ccp_hintExampleNumberFormat to address cases like [Issue#154](https://github.com/hbb20/CountryCodePickerProject/issues/154)
+
 ##### version 2.1.4 (Jan 29, 2018)
 - Handles national trunk prefixes correctly. [Issue#149](https://github.com/hbb20/CountryCodePickerProject/issues/149)
 - Feature to add selected country's example number as hint of carrier number edit text. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Example-phone-number-as-edittext-hint)
@@ -105,7 +113,8 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Dutch language support by [Bozintan Iuliana](https://github.com/IulianaDiana)
 - Punjabi language support by [Dhruv Bhakta](https://github.com/DBB411)
 - Arabic translation corrections by [Ahmed Wahdan](https://github.com/WahdanZ)
-
+- Swedish language support by [Tobias Hillén](https://github.com/tobiashillen)
+- Addition of Kosovo Country by [Aleksei Kliuev](https://github.com/aleksei-klv)
 
 # Contribution
 - To add a new country, follow the [guide for add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).
