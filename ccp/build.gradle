@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/hbb20/CountryCodePickerProject'
     gitUrl = 'https://github.com/hbb20/CountryCodePickerProject.git'
 
-    libraryVersion = '2.1.5'
+    libraryVersion = '2.1.6.2'
 
     developerId = 'hbb20'
     developerName = 'Harsh Bhakta'
@@ -28,7 +28,7 @@ ext {
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '26.0.3'
 
     defaultConfig {
         minSdkVersion 14
@@ -51,8 +51,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.futuremind.recyclerfastscroll:fastscroll:0.2.5'
-    implementation 'io.michaelrocks:libphonenumber-android:8.8.5'
+    api ('com.futuremind.recyclerfastscroll:fastscroll:0.2.5',{
+        exclude group: 'com.android.support'
+    })
+    api 'io.michaelrocks:libphonenumber-android:8.8.5'
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
