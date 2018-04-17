@@ -8,7 +8,6 @@ import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
@@ -101,7 +100,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean autoDetectLanguageEnabled, autoDetectCountryEnabled, numberAutoFormattingEnabled, hintExampleNumberEnabled;
     String xmlWidth = "notSet";
     TextWatcher validityTextWatcher;
-    PhoneNumberFormattingTextWatcher formattingTextWatcher;
+    CCPTextWatcher formattingTextWatcher;
     boolean reportedValidity;
     TextWatcher areaCodeCountryDetectorTextWatcher;
     boolean countryDetectionBasedOnAreaAllowed;
@@ -813,11 +812,7 @@ public class CountryCodePicker extends RelativeLayout {
             }
 
             if (numberAutoFormattingEnabled) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    formattingTextWatcher = new PhoneNumberFormattingTextWatcher(selectedCCPCountry.getNameCode());
-                } else {
-                    formattingTextWatcher = new PhoneNumberFormattingTextWatcher();
-                }
+                formattingTextWatcher = new CCPTextWatcher(context, this);
                 editText_registeredCarrierNumber.addTextChangedListener(formattingTextWatcher);
             }
 
