@@ -203,7 +203,7 @@
             name_code="ch"
             phone_code="41" />
         <country
-            name="Côte D &amp; apos; ivoire"
+            name="Côte D'ivoire"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
@@ -573,7 +573,7 @@
             name_code="kz"
             phone_code="7" />
         <country
-            name="République démocratique; Lao People &amp; apos"
+            name="République démocratique; Lao People'"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856" />
@@ -1074,7 +1074,7 @@
             phone_code="256" />
         <country
             name="États Unis"
-            english_name="United States"
+            english_name="United States (USA)"
             name_code="us"
             phone_code="1" />
         <country

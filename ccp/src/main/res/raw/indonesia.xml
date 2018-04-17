@@ -573,7 +573,7 @@
             name_code="kz"
             phone_code="7" />
         <country
-            name="Republik Demokratik s; Lao People &amp; apos"
+            name="Republik Demokratik s; Lao People'"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856" />
@@ -1074,7 +1074,7 @@
             phone_code="256" />
         <country
             name="Amerika Serikat"
-            english_name="United States"
+            english_name="United States (USA)"
             name_code="us"
             phone_code="1" />
         <country

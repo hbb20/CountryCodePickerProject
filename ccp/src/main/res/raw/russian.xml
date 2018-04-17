@@ -203,7 +203,7 @@
             name_code="ch"
             phone_code="41" />
         <country
-            name="Кот D &amp; APOS; Ивуар"
+            name="Кот D ' Ивуар"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
@@ -1074,7 +1074,7 @@
             phone_code="256" />
         <country
             name="Соединенные Штаты"
-            english_name="United States"
+            english_name="United States (USA)"
             name_code="us"
             phone_code="1" />
         <country
