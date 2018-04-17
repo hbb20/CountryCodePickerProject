@@ -6,9 +6,12 @@ import android.text.Editable;
 import android.text.Selection;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 
 import io.michaelrocks.libphonenumber.android.AsYouTypeFormatter;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
+
+import static com.hbb20.CCPCountry.TAG;
 
 
 //Majorly adopted from https://stackoverflow.com/questions/32661363/using-phonenumberformattingtextwatcher-without-typing-country-calling-code to solve formatting issue
@@ -81,6 +84,9 @@ public class CCPTextWatcher implements TextWatcher {
         }
 
         //this comes from additional answer on question (link at top of the class)
+        int selectionEnd = Selection.getSelectionEnd(s);
+        int sLength = s.length();
+        boolean cursorAtEnd = (selectionEnd == sLength);
         InputFormatted inputFormatted = reformat(s, Selection.getSelectionEnd(s));
         String formatted = inputFormatted.getFormatted();
         if (formatted != null) {
@@ -97,7 +103,7 @@ public class CCPTextWatcher implements TextWatcher {
             mSelfChange = false;
         }
 
-        if (inputFormatted.getPosition() < s.length()) {
+        if (!cursorAtEnd && inputFormatted.getPosition() < s.length()) {
             Selection.setSelection(s, inputFormatted.getPosition());
         }
 
@@ -113,12 +119,23 @@ public class CCPTextWatcher implements TextWatcher {
         int curIndex = cursor - 1;
         String internationalFormatted = "";
         mFormatter.clear();
+
+        if (s.length() > curIndex && curIndex != -1 && !PhoneNumberUtils.isNonSeparator(s.charAt(curIndex))) {
+            curIndex--;
+            if (curIndex != 0) {
+                curIndex--;
+            }
+            Log.d(TAG, "reformat: Updated cursor updated");
+        }
+        Log.d(TAG, "reformat: String is:'" + s.toString() + "' now cursor is at " + curIndex);
+
         char lastNonSeparator = 0;
         boolean hasCursor = false;
 
         String countryCallingCode = attachedCcp.getSelectedCountryCodeWithPlus();
         s = countryCallingCode + s;
         int len = s.length();
+
         for (int i = 0; i < len; i++) {
             char c = s.charAt(i);
             if (PhoneNumberUtils.isNonSeparator(c)) {
@@ -145,7 +162,7 @@ public class CCPTextWatcher implements TextWatcher {
         } else {
             internationalFormatted = "";
         }
-
+        Log.d(TAG, "reformat: Cursor position at the end" + mFormatter.getRememberedPosition());
         InputFormatted internationalInputFormatted = new InputFormatted(TextUtils.isEmpty(internationalFormatted) ? "" : internationalFormatted,
                 mFormatter.getRememberedPosition());
 
