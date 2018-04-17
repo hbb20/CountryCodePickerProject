@@ -18,10 +18,6 @@
             <enum name="RIGHT" value="1"/>
             <enum name="CENTER" value="0"/>
         </attr>
-        <attr name="ccp_hintExampleNumberFormat" format="enum">
-            <enum value="0" name="DEFAULT" />
-            <enum value="1" name="NATIONAL" />
-        </attr>
         <attr name="ccp_hintExampleNumberType" format="enum">
             <enum name="MOBILE" value="0" />
             <enum name="FIXED_LINE" value="1" />

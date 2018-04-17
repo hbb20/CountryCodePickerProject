@@ -6,7 +6,6 @@ import android.text.Editable;
 import android.text.Selection;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 
 import io.michaelrocks.libphonenumber.android.AsYouTypeFormatter;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
@@ -86,7 +85,6 @@ public class CCPTextWatcher implements TextWatcher {
         String formatted = inputFormatted.getFormatted();
         if (formatted != null) {
             int rememberedPos = formatted.length();
-            Log.v("rememberedPos", "" + rememberedPos);
             mSelfChange = true;
             s.replace(0, s.length(), formatted, 0, formatted.length());
 
@@ -113,7 +111,7 @@ public class CCPTextWatcher implements TextWatcher {
     private InputFormatted reformat(CharSequence s, int cursor) {
         // The index of char to the leftward of the cursor.
         int curIndex = cursor - 1;
-        String formatted = null;
+        String internationalFormatted = "";
         mFormatter.clear();
         char lastNonSeparator = 0;
         boolean hasCursor = false;
@@ -125,7 +123,7 @@ public class CCPTextWatcher implements TextWatcher {
             char c = s.charAt(i);
             if (PhoneNumberUtils.isNonSeparator(c)) {
                 if (lastNonSeparator != 0) {
-                    formatted = getFormattedNumber(lastNonSeparator, hasCursor);
+                    internationalFormatted = getFormattedNumber(lastNonSeparator, hasCursor);
                     hasCursor = false;
                 }
                 lastNonSeparator = c;
@@ -135,22 +133,23 @@ public class CCPTextWatcher implements TextWatcher {
             }
         }
         if (lastNonSeparator != 0) {
-            Log.v("lastNonSeparator", "" + lastNonSeparator);
-            formatted = getFormattedNumber(lastNonSeparator, hasCursor);
+            internationalFormatted = getFormattedNumber(lastNonSeparator, hasCursor);
         }
 
-        formatted = formatted.trim();
-        if (formatted.length() > countryCallingCode.length()) {
-            if (formatted.charAt(countryCallingCode.length()) == ' ')
-                formatted = formatted.substring(countryCallingCode.length() + 1);
+        internationalFormatted = internationalFormatted.trim();
+        if (internationalFormatted.length() > countryCallingCode.length()) {
+            if (internationalFormatted.charAt(countryCallingCode.length()) == ' ')
+                internationalFormatted = internationalFormatted.substring(countryCallingCode.length() + 1);
             else
-                formatted = formatted.substring(countryCallingCode.length());
+                internationalFormatted = internationalFormatted.substring(countryCallingCode.length());
         } else {
-            formatted = "";
+            internationalFormatted = "";
         }
 
-        return new InputFormatted(TextUtils.isEmpty(formatted) ? "" : formatted,
+        InputFormatted internationalInputFormatted = new InputFormatted(TextUtils.isEmpty(internationalFormatted) ? "" : internationalFormatted,
                 mFormatter.getRememberedPosition());
+
+        return internationalInputFormatted;
     }
 
     private String getFormattedNumber(char lastNonSeparator, boolean hasCursor) {

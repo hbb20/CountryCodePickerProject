@@ -78,7 +78,6 @@ public class CountryCodePicker extends RelativeLayout {
     boolean detectCountryWithAreaCode = true;
     boolean ccpDialogShowNameCode = true;
     PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
-    HintNumberFormat hintExampleNumberFormat = HintNumberFormat.DEFAULT;
     String selectionMemoryTag = "ccp_last_selection";
     int contentColor;
     int borderFlagColor;
@@ -229,10 +228,6 @@ public class CountryCodePicker extends RelativeLayout {
             //example number hint type
             int hintNumberTypeIndex = a.getInt(R.styleable.CountryCodePicker_ccp_hintExampleNumberType, 0);
             hintExampleNumberType = PhoneNumberType.values()[hintNumberTypeIndex];
-
-            //example number hint format
-            int hintNumberFormatIndex = a.getInt(R.styleable.CountryCodePicker_ccp_hintExampleNumberFormat, 0);
-            hintExampleNumberFormat = HintNumberFormat.values()[hintNumberFormatIndex];
 
             //memory tag name for selection
             selectionMemoryTag = a.getString(R.styleable.CountryCodePicker_ccp_selectionMemoryTag);
@@ -730,17 +725,14 @@ public class CountryCodePicker extends RelativeLayout {
             String formattedNumber = "";
             Phonenumber.PhoneNumber exampleNumber = getPhoneUtil().getExampleNumberForType(getSelectedCountryNameCode(), getSelectedHintNumberType());
             if (exampleNumber != null) {
-                if (hintExampleNumberFormat == HintNumberFormat.DEFAULT) {
                     formattedNumber = exampleNumber.getNationalNumber() + "";
                     Log.d(TAG, "updateHint: " + formattedNumber);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        formattedNumber = PhoneNumberUtils.formatNumber(formattedNumber, getSelectedCountryNameCode());
+                        formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber, getSelectedCountryNameCode());
                     } else {
-                        formattedNumber = PhoneNumberUtils.formatNumber(formattedNumber);
+                        formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber + formattedNumber);
                     }
-                } else if (hintExampleNumberFormat == HintNumberFormat.NATIONAL) {
-                    formattedNumber = getPhoneUtil().format(exampleNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
-                }
+                formattedNumber = formattedNumber.substring(getSelectedCountryCodeWithPlus().length()).trim();
                 Log.d(TAG, "updateHint: after format " + formattedNumber + " " + selectionMemoryTag);
             } else {
                 Log.w(TAG, "updateHint: No example number found for this country (" + getSelectedCountryNameCode() + ") or this type (" + hintExampleNumberType.name() + ").");
@@ -2062,15 +2054,6 @@ public class CountryCodePicker extends RelativeLayout {
         updateHint();
     }
 
-    public HintNumberFormat getHintExampleNumberFormat() {
-        return hintExampleNumberFormat;
-    }
-
-    public void setHintExampleNumberFormat(HintNumberFormat hintExampleNumberFormat) {
-        this.hintExampleNumberFormat = hintExampleNumberFormat;
-        updateHint();
-    }
-
     /**
      * Update every time new language is supported #languageSupport
      */
@@ -2114,8 +2097,6 @@ public class CountryCodePicker extends RelativeLayout {
             this.code = code;
         }
     }
-
-    public enum HintNumberFormat {DEFAULT, NATIONAL}
 
     public enum PhoneNumberType {
         MOBILE,
