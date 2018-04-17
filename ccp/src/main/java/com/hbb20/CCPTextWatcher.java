@@ -4,6 +4,7 @@ import android.content.Context;
 import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
 import android.text.Selection;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 
@@ -79,7 +80,10 @@ public class CCPTextWatcher implements TextWatcher {
             // Ignore the change caused by s.replace().
             return;
         }
-        String formatted = reformat(s, Selection.getSelectionEnd(s));
+
+        //this comes from additional answer on question (link at top of the class)
+        InputFormatted inputFormatted = reformat(s, Selection.getSelectionEnd(s));
+        String formatted = inputFormatted.getFormatted();
         if (formatted != null) {
             int rememberedPos = formatted.length();
             Log.v("rememberedPos", "" + rememberedPos);
@@ -94,6 +98,11 @@ public class CCPTextWatcher implements TextWatcher {
             }
             mSelfChange = false;
         }
+
+        if (inputFormatted.getPosition() < s.length()) {
+            Selection.setSelection(s, inputFormatted.getPosition());
+        }
+
     }
 
     /**
@@ -101,7 +110,7 @@ public class CCPTextWatcher implements TextWatcher {
      * nearest dialable char to the left. For instance, if the number is  (650) 123-45678 and '4' is
      * removed then the cursor should be behind '3' instead of '-'.
      */
-    private String reformat(CharSequence s, int cursor) {
+    private InputFormatted reformat(CharSequence s, int cursor) {
         // The index of char to the leftward of the cursor.
         int curIndex = cursor - 1;
         String formatted = null;
@@ -130,13 +139,18 @@ public class CCPTextWatcher implements TextWatcher {
             formatted = getFormattedNumber(lastNonSeparator, hasCursor);
         }
 
+        formatted = formatted.trim();
         if (formatted.length() > countryCallingCode.length()) {
             if (formatted.charAt(countryCallingCode.length()) == ' ')
-                return formatted.substring(countryCallingCode.length() + 1);
-            return formatted.substring(countryCallingCode.length());
+                formatted = formatted.substring(countryCallingCode.length() + 1);
+            else
+                formatted = formatted.substring(countryCallingCode.length());
+        } else {
+            formatted = "";
         }
 
-        return formatted.substring(formatted.length());
+        return new InputFormatted(TextUtils.isEmpty(formatted) ? "" : formatted,
+                mFormatter.getRememberedPosition());
     }
 
     private String getFormattedNumber(char lastNonSeparator, boolean hasCursor) {
@@ -157,5 +171,31 @@ public class CCPTextWatcher implements TextWatcher {
             }
         }
         return false;
+    }
+
+    class InputFormatted {
+        String formatted;
+        int position;
+
+        public InputFormatted(String formatted, int position) {
+            this.formatted = formatted;
+            this.position = position;
+        }
+
+        public String getFormatted() {
+            return formatted;
+        }
+
+        public void setFormatted(String formatted) {
+            this.formatted = formatted;
+        }
+
+        public int getPosition() {
+            return position;
+        }
+
+        public void setPosition(int position) {
+            this.position = position;
+        }
     }
 }
