@@ -11,6 +11,7 @@ import android.os.Build;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
+import android.text.Selection;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -99,7 +100,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean autoDetectLanguageEnabled, autoDetectCountryEnabled, numberAutoFormattingEnabled, hintExampleNumberEnabled;
     String xmlWidth = "notSet";
     TextWatcher validityTextWatcher;
-    CCPTextWatcher formattingTextWatcher;
+    InternationalPhoneTextWatcher formattingTextWatcher;
     boolean reportedValidity;
     TextWatcher areaCodeCountryDetectorTextWatcher;
     boolean countryDetectionBasedOnAreaAllowed;
@@ -713,8 +714,19 @@ public class CountryCodePicker extends RelativeLayout {
             reportedValidity = isValidFullNumber();
             phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
         }
-        //remove force lock
+
+        //once updates are done, this will release lock
         countryDetectionBasedOnAreaAllowed = true;
+
+        //if the country was auto detected based on area code, this will correct the cursor position.
+        if (countryChagedDueToAreaCode) {
+            try {
+                editText_registeredCarrierNumber.setSelection(lastCursorPosition);
+                countryChagedDueToAreaCode = false;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -804,7 +816,7 @@ public class CountryCodePicker extends RelativeLayout {
             }
 
             if (numberAutoFormattingEnabled) {
-                formattingTextWatcher = new CCPTextWatcher(context, this);
+                formattingTextWatcher = new InternationalPhoneTextWatcher(context, this);
                 editText_registeredCarrierNumber.addTextChangedListener(formattingTextWatcher);
             }
 
@@ -827,6 +839,8 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
+    int lastCursorPosition = 0;
+    boolean countryChagedDueToAreaCode = false;
     /**
      * This updates country dynamically as user types in area code
      *
@@ -847,6 +861,7 @@ public class CountryCodePicker extends RelativeLayout {
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        Log.d(TAG, "onTextChanged: I am changed again cursor position" + Selection.getSelectionEnd(s));
                         CCPCountry selectedCountry = getSelectedCountry();
                         if (selectedCountry != null && (lastCheckedNumber == null || !lastCheckedNumber.equals(s.toString())) && countryDetectionBasedOnAreaAllowed) {
                             //possible countries
@@ -860,6 +875,9 @@ public class CountryCodePicker extends RelativeLayout {
                                         if (!currentAreaCode.equals(lastCheckedAreaCode)) {
                                             CCPCountry detectedCountry = CCPCountry.getNANPACountryForAreaCode(context, getLanguageToApply(), null, 1 + digitsValue);
                                             if (!detectedCountry.equals(selectedCountry)) {
+                                                countryChagedDueToAreaCode = true;
+                                                lastCursorPosition = Selection.getSelectionEnd(s);
+                                                Log.d(TAG, "onTextChanged: remembered position " + lastCursorPosition);
                                                 setSelectedCountry(detectedCountry);
                                             }
                                             lastCheckedAreaCode = currentAreaCode;
@@ -876,6 +894,8 @@ public class CountryCodePicker extends RelativeLayout {
                                         if (!currentAreaCode.equals(lastCheckedAreaCode)) {
                                             CCPCountry detectedCountry = CCPCountry.getCountry44ForAreaCode(context, getLanguageToApply(), null, 44 + digitsValue);
                                             if (detectedCountry != null && !detectedCountry.equals(selectedCountry)) {
+                                                countryChagedDueToAreaCode = true;
+                                                lastCursorPosition = Selection.getSelectionEnd(s);
                                                 setSelectedCountry(detectedCountry);
                                             }
                                             lastCheckedAreaCode = currentAreaCode;
@@ -889,6 +909,7 @@ public class CountryCodePicker extends RelativeLayout {
 
                     @Override
                     public void afterTextChanged(Editable s) {
+
 
                     }
                 };
