@@ -816,7 +816,7 @@ public class CountryCodePicker extends RelativeLayout {
             }
 
             if (numberAutoFormattingEnabled) {
-                formattingTextWatcher = new InternationalPhoneTextWatcher(context, this);
+                formattingTextWatcher = new InternationalPhoneTextWatcher(context, getSelectedCountryNameCode(), getSelectedCountryCodeAsInt());
                 editText_registeredCarrierNumber.addTextChangedListener(formattingTextWatcher);
             }
 

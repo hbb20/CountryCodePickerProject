@@ -13,8 +13,7 @@
 
                 <TextView
                     style="@style/fragmentTitle"
-                    android:text="Introduction"
-                   />
+                    android:text="Introduction" />
 
                 <TextView
                     style="@style/fragmentSubTitle"
@@ -114,13 +113,12 @@
 
                             <com.hbb20.CountryCodePicker
                                 android:id="@+id/ccp"
-                                app:ccp_hintExampleNumber="true"
-                                app:ccp_defaultLanguage="FRENCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 app:ccp_countryAutoDetectionPref="SIM_NETWORK_LOCALE"
-                                app:ccp_countryPreference="pk,in,us" />
+                                app:ccp_countryPreference="pk,in,us"
+                                app:ccp_hintExampleNumber="true" />
 
                             <EditText
                                 android:id="@+id/et_phone"
@@ -132,7 +130,6 @@
                                 android:textColor="@android:color/black" />
 
                         </LinearLayout>
-
                     </LinearLayout>
                 </RelativeLayout>
 
