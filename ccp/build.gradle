@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/hbb20/CountryCodePickerProject'
     gitUrl = 'https://github.com/hbb20/CountryCodePickerProject.git'
 
-    libraryVersion = '2.1.7.8'
+    libraryVersion = '2.2.0'
 
     developerId = 'hbb20'
     developerName = 'Harsh Bhakta'

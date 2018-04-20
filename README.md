@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.1.9'
+            implementation 'com.hbb20:ccp:2.2.0'
           }
    ````
 
@@ -66,6 +66,13 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 --------
+##### Version 2.2.0 (April 20, 2018)
+- Improved international phone formatting.
+- Removes intermediate solution for national phone hint (ccp_hintExampleNumberFormat is no longer supported).
+- Add/Correct some country flags.
+- Uses latest [libphonenumber (Optimized for android)](https://github.com/MichaelRocks/libphonenumber-android) library.
+- FailureListener interface to listen to onCountryAutoDetectionFailed [Issue#186](https://github.com/hbb20/CountryCodePickerProject/issues/186).
+
 ##### Version 2.1.9 (March 21, 2018)
 - Adds Swedish language support ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/167) by [Tobias Hillén](https://github.com/tobiashillen))
 - Adds Kosovo Country  ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/166) by [Aleksei Kliuev](https://github.com/aleksei-klv))
@@ -117,8 +124,8 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Addition of Kosovo Country by [Aleksei Kliuev](https://github.com/aleksei-klv)
 
 # Contribution
-- To add a new country, follow the [guide for add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).
-- To add a new Language support, follow the [guide for add new language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Add-New-Language-Support).
+- To add a new country, follow the [guide to add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).
+- To add a new Language support, follow the [guide to add new language support](https://github.com/hbb20/CountryCodePickerProject/wiki/Add-New-Language-Support).
 
 
 

@@ -107,6 +107,7 @@ public class CountryCodePicker extends RelativeLayout {
     String lastCheckedAreaCode = null;
     private OnCountryChangeListener onCountryChangeListener;
     private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
+    private FailureListener failureListener;
     private DialogEventsListener dialogEventsListener;
     private int fastScrollerHandleColor;
     private int dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
@@ -1877,6 +1878,15 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
+     * Sets failure listener.
+     *
+     * @param failureListener
+     */
+    public void setPhoneNumberValidityChangeListener(FailureListener failureListener) {
+        this.failureListener = failureListener;
+    }
+
+    /**
      * Opens country selection dialog.
      * By default this is called from ccp click.
      * Developer can use this to trigger manually.
@@ -1945,6 +1955,10 @@ public class CountryCodePicker extends RelativeLayout {
                 }
                 if (successfullyDetected) {
                     break;
+                } else {
+                    if (failureListener != null) {
+                        failureListener.onCountryAutoDetectionFailed();
+                    }
                 }
             }
 
@@ -2200,6 +2214,14 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public interface OnCountryChangeListener {
         void onCountrySelected();
+    }
+
+    /**
+     * interface to listen to failure events
+     */
+    public interface FailureListener {
+        //when country auto detection failed.
+        void onCountryAutoDetectionFailed();
     }
 
     /**
