@@ -2101,6 +2101,7 @@ public class CountryCodePicker extends RelativeLayout {
         CHINESE_TRADITIONAL("zh"),
         DUTCH("nl"),
         ENGLISH("en"),
+        FARSI("fa"),
         FRENCH("fr"),
         GERMAN("de"),
         GUJARATI("gu"),
