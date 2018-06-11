@@ -269,14 +269,20 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 } else {
                     textView_code.setVisibility(View.GONE);
                 }
-                linearFlagHolder.setVisibility(View.VISIBLE);
+
                 if (codePicker.getCcpDialogShowNameCode()) {
                     textView_name.setText(CCPCountry.getName() + " (" + CCPCountry.getNameCode().toUpperCase() + ")");
                 } else {
                     textView_name.setText(CCPCountry.getName());
                 }
                 textView_code.setText("+" + CCPCountry.getPhoneCode());
-                imageViewFlag.setImageResource(CCPCountry.getFlagID());
+
+                if (!codePicker.getCcpDialogShowFlag()) {
+                    linearFlagHolder.setVisibility(View.GONE);
+                } else {
+                    linearFlagHolder.setVisibility(View.VISIBLE);
+                    imageViewFlag.setImageResource(CCPCountry.getFlagID());
+                }
             }else{
                 divider.setVisibility(View.VISIBLE);
                 textView_name.setVisibility(View.GONE);

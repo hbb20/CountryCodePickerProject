@@ -10,7 +10,8 @@
         android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginLeft="@dimen/google_1x"
-        android:layout_marginRight="@dimen/google_1x"
+        android:layout_marginStart="@dimen/google_1x"
+        android:visibility="gone"
         android:gravity="center">
 
         <ImageView
@@ -30,6 +31,8 @@
         android:layout_toLeftOf="@+id/textView_code"
         android:layout_toRightOf="@+id/linear_flag_holder"
         android:layout_toStartOf="@+id/textView_code"
+        android:layout_marginStart="@dimen/google_1x"
+        android:layout_marginLeft="@dimen/google_1x"
         android:gravity="center_vertical"
         android:text="India (IN)"
         android:textColor="@android:color/secondary_text_light" />
