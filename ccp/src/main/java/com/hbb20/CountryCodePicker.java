@@ -72,6 +72,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showFlag = true;
     boolean showFullName = false;
     boolean showFastScroller;
+    boolean ccpDialogShowTitle = true;
     boolean searchAllowed = true;
     boolean showArrow = true;
     boolean showCloseIcon = false;
@@ -199,6 +200,9 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show name code on dialog
             ccpDialogShowNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showNameCode, true);
+
+            //show title on dialog
+            ccpDialogShowTitle = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showTitle, true);
 
             //show full name
             showFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
@@ -468,6 +472,22 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public boolean getCcpDialogShowNameCode() {
         return this.ccpDialogShowNameCode;
+    }
+
+    /**
+     * To show/hide title from country selection dialog
+     *
+     * @param ccpDialogShowTitle
+     */
+    public void setCcpDialogShowTitle(boolean ccpDialogShowTitle) {
+        this.ccpDialogShowTitle = ccpDialogShowTitle;
+    }
+
+    /**
+     * To show/hide name code from country selection dialog
+     */
+    public boolean getCcpDialogShowTitle() {
+        return this.ccpDialogShowTitle;
     }
 
     /**

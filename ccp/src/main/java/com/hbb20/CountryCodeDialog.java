@@ -92,6 +92,11 @@ class CountryCodeDialog {
             imgDismiss.setVisibility(View.GONE);
         }
 
+        //title
+        if (!codePicker.getCcpDialogShowTitle()) {
+            textViewTitle.setVisibility(View.GONE);
+        }
+
         //clear button color and title color
         if (codePicker.getDialogTextColor() != 0) {
             int textColor = codePicker.getDialogTextColor();
