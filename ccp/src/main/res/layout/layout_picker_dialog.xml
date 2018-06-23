@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_toLeftOf="@+id/img_dismiss"
+            android:layout_toStartOf="@+id/img_dismiss"
             android:text="@string/select_country"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/secondary_text_light" />
