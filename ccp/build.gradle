@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/hbb20/CountryCodePickerProject'
     gitUrl = 'https://github.com/hbb20/CountryCodePickerProject.git'
 
-    libraryVersion = '2.2.1'
+    libraryVersion = '2.2.2'
 
     developerId = 'hbb20'
     developerName = 'Harsh Bhakta'
@@ -54,7 +54,7 @@ dependencies {
     implementation('com.futuremind.recyclerfastscroll:fastscroll:0.2.5', {
         exclude group: 'com.android.support'
     })
-    implementation 'io.michaelrocks:libphonenumber-android:8.9.0'
+    implementation 'io.michaelrocks:libphonenumber-android:8.9.5'
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'

@@ -337,19 +337,23 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 firstDigit = 0;
             }
             CCPCountry ccpCountry = null;
-            for (int i = firstDigit; i < firstDigit + 4; i++) {
+            for (int i = firstDigit; i <= fullNumber.length(); i++) {
                 String code = fullNumber.substring(firstDigit, i);
-                if (code.equals("1")) {
-                    return getNANPACountryForAreaCode(context, language, preferredCountries, fullNumber);
-                } else if (code.equals("44")) {
-                    CCPCountry countryWith44 = getCountry44ForAreaCode(context, language, preferredCountries, fullNumber);
-                    if (countryWith44 != null) {
-                        return countryWith44;
+                CCPCountryGroup countryGroup = null;
+                try {
+                    countryGroup = CCPCountryGroup.getCountryGroupForPhoneCode(Integer.parseInt(code));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (countryGroup != null) {
+                    int areaCodeStartsAt = firstDigit + code.length();
+                    //when phone number covers area code too.
+                    if (fullNumber.length() >= areaCodeStartsAt + countryGroup.areaCodeLength) {
+                        String areaCode = fullNumber.substring(areaCodeStartsAt, areaCodeStartsAt + countryGroup.areaCodeLength);
+                        return countryGroup.getCountryForAreaCode(context, language, areaCode);
                     } else {
-                        ccpCountry = CCPCountry.getCountryForCode(context, language, preferredCountries, code);
-                        return ccpCountry;
+                        return getCountryForNameCodeFromLibraryMasterList(context, language, countryGroup.defaultNameCode);
                     }
-
                 } else {
                     ccpCountry = CCPCountry.getCountryForCode(context, language, preferredCountries, code);
                     if (ccpCountry != null) {
@@ -1128,89 +1132,6 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("zm", "260", "Zambia", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("zw", "263", "Zimbabwe", DEFAULT_FLAG_RES));
         return countries;
-    }
-
-    /**
-     * This function will detect NANP country based on area code.
-     * North American Numbering Plan Administration handles numbering with +1 country code.
-     * Area codes are taken from https://www.areacodelocations.info/areacodelist.html
-     *
-     * @param context
-     * @param language
-     * @param preferredCountries
-     * @param phoneNumber        @return
-     */
-    static CCPCountry getNANPACountryForAreaCode(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, String phoneNumber) {
-        String nameCode = "us";
-        String areaCode = "";
-        //trim out + from number
-        phoneNumber = phoneNumber.replace("+", "");
-        if (phoneNumber.length() >= 4 && phoneNumber.charAt(0) == '1') { //minimum 4 digits are required to detect and first digit must be 1 (
-            areaCode = phoneNumber.substring(1, 4);
-        }
-
-        //when number is partial and area code can not be detected, in that case country will be detected normally
-        if (areaCode.length() != 3) {
-            return CCPCountry.getCountryForCode(context, language, preferredCountries, "1");
-        }
-
-        //if valid area code is detected then detect country based on it.
-        if (ANTIGUA_AND_BARBUDA_AREA_CODES.contains(areaCode)) nameCode = "ag";
-        else if (ANGUILLA_AREA_CODES.contains(areaCode)) nameCode = "ai";
-        else if (BARBADOS_AREA_CODES.contains(areaCode)) nameCode = "bb";
-        else if (BERMUDA_AREA_CODES.contains(areaCode)) nameCode = "bm";
-        else if (BAHAMAS_AREA_CODES.contains(areaCode)) nameCode = "bs";
-        else if (CANADA_AREA_CODES.contains(areaCode)) nameCode = "ca";
-        else if (DOMINICA_AREA_CODES.contains(areaCode)) nameCode = "dm";
-        else if (DOMINICAN_REPUBLIC_AREA_CODES.contains(areaCode)) nameCode = "do";
-        else if (GRENADA_AREA_CODES.contains(areaCode)) nameCode = "gd";
-        else if (JAMAICA_AREA_CODES.contains(areaCode)) nameCode = "jm";
-        else if (SAINT_KITTS_AND_NEVIS_AREA_CODES.contains(areaCode)) nameCode = "kn";
-        else if (CAYMAN_ISLANDS_AREA_CODES.contains(areaCode)) nameCode = "ky";
-        else if (SAINT_LUCIA_AREA_CODES.contains(areaCode)) nameCode = "lc";
-        else if (MONTSERRAT_AREA_CODES.contains(areaCode)) nameCode = "ms";
-        else if (PUERTO_RICO_AREA_CODES.contains(areaCode)) nameCode = "pr";
-        else if (SINT_MAARTEN_AREA_CODES.contains(areaCode)) nameCode = "sx";
-        else if (TURKS_AND_CAICOS_ISLANDS_AREA_CODES.contains(areaCode)) nameCode = "tc";
-        else if (TRINIDAD_AND_TOBAGO_AREA_CODES.contains(areaCode)) nameCode = "tt";
-        else if (SAINT_VINCENT_AND_THE_GRENADINES_AREA_CODES.contains(areaCode)) nameCode = "vc";
-        else if (BRITISH_VIRGIN_ISLANDS_AREA_CODES.contains(areaCode)) nameCode = "vg";
-        else if (US_VIRGIN_ISLANDS_AREA_CODES.contains(areaCode)) nameCode = "vi";
-        else
-            nameCode = "us"; // if no other country had the the area code, by default it will set US.
-        return getCountryForNameCodeFromLibraryMasterList(context, language, nameCode);
-    }
-
-    /**
-     * This function will detect NANP country based on area code.
-     * North American Numbering Plan Administration handles numbering with +1 country code.
-     * Area codes are taken from https://www.areacodelocations.info/areacodelist.html
-     *
-     * @param context
-     * @param language
-     * @param preferredCountries
-     * @param phoneNumber        @return
-     */
-    static CCPCountry getCountry44ForAreaCode(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, String phoneNumber) {
-        String nameCode = "gb";
-        String areaCode = "";
-        //trim out + from number
-
-        phoneNumber = phoneNumber.replace("+", "");
-        Log.d(TAG, "getCountry44ForAreaCode: Phone is" + phoneNumber);
-        if (phoneNumber.length() >= 6 && phoneNumber.startsWith("44")) { //minimum 6 digits are required to detect and first two digit must be 44
-            areaCode = phoneNumber.substring(2, 6);
-        }
-
-        //when number is partial and area code can not be detected, in that case country will be detected normally
-        Log.d(TAG, "getCountry44ForAreaCode: Area Code is" + areaCode);
-        if (areaCode.length() != 4) {
-            return null;
-        }//if valid area code is detected then detect country based on it.
-        else if (ISLE_OF_MAN.contains(areaCode)) nameCode = "im";
-        else
-            nameCode = "gb"; // if no other country had the the area code, by default it will set gb.
-        return getCountryForNameCodeFromLibraryMasterList(context, language, nameCode);
     }
 
     public String getEnglishName() {

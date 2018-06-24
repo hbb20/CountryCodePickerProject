@@ -10,18 +10,18 @@ import java.util.Map;
  * This all those countries that shares the same country code but can be differentiated based on area code
  */
 public class CCPCountryGroup {
-    static SparseArray<CCPCountryGroup> countryGroups = null;
+    private static SparseArray<CCPCountryGroup> countryGroups = null;
     String defaultNameCode;
     int areaCodeLength;
-    HashMap<String, String> nameCodeToAreaCodesMap;
+    private HashMap<String, String> nameCodeToAreaCodesMap;
 
-    public CCPCountryGroup(String defaultNameCode, int areaCodeLength, HashMap<String, String> nameCodeToAreaCodesMap) {
+    private CCPCountryGroup(String defaultNameCode, int areaCodeLength, HashMap<String, String> nameCodeToAreaCodesMap) {
         this.defaultNameCode = defaultNameCode;
         this.areaCodeLength = areaCodeLength;
         this.nameCodeToAreaCodesMap = nameCodeToAreaCodesMap;
     }
 
-    public static void initializeGroups() {
+    private static void initializeGroups() {
 
         countryGroups = new SparseArray<>();
 
@@ -38,7 +38,7 @@ public class CCPCountryGroup {
     private static void addGroupForPhoneCode358() {
         HashMap<String, String> nameCodeToAreaCodes = new HashMap<>();
         nameCodeToAreaCodes.put("ax", "18"); //Aland Islands
-        countryGroups.put(44, new CCPCountryGroup("fi", 2, nameCodeToAreaCodes)); // Finland
+        countryGroups.put(358, new CCPCountryGroup("fi", 2, nameCodeToAreaCodes)); // Finland
     }
 
     /**
@@ -49,7 +49,6 @@ public class CCPCountryGroup {
         nameCodeToAreaCodes.put("gg", "1481"); //Guernsey
         nameCodeToAreaCodes.put("im", "1624"); //ISLE_OF_MAN
         nameCodeToAreaCodes.put("je", "1534"); //Jersey
-
         countryGroups.put(44, new CCPCountryGroup("gb", 4, nameCodeToAreaCodes)); // UK
     }
 
@@ -93,6 +92,14 @@ public class CCPCountryGroup {
         return countryGroups.get(countryCode);
     }
 
+    /**
+     * Go though nameCodeToAreaCodesMap entries to find name code of country.
+     *
+     * @param context
+     * @param language
+     * @param areaCode for which we are looking for country
+     * @return country that matches areaCode. If no country matched, returns default country.
+     */
     public CCPCountry getCountryForAreaCode(Context context, CountryCodePicker.Language language, String areaCode) {
         String nameCode = defaultNameCode;
         for (Map.Entry<String, String> entry : nameCodeToAreaCodesMap.entrySet()) {

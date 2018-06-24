@@ -31,11 +31,6 @@ Add this to your gradle file and sync
           }
    ````
 
-  What's new?
-  > - Swedish language support
-  > - Feature to exclude specific countries from the list. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Exclude-specific-countries)  
-  > - Option to remember last selection.
-
   * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
 
 Features
@@ -66,7 +61,7 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 --------
-##### Version 2.2.1 (June 23, 2018)
+##### Version 2.2.2 (June 24, 2018)
 - Option to remove flag from dialog. [Issue#189](https://github.com/hbb20/CountryCodePickerProject/issues/189)
 - Adds Farsi Language Support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/202) By [Ayhan Salami](https://github.com/ayhansalami)
 - Adds Slovak Language Support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/207) By [smiesnyrobert](https://github.com/smiesnyrobert)
@@ -87,25 +82,6 @@ Change log
 - Understands difference between Isle of Man country and UK numbers. [Issue#168](https://github.com/hbb20/CountryCodePickerProject/issues/168)
 - Feature to remove country name code from CCP Dialog [Issue#159](https://github.com/hbb20/CountryCodePickerProject/issues/159)
 - Adds ccp_hintExampleNumberFormat to address cases like [Issue#154](https://github.com/hbb20/CountryCodePickerProject/issues/154)
-
-##### version 2.1.4 (Jan 29, 2018)
-- Handles national trunk prefixes correctly. [Issue#149](https://github.com/hbb20/CountryCodePickerProject/issues/149)
-- Feature to add selected country's example number as hint of carrier number edit text. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Example-phone-number-as-edittext-hint)
-- Corrected dimension of French Guiana flag ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/148) by [Gautier MECHLING](https://github.com/Nilhcem))
-- Feature to exclude specific countries from the list. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Exclude-specific-countries)
-
-##### version 2.1.2 (Jan 6, 2018)
-- Adds Punjabi language support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/141) By [Dhruv Bhakta](https://github.com/DBB411)
-- Corrected Arabic translation by [Ahmed Wahdan](https://github.com/WahdanZ)
-- Country name textView, Flag imageView, Arrow imageView are now publicly accessible through getter-setters.  
-
-
-##### version 2.1.1 (Dec 13, 2017)
-- Opens Country class (Renamed to "CCPCountry" to avoid naming confusion) ([issue#136](https://github.com/hbb20/CountryCodePickerProject/issues/136))
-- Fixes preview in Android Studio 3
-- Auto detects country while typing based on area code (for countries with code "+1") ([issue#140](https://github.com/hbb20/CountryCodePickerProject/issues/140))
-- Cursor color follows ccpDialog_searchEditTextTint color ([issue#131](https://github.com/hbb20/CountryCodePickerProject/issues/131))
-- Possible fix for crash ([issue#67](https://github.com/hbb20/CountryCodePickerProject/issues/67))
 
 For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).
 
