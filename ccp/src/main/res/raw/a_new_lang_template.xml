@@ -59,6 +59,11 @@
             phone_code="54" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="American Samoa"
+            name_code="as"
+            phone_code="1" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Austria"
             name_code="at"
             phone_code="43" />
@@ -72,6 +77,11 @@
             english_name="Aruba"
             name_code="aw"
             phone_code="297" />
+        <country
+            name="TODO: replace with  translated country name"
+            english_name="Aland Islands"
+            name_code="ax"
+            phone_code="358" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Azerbaijan"
@@ -379,6 +389,11 @@
             phone_code="594" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="Guernsey"
+            name_code="gg"
+            phone_code="44" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Ghana"
             name_code="gh"
             phone_code="233" />
@@ -422,6 +437,11 @@
             english_name="Guatemala"
             name_code="gt"
             phone_code="502" />
+        <country
+            name="TODO: replace with  translated country name"
+            english_name="Guam"
+            name_code="gu"
+            phone_code="1" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Guinea-bissau"
@@ -489,6 +509,11 @@
             phone_code="91" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="British Indian Ocean Territory"
+            name_code="io"
+            phone_code="246" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Iraq"
             name_code="iq"
             phone_code="964" />
@@ -502,6 +527,11 @@
             english_name="Italy"
             name_code="it"
             phone_code="39" />
+        <country
+            name="TODO: replace with  translated country name"
+            english_name="Jersey"
+            name_code="je"
+            phone_code="44" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Jamaica"
@@ -649,6 +679,11 @@
             phone_code="382" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="Saint Martin"
+            name_code="mf"
+            phone_code="590" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Madagascar"
             name_code="mg"
             phone_code="261" />
@@ -682,6 +717,11 @@
             english_name="Macao"
             name_code="mo"
             phone_code="853" />
+        <country
+            name="TODO: replace with  translated country name"
+            english_name="Northern Mariana Islands"
+            name_code="mp"
+            phone_code="1" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Martinique"
@@ -747,6 +787,11 @@
             english_name="Niger"
             name_code="ne"
             phone_code="227" />
+        <country
+            name="TODO: replace with  translated country name"
+            english_name="Norfolk Islands"
+            name_code="nf"
+            phone_code="672" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Nigeria"

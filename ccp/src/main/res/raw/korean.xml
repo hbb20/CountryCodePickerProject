@@ -63,6 +63,11 @@
             name_code="at"
             phone_code="43" />
         <country
+            name="아메리칸 사모아"
+            english_name="American Samoa"
+            name_code="as"
+            phone_code="1" />
+        <country
             name="오스트레일리아 (호주)"
             english_name="Australia"
             name_code="au"
@@ -72,6 +77,11 @@
             english_name="Aruba"
             name_code="aw"
             phone_code="297" />
+        <country
+            name="알란드 제도"
+            english_name="Aland Islands"
+            name_code="ax"
+            phone_code="358" />
         <country
             name="아제르바이잔"
             english_name="Azerbaijan"
@@ -378,6 +388,11 @@
             name_code="gf"
             phone_code="594" />
         <country
+            name="건지 섬"
+            english_name="Guernsey"
+            name_code="gg"
+            phone_code="44" />
+        <country
             name="가나"
             english_name="Ghana"
             name_code="gh"
@@ -432,6 +447,11 @@
             english_name="Guyana"
             name_code="gy"
             phone_code="592" />
+        <country
+            name="괌"
+            english_name="Guam"
+            name_code="gu"
+            phone_code="1" />
         <country
             name="홍콩"
             english_name="Hong Kong"
@@ -488,6 +508,11 @@
             name_code="in"
             phone_code="91" />
         <country
+            name="영국령 인도양 지역"
+            english_name="British Indian Ocean Territory"
+            name_code="io"
+            phone_code="246" />
+        <country
             name="이라크"
             english_name="Iraq"
             name_code="iq"
@@ -502,6 +527,11 @@
             english_name="Italy"
             name_code="it"
             phone_code="39" />
+        <country
+            name="저지"
+            english_name="Jersey"
+            name_code="je"
+            phone_code="44" />
         <country
             name="자메이카"
             english_name="Jamaica"
@@ -648,6 +678,11 @@
             name_code="me"
             phone_code="382" />
         <country
+            name="세인트 마틴"
+            english_name="Saint Martin"
+            name_code="mf"
+            phone_code="590" />
+        <country
             name="마다가스카르"
             english_name="Madagascar"
             name_code="mg"
@@ -682,6 +717,11 @@
             english_name="Macao"
             name_code="mo"
             phone_code="853" />
+        <country
+            name="북 마리아나 군도"
+            english_name="Northern Mariana Islands"
+            name_code="mp"
+            phone_code="1" />
         <country
             name="마르티니크"
             english_name="Martinique"
@@ -747,6 +787,11 @@
             english_name="Niger"
             name_code="ne"
             phone_code="227" />
+        <country
+            name="노퍽 제도"
+            english_name="Norfolk Islands"
+            name_code="nf"
+            phone_code="672" />
         <country
             name="나이지리아"
             english_name="Nigeria"

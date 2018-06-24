@@ -58,6 +58,11 @@
             name_code="ar"
             phone_code="54" />
         <country
+            name="અમેરિકન સમોઆ"
+            english_name="American Samoa"
+            name_code="as"
+            phone_code="1" />
+        <country
             name="ઓસ્ટ્રિયા"
             english_name="Austria"
             name_code="at"
@@ -72,6 +77,11 @@
             english_name="Aruba"
             name_code="aw"
             phone_code="297" />
+        <country
+            name="ઍલૅન્ડ આઇલેન્ડ્સ"
+            english_name="Aland Islands"
+            name_code="ax"
+            phone_code="358" />
         <country
             name="અઝરબૈજાન"
             english_name="Azerbaijan"
@@ -378,6 +388,11 @@
             name_code="gf"
             phone_code="594" />
         <country
+            name="ગ્યુર્નસી"
+            english_name="Guernsey"
+            name_code="gg"
+            phone_code="44" />
+        <country
             name="ઘાના"
             english_name="Ghana"
             name_code="gh"
@@ -422,6 +437,11 @@
             english_name="Guatemala"
             name_code="gt"
             phone_code="502" />
+        <country
+            name="ગુઆમ"
+            english_name="Guam"
+            name_code="gu"
+            phone_code="1" />
         <country
             name="ગિની-બિસ્સાઉ"
             english_name="Guinea-bissau"
@@ -488,6 +508,11 @@
             name_code="in"
             phone_code="91" />
         <country
+            name="બ્રિટીશ હિંદ મહાસાગર પ્રદેશ"
+            english_name="British Indian Ocean Territory"
+            name_code="io"
+            phone_code="246" />
+        <country
             name="ઇરાક"
             english_name="Iraq"
             name_code="iq"
@@ -502,6 +527,11 @@
             english_name="Italy"
             name_code="it"
             phone_code="39" />
+        <country
+            name="જર્સી"
+            english_name="Jersey"
+            name_code="je"
+            phone_code="44" />
         <country
             name="જમૈકા"
             english_name="Jamaica"
@@ -648,6 +678,11 @@
             name_code="me"
             phone_code="382" />
         <country
+            name="સેન્ટ માર્ટિન"
+            english_name="Saint Martin"
+            name_code="mf"
+            phone_code="590" />
+        <country
             name="મેડાગાસ્કર"
             english_name="Madagascar"
             name_code="mg"
@@ -682,6 +717,11 @@
             english_name="Macao"
             name_code="mo"
             phone_code="853" />
+        <country
+            name="ઉત્તરીય મેરીયાના ટાપુઓ"
+            english_name="Northern Mariana Islands"
+            name_code="mp"
+            phone_code="1" />
         <country
             name="માર્ટીનીક"
             english_name="Martinique"
@@ -747,6 +787,11 @@
             english_name="Niger"
             name_code="ne"
             phone_code="227" />
+        <country
+            name="નોરફોક ટાપુઓ"
+            english_name="Norfolk Islands"
+            name_code="nf"
+            phone_code="672" />
         <country
             name="નાઇજીરીયા"
             english_name="Nigeria"

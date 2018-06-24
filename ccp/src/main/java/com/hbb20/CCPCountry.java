@@ -408,12 +408,16 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_antarctica;
             case "ar": //argentina
                 return R.drawable.flag_argentina;
+            case "as": //American Samoa
+                return R.drawable.flag_american_samoa;
             case "at": //austria
                 return R.drawable.flag_austria;
             case "au": //australia
                 return R.drawable.flag_australia;
             case "aw": //aruba
                 return R.drawable.flag_aruba;
+            case "ax": //alan islands
+                return R.drawable.flag_aland;
             case "az": //azerbaijan
                 return R.drawable.flag_azerbaijan;
             case "ba": //bosnia and herzegovina
@@ -536,6 +540,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_georgia;
             case "gf": //guyane
                 return R.drawable.flag_guyane;
+            case "gg": //Guernsey
+                return R.drawable.flag_guernsey;
             case "gh": //ghana
                 return R.drawable.flag_ghana;
             case "gi": //gibraltar
@@ -554,6 +560,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_greece;
             case "gt": //guatemala
                 return R.drawable.flag_guatemala;
+            case "gu": //Guam
+                return R.drawable.flag_guam;
             case "gw": //guinea-bissau
                 return R.drawable.flag_guinea_bissau;
             case "gy": //guyana
@@ -580,12 +588,16 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_iceland;
             case "in": //india
                 return R.drawable.flag_india;
+            case "io": //British indian ocean territory
+                return R.drawable.flag_british_indian_ocean_territory;
             case "iq": //iraq
                 return R.drawable.flag_iraq_new;
             case "ir": //iran, islamic republic of
                 return R.drawable.flag_iran;
             case "it": //italy
                 return R.drawable.flag_italy;
+            case "je": //Jersey
+                return R.drawable.flag_jersey;
             case "jm": //jamaica
                 return R.drawable.flag_jamaica;
             case "jo": //jordan
@@ -644,6 +656,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_moldova;
             case "me": //montenegro
                 return R.drawable.flag_of_montenegro;// custom
+            case "mf":
+                return R.drawable.flag_saint_martin;
             case "mg": //madagascar
                 return R.drawable.flag_madagascar;
             case "mh": //marshall islands
@@ -658,6 +672,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_mongolia;
             case "mo": //macao
                 return R.drawable.flag_macao;
+            case "mp": // Northern mariana islands
+                return R.drawable.flag_northern_mariana_islands;
             case "mq": //martinique
                 return R.drawable.flag_martinique;
             case "mr": //mauritania
@@ -684,6 +700,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_new_caledonia;// custom
             case "ne": //niger
                 return R.drawable.flag_niger;
+            case "nf": //Norfolk
+                return R.drawable.flag_norfolk_island;
             case "ng": //nigeria
                 return R.drawable.flag_nigeria;
             case "ni": //nicaragua
@@ -880,9 +898,11 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("ao", "244", "Angola", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("aq", "672", "Antarctica", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ar", "54", "Argentina", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("as", "1", "American Samoa", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("at", "43", "Austria", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("au", "61", "Australia", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("aw", "297", "Aruba", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("az", "358", "Aland Islands", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("az", "994", "Azerbaijan", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ba", "387", "Bosnia And Herzegovina", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("bb", "1", "Barbados", DEFAULT_FLAG_RES));
@@ -953,6 +973,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("gq", "240", "Equatorial Guinea", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("gr", "30", "Greece", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("gt", "502", "Guatemala", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("gu", "1", "Guam", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("gw", "245", "Guinea-bissau", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("gy", "592", "Guyana", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("hk", "852", "Hong Kong", DEFAULT_FLAG_RES));
@@ -966,9 +987,11 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("im", "44", "Isle Of Man", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("is", "354", "Iceland", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("in", "91", "India", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("io", "246", "British Indian Ocean Territory", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("iq", "964", "Iraq", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ir", "98", "Iran, Islamic Republic Of", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("it", "39", "Italy", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("je", "44", "Jersey ", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("jm", "1", "Jamaica", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("jo", "962", "Jordan", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("jp", "81", "Japan", DEFAULT_FLAG_RES));
@@ -998,6 +1021,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("mc", "377", "Monaco", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("md", "373", "Moldova, Republic Of", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("me", "382", "Montenegro", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mf", "590", "Saint Martin", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("mg", "261", "Madagascar", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("mh", "692", "Marshall Islands", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("mk", "389", "Macedonia, The Former Yugoslav Republic Of", DEFAULT_FLAG_RES));
@@ -1005,6 +1029,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("mm", "95", "Myanmar", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("mn", "976", "Mongolia", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("mo", "853", "Macao", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("mp", "1", "Northern Mariana Islands", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("mq", "596", "Martinique", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("mr", "222", "Mauritania", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ms", "1", "Montserrat", DEFAULT_FLAG_RES));
@@ -1018,6 +1043,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("na", "264", "Namibia", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("nc", "687", "New Caledonia", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ne", "227", "Niger", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("nf", "672", "Norfolk Islands", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ng", "234", "Nigeria", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ni", "505", "Nicaragua", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("nl", "31", "Netherlands", DEFAULT_FLAG_RES));

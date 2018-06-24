@@ -114,6 +114,7 @@ public class CountryCodePicker extends RelativeLayout {
     private int fastScrollerHandleColor;
     private int dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
     private int fastScrollerBubbleTextAppearance;
+    private CCPCountryGroup currentCountryGroup;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -760,14 +761,24 @@ public class CountryCodePicker extends RelativeLayout {
         countryDetectionBasedOnAreaAllowed = true;
 
         //if the country was auto detected based on area code, this will correct the cursor position.
-        if (countryChagedDueToAreaCode) {
+        if (countryChangedDueToAreaCode) {
             try {
                 editText_registeredCarrierNumber.setSelection(lastCursorPosition);
-                countryChagedDueToAreaCode = false;
+                countryChangedDueToAreaCode = false;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+
+        //update country group
+        updateCountryGroup();
+    }
+
+    /**
+     * update country group
+     */
+    private void updateCountryGroup() {
+        currentCountryGroup = CCPCountryGroup.getCountryGroupForPhoneCode(getSelectedCountryCodeAsInt());
     }
 
     /**
@@ -881,7 +892,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     int lastCursorPosition = 0;
-    boolean countryChagedDueToAreaCode = false;
+    boolean countryChangedDueToAreaCode = false;
     /**
      * This updates country dynamically as user types in area code
      *
@@ -902,40 +913,19 @@ public class CountryCodePicker extends RelativeLayout {
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        Log.d(TAG, "onTextChanged: I am changed again cursor position" + Selection.getSelectionEnd(s));
                         CCPCountry selectedCountry = getSelectedCountry();
                         if (selectedCountry != null && (lastCheckedNumber == null || !lastCheckedNumber.equals(s.toString())) && countryDetectionBasedOnAreaAllowed) {
                             //possible countries
-                            if (selectedCountry.getPhoneCode().equals("1")) {
+                            if (currentCountryGroup != null) {
                                 String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
-                                if (enteredValue.length() >= 3) {
+                                if (enteredValue.length() >= currentCountryGroup.areaCodeLength) {
                                     String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
-
-                                    if (digitsValue.length() >= 3) {
-                                        String currentAreaCode = digitsValue.substring(0, 3);
+                                    if (digitsValue.length() >= currentCountryGroup.areaCodeLength) {
+                                        String currentAreaCode = digitsValue.substring(0, currentCountryGroup.areaCodeLength);
                                         if (!currentAreaCode.equals(lastCheckedAreaCode)) {
-                                            CCPCountry detectedCountry = CCPCountry.getNANPACountryForAreaCode(context, getLanguageToApply(), null, 1 + digitsValue);
+                                            CCPCountry detectedCountry = currentCountryGroup.getCountryForAreaCode(context, getLanguageToApply(), currentAreaCode);
                                             if (!detectedCountry.equals(selectedCountry)) {
-                                                countryChagedDueToAreaCode = true;
-                                                lastCursorPosition = Selection.getSelectionEnd(s);
-                                                Log.d(TAG, "onTextChanged: remembered position " + lastCursorPosition);
-                                                setSelectedCountry(detectedCountry);
-                                            }
-                                            lastCheckedAreaCode = currentAreaCode;
-                                        }
-                                    }
-                                }
-                            } else if (selectedCountry.getPhoneCode().equals("44")) {
-                                String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
-                                if (enteredValue.length() >= 4) {
-                                    String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
-
-                                    if (digitsValue.length() >= 4) {
-                                        String currentAreaCode = digitsValue.substring(0, 4);
-                                        if (!currentAreaCode.equals(lastCheckedAreaCode)) {
-                                            CCPCountry detectedCountry = CCPCountry.getCountry44ForAreaCode(context, getLanguageToApply(), null, 44 + digitsValue);
-                                            if (detectedCountry != null && !detectedCountry.equals(selectedCountry)) {
-                                                countryChagedDueToAreaCode = true;
+                                                countryChangedDueToAreaCode = true;
                                                 lastCursorPosition = Selection.getSelectionEnd(s);
                                                 setSelectedCountry(detectedCountry);
                                             }
