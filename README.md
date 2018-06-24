@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.2.0'
+            implementation 'com.hbb20:ccp:2.2.1'
           }
    ````
 
@@ -66,6 +66,13 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 --------
+##### Version 2.2.1 (June 23, 2018)
+- Option to remove flag from dialog. [Issue#189](https://github.com/hbb20/CountryCodePickerProject/issues/189)
+- Adds Farsi Language Support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/202) By [Ayhan Salami](https://github.com/ayhansalami)
+- Adds Slovak Language Support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/207) By [smiesnyrobert](https://github.com/smiesnyrobert)
+- Bug fixes. [Issue#199](https://github.com/hbb20/CountryCodePickerProject/issues/199), [Issue#211](https://github.com/hbb20/CountryCodePickerProject/issues/211).
+- Adds 9 new countries [Issue#206](https://github.com/hbb20/CountryCodePickerProject/issues/206)
+
 ##### Version 2.2.0 (April 20, 2018)
 - Improved international phone formatting.
 - Removes intermediate solution for national phone hint (ccp_hintExampleNumberFormat is no longer supported).
