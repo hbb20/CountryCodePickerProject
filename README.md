@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.2.1'
+            implementation 'com.hbb20:ccp:2.2.2'
           }
    ````
 
