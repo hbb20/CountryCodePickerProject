@@ -268,7 +268,7 @@
             name_code="cy"
             phone_code="357" />
         <country
-            name="Republika Czeska"
+            name="Czechy"
             english_name="Czech Republic"
             name_code="cz"
             phone_code="420" />
@@ -278,8 +278,8 @@
             name_code="de"
             phone_code="49" />
         <country
-            name="TODO: replace with  translated country name"
-            english_name="Dżibuti"
+            name="Dżibuti"
+            english_name="Djibouti"
             name_code="dj"
             phone_code="253" />
         <country
@@ -618,7 +618,7 @@
             name_code="lc"
             phone_code="1" />
         <country
-            name="Liechtenstein"
+            name="Lichtenstein"
             english_name="Liechtenstein"
             name_code="li"
             phone_code="423" />
@@ -873,7 +873,7 @@
             name_code="pl"
             phone_code="48" />
         <country
-            name="Saint-Pierre And Miquelon"
+            name="Saint-Pierre i Miquelon"
             english_name="Saint Pierre And Miquelon"
             name_code="pm"
             phone_code="508" />
@@ -1118,7 +1118,7 @@
             name_code="ug"
             phone_code="256" />
         <country
-            name="USA"
+            name="Stany Zjednoczone"
             english_name="United States (USA)"
             name_code="us"
             phone_code="1" />
