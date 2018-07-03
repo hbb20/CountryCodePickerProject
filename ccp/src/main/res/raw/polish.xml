@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <messages>
-        <ccp_dialog_title translation="todo: update" />
-        <ccp_dialog_search_hint_message translation="todo: update" />
-        <ccp_dialog_no_result_ack_message translation='todo: update' />
+        <ccp_dialog_title translation="Wybierz kraj" />
+        <ccp_dialog_search_hint_message translation="Szukaj..." />
+        <ccp_dialog_no_result_ack_message translation='Nie znaleziono' />
     </messages>
 
     <countries>
