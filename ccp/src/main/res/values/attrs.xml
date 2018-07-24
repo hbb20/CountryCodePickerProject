@@ -83,14 +83,15 @@
             <enum name="ITALIAN" value = "13"/>
             <enum name="JAPANESE" value="14" />
             <enum name="KOREAN" value="15" />
-            <enum name="PORTUGUESE" value="16" />
-            <enum name="PUNJABI" value="17" />
-            <enum name="RUSSIAN" value="18" />
-            <enum name="SLOVAK" value="19" />
-            <enum name="SPANISH" value="20" />
-            <enum name="SWEDISH" value="21" />
-            <enum name="TURKISH" value="22" />
-            <enum name="UKRAINIAN" value="23" />
+            <enum name="POLISH" value="16"/>
+            <enum name="PORTUGUESE" value="17" />
+            <enum name="PUNJABI" value="18" />
+            <enum name="RUSSIAN" value="19" />
+            <enum name="SLOVAK" value="20" />
+            <enum name="SPANISH" value="21" />
+            <enum name="SWEDISH" value="22" />
+            <enum name="TURKISH" value="23" />
+            <enum name="UKRAINIAN" value="24" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">
