@@ -67,31 +67,32 @@
         <!--list of languages-->
         <!--Make sure: order in this list must match order of Language Enum in CountryCodePicker.java. Values must be ascending starting from 0.-->
         <attr name="ccp_defaultLanguage" format="enum">
-            <enum name="ARABIC" value="0"/>
-            <enum name="BENGALI" value="1"/>
-            <enum name="CHINESE_SIMPLIFIED" value="2"/>
-            <enum name="CHINESE_TRADITIONAL" value="3" />
-            <enum name="DUTCH" value="4" />
-            <enum name="ENGLISH" value="5" />
-            <enum name="FARSI" value="6" />
-            <enum name="FRENCH" value="7" />
-            <enum name="GERMAN" value="8" />
-            <enum name="GUJARATI" value="9" />
-            <enum name="HEBREW" value="10" />
-            <enum name="HINDI" value="11" />
-            <enum name="INDONESIA" value="12" />
-            <enum name="ITALIAN" value = "13"/>
-            <enum name="JAPANESE" value="14" />
-            <enum name="KOREAN" value="15" />
-            <enum name="POLISH" value="16"/>
-            <enum name="PORTUGUESE" value="17" />
-            <enum name="PUNJABI" value="18" />
-            <enum name="RUSSIAN" value="19" />
-            <enum name="SLOVAK" value="20" />
-            <enum name="SPANISH" value="21" />
-            <enum name="SWEDISH" value="22" />
-            <enum name="TURKISH" value="23" />
-            <enum name="UKRAINIAN" value="24" />
+            <enum name="AFRIKAANS" value="0"/>
+            <enum name="ARABIC" value="1"/>
+            <enum name="BENGALI" value="2"/>
+            <enum name="CHINESE_SIMPLIFIED" value="3"/>
+            <enum name="CHINESE_TRADITIONAL" value="4" />
+            <enum name="DUTCH" value="5" />
+            <enum name="ENGLISH" value="6" />
+            <enum name="FARSI" value="7" />
+            <enum name="FRENCH" value="8" />
+            <enum name="GERMAN" value="9" />
+            <enum name="GUJARATI" value="10" />
+            <enum name="HEBREW" value="11" />
+            <enum name="HINDI" value="12" />
+            <enum name="INDONESIA" value="13" />
+            <enum name="ITALIAN" value = "14"/>
+            <enum name="JAPANESE" value="15" />
+            <enum name="KOREAN" value="16" />
+            <enum name="POLISH" value="17"/>
+            <enum name="PORTUGUESE" value="18" />
+            <enum name="PUNJABI" value="19" />
+            <enum name="RUSSIAN" value="20" />
+            <enum name="SLOVAK" value="21" />
+            <enum name="SPANISH" value="22" />
+            <enum name="SWEDISH" value="23" />
+            <enum name="TURKISH" value="24" />
+            <enum name="UKRAINIAN" value="25" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">
