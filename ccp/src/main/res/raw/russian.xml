@@ -2,13 +2,13 @@
 <data>
     <messages>
         <ccp_dialog_title translation="Выберите страну" />
-        <ccp_dialog_search_hint_message translation="поиск ..." />
-        <ccp_dialog_no_result_ack_message translation="результат не найден" />
+        <ccp_dialog_search_hint_message translation="Поиск..." />
+        <ccp_dialog_no_result_ack_message translation="Ничего не найдено" />
     </messages>
 
     <countries>
         <country
-            name="андорра"
+            name="Андорра"
             english_name="Andorra"
             name_code="ad"
             phone_code="376" />
@@ -58,7 +58,7 @@
             name_code="ar"
             phone_code="54" />
         <country
-            name="американское Самоа"
+            name="Американское Самоа"
             english_name="American Samoa"
             name_code="as"
             phone_code="1" />
@@ -188,7 +188,7 @@
             name_code="ca"
             phone_code="1" />
         <country
-            name="Кокосовые (Килинг) острова"
+            name="Кокосовые (Килинг) Острова"
             english_name="Cocos (keeling) Islands"
             name_code="cc"
             phone_code="61" />
@@ -213,7 +213,7 @@
             name_code="ch"
             phone_code="41" />
         <country
-            name="Кот D ' Ивуар"
+            name="Кот-д’Ивуар"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
@@ -388,7 +388,7 @@
             name_code="gf"
             phone_code="594" />
         <country
-            name="шерстяная фуфайка"
+            name="Гернси"
             english_name="Guernsey"
             name_code="gg"
             phone_code="44" />
@@ -578,12 +578,12 @@
             name_code="kn"
             phone_code="1" />
         <country
-            name="Корейская Народно-Демократическая &amp; ина Республика"
+            name="Корейская Народно-Демократическая Республика"
             english_name="North Korea"
             name_code="kp"
             phone_code="850" />
         <country
-            name="Корея"
+            name="Республика Корея"
             english_name="South Korea"
             name_code="kr"
             phone_code="82" />
@@ -603,7 +603,7 @@
             name_code="kz"
             phone_code="7" />
         <country
-            name="Демократическая Республика с; Lao People &amp; ина"
+            name="Демократическая Республика Лаос"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856" />
@@ -693,7 +693,7 @@
             name_code="mh"
             phone_code="692" />
         <country
-            name="Бывшая югославская Республика Македония,"
+            name="Бывшая югославская Республика Македония"
             english_name="Macedonia, The Former Yugoslav Republic Of"
             name_code="mk"
             phone_code="389" />
@@ -713,7 +713,7 @@
             name_code="mn"
             phone_code="976" />
         <country
-            name="Macao"
+            name="Макао"
             english_name="Macao"
             name_code="mo"
             phone_code="853" />
@@ -823,7 +823,7 @@
             name_code="nr"
             phone_code="674" />
         <country
-            name="Niue"
+            name="Ниуэ"
             english_name="Niue"
             name_code="nu"
             phone_code="683" />
@@ -898,7 +898,7 @@
             name_code="pt"
             phone_code="351" />
         <country
-            name="Palau"
+            name="Палау"
             english_name="Palau"
             name_code="pw"
             phone_code="680" />
@@ -913,7 +913,7 @@
             name_code="qa"
             phone_code="974" />
         <country
-            name="встреча"
+            name="Реюньон"
             english_name="Réunion"
             name_code="re"
             phone_code="262" />
