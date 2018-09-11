@@ -852,7 +852,7 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
-    Language getLanguageToApply() {
+    public Language getLanguageToApply() {
         if (languageToApply == null) {
             updateLanguageToApply();
         }
