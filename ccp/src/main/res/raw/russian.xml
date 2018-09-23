@@ -8,7 +8,7 @@
 
     <countries>
         <country
-            name="андорра"
+            name="Андорра"
             english_name="Andorra"
             name_code="ad"
             phone_code="376" />
@@ -58,7 +58,7 @@
             name_code="ar"
             phone_code="54" />
         <country
-            name="американское Самоа"
+            name="Американское Самоа"
             english_name="American Samoa"
             name_code="as"
             phone_code="1" />
@@ -213,7 +213,7 @@
             name_code="ch"
             phone_code="41" />
         <country
-            name="Кот D ' Ивуар"
+            name="Кот D'Ивуар"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
@@ -388,7 +388,7 @@
             name_code="gf"
             phone_code="594" />
         <country
-            name="шерстяная фуфайка"
+            name="Гернси"
             english_name="Guernsey"
             name_code="gg"
             phone_code="44" />
@@ -603,7 +603,7 @@
             name_code="kz"
             phone_code="7" />
         <country
-            name="Демократическая Республика с; Lao People &amp; ина"
+            name="Демократическая Республика Лао"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856" />
@@ -693,7 +693,7 @@
             name_code="mh"
             phone_code="692" />
         <country
-            name="Бывшая югославская Республика Македония,"
+            name="Бывшая югославская Республика Македония"
             english_name="Macedonia, The Former Yugoslav Republic Of"
             name_code="mk"
             phone_code="389" />
@@ -823,7 +823,7 @@
             name_code="nr"
             phone_code="674" />
         <country
-            name="Niue"
+            name="Ниуэ"
             english_name="Niue"
             name_code="nu"
             phone_code="683" />
@@ -898,7 +898,7 @@
             name_code="pt"
             phone_code="351" />
         <country
-            name="Palau"
+            name="Палау"
             english_name="Palau"
             name_code="pw"
             phone_code="680" />
@@ -913,7 +913,7 @@
             name_code="qa"
             phone_code="974" />
         <country
-            name="встреча"
+            name="Реюньо́н"
             english_name="Réunion"
             name_code="re"
             phone_code="262" />
@@ -988,7 +988,7 @@
             name_code="sl"
             phone_code="232" />
         <country
-            name="Сан - Марино"
+            name="Сан-Марино"
             english_name="San Marino"
             name_code="sm"
             phone_code="378" />
@@ -1043,7 +1043,7 @@
             name_code="td"
             phone_code="235" />
         <country
-            name="Идти"
+            name="Togo"
             english_name="Togo"
             name_code="tg"
             phone_code="228" />
