@@ -1932,7 +1932,15 @@ public class CountryCodePicker extends RelativeLayout {
      * Developer can use this to trigger manually.
      */
     public void launchCountrySelectionDialog() {
-        CountryCodeDialog.openCountryCodeDialog(codePicker);
+        launchCountrySelectionDialog(null);
+    }
+
+    /**
+     * Manually trigger selection dialog and set
+     * scroll position to specified country.
+     */
+    public void launchCountrySelectionDialog(final String countryNameCode) {
+        CountryCodeDialog.openCountryCodeDialog(codePicker, countryNameCode);
     }
 
     /**
