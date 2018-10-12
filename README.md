@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.2.1'
+            implementation 'com.hbb20:ccp:2.2.2'
           }
    ````
 
@@ -36,7 +36,7 @@ Add this to your gradle file and sync
 Features
 --------
 If you prefer experience along with explanations, an demo android app is available that demonstrates all the features of this library. Click below button to download from Playstore.
-<br/><a href="https://goo.gl/zI2cY2"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
+<br/><a href="https://goo.gl/zI2cY2"><img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/playstore.jpeg"/></a>
 
 * [Super easy to integrate ](https://github.com/hbb20/CountryCodePickerProject/wiki/How-to-integrate-into-your-project)
 * [Full Number Support](https://github.com/hbb20/CountryCodePickerProject/wiki/Full-Number-Support)

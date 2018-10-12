@@ -657,7 +657,17 @@ public class CountryCodePicker extends RelativeLayout {
         Log.d(TAG, "getCCPLanguageFromLocale: current locale language" + currentLocale.getLanguage());
         for (Language language : Language.values()) {
             if (language.getCode().equalsIgnoreCase(currentLocale.getLanguage())) {
-                return language;
+
+                if (language.getCountry() == null
+                        || language.getCountry().equalsIgnoreCase(currentLocale.getCountry()))
+                    return language;
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    if (language.getScript() == null
+                            || language.getScript().equalsIgnoreCase(currentLocale.getScript()))
+                        return language;
+
+                }
             }
         }
         return null;
@@ -842,7 +852,7 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
-    Language getLanguageToApply() {
+    public Language getLanguageToApply() {
         if (languageToApply == null) {
             updateLanguageToApply();
         }
@@ -1922,7 +1932,15 @@ public class CountryCodePicker extends RelativeLayout {
      * Developer can use this to trigger manually.
      */
     public void launchCountrySelectionDialog() {
-        CountryCodeDialog.openCountryCodeDialog(codePicker);
+        launchCountrySelectionDialog(null);
+    }
+
+    /**
+     * Manually trigger selection dialog and set
+     * scroll position to specified country.
+     */
+    public void launchCountrySelectionDialog(final String countryNameCode) {
+        CountryCodeDialog.openCountryCodeDialog(codePicker, countryNameCode);
     }
 
     /**
@@ -2125,10 +2143,12 @@ public class CountryCodePicker extends RelativeLayout {
     //add an entry for your language in attrs.xml's <attr name="language" format="enum"> enum.
     //add here so that language can be set programmatically
     public enum Language {
+        AFRIKAANS("af"),
         ARABIC("ar"),
         BENGALI("bn"),
-        CHINESE_SIMPLIFIED("zh"),
-        CHINESE_TRADITIONAL("zh"),
+        CHINESE_SIMPLIFIED("zh", "CN", "Hans"),
+        CHINESE_TRADITIONAL("zh", "TW", "Hant"),
+        CZECH("cs"),
         DUTCH("nl"),
         ENGLISH("en"),
         FARSI("fa"),
@@ -2141,6 +2161,7 @@ public class CountryCodePicker extends RelativeLayout {
         ITALIAN("it"),
         JAPANESE("ja"),
         KOREAN("ko"),
+        POLISH("pl"),
         PORTUGUESE("pt"),
         PUNJABI("pa"),
         RUSSIAN("ru"),
@@ -2148,9 +2169,18 @@ public class CountryCodePicker extends RelativeLayout {
         SPANISH("es"),
         SWEDISH("sv"),
         TURKISH("tr"),
-        UKRAINIAN("uk");
+        UKRAINIAN("uk"),
+        UZBEK("uz");
 
-        String code;
+        private String code;
+        private String country;
+        private String script;
+
+        Language(String code, String country, String script) {
+            this.code = code;
+            this.country = country;
+            this.script = script;
+        }
 
         Language(String code) {
             this.code = code;
@@ -2162,6 +2192,22 @@ public class CountryCodePicker extends RelativeLayout {
 
         public void setCode(String code) {
             this.code = code;
+        }
+
+        public String getCountry() {
+            return country;
+        }
+
+        public void setCountry(String country) {
+            this.country = country;
+        }
+
+        public String getScript() {
+            return script;
+        }
+
+        public void setScript(String script) {
+            this.script = script;
         }
     }
 
