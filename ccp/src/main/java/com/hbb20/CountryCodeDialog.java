@@ -30,6 +30,11 @@ import java.util.List;
  */
 class CountryCodeDialog {
     public static void openCountryCodeDialog(final CountryCodePicker codePicker) {
+        openCountryCodeDialog(codePicker, null);
+    }
+
+    public static void
+    openCountryCodeDialog(final CountryCodePicker codePicker, final String countryNameCode) {
         final Context context = codePicker.getContext();
         final Dialog dialog = new Dialog(context);
         codePicker.refreshCustomMasterList();
@@ -177,6 +182,15 @@ class CountryCodeDialog {
                 }
             }
         });
+
+        if (countryNameCode != null) {
+            for (int i = 0; i < masterCountries.size(); i++) {
+                if (masterCountries.get(i).nameCode.equals(countryNameCode)) {
+                    recyclerView_countryDialog.scrollToPosition(i);
+                    break;
+                }
+            }
+        }
 
         dialog.show();
         if (codePicker.getDialogEventsListener() != null) {
