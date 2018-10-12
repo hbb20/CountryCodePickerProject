@@ -116,8 +116,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 app:ccp_countryAutoDetectionPref="SIM_NETWORK_LOCALE"
+                                app:ccp_defaultLanguage="UZBEK"
                                 app:ccp_countryPreference="pk,in,us"
-                                app:ccp_hintExampleNumber="true" />
+                                app:ccp_hintExampleNumber="true"
+                                app:ccp_defaultLanguage="AFRIKAANS"/>
 
                             <EditText
                                 android:id="@+id/et_phone"
