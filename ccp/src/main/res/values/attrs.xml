@@ -2,21 +2,21 @@
 <resources>
     <declare-styleable name="CountryCodePicker">
         <!--{@deprecated Use defaultNameCode instead.}-->
-        <attr name="ccp_defaultPhoneCode" format="integer"/>
-        <attr name="ccp_contentColor" format="color"/>
-        <attr name="ccp_textSize" format="dimension"/>
-        <attr name="ccp_arrowSize" format="dimension"/>
-        <attr name="ccp_customMasterCountries" format="string"/>
+        <attr name="ccp_defaultPhoneCode" format="integer" />
+        <attr name="ccp_contentColor" format="color" />
+        <attr name="ccp_textSize" format="dimension" />
+        <attr name="ccp_arrowSize" format="dimension" />
+        <attr name="ccp_customMasterCountries" format="string" />
         <attr name="ccp_excludedCountries" format="string" />
-        <attr name="ccp_flagBorderColor" format="color"/>
-        <attr name="ccp_countryPreference" format="string"/>
-        <attr name="ccp_defaultNameCode" format="string"/>
+        <attr name="ccp_flagBorderColor" format="color" />
+        <attr name="ccp_countryPreference" format="string" />
+        <attr name="ccp_defaultNameCode" format="string" />
         <attr name="ccp_selectionMemoryTag" format="string" />
 
         <attr name="ccp_textGravity" format="enum">
-            <enum name="LEFT" value="-1"/>
-            <enum name="RIGHT" value="1"/>
-            <enum name="CENTER" value="0"/>
+            <enum name="LEFT" value="-1" />
+            <enum name="RIGHT" value="1" />
+            <enum name="CENTER" value="0" />
         </attr>
         <attr name="ccp_hintExampleNumberType" format="enum">
             <enum name="MOBILE" value="0" />
@@ -35,41 +35,41 @@
         </attr>
 
         <!--CCP bool properties-->
-        <attr name="ccp_showNameCode" format="boolean"/>
-        <attr name="ccp_showFlag" format="boolean"/>
-        <attr name="ccp_showFullName" format="boolean"/>
-        <attr name="ccp_clickable" format="boolean"/>
-        <attr name="ccp_showPhoneCode" format="boolean"/>
-        <attr name="ccp_autoDetectLanguage" format="boolean"/>
-        <attr name="ccp_autoDetectCountry" format="boolean"/>
+        <attr name="ccp_showNameCode" format="boolean" />
+        <attr name="ccp_showFlag" format="boolean" />
+        <attr name="ccp_showFullName" format="boolean" />
+        <attr name="ccp_clickable" format="boolean" />
+        <attr name="ccp_showPhoneCode" format="boolean" />
+        <attr name="ccp_autoDetectLanguage" format="boolean" />
+        <attr name="ccp_autoDetectCountry" format="boolean" />
         <attr name="ccp_areaCodeDetectedCountry" format="boolean" />
-        <attr name="ccp_autoFormatNumber" format="boolean"/>
+        <attr name="ccp_autoFormatNumber" format="boolean" />
         <attr name="ccp_hintExampleNumber" format="boolean" />
         <attr name="ccp_rememberLastSelection" format="boolean" />
         <attr name="ccp_showArrow" format="boolean" />
 
         <!--CCP Dialog properties-->
-        <attr name="ccpDialog_keyboardAutoPopup" format="boolean"/>
-        <attr name="ccpDialog_allowSearch" format="boolean"/>
-        <attr name="ccpDialog_showPhoneCode" format="boolean"/>
+        <attr name="ccpDialog_keyboardAutoPopup" format="boolean" />
+        <attr name="ccpDialog_allowSearch" format="boolean" />
+        <attr name="ccpDialog_showPhoneCode" format="boolean" />
         <attr name="ccpDialog_showNameCode" format="boolean" />
         <attr name="ccpDialog_showFlag" format="boolean" />
-        <attr name="ccpDialog_showFastScroller" format="boolean"/>
-        <attr name="ccpDialog_fastScroller_bubbleColor" format="color"/>
-        <attr name="ccpDialog_fastScroller_handleColor" format="color"/>
-        <attr name="ccpDialog_fastScroller_bubbleTextAppearance" format="reference"/>
-        <attr name="ccpDialog_backgroundColor" format="color"/>
-        <attr name="ccpDialog_textColor" format="color"/>
-        <attr name="ccpDialog_searchEditTextTint" format="color"/>
+        <attr name="ccpDialog_showFastScroller" format="boolean" />
+        <attr name="ccpDialog_fastScroller_bubbleColor" format="color" />
+        <attr name="ccpDialog_fastScroller_handleColor" format="color" />
+        <attr name="ccpDialog_fastScroller_bubbleTextAppearance" format="reference" />
+        <attr name="ccpDialog_backgroundColor" format="color" />
+        <attr name="ccpDialog_textColor" format="color" />
+        <attr name="ccpDialog_searchEditTextTint" format="color" />
         <attr name="ccpDialog_showCloseIcon" format="boolean" />
         <attr name="ccpDialog_showTitle" format="boolean" />
 
         <!--list of languages-->
         <!--Make sure: order in this list must match order of Language Enum in CountryCodePicker.java. Values must be ascending starting from 0.-->
         <attr name="ccp_defaultLanguage" format="enum">
-            <enum name="ARABIC" value="0"/>
-            <enum name="BENGALI" value="1"/>
-            <enum name="CHINESE_SIMPLIFIED" value="2"/>
+            <enum name="ARABIC" value="0" />
+            <enum name="BENGALI" value="1" />
+            <enum name="CHINESE_SIMPLIFIED" value="2" />
             <enum name="CHINESE_TRADITIONAL" value="3" />
             <enum name="CZECH" value="4" />
             <enum name="DUTCH" value="5" />
@@ -93,6 +93,7 @@
             <enum name="SWEDISH" value="23" />
             <enum name="TURKISH" value="24" />
             <enum name="UKRAINIAN" value="25" />
+            <enum name="UZBEK" value="26" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">
