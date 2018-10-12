@@ -27,11 +27,11 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.2.2'
+            implementation 'com.hbb20:ccp:2.2.3'
           }
    ````
 
-  * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
+  * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0. or above*
 
 Features
 --------
@@ -60,11 +60,22 @@ If you prefer experience along with explanations, an demo android app is availab
 To check all xml properties available for CCP and CCP Selection ppDialog, please visit the [wiki page](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties).
 
 Change log
---------
+----------
+##### Version 2.2.3 (October 12, 2018)
+- Uzbek language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/239) by [Mirmuhsin](https://github.com/Mirmuhsin))
+- Afrikaans language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/229) by [marilie](https://github.com/marilie))
+- Czech language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/235) by [Jakub Begera](https://github.com/jakubbegera))
+- Distinguish language based on script in addition to language code. ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/236)  by  [Fantasycheese](https://github.com/Fantasycheese))
+- Libya Flag Correction. ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/233) by [Fantasycheese](https://github.com/sreekanth-krishnan))
+- Keep.xml for correct Proguard configuration
+- Option to override click listener [Read More](https://github.com/hbb20/CountryCodePickerProject/wiki/Handle-CCP-ClickListener-Manually)
+- Updates [Android PhoneLib port](https://github.com/MichaelRocks/libphonenumber-android) to the current latest version (8.9.14)
+- Option to set initial scroll to selected country. [Read More](https://github.com/hbb20/CountryCodePickerProject/wiki/XML-Properties#appccpdialog_initialscrolltoselectiontrue-default-false)
+
 ##### Version 2.2.2 (June 24, 2018)
 - Option to remove flag from dialog. [Issue#189](https://github.com/hbb20/CountryCodePickerProject/issues/189)
-- Adds Farsi Language Support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/202) By [Ayhan Salami](https://github.com/ayhansalami)
-- Adds Slovak Language Support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/207) By [smiesnyrobert](https://github.com/smiesnyrobert)
+- Adds Farsi Language Support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/202) By [Ayhan Salami](https://github.com/ayhansalami))
+- Adds Slovak Language Support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/207) By [smiesnyrobert](https://github.com/smiesnyrobert))
 - Bug fixes. [Issue#199](https://github.com/hbb20/CountryCodePickerProject/issues/199), [Issue#211](https://github.com/hbb20/CountryCodePickerProject/issues/211).
 - Adds 9 new countries [Issue#206](https://github.com/hbb20/CountryCodePickerProject/issues/206)
 
@@ -105,6 +116,9 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Arabic translation corrections by [Ahmed Wahdan](https://github.com/WahdanZ)
 - Swedish language support by [Tobias Hillén](https://github.com/tobiashillen)
 - Addition of Kosovo Country by [Aleksei Kliuev](https://github.com/aleksei-klv)
+- Uzbek language support by [Mirmuhsin](https://github.com/Mirmuhsin)
+- Afrikaans language support by [marilie](https://github.com/marilie)
+- Czech language support by [Jakub Begera](https://github.com/jakubbegera)
 
 # Contribution
 - To add a new country, follow the [guide to add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).

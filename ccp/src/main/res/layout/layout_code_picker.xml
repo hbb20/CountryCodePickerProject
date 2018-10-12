@@ -10,14 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ccp_selectable_bg"
         android:padding="8dp">
-        <!--    <LinearLayout
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/textView_selectedCountry"
-                android:layout_alignBottom="@+id/textView_selectedCountry"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/google_1x">-->
         <LinearLayout
             android:id="@+id/linear_flag_holder"
             android:layout_width="wrap_content"

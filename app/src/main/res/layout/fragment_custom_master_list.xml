@@ -77,21 +77,21 @@
                         <TextView
                             style="@style/pointText"
                             android:paddingLeft="32dp"
-                            android:text='add app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout.'/>
+                            android:text='add app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout.' />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
                             android:layout_marginLeft="32dp"
-                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:ccp_defaultNameCode="US" \n app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"/&#62;'/>
+                            android:layout_marginBottom="8dp"
+                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:ccp_defaultNameCode="US" \n app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"/&#62;' />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="16dp"
                             android:layout_marginLeft="32dp"
                             android:layout_marginRight="16dp"
+                            android:layout_marginBottom="16dp"
                             android:background="@color/dullBG"
                             android:padding="8dp">
 
@@ -115,7 +115,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"
-                                        app:ccp_defaultNameCode="US"/>
+                                        app:ccp_defaultNameCode="US" />
 
                                     <EditText
                                         android:layout_width="match_parent"
@@ -175,9 +175,9 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:layout_marginLeft="32dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@color/dullBG"
                     android:padding="8dp">
 
