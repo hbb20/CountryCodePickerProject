@@ -145,12 +145,16 @@ public class InternationalPhoneTextWatcher implements TextWatcher {
         }
 
         //Now we have everything calculated, set this values in
-        if (formatted != null) {
-            mSelfChange = true;
-            s.replace(0, s.length(), formatted, 0, formatted.length());
-            mSelfChange = false;
-            lastFormatted = s;
-            Selection.setSelection(s, finalCursorPosition);
+        try {
+            if (formatted != null) {
+                mSelfChange = true;
+                s.replace(0, s.length(), formatted, 0, formatted.length());
+                mSelfChange = false;
+                lastFormatted = s;
+                Selection.setSelection(s, finalCursorPosition);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
