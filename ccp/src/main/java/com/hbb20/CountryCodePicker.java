@@ -2150,6 +2150,22 @@ public class CountryCodePicker extends RelativeLayout {
         updateHint();
     }
 
+    public boolean isDialogInitialScrollToSelectionEnabled() {
+        return ccpDialogInitialScrollToSelection;
+    }
+
+    /**
+     * This will decide initial scroll position of countries list in dialog.
+     *
+     * @param initialScrollToSelection : false -> show list without any scroll
+     *                                 true -> will scroll to the position of the selected country.
+     *                                 Note: if selected country is a preferred country,
+     *                                 then it will not scroll and show full preferred countries list.
+     */
+    public void enableDialogInitialScrollToSelection(boolean initialScrollToSelection) {
+        this.ccpDialogInitialScrollToSelection = ccpDialogInitialScrollToSelection;
+    }
+
     /**
      * To listen to the click handle action manually,
      * a custom clicklistener must be set.
