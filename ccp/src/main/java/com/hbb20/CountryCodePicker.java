@@ -80,6 +80,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean rememberLastSelection = false;
     boolean detectCountryWithAreaCode = true;
     boolean ccpDialogShowNameCode = true;
+    boolean ccpDialogInitialScrollToSelection = false;
     PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
     String selectionMemoryTag = "ccp_last_selection";
     int contentColor;
@@ -107,6 +108,8 @@ public class CountryCodePicker extends RelativeLayout {
     TextWatcher areaCodeCountryDetectorTextWatcher;
     boolean countryDetectionBasedOnAreaAllowed;
     String lastCheckedAreaCode = null;
+    int lastCursorPosition = 0;
+    boolean countryChangedDueToAreaCode = false;
     private OnCountryChangeListener onCountryChangeListener;
     private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
     private FailureListener failureListener;
@@ -116,13 +119,16 @@ public class CountryCodePicker extends RelativeLayout {
     private int fastScrollerBubbleTextAppearance;
     private CCPCountryGroup currentCountryGroup;
     private View.OnClickListener customClickListener;
-
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (customClickListener == null) {
                 if (isCcpClickable()) {
-                    launchCountrySelectionDialog();
+                    if (ccpDialogInitialScrollToSelection) {
+                        launchCountrySelectionDialog(getSelectedCountryNameCode());
+                    } else {
+                        launchCountrySelectionDialog();
+                    }
                 }
             } else {
                 customClickListener.onClick(v);
@@ -214,6 +220,9 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show flag on dialog
             ccpDialogShowFlag = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFlag, true);
+
+            //ccpDialog initial scroll to selection
+            ccpDialogInitialScrollToSelection = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_initialScrollToSelection, false);
 
             //show full name
             showFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
@@ -486,12 +495,12 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
-     * To show/hide title from country selection dialog
+     * To show/hide name code from country selection dialog
      *
-     * @param ccpDialogShowTitle
+     * @param ccpDialogShowNameCode
      */
-    public void setCcpDialogShowTitle(boolean ccpDialogShowTitle) {
-        this.ccpDialogShowTitle = ccpDialogShowTitle;
+    public void setCcpDialogShowNameCode(boolean ccpDialogShowNameCode) {
+        this.ccpDialogShowNameCode = ccpDialogShowNameCode;
     }
 
     /**
@@ -499,6 +508,15 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public boolean getCcpDialogShowTitle() {
         return this.ccpDialogShowTitle;
+    }
+
+    /**
+     * To show/hide title from country selection dialog
+     *
+     * @param ccpDialogShowTitle
+     */
+    public void setCcpDialogShowTitle(boolean ccpDialogShowTitle) {
+        this.ccpDialogShowTitle = ccpDialogShowTitle;
     }
 
     /**
@@ -515,15 +533,6 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setCcpDialogShowFlag(boolean ccpDialogShowFlag) {
         this.ccpDialogShowFlag = ccpDialogShowFlag;
-    }
-
-    /**
-     * To show/hide name code from country selection dialog
-     *
-     * @param ccpDialogShowNameCode
-     */
-    public void setCcpDialogShowNameCode(boolean ccpDialogShowNameCode) {
-        this.ccpDialogShowNameCode = ccpDialogShowNameCode;
     }
 
     boolean isShowPhoneCode() {
@@ -805,13 +814,13 @@ public class CountryCodePicker extends RelativeLayout {
             String formattedNumber = "";
             Phonenumber.PhoneNumber exampleNumber = getPhoneUtil().getExampleNumberForType(getSelectedCountryNameCode(), getSelectedHintNumberType());
             if (exampleNumber != null) {
-                    formattedNumber = exampleNumber.getNationalNumber() + "";
-                    Log.d(TAG, "updateHint: " + formattedNumber);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber, getSelectedCountryNameCode());
-                    } else {
-                        formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber + formattedNumber);
-                    }
+                formattedNumber = exampleNumber.getNationalNumber() + "";
+                Log.d(TAG, "updateHint: " + formattedNumber);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber, getSelectedCountryNameCode());
+                } else {
+                    formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber + formattedNumber);
+                }
                 formattedNumber = formattedNumber.substring(getSelectedCountryCodeWithPlus().length()).trim();
                 Log.d(TAG, "updateHint: after format " + formattedNumber + " " + selectionMemoryTag);
             } else {
@@ -907,8 +916,6 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
-    int lastCursorPosition = 0;
-    boolean countryChangedDueToAreaCode = false;
     /**
      * This updates country dynamically as user types in area code
      *

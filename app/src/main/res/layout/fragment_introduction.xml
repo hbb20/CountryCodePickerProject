@@ -117,6 +117,8 @@
                                 android:layout_gravity="center_vertical"
                                 app:ccp_countryAutoDetectionPref="SIM_NETWORK_LOCALE"
                                 app:ccp_countryPreference="pk,in,us"
+                                app:ccpDialog_keyboardAutoPopup="false"
+                                app:ccpDialog_initialScrollToSelection="false"
                                 app:ccp_hintExampleNumber="true" />
 
                             <EditText

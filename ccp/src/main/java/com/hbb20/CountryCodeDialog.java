@@ -29,6 +29,43 @@ import java.util.List;
  * Created by hbb20 on 11/1/16.
  */
 class CountryCodeDialog {
+    private static final Field
+            sEditorField,
+            sCursorDrawableField,
+            sCursorDrawableResourceField;
+
+    static {
+        Field editorField = null;
+        Field cursorDrawableField = null;
+        Field cursorDrawableResourceField = null;
+        boolean exceptionThrown = false;
+        try {
+            cursorDrawableResourceField = TextView.class.getDeclaredField("mCursorDrawableRes");
+            cursorDrawableResourceField.setAccessible(true);
+            final Class<?> drawableFieldClass;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+                drawableFieldClass = TextView.class;
+            } else {
+                editorField = TextView.class.getDeclaredField("mEditor");
+                editorField.setAccessible(true);
+                drawableFieldClass = editorField.getType();
+            }
+            cursorDrawableField = drawableFieldClass.getDeclaredField("mCursorDrawable");
+            cursorDrawableField.setAccessible(true);
+        } catch (Exception e) {
+            exceptionThrown = true;
+        }
+        if (exceptionThrown) {
+            sEditorField = null;
+            sCursorDrawableField = null;
+            sCursorDrawableResourceField = null;
+        } else {
+            sEditorField = editorField;
+            sCursorDrawableField = cursorDrawableField;
+            sCursorDrawableResourceField = cursorDrawableResourceField;
+        }
+    }
+
     public static void openCountryCodeDialog(final CountryCodePicker codePicker) {
         openCountryCodeDialog(codePicker, null);
     }
@@ -183,11 +220,27 @@ class CountryCodeDialog {
             }
         });
 
+        //auto scroll to mentioned countryNameCode
         if (countryNameCode != null) {
-            for (int i = 0; i < masterCountries.size(); i++) {
-                if (masterCountries.get(i).nameCode.equals(countryNameCode)) {
-                    recyclerView_countryDialog.scrollToPosition(i);
-                    break;
+            boolean isPreferredCountry = false;
+            for (CCPCountry preferredCountry : codePicker.preferredCountries) {
+                if (preferredCountry.nameCode.equalsIgnoreCase(countryNameCode)) {
+                    isPreferredCountry = true;
+                }
+            }
+
+            //if selection is from preferred countries then it should show all (or maximum) preferred countries.
+            // don't scroll if it was one of those preferred countries
+            if (!isPreferredCountry) {
+                int preferredCountriesOffset = 0;
+                if (codePicker.preferredCountries.size() > 0) {
+                    preferredCountriesOffset = codePicker.preferredCountries.size() + 1; //+1 is for divider
+                }
+                for (int i = 0; i < masterCountries.size(); i++) {
+                    if (masterCountries.get(i).nameCode.equalsIgnoreCase(countryNameCode)) {
+                        recyclerView_countryDialog.scrollToPosition(i + preferredCountriesOffset);
+                        break;
+                    }
                 }
             }
         }
@@ -209,43 +262,6 @@ class CountryCodeDialog {
                 view = new View(activity);
             }
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
-
-    private static final Field
-            sEditorField,
-            sCursorDrawableField,
-            sCursorDrawableResourceField;
-
-    static {
-        Field editorField = null;
-        Field cursorDrawableField = null;
-        Field cursorDrawableResourceField = null;
-        boolean exceptionThrown = false;
-        try {
-            cursorDrawableResourceField = TextView.class.getDeclaredField("mCursorDrawableRes");
-            cursorDrawableResourceField.setAccessible(true);
-            final Class<?> drawableFieldClass;
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-                drawableFieldClass = TextView.class;
-            } else {
-                editorField = TextView.class.getDeclaredField("mEditor");
-                editorField.setAccessible(true);
-                drawableFieldClass = editorField.getType();
-            }
-            cursorDrawableField = drawableFieldClass.getDeclaredField("mCursorDrawable");
-            cursorDrawableField.setAccessible(true);
-        } catch (Exception e) {
-            exceptionThrown = true;
-        }
-        if (exceptionThrown) {
-            sEditorField = null;
-            sCursorDrawableField = null;
-            sCursorDrawableResourceField = null;
-        } else {
-            sEditorField = editorField;
-            sCursorDrawableField = cursorDrawableField;
-            sCursorDrawableResourceField = cursorDrawableResourceField;
         }
     }
 
