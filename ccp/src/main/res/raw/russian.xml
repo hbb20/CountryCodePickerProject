@@ -2,8 +2,8 @@
 <data>
     <messages>
         <ccp_dialog_title translation="Выберите страну" />
-        <ccp_dialog_search_hint_message translation="поиск ..." />
-        <ccp_dialog_no_result_ack_message translation="результат не найден" />
+        <ccp_dialog_search_hint_message translation="Поиск..." />
+        <ccp_dialog_no_result_ack_message translation="Ничего не найдено" />
     </messages>
 
     <countries>
@@ -188,7 +188,7 @@
             name_code="ca"
             phone_code="1" />
         <country
-            name="Кокосовые (Килинг) острова"
+            name="Кокосовые (Килинг) Острова"
             english_name="Cocos (keeling) Islands"
             name_code="cc"
             phone_code="61" />
@@ -213,7 +213,7 @@
             name_code="ch"
             phone_code="41" />
         <country
-            name="Кот D'Ивуар"
+            name="Кот-д’Ивуар"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
@@ -578,12 +578,12 @@
             name_code="kn"
             phone_code="1" />
         <country
-            name="Корейская Народно-Демократическая &amp; ина Республика"
+            name="Корейская Народно-Демократическая Республика"
             english_name="North Korea"
             name_code="kp"
             phone_code="850" />
         <country
-            name="Корея"
+            name="Республика Корея"
             english_name="South Korea"
             name_code="kr"
             phone_code="82" />
@@ -713,7 +713,7 @@
             name_code="mn"
             phone_code="976" />
         <country
-            name="Macao"
+            name="Макао"
             english_name="Macao"
             name_code="mo"
             phone_code="853" />
@@ -913,7 +913,7 @@
             name_code="qa"
             phone_code="974" />
         <country
-            name="Реюньо́н"
+            name="Реюньон"
             english_name="Réunion"
             name_code="re"
             phone_code="262" />
