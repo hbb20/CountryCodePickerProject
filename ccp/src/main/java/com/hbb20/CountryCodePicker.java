@@ -2125,6 +2125,7 @@ public class CountryCodePicker extends RelativeLayout {
     //add an entry for your language in attrs.xml's <attr name="language" format="enum"> enum.
     //add here so that language can be set programmatically
     public enum Language {
+        AFRIKAANS("af"),
         ARABIC("ar"),
         BENGALI("bn"),
         CHINESE_SIMPLIFIED("zh"),
