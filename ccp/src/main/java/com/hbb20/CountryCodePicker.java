@@ -2130,6 +2130,7 @@ public class CountryCodePicker extends RelativeLayout {
         BENGALI("bn"),
         CHINESE_SIMPLIFIED("zh"),
         CHINESE_TRADITIONAL("zh"),
+        CZECH("cs"),
         DUTCH("nl"),
         ENGLISH("en"),
         FARSI("fa"),
@@ -2150,7 +2151,8 @@ public class CountryCodePicker extends RelativeLayout {
         SPANISH("es"),
         SWEDISH("sv"),
         TURKISH("tr"),
-        UKRAINIAN("uk");
+        UKRAINIAN("uk"),
+        UZBEK("uz");
 
         String code;
 
