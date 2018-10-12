@@ -983,7 +983,7 @@ public class CountryCodePicker extends RelativeLayout {
         this.holderView = holderView;
     }
 
-    private RelativeLayout getHolder() {
+    public RelativeLayout getHolder() {
         return holder;
     }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/countryCodeHolder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+    android:id="@+id/countryCodeHolder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/rlClickConsumer"
@@ -32,7 +32,7 @@
                     android:layout_height="18dp"
                     android:layout_margin="0.5dp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/flag_india"/>
+                    android:src="@drawable/flag_india" />
             </LinearLayout>
         </LinearLayout>
 
@@ -42,14 +42,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/linear_flag_holder"
-            android:layout_toLeftOf="@+id/imageView_arrow"
-            android:layout_toRightOf="@+id/linear_flag_holder"
             android:layout_toStartOf="@+id/imageView_arrow"
-            android:text="(IN) +91"
+            android:layout_toLeftOf="@+id/imageView_arrow"
+            android:layout_toEndOf="@+id/linear_flag_holder"
+            android:layout_toRightOf="@+id/linear_flag_holder"
             android:gravity="center"
+            android:text="(IN) +91"
             android:textColor="@android:color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/imageView_arrow"
@@ -61,6 +61,6 @@
             android:adjustViewBounds="true"
             android:alpha="0.6"
             android:src="@drawable/ccp_down_arrow"
-            android:tint="@android:color/black"/>
+            android:tint="@android:color/black" />
     </RelativeLayout>
 </RelativeLayout>
