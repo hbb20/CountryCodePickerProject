@@ -115,11 +115,17 @@ public class CountryCodePicker extends RelativeLayout {
     private int dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
     private int fastScrollerBubbleTextAppearance;
     private CCPCountryGroup currentCountryGroup;
+    private View.OnClickListener customClickListener;
+
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (isCcpClickable()) {
-                launchCountrySelectionDialog();
+            if (customClickListener == null) {
+                if (isCcpClickable()) {
+                    launchCountrySelectionDialog();
+                }
+            } else {
+                customClickListener.onClick(v);
             }
         }
     };
@@ -2135,6 +2141,18 @@ public class CountryCodePicker extends RelativeLayout {
     public void setHintExampleNumberType(PhoneNumberType hintExampleNumberType) {
         this.hintExampleNumberType = hintExampleNumberType;
         updateHint();
+    }
+
+    /**
+     * To listen to the click handle action manually,
+     * a custom clicklistener must be set.
+     * This will override the default click listener which opens the selection dialog.
+     *
+     * @param clickListener will start receiving click callbacks. If null then default click listener
+     *                      will receive callback and selection dialog will be prompted.
+     */
+    public void overrideClickListener(View.OnClickListener clickListener) {
+        customClickListener = clickListener;
     }
 
     /**
