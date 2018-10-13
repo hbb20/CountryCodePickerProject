@@ -959,6 +959,11 @@
             phone_code="249" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Sweden"
             name_code="se"
             phone_code="46" />

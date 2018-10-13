@@ -958,6 +958,11 @@
             name_code="sd"
             phone_code="249" />
         <country
+            name="ਦੱਖਣੀ ਸੁਡਾਨ"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
+        <country
             name="ਸਵੀਡਨ"
             english_name="Sweden"
             name_code="se"
