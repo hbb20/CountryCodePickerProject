@@ -66,7 +66,7 @@ Change log
 - Afrikaans language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/229) by [marilie](https://github.com/marilie))
 - Czech language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/235) by [Jakub Begera](https://github.com/jakubbegera))
 - Distinguish language based on script in addition to language code. ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/236)  by  [Fantasycheese](https://github.com/Fantasycheese))
-- Libya Flag Correction. ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/233) by [Fantasycheese](https://github.com/sreekanth-krishnan))
+- Libya Flag Correction. ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/233) by [sreekanth-krishnan](https://github.com/sreekanth-krishnan))
 - Keep.xml for correct Proguard configuration
 - Option to override click listener [Read More](https://github.com/hbb20/CountryCodePickerProject/wiki/Handle-CCP-ClickListener-Manually)
 - Updates [Android PhoneLib port](https://github.com/MichaelRocks/libphonenumber-android) to the current latest version (8.9.14)
