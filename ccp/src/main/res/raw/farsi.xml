@@ -958,11 +958,6 @@
             name_code="sd"
             phone_code="249" />
         <country
-            name="سودان جنوبی"
-            english_name="South Sudan"
-            name_code="ss"
-            phone_code="211" />
-        <country
             name="سوئد"
             english_name="Sweden"
             name_code="se"
@@ -1012,6 +1007,11 @@
             english_name="Suriname"
             name_code="sr"
             phone_code="597" />
+        <country
+            name="سودان جنوبی"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
         <country
             name="سائوتومه و پرنسیپ"
             english_name="Sao Tome And Principe"

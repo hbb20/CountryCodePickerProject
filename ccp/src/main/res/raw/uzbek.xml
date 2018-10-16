@@ -960,11 +960,6 @@
             name_code="sd"
             phone_code="249" />
         <country
-            name="Janubiy Sudan"
-            english_name="South Sudan"
-            name_code="ss"
-            phone_code="211" />
-        <country
             name="Shvetsiya"
             english_name="Sweden"
             name_code="se"
@@ -1014,6 +1009,11 @@
             english_name="Suriname"
             name_code="sr"
             phone_code="597" />
+        <country
+            name="Janubiy Sudan"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
         <country
             name="San-Tome Va Prinsipi"
             english_name="Sao Tome And Principe"
