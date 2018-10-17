@@ -1010,6 +1010,11 @@
             name_code="sr"
             phone_code="597" />
         <country
+            name="Janubiy Sudan"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
+        <country
             name="San-Tome Va Prinsipi"
             english_name="Sao Tome And Principe"
             name_code="st"

@@ -1008,6 +1008,11 @@
             name_code="sr"
             phone_code="597" />
         <country
+            name="южный Судан"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
+        <country
             name="Сан-Томе и Принсипи"
             english_name="Sao Tome And Principe"
             name_code="st"

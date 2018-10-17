@@ -1009,6 +1009,11 @@
             phone_code="597" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Sao Tome And Principe"
             name_code="st"
             phone_code="239" />

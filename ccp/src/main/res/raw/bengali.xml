@@ -1008,6 +1008,11 @@
             name_code="sr"
             phone_code="597" />
         <country
+            name="দক্ষিণ সুদান"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
+        <country
             name="সাও টোমে এবং প্রিনসিপে"
             english_name="Sao Tome And Principe"
             name_code="st"

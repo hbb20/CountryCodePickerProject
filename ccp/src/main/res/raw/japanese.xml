@@ -1008,6 +1008,11 @@
             name_code="sr"
             phone_code="597" />
         <country
+            name="南スーダン"
+            english_name="South Sudan"
+            name_code="ss"
+            phone_code="211" />
+        <country
             name="サントメプリンシペ"
             english_name="Sao Tome And Principe"
             name_code="st"
