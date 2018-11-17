@@ -60,6 +60,6 @@ public class IntroductionFragment extends Fragment {
         buttonGo = (Button) getView().findViewById(R.id.button_letsGo);
         etPhone = (EditText) getView().findViewById(R.id.et_phone);
         countryCodePicker = (CountryCodePicker) getView().findViewById(R.id.ccp);
-        countryCodePicker.registerCarrierNumberEditText(etPhone);
+//        countryCodePicker.registerCarrierNumberEditText(etPhone);
     }
 }
