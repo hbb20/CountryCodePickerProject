@@ -2,10 +2,8 @@ package in.hbb20.countrycodepickerproject;
 
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -26,7 +24,7 @@ public class CustomColorFragment extends Fragment {
     EditText editTextPhone;
     CountryCodePicker ccp;
     RelativeLayout relativeColor1,relativeColor2,relativeColor3;
-
+    int selectedColor = -1;
     public CustomColorFragment() {
     }
 
@@ -49,7 +47,6 @@ public class CustomColorFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 setColor(1, getActivity().getResources().getColor(R.color.color1));
-                ccp.launchCountrySelectionDialog();
             }
         });
 
@@ -73,9 +70,20 @@ public class CustomColorFragment extends Fragment {
                 ((ExampleActivity) getActivity()).viewPager.setCurrentItem(((ExampleActivity) getActivity()).viewPager.getCurrentItem() + 1);
             }
         });
+
+        ccp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ccp.launchCountrySelectionDialog();
+                if (selectedColor != -1) {
+                    ccp.setContentColor(selectedColor);
+                }
+            }
+        });
     }
 
     private void setColor(int selection,int color) {
+
         ccp.setContentColor(color);
         //textView
         textViewTitle.setTextColor(color);
