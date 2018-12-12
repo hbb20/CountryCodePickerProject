@@ -8,7 +8,7 @@
 
     <countries>
         <country
-            name="安道​​尔"
+            name="安道尔"
             english_name="Andorra"
             name_code="ad"
             phone_code="376" />
@@ -213,7 +213,7 @@
             name_code="ch"
             phone_code="41" />
         <country
-            name="科特迪瓦者;科特迪瓦"
+            name="科特迪瓦"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
@@ -338,7 +338,7 @@
             name_code="fi"
             phone_code="358" />
         <country
-            name="斐"
+            name="斐济"
             english_name="Fiji"
             name_code="fj"
             phone_code="679" />
@@ -578,7 +578,7 @@
             name_code="kn"
             phone_code="1" />
         <country
-            name="韩国，朝鲜民主主义人民共和国氏共和国"
+            name="韩国，朝鲜民主主义人民民主共和国"
             english_name="North Korea"
             name_code="kp"
             phone_code="850" />
@@ -603,7 +603,7 @@
             name_code="kz"
             phone_code="7" />
         <country
-            name="老挝人民氏民主共和国"
+            name="老挝人民民主共和国"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856" />
@@ -913,7 +913,7 @@
             name_code="qa"
             phone_code="974" />
         <country
-            name="团圆"
+            name="留尼汪"
             english_name="Réunion"
             name_code="re"
             phone_code="262" />
@@ -1088,7 +1088,7 @@
             name_code="to"
             phone_code="676" />
         <country
-            name="火鸡"
+            name="土耳其"
             english_name="Turkey"
             name_code="tr"
             phone_code="90" />
