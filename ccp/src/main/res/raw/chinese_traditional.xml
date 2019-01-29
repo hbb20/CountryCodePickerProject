@@ -188,12 +188,12 @@
             name_code="ca"
             phone_code="1" />
         <country
-            name="科科斯"
+            name="科科斯（基林）群島"
             english_name="Cocos (keeling) Islands"
             name_code="cc"
             phone_code="61" />
         <country
-            name="剛果民主共和國中"
+            name="剛果民主共和國"
             english_name="Congo, The Democratic Republic Of The"
             name_code="cd"
             phone_code="243" />
@@ -213,7 +213,7 @@
             name_code="ch"
             phone_code="41" />
         <country
-            name="象牙海岸者;象牙海岸"
+            name="科特迪瓦"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
@@ -258,6 +258,11 @@
             name_code="cv"
             phone_code="238" />
         <country
+            name="庫拉索"
+            english_name="Curacao"
+            name_code="cw"
+            phone_code="599" />
+        <country
             name="聖誕島"
             english_name="Christmas Island"
             name_code="cx"
@@ -293,7 +298,7 @@
             name_code="dm"
             phone_code="1" />
         <country
-            name="多明尼加共和國"
+            name="多米尼加共和國"
             english_name="Dominican Republic"
             name_code="do"
             phone_code="1" />
@@ -338,7 +343,7 @@
             name_code="fi"
             phone_code="358" />
         <country
-            name="斐"
+            name="斐濟"
             english_name="Fiji"
             name_code="fj"
             phone_code="679" />
@@ -453,7 +458,7 @@
             name_code="gy"
             phone_code="592" />
         <country
-            name="香港"
+            name="中國香港"
             english_name="Hong Kong"
             name_code="hk"
             phone_code="852" />
@@ -578,7 +583,7 @@
             name_code="kn"
             phone_code="1" />
         <country
-            name="韓國，朝鮮民主主義人民共和國氏共和國"
+            name="朝鮮民主主義人民共和國"
             english_name="North Korea"
             name_code="kp"
             phone_code="850" />
@@ -603,7 +608,7 @@
             name_code="kz"
             phone_code="7" />
         <country
-            name="老撾人民氏民主共和國"
+            name="老撾人民民主共和國"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856" />
@@ -713,7 +718,7 @@
             name_code="mn"
             phone_code="976" />
         <country
-            name="澳門"
+            name="中國澳門"
             english_name="Macao"
             name_code="mo"
             phone_code="853" />
@@ -908,12 +913,12 @@
             name_code="py"
             phone_code="595" />
         <country
-            name="卡達"
+            name="卡塔爾"
             english_name="Qatar"
             name_code="qa"
             phone_code="974" />
         <country
-            name="團圓"
+            name="留尼汪"
             english_name="Réunion"
             name_code="re"
             phone_code="262" />
@@ -1088,7 +1093,7 @@
             name_code="to"
             phone_code="676" />
         <country
-            name="火雞"
+            name="土耳其"
             english_name="Turkey"
             name_code="tr"
             phone_code="90" />
@@ -1148,7 +1153,7 @@
             name_code="vc"
             phone_code="1" />
         <country
-            name="委內瑞拉玻利瓦爾省共和國"
+            name="委內瑞拉玻利瓦爾共和國"
             english_name="Venezuela, Bolivarian Republic Of"
             name_code="ve"
             phone_code="58" />
@@ -1203,12 +1208,12 @@
             name_code="za"
             phone_code="27" />
         <country
-            name="尚比亞"
+            name="贊比亞"
             english_name="Zambia"
             name_code="zm"
             phone_code="260" />
         <country
-            name="辛巴威"
+            name="津巴布韋"
             english_name="Zimbabwe"
             name_code="zw"
             phone_code="263" />

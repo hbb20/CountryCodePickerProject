@@ -258,6 +258,11 @@
             name_code="cv"
             phone_code="238" />
         <country
+            name="Curacao"
+            english_name="Curacao"
+            name_code="cw"
+            phone_code="599" />
+        <country
             name="Noel Adası"
             english_name="Christmas Island"
             name_code="cx"
@@ -388,7 +393,7 @@
             name_code="gf"
             phone_code="594" />
         <country
-            name="bir tür inek"
+            name="Guernsey Adası"
             english_name="Guernsey"
             name_code="gg"
             phone_code="44" />

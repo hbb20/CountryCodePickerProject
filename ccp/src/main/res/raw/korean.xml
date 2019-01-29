@@ -258,6 +258,11 @@
             name_code="cv"
             phone_code="238" />
         <country
+            name="큐라 소"
+            english_name="Curacao"
+            name_code="cw"
+            phone_code="599" />
+        <country
             name="크리스마스 섬"
             english_name="Christmas Island"
             name_code="cx"

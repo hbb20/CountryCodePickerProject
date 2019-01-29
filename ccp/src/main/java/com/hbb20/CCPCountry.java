@@ -492,6 +492,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_cuba;
             case "cv": //cape verde
                 return R.drawable.flag_cape_verde;
+            case "cw": //curacao
+                return R.drawable.flag_curacao;
             case "cx": //christmas island
                 return R.drawable.flag_christmas_island;
             case "cy": //cyprus
@@ -944,6 +946,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
         countries.add(new CCPCountry("cr", "506", "Costa Rica", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cu", "53", "Cuba", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cv", "238", "Cape Verde", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cw", "599", "Curacao", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cx", "61", "Christmas Island", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cy", "357", "Cyprus", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cz", "420", "Czech Republic", DEFAULT_FLAG_RES));

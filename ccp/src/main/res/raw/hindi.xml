@@ -258,6 +258,11 @@
             name_code="cv"
             phone_code="238" />
         <country
+            name="कुराकाओ"
+            english_name="Curacao"
+            name_code="cw"
+            phone_code="599" />
+        <country
             name="क्रिसमस द्वीप"
             english_name="Christmas Island"
             name_code="cx"
