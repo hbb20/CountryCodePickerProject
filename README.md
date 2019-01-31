@@ -61,6 +61,11 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 ----------
+##### Version 2.2.4 (WIP)
+- Adds Curacao Country  ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/279) by [msalshaikhz](https://github.com/msalshaikhz))
+- Updates libphonenumber version to 8.10.1
+- Greek language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/259) by [khanboy1989](https://github.com/khanboy1989))
+
 ##### Version 2.2.3 (October 12, 2018)
 - Uzbek language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/239) by [Mirmuhsin](https://github.com/Mirmuhsin))
 - Afrikaans language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/229) by [marilie](https://github.com/marilie))
@@ -119,6 +124,7 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Uzbek language support by [Mirmuhsin](https://github.com/Mirmuhsin)
 - Afrikaans language support by [marilie](https://github.com/marilie)
 - Czech language support by [Jakub Begera](https://github.com/jakubbegera)
+- Greek language support by [khanboy1989](https://github.com/khanboy1989)
 
 # Contribution
 - To add a new country, follow the [guide to add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).
