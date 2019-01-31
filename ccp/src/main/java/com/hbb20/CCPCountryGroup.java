@@ -37,7 +37,7 @@ public class CCPCountryGroup {
 
     private static void addGroupForPhoneCode358() {
         HashMap<String, String> nameCodeToAreaCodes = new HashMap<>();
-        nameCodeToAreaCodes.put("ax", "18"); //Aland Islands
+        nameCodeToAreaCodes.put("ax", "18"); //Åland Islands
         countryGroups.put(358, new CCPCountryGroup("fi", 2, nameCodeToAreaCodes)); // Finland
     }
 

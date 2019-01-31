@@ -79,7 +79,7 @@
             phone_code="297" />
         <country
             name="アランド諸島"
-            english_name="Aland Islands"
+            english_name="Åland Islands"
             name_code="ax"
             phone_code="358" />
         <country
@@ -259,7 +259,7 @@
             phone_code="238" />
         <country
             name="キュラソー"
-            english_name="Curacao"
+            english_name="Curaçao"
             name_code="cw"
             phone_code="599" />
         <country
@@ -699,7 +699,7 @@
             phone_code="692" />
         <country
             name="マケドニア旧ユーゴスラビア共和国"
-            english_name="Macedonia, The Former Yugoslav Republic Of"
+            english_name="Macedonia (FYROM)"
             name_code="mk"
             phone_code="389" />
         <country
@@ -719,7 +719,7 @@
             phone_code="976" />
         <country
             name="マカオ"
-            english_name="Macao"
+            english_name="Macau"
             name_code="mo"
             phone_code="853" />
         <country
@@ -884,7 +884,7 @@
             phone_code="508" />
         <country
             name="ピトケアン"
-            english_name="Pitcairn"
+            english_name="Pitcairn Islands"
             name_code="pn"
             phone_code="870" />
         <country
@@ -1169,7 +1169,7 @@
             phone_code="1" />
         <country
             name="ベトナム"
-            english_name="Viet Nam"
+            english_name="Vietnam"
             name_code="vn"
             phone_code="84" />
         <country
