@@ -61,11 +61,11 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 ----------
-##### Version 2.2.4 (WIP)
+##### Version 2.2.4 (January 20, 2019)
 - Adds Curacao Country  ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/279) by [msalshaikhz](https://github.com/msalshaikhz))
 - Updates libphonenumber version to 8.10.1
 - Greek language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/259) by [khanboy1989](https://github.com/khanboy1989))
-- Resolves issue #278, #282
+- Resolves issue #256, #278, #282
 
 ##### Version 2.2.3 (October 12, 2018)
 - Uzbek language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/239) by [Mirmuhsin](https://github.com/Mirmuhsin))
