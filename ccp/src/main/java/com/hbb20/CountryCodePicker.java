@@ -64,14 +64,14 @@ public class CountryCodePicker extends RelativeLayout {
     CountryCodePicker codePicker;
     TextGravity currentTextGravity;
     // see attr.xml to see corresponding values for pref
-    AutoDetectionPref selectedAutoDetectionPref;
+    AutoDetectionPref selectedAutoDetectionPref = AutoDetectionPref.SIM_NETWORK_LOCALE;
     PhoneNumberUtil phoneUtil;
-    boolean showNameCode = false;
+    boolean showNameCode = true;
     boolean showPhoneCode = true;
     boolean ccpDialogShowPhoneCode = true;
     boolean showFlag = true;
     boolean showFullName = false;
-    boolean showFastScroller;
+    boolean showFastScroller = true;
     boolean ccpDialogShowTitle = true;
     boolean ccpDialogShowFlag = true;
     boolean searchAllowed = true;
@@ -100,7 +100,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
-    boolean autoDetectLanguageEnabled, autoDetectCountryEnabled, numberAutoFormattingEnabled, hintExampleNumberEnabled;
+    boolean autoDetectLanguageEnabled = false, autoDetectCountryEnabled = false, numberAutoFormattingEnabled = true, hintExampleNumberEnabled = false;
     String xmlWidth = "notSet";
     TextWatcher validityTextWatcher;
     InternationalPhoneTextWatcher formattingTextWatcher;
@@ -114,9 +114,9 @@ public class CountryCodePicker extends RelativeLayout {
     private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
     private FailureListener failureListener;
     private DialogEventsListener dialogEventsListener;
-    private int fastScrollerHandleColor;
+    private int fastScrollerHandleColor = 0;
     private int dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
-    private int fastScrollerBubbleTextAppearance;
+    private int fastScrollerBubbleTextAppearance = 0;
     private CCPCountryGroup currentCountryGroup;
     private View.OnClickListener customClickListener;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
@@ -173,11 +173,13 @@ public class CountryCodePicker extends RelativeLayout {
     private void init(AttributeSet attrs) {
         mInflater = LayoutInflater.from(context);
 
-        xmlWidth = attrs.getAttributeValue(ANDROID_NAME_SPACE, "layout_width");
+        if (attrs != null) {
+            xmlWidth = attrs.getAttributeValue(ANDROID_NAME_SPACE, "layout_width");
+        }
         Log.d(TAG, "init:xmlWidth " + xmlWidth);
         removeAllViewsInLayout();
         //at run time, match parent value returns LayoutParams.MATCH_PARENT ("-1"), for some android xml preview it returns "fill_parent"
-        if (xmlWidth != null && (xmlWidth.equals(LayoutParams.MATCH_PARENT + "") || xmlWidth.equals(LayoutParams.FILL_PARENT + "") || xmlWidth.equals("fill_parent") || xmlWidth.equals("match_parent"))) {
+        if (attrs != null && xmlWidth != null && (xmlWidth.equals(LayoutParams.MATCH_PARENT + "") || xmlWidth.equals(LayoutParams.FILL_PARENT + "") || xmlWidth.equals("fill_parent") || xmlWidth.equals("match_parent"))) {
             holderView = mInflater.inflate(R.layout.layout_full_width_code_picker, this, true);
         } else {
             holderView = mInflater.inflate(R.layout.layout_code_picker, this, true);
@@ -191,7 +193,9 @@ public class CountryCodePicker extends RelativeLayout {
         linearFlagBorder = (LinearLayout) holderView.findViewById(R.id.linear_flag_border);
         relativeClickConsumer = (RelativeLayout) holderView.findViewById(R.id.rlClickConsumer);
         codePicker = this;
-        applyCustomProperty(attrs);
+        if (attrs != null) {
+            applyCustomProperty(attrs);
+        }
         relativeClickConsumer.setOnClickListener(countryCodeHolderClickListener);
     }
 
@@ -303,7 +307,7 @@ public class CountryCodePicker extends RelativeLayout {
 
             //text gravity
             if (a.hasValue(R.styleable.CountryCodePicker_ccp_textGravity)) {
-                ccpTextgGravity = a.getInt(R.styleable.CountryCodePicker_ccp_textGravity, TEXT_GRAVITY_RIGHT);
+                ccpTextgGravity = a.getInt(R.styleable.CountryCodePicker_ccp_textGravity, TEXT_GRAVITY_CENTER);
             }
             applyTextGravity(ccpTextgGravity);
 
