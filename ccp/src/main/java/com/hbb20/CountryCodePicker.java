@@ -823,7 +823,7 @@ public class CountryCodePicker extends RelativeLayout {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber, getSelectedCountryNameCode());
                 } else {
-                    formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber + formattedNumber);
+                    formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber);
                 }
                 formattedNumber = formattedNumber.substring(getSelectedCountryCodeWithPlus().length()).trim();
                 Log.d(TAG, "updateHint: after format " + formattedNumber + " " + selectionMemoryTag);
