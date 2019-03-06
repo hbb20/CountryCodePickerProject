@@ -119,6 +119,10 @@ public class CountryCodePicker extends RelativeLayout {
     private int fastScrollerBubbleTextAppearance = 0;
     private CCPCountryGroup currentCountryGroup;
     private View.OnClickListener customClickListener;
+    private String ccpDialogTitle = "";
+    private String ccpDialogSearchHint = "";
+    private String ccpDialogEmptyResultAckMessage = "";
+
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -221,6 +225,13 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show title on dialog
             ccpDialogShowTitle = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showTitle, true);
+
+            //show title string for dialog
+            ccpDialogTitle = a.getString(R.styleable.CountryCodePicker_ccpDialog_titleString);
+            //show search hint string for dialog
+            ccpDialogSearchHint = a.getString(R.styleable.CountryCodePicker_ccpDialog_searchEditTextString);
+            //show search no result string for dialog
+            ccpDialogEmptyResultAckMessage = a.getString(R.styleable.CountryCodePicker_ccpDialog_searchEditTextNoResultString);
 
             //show flag on dialog
             ccpDialogShowFlag = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFlag, true);
@@ -1404,18 +1415,30 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     String getDialogTitle() {
-        return CCPCountry.getDialogTitle(context, getLanguageToApply());
+        if (this.ccpDialogTitle == null || this.ccpDialogTitle.isEmpty()) {
+            return CCPCountry.getDialogTitle(context, getLanguageToApply());
+        } else {
+            return this.ccpDialogTitle;
+        }
     }
 
     String getSearchHintText() {
-        return CCPCountry.getSearchHintMessage(context, getLanguageToApply());
+        if (this.ccpDialogSearchHint == null || this.ccpDialogSearchHint.isEmpty()) {
+            return CCPCountry.getSearchHintMessage(context, getLanguageToApply());
+        } else {
+            return this.ccpDialogSearchHint;
+        }
     }
 
     /**
      * @return translated text for "No Results Found" message.
      */
     String getNoResultFoundText() {
-        return CCPCountry.getNoResultFoundAckMessage(context, getLanguageToApply());
+        if (this.ccpDialogEmptyResultAckMessage == null || this.ccpDialogEmptyResultAckMessage.isEmpty()) {
+            return CCPCountry.getNoResultFoundAckMessage(context, getLanguageToApply());
+        } else {
+            return this.ccpDialogEmptyResultAckMessage;
+        }
     }
 
     /**
@@ -2363,5 +2386,27 @@ public class CountryCodePicker extends RelativeLayout {
         void onCcpDialogCancel(DialogInterface dialogInterface);
     }
 
+    public String getCcpDialogTitle() {
+        return ccpDialogTitle;
+    }
 
+    public void setCcpDialogTitle(String ccpDialogTitle) {
+        this.ccpDialogTitle = ccpDialogTitle;
+    }
+
+    public String getCcpDialogSearchHint() {
+        return ccpDialogSearchHint;
+    }
+
+    public void setCcpDialogSearchHint(String ccpDialogSearchHint) {
+        this.ccpDialogSearchHint = ccpDialogSearchHint;
+    }
+
+    public String getCcpDialogEmptyResultAckMessage() {
+        return ccpDialogEmptyResultAckMessage;
+    }
+
+    public void setCcpDialogEmptyResultAckMessage(String ccpDialogEmptyResultAckMessage) {
+        this.ccpDialogEmptyResultAckMessage = ccpDialogEmptyResultAckMessage;
+    }
 }
