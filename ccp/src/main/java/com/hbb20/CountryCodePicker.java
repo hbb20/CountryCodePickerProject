@@ -82,6 +82,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean ccpDialogShowNameCode = true;
     boolean ccpDialogInitialScrollToSelection = false;
     boolean ccpUseEmoji = false;
+    boolean ccpUseDummyEmojiForPreview = false;
     PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
     String selectionMemoryTag = "ccp_last_selection";
     int contentColor;
@@ -224,6 +225,9 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show title on dialog
             ccpUseEmoji = a.getBoolean(R.styleable.CountryCodePicker_ccp_useFlagEmoji, false);
+
+            //show title on dialog
+            ccpUseDummyEmojiForPreview = a.getBoolean(R.styleable.CountryCodePicker_ccp_useDummyEmojiForPreview, false);
 
             //show flag on dialog
             ccpDialogShowFlag = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFlag, true);
@@ -734,6 +738,9 @@ public class CountryCodePicker extends RelativeLayout {
         //as soon as country is selected, textView should be updated
         if (selectedCCPCountry == null) {
             selectedCCPCountry = CCPCountry.getCountryForCode(getContext(), getLanguageToApply(), preferredCountries, defaultCountryCode);
+            if (selectedCCPCountry == null) {
+                return;
+            }
         }
 
         this.selectedCCPCountry = selectedCCPCountry;
@@ -742,7 +749,18 @@ public class CountryCodePicker extends RelativeLayout {
 
         // add flag if required
         if (showFlag && ccpUseEmoji) {
-            displayText += CCPCountry.getFlagEmoji(selectedCCPCountry) + "  ";
+            if (isInEditMode()) {
+//                android studio preview shows huge space if 0 width space is not added.
+                if (ccpUseDummyEmojiForPreview) {
+                    //show chequered flag if dummy preview is expected.
+                    displayText += "\uD83C\uDFC1\u200B ";
+                } else {
+                    displayText += CCPCountry.getFlagEmoji(selectedCCPCountry) + "\u200B ";
+                }
+
+            } else {
+                displayText += CCPCountry.getFlagEmoji(selectedCCPCountry) + "  ";
+            }
         }
 
         // add full name to if required

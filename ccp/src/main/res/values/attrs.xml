@@ -13,6 +13,7 @@
         <attr name="ccp_defaultNameCode" format="string" />
         <attr name="ccp_selectionMemoryTag" format="string" />
         <attr name="ccp_useFlagEmoji" format="boolean" /> <!-- beta -->
+        <attr name="ccp_useDummyEmojiForPreview" format="boolean" /> <!-- beta -->
 
         <attr name="ccp_textGravity" format="enum">
             <enum name="LEFT" value="-1" />
