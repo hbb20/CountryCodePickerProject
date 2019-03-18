@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.2.4'
+            implementation 'com.hbb20:ccp:2.2.5'
           }
    ````
 
@@ -62,9 +62,11 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 Change log
 ----------
 
-##### Version 2.2.5 (WIP)
-- Support for Custom Title, Search Hint and No result ack for CCP Dialog
-- Emoji Support (BETA)
+##### Version 2.2.5 (March 18, 2019)
+- Support for Custom Title, Search Hint and No result ack of CCP Dialog. [Read More](https://github.com/hbb20/CountryCodePickerProject/wiki/Custom-Dialog-Title--%7C-Search-Hint-%7C-Empty-result-ACK)
+- Flag Emoji Support **(BETA)** 
+  - Beware of [problems related to the Emoji Support](https://github.com/hbb20/CountryCodePickerProject/wiki/Flag-Emoji-Support). 
+- Option to set arrow color [Read More](https://github.com/hbb20/CountryCodePickerProject/wiki/CCP-Theme-Customization#custom-arrow-color)
 
 ##### Version 2.2.4 (January 20, 2019)
 - Adds Curacao Country  ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/279) by [msalshaikhz](https://github.com/msalshaikhz))

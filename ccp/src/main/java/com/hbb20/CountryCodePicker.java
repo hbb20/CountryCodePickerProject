@@ -85,8 +85,8 @@ public class CountryCodePicker extends RelativeLayout {
     boolean ccpUseDummyEmojiForPreview = false;
     PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
     String selectionMemoryTag = "ccp_last_selection";
-    int contentColor = -1;
-    int arrowColor;
+    int contentColor = DEFAULT_UNSET;
+    int arrowColor = DEFAULT_UNSET;
     int borderFlagColor;
     Typeface dialogTypeFace;
     int dialogTypeFaceStyle;
