@@ -85,7 +85,8 @@ public class CountryCodePicker extends RelativeLayout {
     boolean ccpUseDummyEmojiForPreview = false;
     PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
     String selectionMemoryTag = "ccp_last_selection";
-    int contentColor;
+    int contentColor = -1;
+    int arrowColor;
     int borderFlagColor;
     Typeface dialogTypeFace;
     int dialogTypeFaceStyle;
@@ -386,14 +387,18 @@ public class CountryCodePicker extends RelativeLayout {
                 loadLastSelectedCountryInCCP();
             }
 
+            int arrowColor;
+            arrowColor = a.getColor(R.styleable.CountryCodePicker_ccp_arrowColor, DEFAULT_UNSET);
+            setArrowColor(arrowColor);
+
             //content color
             int contentColor;
             if (isInEditMode()) {
-                contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, 0);
+                contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, DEFAULT_UNSET);
             } else {
                 contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, context.getResources().getColor(R.color.defaultContentColor));
             }
-            if (contentColor != 0) {
+            if (contentColor != DEFAULT_UNSET) {
                 setContentColor(contentColor);
             }
 
@@ -1440,7 +1445,6 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
-     *
      * @return If custom text provider is registered, it will return value from provider else default.
      */
     String getSearchHintText() {
@@ -1786,7 +1790,27 @@ public class CountryCodePicker extends RelativeLayout {
     public void setContentColor(int contentColor) {
         this.contentColor = contentColor;
         textView_selectedCountry.setTextColor(this.contentColor);
-        imageViewArrow.setColorFilter(this.contentColor, PorterDuff.Mode.SRC_IN);
+
+        //change arrow color only if explicit arrow color is not specified.
+        if (this.arrowColor == DEFAULT_UNSET) {
+            imageViewArrow.setColorFilter(this.contentColor, PorterDuff.Mode.SRC_IN);
+        }
+    }
+
+    /**
+     * set small down arrow color of CCP.
+     *
+     * @param arrowColor color to apply to text and down arrow
+     */
+    public void setArrowColor(int arrowColor) {
+        this.arrowColor = arrowColor;
+        if (this.arrowColor == DEFAULT_UNSET) {
+            if (contentColor != DEFAULT_UNSET) {
+                imageViewArrow.setColorFilter(this.contentColor, PorterDuff.Mode.SRC_IN);
+            }
+        } else {
+            imageViewArrow.setColorFilter(this.arrowColor, PorterDuff.Mode.SRC_IN);
+        }
     }
 
     /**
@@ -2007,6 +2031,7 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * If developer wants to change CCP Dialog's Title, Search Hint text or no result ACK,
      * a custom dialog text provider should be set.
+     *
      * @param customDialogTextProvider
      */
     public void setCustomDialogTextProvider(CustomDialogTextProvider customDialogTextProvider) {

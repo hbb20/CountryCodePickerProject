@@ -4,6 +4,7 @@
         <!--{@deprecated Use defaultNameCode instead.}-->
         <attr name="ccp_defaultPhoneCode" format="integer" />
         <attr name="ccp_contentColor" format="color" />
+        <attr name="ccp_arrowColor" format="color" />
         <attr name="ccp_textSize" format="dimension" />
         <attr name="ccp_arrowSize" format="dimension" />
         <attr name="ccp_customMasterCountries" format="string" />
