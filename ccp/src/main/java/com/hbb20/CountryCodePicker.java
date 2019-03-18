@@ -81,6 +81,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean detectCountryWithAreaCode = true;
     boolean ccpDialogShowNameCode = true;
     boolean ccpDialogInitialScrollToSelection = false;
+    boolean ccpUseEmoji = false;
     PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
     String selectionMemoryTag = "ccp_last_selection";
     int contentColor;
@@ -176,7 +177,6 @@ public class CountryCodePicker extends RelativeLayout {
         if (attrs != null) {
             xmlWidth = attrs.getAttributeValue(ANDROID_NAME_SPACE, "layout_width");
         }
-        Log.d(TAG, "init:xmlWidth " + xmlWidth);
         removeAllViewsInLayout();
         //at run time, match parent value returns LayoutParams.MATCH_PARENT ("-1"), for some android xml preview it returns "fill_parent"
         if (attrs != null && xmlWidth != null && (xmlWidth.equals(LayoutParams.MATCH_PARENT + "") || xmlWidth.equals(LayoutParams.FILL_PARENT + "") || xmlWidth.equals("fill_parent") || xmlWidth.equals("match_parent"))) {
@@ -221,6 +221,9 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show title on dialog
             ccpDialogShowTitle = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showTitle, true);
+
+            //show title on dialog
+            ccpUseEmoji = a.getBoolean(R.styleable.CountryCodePicker_ccp_use_flag_emoji, false);
 
             //show flag on dialog
             ccpDialogShowFlag = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFlag, true);
@@ -428,7 +431,6 @@ public class CountryCodePicker extends RelativeLayout {
         } finally {
             a.recycle();
         }
-        Log.d(TAG, "end:xmlWidth " + xmlWidth);
     }
 
     private void refreshArrowViewVisibility() {
@@ -668,12 +670,11 @@ public class CountryCodePicker extends RelativeLayout {
                 }
             }
         }
-        Log.d(TAG, "updateLanguageToApply: " + languageToApply);
     }
 
     private Language getCCPLanguageFromLocale() {
         Locale currentLocale = context.getResources().getConfiguration().locale;
-        Log.d(TAG, "getCCPLanguageFromLocale: current locale language" + currentLocale.getLanguage());
+//        Log.d(TAG, "getCCPLanguageFromLocale: current locale language" + currentLocale.getLanguage());
         for (Language language : Language.values()) {
             if (language.getCode().equalsIgnoreCase(currentLocale.getLanguage())) {
 
@@ -738,6 +739,11 @@ public class CountryCodePicker extends RelativeLayout {
         this.selectedCCPCountry = selectedCCPCountry;
 
         String displayText = "";
+
+        // add flag if required
+        if (showFlag && ccpUseEmoji) {
+            displayText += CCPCountry.getFlagEmoji(selectedCCPCountry) + "  ";
+        }
 
         // add full name to if required
         if (showFullName) {
@@ -819,16 +825,16 @@ public class CountryCodePicker extends RelativeLayout {
             Phonenumber.PhoneNumber exampleNumber = getPhoneUtil().getExampleNumberForType(getSelectedCountryNameCode(), getSelectedHintNumberType());
             if (exampleNumber != null) {
                 formattedNumber = exampleNumber.getNationalNumber() + "";
-                Log.d(TAG, "updateHint: " + formattedNumber);
+//                Log.d(TAG, "updateHint: " + formattedNumber);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber, getSelectedCountryNameCode());
                 } else {
                     formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber + formattedNumber);
                 }
                 formattedNumber = formattedNumber.substring(getSelectedCountryCodeWithPlus().length()).trim();
-                Log.d(TAG, "updateHint: after format " + formattedNumber + " " + selectionMemoryTag);
+//                Log.d(TAG, "updateHint: after format " + formattedNumber + " " + selectionMemoryTag);
             } else {
-                Log.w(TAG, "updateHint: No example number found for this country (" + getSelectedCountryNameCode() + ") or this type (" + hintExampleNumberType.name() + ").");
+//                Log.w(TAG, "updateHint: No example number found for this country (" + getSelectedCountryNameCode() + ") or this type (" + hintExampleNumberType.name() + ").");
             }
             editText_registeredCarrierNumber.setHint(formattedNumber);
         }
@@ -884,7 +890,6 @@ public class CountryCodePicker extends RelativeLayout {
 
     private void updateFormattingTextWatcher() {
         if (editText_registeredCarrierNumber != null && selectedCCPCountry != null) {
-            Log.d(TAG, "updateFormattingTextWatcher: " + selectionMemoryTag);
             String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
             String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
 
@@ -913,9 +918,9 @@ public class CountryCodePicker extends RelativeLayout {
             editText_registeredCarrierNumber.setSelection(editText_registeredCarrierNumber.getText().length());
         } else {
             if (editText_registeredCarrierNumber == null) {
-                Log.d(TAG, "updateFormattingTextWatcher: EditText not registered " + selectionMemoryTag);
+                Log.v(TAG, "updateFormattingTextWatcher: EditText not registered " + selectionMemoryTag);
             } else {
-                Log.d(TAG, "updateFormattingTextWatcher: selected country is null " + selectionMemoryTag);
+                Log.v(TAG, "updateFormattingTextWatcher: selected country is null " + selectionMemoryTag);
             }
         }
     }
@@ -1051,7 +1056,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     EditText getEditText_registeredCarrierNumber() {
-        Log.d(TAG, "getEditText_registeredCarrierNumber");
+//        Log.d(TAG, "getEditText_registeredCarrierNumber");
         return editText_registeredCarrierNumber;
     }
 
@@ -1062,7 +1067,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
         this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
-        Log.d(TAG, "setEditText_registeredCarrierNumber: carrierEditTextAttached " + selectionMemoryTag);
+//        Log.d(TAG, "setEditText_registeredCarrierNumber: carrierEditTextAttached " + selectionMemoryTag);
         updateValidityTextWatcher();
         updateFormattingTextWatcher();
         updateHint();
@@ -1890,11 +1895,26 @@ public class CountryCodePicker extends RelativeLayout {
 
     public void showFlag(boolean showFlag) {
         this.showFlag = showFlag;
+        refreshFlagVisibility();
+        setSelectedCountry(selectedCCPCountry);
+    }
+
+    private void refreshFlagVisibility() {
         if (showFlag) {
-            linearFlagHolder.setVisibility(VISIBLE);
+            if (ccpUseEmoji) {
+                linearFlagHolder.setVisibility(GONE);
+            } else {
+                linearFlagHolder.setVisibility(VISIBLE);
+            }
         } else {
             linearFlagHolder.setVisibility(GONE);
         }
+    }
+
+    public void useFlagEmoji(boolean useFlagEmoji) {
+        this.ccpUseEmoji = useFlagEmoji;
+        refreshFlagVisibility();
+        setSelectedCountry(selectedCCPCountry);
     }
 
     public void showFullName(boolean showFullName) {
@@ -2003,19 +2023,13 @@ public class CountryCodePicker extends RelativeLayout {
             for (int i = 0; i < selectedAutoDetectionPref.representation.length(); i++) {
                 switch (selectedAutoDetectionPref.representation.charAt(i)) {
                     case '1':
-                        Log.d(TAG, "setAutoDetectedCountry: Setting using SIM");
                         successfullyDetected = detectSIMCountry(false);
-                        Log.d(TAG, "setAutoDetectedCountry: Result of sim country detection:" + successfullyDetected + " current country:" + getSelectedCountryNameCode());
                         break;
                     case '2':
-                        Log.d(TAG, "setAutoDetectedCountry: Setting using NETWORK");
                         successfullyDetected = detectNetworkCountry(false);
-                        Log.d(TAG, "setAutoDetectedCountry: Result of network country detection:" + successfullyDetected + " current country:" + getSelectedCountryNameCode());
                         break;
                     case '3':
-                        Log.d(TAG, "setAutoDetectedCountry: Setting using LOCALE");
                         successfullyDetected = detectLocaleCountry(false);
-                        Log.d(TAG, "setAutoDetectedCountry: Result of LOCALE country detection:" + successfullyDetected + " current country:" + getSelectedCountryNameCode());
                         break;
                 }
                 if (successfullyDetected) {

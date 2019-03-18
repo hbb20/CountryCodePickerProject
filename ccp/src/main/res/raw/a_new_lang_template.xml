@@ -259,6 +259,11 @@
             phone_code="238" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="Curaçao"
+            name_code="cw"
+            phone_code="599" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Christmas Island"
             name_code="cx"
             phone_code="61" />

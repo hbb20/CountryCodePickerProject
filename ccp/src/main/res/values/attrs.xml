@@ -12,6 +12,7 @@
         <attr name="ccp_countryPreference" format="string" />
         <attr name="ccp_defaultNameCode" format="string" />
         <attr name="ccp_selectionMemoryTag" format="string" />
+        <attr name="ccp_use_flag_emoji" format="boolean" /> <!-- beta -->
 
         <attr name="ccp_textGravity" format="enum">
             <enum name="LEFT" value="-1" />

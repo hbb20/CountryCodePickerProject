@@ -96,19 +96,6 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 }
             });
 
-            /*if (codePicker.isDialogKeyboardAutoPopup()) {
-                try {
-                    if(editText_search.getVisibility()==View.VISIBLE) {
-                        editText_search.requestFocus();
-                        editText_search.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 0, 0, 0));
-                        editText_search.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 0, 0, 0));
-                        editText_search.setSelection(editText_search.getText().toString().length());
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-*/
             this.editText_search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -259,8 +246,8 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             }
         }
 
-        public void setCountry(CCPCountry CCPCountry) {
-            if (CCPCountry != null) {
+        public void setCountry(CCPCountry ccpCountry) {
+            if (ccpCountry != null) {
                 divider.setVisibility(View.GONE);
                 textView_name.setVisibility(View.VISIBLE);
                 textView_code.setVisibility(View.VISIBLE);
@@ -270,18 +257,27 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                     textView_code.setVisibility(View.GONE);
                 }
 
-                if (codePicker.getCcpDialogShowNameCode()) {
-                    textView_name.setText(CCPCountry.getName() + " (" + CCPCountry.getNameCode().toUpperCase() + ")");
-                } else {
-                    textView_name.setText(CCPCountry.getName());
-                }
-                textView_code.setText("+" + CCPCountry.getPhoneCode());
+                String countryName = "";
 
-                if (!codePicker.getCcpDialogShowFlag()) {
+                if (codePicker.getCcpDialogShowFlag() && codePicker.ccpUseEmoji) {
+                    //extra space is just for alignment purpose
+                    countryName += CCPCountry.getFlagEmoji(ccpCountry) + "   ";
+                }
+
+                countryName += ccpCountry.getName();
+
+                if (codePicker.getCcpDialogShowNameCode()) {
+                    countryName += " (" + ccpCountry.getNameCode().toUpperCase() + ")";
+                }
+
+                textView_name.setText(countryName);
+                textView_code.setText("+" + ccpCountry.getPhoneCode());
+
+                if (!codePicker.getCcpDialogShowFlag() || codePicker.ccpUseEmoji) {
                     linearFlagHolder.setVisibility(View.GONE);
                 } else {
                     linearFlagHolder.setVisibility(View.VISIBLE);
-                    imageViewFlag.setImageResource(CCPCountry.getFlagID());
+                    imageViewFlag.setImageResource(ccpCountry.getFlagID());
                 }
             }else{
                 divider.setVisibility(View.VISIBLE);
