@@ -223,7 +223,7 @@ public class CountryCodePicker extends RelativeLayout {
             ccpDialogShowTitle = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showTitle, true);
 
             //show title on dialog
-            ccpUseEmoji = a.getBoolean(R.styleable.CountryCodePicker_ccp_use_flag_emoji, false);
+            ccpUseEmoji = a.getBoolean(R.styleable.CountryCodePicker_ccp_useFlagEmoji, false);
 
             //show flag on dialog
             ccpDialogShowFlag = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showFlag, true);
