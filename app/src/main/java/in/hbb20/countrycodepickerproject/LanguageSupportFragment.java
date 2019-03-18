@@ -43,6 +43,47 @@ public class LanguageSupportFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         assignViews();
         setClickListener();
+        //setCCPTextProvider();
+    }
+
+    private void setCCPTextProvider() {
+        ccp.setCustomDialogTextProvider(new CountryCodePicker.CustomDialogTextProvider() {
+            @Override
+            public String getCCPDialogTitle(CountryCodePicker.Language language, String defaultTitle) {
+                switch (language) {
+                    case ENGLISH:
+                        return "En Title";
+                    case JAPANESE:
+                        return "JP title";
+                    default:
+                        return defaultTitle;
+                }
+            }
+
+            @Override
+            public String getCCPDialogSearchHintText(CountryCodePicker.Language language, String defaultSearchHintText) {
+                switch (language) {
+                    case ENGLISH:
+                        return "En hint";
+                    case JAPANESE:
+                        return "JP hint";
+                    default:
+                        return defaultSearchHintText;
+                }
+            }
+
+            @Override
+            public String getCCPDialogNoResultACK(CountryCodePicker.Language language, String defaultNoResultACK) {
+                switch (language) {
+                    case ENGLISH:
+                        return "En No Result";
+                    case JAPANESE:
+                        return "JP No Result";
+                    default:
+                        return defaultNoResultACK;
+                }
+            }
+        });
     }
 
     private void setClickListener() {

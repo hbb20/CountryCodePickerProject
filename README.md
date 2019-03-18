@@ -61,6 +61,11 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 ----------
+
+##### Version 2.2.5 (WIP)
+- Support for Custom Title, Search Hint and No result ack for CCP Dialog
+- Emoji Support (BETA)
+
 ##### Version 2.2.4 (January 20, 2019)
 - Adds Curacao Country  ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/279) by [msalshaikhz](https://github.com/msalshaikhz))
 - Updates libphonenumber version to 8.10.1

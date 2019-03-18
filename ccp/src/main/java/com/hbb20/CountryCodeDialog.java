@@ -163,7 +163,7 @@ class CountryCodeDialog {
         //add messages to views
         textViewTitle.setText(codePicker.getDialogTitle());
         editText_search.setHint(codePicker.getSearchHintText());
-        textView_noResult.setText(codePicker.getNoResultFoundText());
+        textView_noResult.setText(codePicker.getNoResultACK());
 
         //this will make dialog compact
         if (!codePicker.isSearchAllowed()) {

@@ -116,15 +116,12 @@ public class CountryCodePicker extends RelativeLayout {
     private PhoneNumberValidityChangeListener phoneNumberValidityChangeListener;
     private FailureListener failureListener;
     private DialogEventsListener dialogEventsListener;
+    private CustomDialogTextProvider customDialogTextProvider;
     private int fastScrollerHandleColor = 0;
     private int dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
     private int fastScrollerBubbleTextAppearance = 0;
     private CCPCountryGroup currentCountryGroup;
     private View.OnClickListener customClickListener;
-    private String ccpDialogTitle = "";
-    private String ccpDialogSearchHint = "";
-    private String ccpDialogEmptyResultAckMessage = "";
-
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -1430,30 +1427,40 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
+    /**
+     * @return If custom text provider is registered, it will return value from provider else default.
+     */
     String getDialogTitle() {
-        if (this.ccpDialogTitle == null || this.ccpDialogTitle.isEmpty()) {
-            return CCPCountry.getDialogTitle(context, getLanguageToApply());
+        String defaultTitle = CCPCountry.getDialogTitle(context, getLanguageToApply());
+        if (customDialogTextProvider != null) {
+            return customDialogTextProvider.getCCPDialogTitle(getLanguageToApply(), defaultTitle);
         } else {
-            return this.ccpDialogTitle;
-        }
-    }
-
-    String getSearchHintText() {
-        if (this.ccpDialogSearchHint == null || this.ccpDialogSearchHint.isEmpty()) {
-            return CCPCountry.getSearchHintMessage(context, getLanguageToApply());
-        } else {
-            return this.ccpDialogSearchHint;
+            return defaultTitle;
         }
     }
 
     /**
-     * @return translated text for "No Results Found" message.
+     *
+     * @return If custom text provider is registered, it will return value from provider else default.
      */
-    String getNoResultFoundText() {
-        if (this.ccpDialogEmptyResultAckMessage == null || this.ccpDialogEmptyResultAckMessage.isEmpty()) {
-            return CCPCountry.getNoResultFoundAckMessage(context, getLanguageToApply());
+    String getSearchHintText() {
+        String defaultHint = CCPCountry.getSearchHintMessage(context, getLanguageToApply());
+        if (customDialogTextProvider != null) {
+            return customDialogTextProvider.getCCPDialogSearchHintText(getLanguageToApply(), defaultHint);
         } else {
-            return this.ccpDialogEmptyResultAckMessage;
+            return defaultHint;
+        }
+    }
+
+    /**
+     * @return If custom text provider is registered, it will return value from provider else default.
+     */
+    String getNoResultACK() {
+        String defaultNoResultACK = CCPCountry.getNoResultFoundAckMessage(context, getLanguageToApply());
+        if (customDialogTextProvider != null) {
+            return customDialogTextProvider.getCCPDialogNoResultACK(getLanguageToApply(), defaultNoResultACK);
+        } else {
+            return defaultNoResultACK;
         }
     }
 
@@ -1993,8 +2000,17 @@ public class CountryCodePicker extends RelativeLayout {
      *
      * @param failureListener
      */
-    public void setPhoneNumberValidityChangeListener(FailureListener failureListener) {
+    public void setAutoDetectionFailureListener(FailureListener failureListener) {
         this.failureListener = failureListener;
+    }
+
+    /**
+     * If developer wants to change CCP Dialog's Title, Search Hint text or no result ACK,
+     * a custom dialog text provider should be set.
+     * @param customDialogTextProvider
+     */
+    public void setCustomDialogTextProvider(CustomDialogTextProvider customDialogTextProvider) {
+        this.customDialogTextProvider = customDialogTextProvider;
     }
 
     /**
@@ -2411,27 +2427,11 @@ public class CountryCodePicker extends RelativeLayout {
         void onCcpDialogCancel(DialogInterface dialogInterface);
     }
 
-    public String getCcpDialogTitle() {
-        return ccpDialogTitle;
-    }
+    public interface CustomDialogTextProvider {
+        String getCCPDialogTitle(Language language, String defaultTitle);
 
-    public void setCcpDialogTitle(String ccpDialogTitle) {
-        this.ccpDialogTitle = ccpDialogTitle;
-    }
+        String getCCPDialogSearchHintText(Language language, String defaultSearchHintText);
 
-    public String getCcpDialogSearchHint() {
-        return ccpDialogSearchHint;
-    }
-
-    public void setCcpDialogSearchHint(String ccpDialogSearchHint) {
-        this.ccpDialogSearchHint = ccpDialogSearchHint;
-    }
-
-    public String getCcpDialogEmptyResultAckMessage() {
-        return ccpDialogEmptyResultAckMessage;
-    }
-
-    public void setCcpDialogEmptyResultAckMessage(String ccpDialogEmptyResultAckMessage) {
-        this.ccpDialogEmptyResultAckMessage = ccpDialogEmptyResultAckMessage;
+        String getCCPDialogNoResultACK(Language language, String defaultNoResultACK);
     }
 }

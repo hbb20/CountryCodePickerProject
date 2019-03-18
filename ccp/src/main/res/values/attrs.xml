@@ -63,12 +63,9 @@
         <attr name="ccpDialog_backgroundColor" format="color" />
         <attr name="ccpDialog_textColor" format="color" />
         <attr name="ccpDialog_searchEditTextTint" format="color" />
-        <attr name="ccpDialog_searchEditTextString" format="string" />
-        <attr name="ccpDialog_searchEditTextNoResultString" format="string" />
         <attr name="ccpDialog_showCloseIcon" format="boolean" />
         <attr name="ccpDialog_showTitle" format="boolean" />
         <attr name="ccpDialog_initialScrollToSelection" format="boolean" />
-        <attr name="ccpDialog_titleString" format="string" />
         <!--list of languages-->
         <!--Make sure: order in this list must match order of Language Enum in CountryCodePicker.java. Values must be ascending starting from 0.-->
         <attr name="ccp_defaultLanguage" format="enum">

@@ -39,12 +39,7 @@ public class IntroductionFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         assignViews();
-        setCCPValidityListener();
         setClickListener();
-    }
-
-    private void setCCPValidityListener() {
-
     }
 
     private void setClickListener() {
