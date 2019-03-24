@@ -1701,6 +1701,32 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     /**
+     * If edittext was already registered, this will remove attached textwatchers and set
+     * editText to null
+     */
+    public void deregisterCarrierNumberEditText() {
+        if (editText_registeredCarrierNumber != null) {
+            // remove validity listener
+            try {
+                editText_registeredCarrierNumber.removeTextChangedListener(validityTextWatcher);
+            } catch (Exception ignored) {
+
+            }
+
+            // if possible, remove formatting textwatcher
+            try {
+                editText_registeredCarrierNumber.removeTextChangedListener(formattingTextWatcher);
+            } catch (Exception ignored) {
+
+            }
+
+            editText_registeredCarrierNumber.setHint("");
+
+            editText_registeredCarrierNumber = null;
+        }
+    }
+
+    /**
      * This function combines selected country code from CCP and carrier number from @param editTextCarrierNumber
      *
      * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "918866667722"

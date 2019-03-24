@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.2.5'
+            implementation 'com.hbb20:ccp:2.2.6'
           }
    ````
 
@@ -61,6 +61,9 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 ----------
+
+##### Version 2.2.6 (March 23, 2019)
+- Option to deregister exitText.
 
 ##### Version 2.2.5 (March 18, 2019)
 - Support for Custom Title, Search Hint and No result ack of CCP Dialog. [Read More](https://github.com/hbb20/CountryCodePickerProject/wiki/Custom-Dialog-Title--%7C-Search-Hint-%7C-Empty-result-ACK)
