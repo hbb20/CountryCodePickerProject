@@ -33,12 +33,12 @@
             name_code="ai"
             phone_code="1" />
         <country
-            name="Albania"
+            name="Albanien"
             english_name="Albania"
             name_code="al"
             phone_code="355" />
         <country
-            name="Armenia"
+            name="Armenien"
             english_name="Armenia"
             name_code="am"
             phone_code="374" />
@@ -48,7 +48,7 @@
             name_code="ao"
             phone_code="244" />
         <country
-            name="Antarctica"
+            name="Antarktis"
             english_name="Antarctica"
             name_code="aq"
             phone_code="672" />
@@ -63,12 +63,12 @@
             name_code="as"
             phone_code="1" />
         <country
-            name="Austria"
+            name="Østrig"
             english_name="Austria"
             name_code="at"
             phone_code="43" />
         <country
-            name="Australia"
+            name="Australien"
             english_name="Australia"
             name_code="au"
             phone_code="61" />
@@ -78,7 +78,7 @@
             name_code="aw"
             phone_code="297" />
         <country
-            name="Åland Islands"
+            name="Ålandsøerne"
             english_name="Åland Islands"
             name_code="ax"
             phone_code="358" />
@@ -103,7 +103,7 @@
             name_code="bd"
             phone_code="880" />
         <country
-            name="Belgium"
+            name="Belgien"
             english_name="Belgium"
             name_code="be"
             phone_code="32" />
@@ -113,7 +113,7 @@
             name_code="bf"
             phone_code="226" />
         <country
-            name="Bulgaria"
+            name="Bulgarien"
             english_name="Bulgaria"
             name_code="bg"
             phone_code="359" />
@@ -233,7 +233,7 @@
             name_code="cm"
             phone_code="237" />
         <country
-            name="China"
+            name="Kina"
             english_name="China"
             name_code="cn"
             phone_code="86" />
@@ -268,17 +268,17 @@
             name_code="cx"
             phone_code="61" />
         <country
-            name="Cyprus"
+            name="Cypern"
             english_name="Cyprus"
             name_code="cy"
             phone_code="357" />
         <country
-            name="Czech Republic"
+            name="Tjekkiet"
             english_name="Czech Republic"
             name_code="cz"
             phone_code="420" />
         <country
-            name="Germany"
+            name="Tyskland"
             english_name="Germany"
             name_code="de"
             phone_code="49" />
@@ -288,7 +288,7 @@
             name_code="dj"
             phone_code="253" />
         <country
-            name="Denmark"
+            name="Danmark"
             english_name="Denmark"
             name_code="dk"
             phone_code="45" />
@@ -303,7 +303,7 @@
             name_code="do"
             phone_code="1" />
         <country
-            name="Algeria"
+            name="Algeriet"
             english_name="Algeria"
             name_code="dz"
             phone_code="213" />
@@ -313,12 +313,12 @@
             name_code="ec"
             phone_code="593" />
         <country
-            name="Estonia"
+            name="Estland"
             english_name="Estonia"
             name_code="ee"
             phone_code="372" />
         <country
-            name="Egypt"
+            name="Egypten"
             english_name="Egypt"
             name_code="eg"
             phone_code="20" />
@@ -328,12 +328,12 @@
             name_code="er"
             phone_code="291" />
         <country
-            name="Spain"
+            name="Spanien"
             english_name="Spain"
             name_code="es"
             phone_code="34" />
         <country
-            name="Ethiopia"
+            name="Etiopien"
             english_name="Ethiopia"
             name_code="et"
             phone_code="251" />
@@ -363,7 +363,7 @@
             name_code="fo"
             phone_code="298" />
         <country
-            name="France"
+            name="Frankrig"
             english_name="France"
             name_code="fr"
             phone_code="33" />
@@ -373,7 +373,7 @@
             name_code="ga"
             phone_code="241" />
         <country
-            name="United Kingdom"
+            name="Storbritanien"
             english_name="United Kingdom"
             name_code="gb"
             phone_code="44" />
@@ -383,7 +383,7 @@
             name_code="gd"
             phone_code="1" />
         <country
-            name="Georgia"
+            name="Georgien"
             english_name="Georgia"
             name_code="ge"
             phone_code="995" />
@@ -408,7 +408,7 @@
             name_code="gi"
             phone_code="350" />
         <country
-            name="Greenland"
+            name="Grønland"
             english_name="Greenland"
             name_code="gl"
             phone_code="299" />
@@ -433,7 +433,7 @@
             name_code="gq"
             phone_code="240" />
         <country
-            name="Greece"
+            name="Grækenland"
             english_name="Greece"
             name_code="gr"
             phone_code="30" />
@@ -468,7 +468,7 @@
             name_code="hn"
             phone_code="504" />
         <country
-            name="Croatia"
+            name="Kroatien"
             english_name="Croatia"
             name_code="hr"
             phone_code="385" />
@@ -478,17 +478,17 @@
             name_code="ht"
             phone_code="509" />
         <country
-            name="Hungary"
+            name="Ungarn"
             english_name="Hungary"
             name_code="hu"
             phone_code="36" />
         <country
-            name="Indonesia"
+            name="Indonesien"
             english_name="Indonesia"
             name_code="id"
             phone_code="62" />
         <country
-            name="Ireland"
+            name="Irland"
             english_name="Ireland"
             name_code="ie"
             phone_code="353" />
@@ -503,7 +503,7 @@
             name_code="im"
             phone_code="44" />
         <country
-            name="Iceland"
+            name="Island"
             english_name="Iceland"
             name_code="is"
             phone_code="354" />
@@ -518,7 +518,7 @@
             name_code="io"
             phone_code="246" />
         <country
-            name="Iraq"
+            name="Irak"
             english_name="Iraq"
             name_code="iq"
             phone_code="964" />
@@ -528,7 +528,7 @@
             name_code="ir"
             phone_code="98" />
         <country
-            name="Italy"
+            name="Italien"
             english_name="Italy"
             name_code="it"
             phone_code="39" />
@@ -583,12 +583,12 @@
             name_code="kn"
             phone_code="1" />
         <country
-            name="North Korea"
+            name="Nordkorea"
             english_name="North Korea"
             name_code="kp"
             phone_code="850" />
         <country
-            name="South Korea"
+            name="Sydkorea"
             english_name="South Korea"
             name_code="kr"
             phone_code="82" />
@@ -643,7 +643,7 @@
             name_code="ls"
             phone_code="266" />
         <country
-            name="Lithuania"
+            name="Lithauen"
             english_name="Lithuania"
             name_code="lt"
             phone_code="370" />
@@ -653,12 +653,12 @@
             name_code="lu"
             phone_code="352" />
         <country
-            name="Latvia"
+            name="Letland"
             english_name="Latvia"
             name_code="lv"
             phone_code="371" />
         <country
-            name="Libya"
+            name="Libyen"
             english_name="Libya"
             name_code="ly"
             phone_code="218" />
@@ -713,7 +713,7 @@
             name_code="mm"
             phone_code="95" />
         <country
-            name="Mongolia"
+            name="Mongoliet"
             english_name="Mongolia"
             name_code="mn"
             phone_code="976" />
@@ -753,7 +753,7 @@
             name_code="mu"
             phone_code="230" />
         <country
-            name="Maldives"
+            name="Maldiverne"
             english_name="Maldives"
             name_code="mv"
             phone_code="960" />
@@ -808,12 +808,12 @@
             name_code="ni"
             phone_code="505" />
         <country
-            name="Netherlands"
+            name="Holland"
             english_name="Netherlands"
             name_code="nl"
             phone_code="31" />
         <country
-            name="Norway"
+            name="Norge"
             english_name="Norway"
             name_code="no"
             phone_code="47" />
@@ -873,7 +873,7 @@
             name_code="pk"
             phone_code="92" />
         <country
-            name="Poland"
+            name="Polen"
             english_name="Poland"
             name_code="pl"
             phone_code="48" />
@@ -893,7 +893,7 @@
             name_code="pr"
             phone_code="1" />
         <country
-            name="Palestine"
+            name="Palæstina"
             english_name="Palestine"
             name_code="ps"
             phone_code="970" />
@@ -923,12 +923,12 @@
             name_code="re"
             phone_code="262" />
         <country
-            name="Romania"
+            name="Rumænien"
             english_name="Romania"
             name_code="ro"
             phone_code="40" />
         <country
-            name="Serbia"
+            name="Serbien"
             english_name="Serbia"
             name_code="rs"
             phone_code="381" />
@@ -943,7 +943,7 @@
             name_code="rw"
             phone_code="250" />
         <country
-            name="Saudi Arabia"
+            name="Saudi Arabien"
             english_name="Saudi Arabia"
             name_code="sa"
             phone_code="966" />
@@ -963,7 +963,7 @@
             name_code="sd"
             phone_code="249" />
         <country
-            name="Sweden"
+            name="Sverige"
             english_name="Sweden"
             name_code="se"
             phone_code="46" />
@@ -978,12 +978,12 @@
             name_code="sh"
             phone_code="290" />
         <country
-            name="Slovenia"
+            name="Slovenien"
             english_name="Slovenia"
             name_code="si"
             phone_code="386" />
         <country
-            name="Slovakia"
+            name="Slovakiet"
             english_name="Slovakia"
             name_code="sk"
             phone_code="421" />
@@ -1083,7 +1083,7 @@
             name_code="tm"
             phone_code="993" />
         <country
-            name="Tunisia"
+            name="Tunesien"
             english_name="Tunisia"
             name_code="tn"
             phone_code="216" />
@@ -1093,7 +1093,7 @@
             name_code="to"
             phone_code="676" />
         <country
-            name="Turkey"
+            name="Tyrkiet"
             english_name="Turkey"
             name_code="tr"
             phone_code="90" />
