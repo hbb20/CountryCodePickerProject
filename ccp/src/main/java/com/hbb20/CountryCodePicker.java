@@ -2309,6 +2309,7 @@ public class CountryCodePicker extends RelativeLayout {
         CHINESE_SIMPLIFIED("zh", "CN", "Hans"),
         CHINESE_TRADITIONAL("zh", "TW", "Hant"),
         CZECH("cs"),
+        DANISH("da"),
         DUTCH("nl"),
         ENGLISH("en"),
         FARSI("fa"),
