@@ -170,8 +170,9 @@ public class InternationalPhoneTextWatcher implements TextWatcher {
 
         String countryCallingCode = "+" + countryPhoneCode;
 
-        //to have number formatted as international format, add country code before that
-        s = countryCallingCode + s;
+		if (s.length() > 0 && s.charAt(0) != '0')
+	        //to have number formatted as international format, add country code before that
+			s = countryCallingCode + s;
         int len = s.length();
 
         for (int i = 0; i < len; i++) {
@@ -188,14 +189,16 @@ public class InternationalPhoneTextWatcher implements TextWatcher {
         }
 
         internationalFormatted = internationalFormatted.trim();
-        if (internationalFormatted.length() > countryCallingCode.length()) {
-            if (internationalFormatted.charAt(countryCallingCode.length()) == ' ')
-                internationalFormatted = internationalFormatted.substring(countryCallingCode.length() + 1);
-            else
-                internationalFormatted = internationalFormatted.substring(countryCallingCode.length());
-        } else {
-            internationalFormatted = "";
-        }
+		if (s.length() == 0 || s.charAt(0) != '0') {
+			if (internationalFormatted.length() > countryCallingCode.length()) {
+				if (internationalFormatted.charAt(countryCallingCode.length()) == ' ')
+					internationalFormatted = internationalFormatted.substring(countryCallingCode.length() + 1);
+				else
+					internationalFormatted = internationalFormatted.substring(countryCallingCode.length());
+			} else {
+				internationalFormatted = "";
+			}
+		}
         return TextUtils.isEmpty(internationalFormatted) ? "" : internationalFormatted;
     }
 
