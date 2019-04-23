@@ -26,6 +26,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -436,8 +438,12 @@ public class CountryCodePicker extends RelativeLayout {
             setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
 
         } catch (Exception e) {
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            textView_selectedCountry.setMaxLines(25);
             textView_selectedCountry.setTextSize(10);
-            textView_selectedCountry.setText(e.toString());
+            textView_selectedCountry.setText(sw.toString());
         } finally {
             a.recycle();
         }
@@ -1987,7 +1993,8 @@ public class CountryCodePicker extends RelativeLayout {
     public void showFlag(boolean showFlag) {
         this.showFlag = showFlag;
         refreshFlagVisibility();
-        setSelectedCountry(selectedCCPCountry);
+        if (!isInEditMode())
+            setSelectedCountry(selectedCCPCountry);
     }
 
     private void refreshFlagVisibility() {
