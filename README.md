@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.2.7'
+            implementation 'com.hbb20:ccp:2.2.8'
           }
    ````
 
@@ -61,6 +61,10 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 ----------
+
+
+##### Version 2.2.8 (April 23, 2019)
+- Vietnamese language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/304) by [Ricardo Markiewicz](https://github.com/Gazer)
 
 ##### Version 2.2.7 (April 4, 2019)
 - Danish language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/300) by [porkyhead](https://github.com/porkyhead))
@@ -140,6 +144,7 @@ For earlier versions, check [full log](https://github.com/hbb20/CountryCodePicke
 - Czech language support by [Jakub Begera](https://github.com/jakubbegera)
 - Greek language support by [khanboy1989](https://github.com/khanboy1989)
 - Danish language support by [porkyhead](https://github.com/porkyhead)
+- Vietnamese language support by [Ricardo Markiewicz](https://github.com/Gazer)
 
 # Contribution
 - To add a new country, follow the [guide to add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).

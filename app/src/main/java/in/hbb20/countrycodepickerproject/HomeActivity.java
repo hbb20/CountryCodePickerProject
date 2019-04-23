@@ -3,11 +3,12 @@ package in.hbb20.countrycodepickerproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import in.hbb20.countrycodepickerproject.R;
+import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -19,6 +20,23 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         assignViews();
+        printCoutnries();
+    }
+
+    private void printCoutnries() {
+        String[] list = Locale.getISOCountries(); // Fetch list of ISO 3166 country codes
+        for (int i = 0; i < list.length; i++) {
+            list[i] = new Locale("es", list[i]).getDisplayName();
+            Log.d("Country Name", "printCoutnries: " + list[i]);
+        }
+//
+//                .map {
+//            // Create a new Locale in users default language, but set country to X
+//            it to Locale("bn", it).displayCountry // then extract the localized name of the country.
+//        }
+//            .toMap() // Turn into Map with ISO 3166 key and Localised country name as value
+//
+//        print(list)
     }
 
     private void assignViews() {
