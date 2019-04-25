@@ -48,3 +48,8 @@ projectFilesBackup/
 .DS_Store
 /captures
 
+.project
+.settings
+.vscode
+.classpath
+**/output.json

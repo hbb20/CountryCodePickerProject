@@ -1732,26 +1732,27 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
+    private Phonenumber.PhoneNumber getEnteredPhoneNumber() throws NumberParseException {
+        String carrierNumber = "";
+        if (editText_registeredCarrierNumber != null) {
+            carrierNumber = PhoneNumberUtil.normalizeDigitsOnly(editText_registeredCarrierNumber.getText().toString());
+        }
+        return getPhoneUtil().parse(carrierNumber, getSelectedCountryNameCode());
+    }
+
     /**
      * This function combines selected country code from CCP and carrier number from @param editTextCarrierNumber
      *
      * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "918866667722"
      */
     public String getFullNumber() {
-        String fullNumber = getSelectedCountryCode();
-        if (editText_registeredCarrierNumber != null) {
-            PhoneNumberUtil phoneNumberUtil = getPhoneUtil();
-            try {
-                String phoneCode = getSelectedCountryCode();
-                String nameCode = getSelectedCountryNameCode();
-                String nationalPhone = PhoneNumberUtil.normalizeDigitsOnly(editText_registeredCarrierNumber.getText().toString());
-                Phonenumber.PhoneNumber phoneNumber = phoneNumberUtil.parse(nationalPhone, nameCode);
-                fullNumber = "" + phoneNumber.getCountryCode() + phoneNumber.getNationalNumber();
-            } catch (NumberParseException e) {
-                e.printStackTrace();
-            }
+        try {
+            Phonenumber.PhoneNumber phoneNumber = getEnteredPhoneNumber();
+            return getPhoneUtil().format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.E164).substring(1);
+        } catch (NumberParseException e) {
+            Log.e(TAG, "getFullNumber: Could not parse number");
+            return getSelectedCountryCode();
         }
-        return fullNumber;
     }
 
     /**
@@ -1782,19 +1783,13 @@ public class CountryCodePicker extends RelativeLayout {
      * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "918866667722"
      */
     public String getFormattedFullNumber() {
-        String formattedFullNumber;
-        Phonenumber.PhoneNumber phoneNumber;
-        if (editText_registeredCarrierNumber != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                formattedFullNumber = PhoneNumberUtils.formatNumber(getFullNumberWithPlus(), getSelectedCountryCode());
-            } else {
-                formattedFullNumber = PhoneNumberUtils.formatNumber(getFullNumberWithPlus());
-            }
-        } else {
-            formattedFullNumber = getSelectedCountry().getPhoneCode();
-            Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
+        try {
+            Phonenumber.PhoneNumber phoneNumber = getEnteredPhoneNumber();
+            return "+" + getPhoneUtil().format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL).substring(1);
+        } catch (NumberParseException e) {
+            Log.e(TAG, "getFullNumber: Could not parse number");
+            return getSelectedCountryCode();
         }
-        return formattedFullNumber;
     }
 
     /**
@@ -1803,8 +1798,13 @@ public class CountryCodePicker extends RelativeLayout {
      * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "+918866667722"
      */
     public String getFullNumberWithPlus() {
-        String fullNumber = "+" + getFullNumber();
-        return fullNumber;
+        try {
+            Phonenumber.PhoneNumber phoneNumber = getEnteredPhoneNumber();
+            return getPhoneUtil().format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.E164);
+        } catch (NumberParseException e) {
+            Log.e(TAG, "getFullNumber: Could not parse number");
+            return getSelectedCountryCode();
+        }
     }
 
     /**
