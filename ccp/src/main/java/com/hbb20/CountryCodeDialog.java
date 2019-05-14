@@ -223,9 +223,12 @@ class CountryCodeDialog {
         //auto scroll to mentioned countryNameCode
         if (countryNameCode != null) {
             boolean isPreferredCountry = false;
-            for (CCPCountry preferredCountry : codePicker.preferredCountries) {
-                if (preferredCountry.nameCode.equalsIgnoreCase(countryNameCode)) {
-                    isPreferredCountry = true;
+            if (codePicker.preferredCountries != null) {
+                for (CCPCountry preferredCountry : codePicker.preferredCountries) {
+                    if (preferredCountry.nameCode.equalsIgnoreCase(countryNameCode)) {
+                        isPreferredCountry = true;
+                        break;
+                    }
                 }
             }
 
@@ -233,7 +236,7 @@ class CountryCodeDialog {
             // don't scroll if it was one of those preferred countries
             if (!isPreferredCountry) {
                 int preferredCountriesOffset = 0;
-                if (codePicker.preferredCountries.size() > 0) {
+                if (codePicker.preferredCountries != null && codePicker.preferredCountries.size() > 0) {
                     preferredCountriesOffset = codePicker.preferredCountries.size() + 1; //+1 is for divider
                 }
                 for (int i = 0; i < masterCountries.size(); i++) {
