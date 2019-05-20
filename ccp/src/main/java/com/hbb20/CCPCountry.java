@@ -61,7 +61,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
     }
 
     public CCPCountry(String nameCode, String phoneCode, String name, int flagResID) {
-        this.nameCode = nameCode;
+        this.nameCode = nameCode.toUpperCase(Locale.ROOT);
         this.phoneCode = phoneCode;
         this.name = name;
         this.flagResID = flagResID;
