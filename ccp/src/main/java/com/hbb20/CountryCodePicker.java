@@ -177,21 +177,21 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
-	private boolean isInternationalFormattingOnlyEnabled() {
-		return internationalFormattingOnly;
-	}
+    private boolean isInternationalFormattingOnlyEnabled() {
+        return internationalFormattingOnly;
+    }
 
-	/**
-	 * This will set boolean for internationalFormattingOnly and refresh formattingTextWatcher
-	 *
-	 * @param internationalFormattingOnly
-	 */
-	public void setInternationalFormattingOnly(boolean internationalFormattingOnly) {
-		this.internationalFormattingOnly = internationalFormattingOnly;
-		if (editText_registeredCarrierNumber != null) {
-			updateFormattingTextWatcher();
-		}
-	}
+    /**
+     * This will set boolean for internationalFormattingOnly and refresh formattingTextWatcher
+     *
+     * @param internationalFormattingOnly
+     */
+    public void setInternationalFormattingOnly(boolean internationalFormattingOnly) {
+        this.internationalFormattingOnly = internationalFormattingOnly;
+        if (editText_registeredCarrierNumber != null) {
+            updateFormattingTextWatcher();
+        }
+    }
 
     private void init(AttributeSet attrs) {
         mInflater = LayoutInflater.from(context);
@@ -283,10 +283,10 @@ public class CountryCodePicker extends RelativeLayout {
             //example number hint enabled?
             hintExampleNumberEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_hintExampleNumber, false);
 
-			//international formatting only
-			internationalFormattingOnly = a.getBoolean(R.styleable.CountryCodePicker_ccp_internationalFormattingOnly, true);
+            //international formatting only
+            internationalFormattingOnly = a.getBoolean(R.styleable.CountryCodePicker_ccp_internationalFormattingOnly, true);
 
-			//example number hint type
+            //example number hint type
             int hintNumberTypeIndex = a.getInt(R.styleable.CountryCodePicker_ccp_hintExampleNumberType, 0);
             hintExampleNumberType = PhoneNumberType.values()[hintNumberTypeIndex];
 
