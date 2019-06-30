@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context="in.hbb20.countrycodepickerproject.SetCountryFragment">
 
-    <android.support.v7.widget.CardView style="@style/parentCard">
+    <androidx.cardview.widget.CardView style="@style/parentCard">
 
         <ScrollView style="@style/parentScrollView">
 
@@ -222,5 +222,5 @@
                     android:text="Next feature >"/>
             </LinearLayout>
         </ScrollView>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>
