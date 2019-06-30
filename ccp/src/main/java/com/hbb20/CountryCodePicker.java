@@ -2514,4 +2514,10 @@ public class CountryCodePicker extends RelativeLayout {
 
         String getCCPDialogNoResultACK(Language language, String defaultNoResultACK);
     }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        CountryCodeDialog.clear();
+        super.onDetachedFromWindow();
+    }
 }

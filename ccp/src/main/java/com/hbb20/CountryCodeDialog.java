@@ -9,8 +9,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,6 +17,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.futuremind.recyclerviewfastscroll.FastScroller;
 
@@ -33,6 +34,8 @@ class CountryCodeDialog {
             sEditorField,
             sCursorDrawableField,
             sCursorDrawableResourceField;
+    static Dialog dialog;
+    static Context context;
 
     static {
         Field editorField = null;
@@ -72,8 +75,8 @@ class CountryCodeDialog {
 
     public static void
     openCountryCodeDialog(final CountryCodePicker codePicker, final String countryNameCode) {
-        final Context context = codePicker.getContext();
-        final Dialog dialog = new Dialog(context);
+        context = codePicker.getContext();
+        dialog = new Dialog(context);
         codePicker.refreshCustomMasterList();
         codePicker.refreshPreferredCountries();
         List<CCPCountry> masterCountries = CCPCountry.getCustomMasterCountryList(context, codePicker);
@@ -280,6 +283,14 @@ class CountryCodeDialog {
                     ? editText : sEditorField.get(editText), new Drawable[]{drawable, drawable});
         } catch (Exception ignored) {
         }
+    }
+
+    static void clear() {
+        if (dialog != null) {
+            dialog.dismiss();
+        }
+        dialog = null;
+        context = null;
     }
 
     private static Drawable getDrawable(Context context, int id) {
