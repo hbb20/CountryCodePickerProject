@@ -85,6 +85,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean ccpDialogInitialScrollToSelection = false;
     boolean ccpUseEmoji = false;
     boolean ccpUseDummyEmojiForPreview = false;
+    boolean internationalFormattingOnly = true;
     PhoneNumberType hintExampleNumberType = PhoneNumberType.MOBILE;
     String selectionMemoryTag = "ccp_last_selection";
     int contentColor = DEFAULT_UNSET;
@@ -171,6 +172,22 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setNumberAutoFormattingEnabled(boolean numberAutoFormattingEnabled) {
         this.numberAutoFormattingEnabled = numberAutoFormattingEnabled;
+        if (editText_registeredCarrierNumber != null) {
+            updateFormattingTextWatcher();
+        }
+    }
+
+    private boolean isInternationalFormattingOnlyEnabled() {
+        return internationalFormattingOnly;
+    }
+
+    /**
+     * This will set boolean for internationalFormattingOnly and refresh formattingTextWatcher
+     *
+     * @param internationalFormattingOnly
+     */
+    public void setInternationalFormattingOnly(boolean internationalFormattingOnly) {
+        this.internationalFormattingOnly = internationalFormattingOnly;
         if (editText_registeredCarrierNumber != null) {
             updateFormattingTextWatcher();
         }
@@ -265,6 +282,9 @@ public class CountryCodePicker extends RelativeLayout {
 
             //example number hint enabled?
             hintExampleNumberEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_hintExampleNumber, false);
+
+            //international formatting only
+            internationalFormattingOnly = a.getBoolean(R.styleable.CountryCodePicker_ccp_internationalFormattingOnly, true);
 
             //example number hint type
             int hintNumberTypeIndex = a.getInt(R.styleable.CountryCodePicker_ccp_hintExampleNumberType, 0);
@@ -932,7 +952,7 @@ public class CountryCodePicker extends RelativeLayout {
             }
 
             if (numberAutoFormattingEnabled) {
-                formattingTextWatcher = new InternationalPhoneTextWatcher(context, getSelectedCountryNameCode(), getSelectedCountryCodeAsInt());
+                formattingTextWatcher = new InternationalPhoneTextWatcher(context, getSelectedCountryNameCode(), getSelectedCountryCodeAsInt(), internationalFormattingOnly);
                 editText_registeredCarrierNumber.addTextChangedListener(formattingTextWatcher);
             }
 
