@@ -125,10 +125,10 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
         //if query started from "+" ignore it
         if (query.length() > 0 && query.charAt(0) == '+') {
-            query=query.substring(1);
+            query = query.substring(1);
         }
 
-        filteredCountries= getFilteredCountries(query);
+        filteredCountries = getFilteredCountries(query);
 
         if (filteredCountries.size() == 0) {
             textView_noResult.setVisibility(View.VISIBLE);
@@ -139,7 +139,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     private List<CCPCountry> getFilteredCountries(String query) {
         List<CCPCountry> tempCCPCountryList = new ArrayList<CCPCountry>();
         preferredCountriesCount = 0;
-        if(codePicker.preferredCountries!=null && codePicker.preferredCountries.size()>0) {
+        if (codePicker.preferredCountries != null && codePicker.preferredCountries.size() > 0) {
             for (CCPCountry CCPCountry : codePicker.preferredCountries) {
                 if (CCPCountry.isEligibleForQuery(query)) {
                     tempCCPCountryList.add(CCPCountry);
@@ -279,7 +279,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                     linearFlagHolder.setVisibility(View.VISIBLE);
                     imageViewFlag.setImageResource(ccpCountry.getFlagID());
                 }
-            }else{
+            } else {
                 divider.setVisibility(View.VISIBLE);
                 textView_name.setVisibility(View.GONE);
                 textView_code.setVisibility(View.GONE);

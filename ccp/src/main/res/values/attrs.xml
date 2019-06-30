@@ -41,6 +41,7 @@
         <attr name="ccp_showNameCode" format="boolean" />
         <attr name="ccp_showFlag" format="boolean" />
         <attr name="ccp_showFullName" format="boolean" />
+	    <attr name="ccp_internationalFormattingOnly" format="boolean" />
         <attr name="ccp_clickable" format="boolean" />
         <attr name="ccp_showPhoneCode" format="boolean" />
         <attr name="ccp_autoDetectLanguage" format="boolean" />

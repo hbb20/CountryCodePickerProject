@@ -1,4 +1,4 @@
-package com.hbb20;
+﻿package com.hbb20;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -32,7 +32,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
     private static String BARBADOS_AREA_CODES = "246";
     private static String BERMUDA_AREA_CODES = "441";
     private static String BAHAMAS_AREA_CODES = "242";
-    private static String CANADA_AREA_CODES = "204/226/236/249/250/289/306/343/365/403/416/418/431/437/438/450/506/514/519/579/581/587/600/601/604/613/639/647/705/709/769/778/780/782/807/819/825/867/873/902/905/";
+    private static String CANADA_AREA_CODES = "204/226/236/249/250/289/306/343/365/403/416/418/431/437/438/450/506/514/519/579/581/587/600/604/613/639/647/705/709/769/778/780/782/807/819/825/867/873/902/905/";
     private static String DOMINICA_AREA_CODES = "767";
     private static String DOMINICAN_REPUBLIC_AREA_CODES = "809/829/849";
     private static String GRENADA_AREA_CODES = "473";
@@ -61,7 +61,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
     }
 
     public CCPCountry(String nameCode, String phoneCode, String name, int flagResID) {
-        this.nameCode = nameCode;
+        this.nameCode = nameCode.toUpperCase(Locale.ROOT);
         this.phoneCode = phoneCode;
         this.name = name;
         this.flagResID = flagResID;

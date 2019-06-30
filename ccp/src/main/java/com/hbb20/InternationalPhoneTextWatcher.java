@@ -33,6 +33,7 @@ public class InternationalPhoneTextWatcher implements TextWatcher {
     //at this point this will avoid "stopFormatting"
     private boolean needUpdateForCountryChange = false;
 
+    private boolean internationalOnly;
 
     /**
      * @param context
@@ -41,10 +42,23 @@ public class InternationalPhoneTextWatcher implements TextWatcher {
      * @param countryPhoneCode Phone code of country. https://countrycode.org/
      */
     public InternationalPhoneTextWatcher(Context context, String countryNameCode, int countryPhoneCode) {
+        this(context, countryNameCode, countryPhoneCode, true);
+    }
+
+    /**
+     * @param context
+     * @param countryNameCode   ISO 3166-1 two-letter country code that indicates the country/region
+     *                          where the phone number is being entered.
+     * @param countryPhoneCode  Phone code of country. https://countrycode.org/
+     * @param internationalOnly Specifies whether numbers should only be formatted if they are
+     *                          international vs national
+     */
+    public InternationalPhoneTextWatcher(Context context, String countryNameCode, int countryPhoneCode, boolean internationalOnly) {
         if (countryNameCode == null || countryNameCode.length() == 0)
             throw new IllegalArgumentException();
         phoneNumberUtil = PhoneNumberUtil.createInstance(context);
         updateCountry(countryNameCode, countryPhoneCode);
+        this.internationalOnly = internationalOnly;
     }
 
     public void updateCountry(String countryNameCode, int countryPhoneCode) {
@@ -170,8 +184,9 @@ public class InternationalPhoneTextWatcher implements TextWatcher {
 
         String countryCallingCode = "+" + countryPhoneCode;
 
-        //to have number formatted as international format, add country code before that
-        s = countryCallingCode + s;
+        if (internationalOnly || (s.length() > 0 && s.charAt(0) != '0'))
+            //to have number formatted as international format, add country code before that
+            s = countryCallingCode + s;
         int len = s.length();
 
         for (int i = 0; i < len; i++) {
@@ -188,13 +203,15 @@ public class InternationalPhoneTextWatcher implements TextWatcher {
         }
 
         internationalFormatted = internationalFormatted.trim();
-        if (internationalFormatted.length() > countryCallingCode.length()) {
-            if (internationalFormatted.charAt(countryCallingCode.length()) == ' ')
-                internationalFormatted = internationalFormatted.substring(countryCallingCode.length() + 1);
-            else
-                internationalFormatted = internationalFormatted.substring(countryCallingCode.length());
-        } else {
-            internationalFormatted = "";
+        if (internationalOnly || (s.length() == 0 || s.charAt(0) != '0')) {
+            if (internationalFormatted.length() > countryCallingCode.length()) {
+                if (internationalFormatted.charAt(countryCallingCode.length()) == ' ')
+                    internationalFormatted = internationalFormatted.substring(countryCallingCode.length() + 1);
+                else
+                    internationalFormatted = internationalFormatted.substring(countryCallingCode.length());
+            } else {
+                internationalFormatted = "";
+            }
         }
         return TextUtils.isEmpty(internationalFormatted) ? "" : internationalFormatted;
     }
