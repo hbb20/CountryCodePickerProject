@@ -96,8 +96,9 @@ public class CCPCountry implements Comparable<CCPCountry> {
         try {
             XmlPullParserFactory xmlFactoryObject = XmlPullParserFactory.newInstance();
             XmlPullParser xmlPullParser = xmlFactoryObject.newPullParser();
-            InputStream ins = context.getResources().openRawResource(context.getResources().getIdentifier(language
-                    .toString().toLowerCase(Locale.ROOT), "raw", context.getPackageName()));
+            InputStream ins = context.getResources().openRawResource(context.getResources()
+                    .getIdentifier("ccp_" + language.toString().toLowerCase(Locale.ROOT),
+                            "raw", context.getPackageName()));
             xmlPullParser.setInput(ins, "UTF-8");
             int event = xmlPullParser.getEventType();
             while (event != XmlPullParser.END_DOCUMENT) {
