@@ -493,9 +493,9 @@
             name_code="ie"
             phone_code="353" />
         <country
-            name="اسرائیل"
-            english_name="Israel"
-            name_code="il"
+            name="فلسطین"
+            english_name="Palestine"
+            name_code="ps"
             phone_code="972" />
         <country
             name="جزیره من"
