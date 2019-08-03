@@ -1716,7 +1716,25 @@ public class CCPCountry implements Comparable<CCPCountry> {
      */
     boolean isEligibleForQuery(String query) {
         query = query.toLowerCase();
-        return getName().toLowerCase().contains(query) || getNameCode().toLowerCase().contains(query) || getPhoneCode().toLowerCase().contains(query) || getEnglishName().toLowerCase().contains(query);
+        return containsQueryWord("Name", getName(), query) ||
+                containsQueryWord("NameCode", getNameCode(), query) ||
+                containsQueryWord("PhoneCode", getPhoneCode(), query) ||
+                containsQueryWord("EnglishName", getEnglishName(), query);
+    }
+
+    private boolean containsQueryWord(String fieldName, String fieldValue, String query) {
+        try {
+            if (fieldValue == null || query == null) {
+                return false;
+            } else {
+                return fieldValue.toLowerCase(Locale.ROOT).contains(query);
+            }
+        } catch (Exception e) {
+            Log.w("CCPCountry", fieldName + ":" + fieldValue +
+                    " failed to execute toLowerCase(Locale.ROOT).contains(query) " +
+                    "for query:" + query);
+            return false;
+        }
     }
 
     @Override
