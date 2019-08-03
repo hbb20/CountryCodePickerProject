@@ -825,13 +825,11 @@ public class CountryCodePicker extends RelativeLayout {
             textView_selectedCountry.setText(displayText);
         }
 
+        imageViewFlag.setImageResource(selectedCCPCountry.getFlagID());
+
         if (onCountryChangeListener != null) {
             onCountryChangeListener.onCountrySelected();
         }
-
-        imageViewFlag.setImageResource(selectedCCPCountry.getFlagID());
-        //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
-
         updateFormattingTextWatcher();
 
         updateHint();
