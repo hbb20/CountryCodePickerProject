@@ -331,7 +331,12 @@ public class CCPCountry implements Comparable<CCPCountry> {
      */
     static CCPCountry getCountryForNumber(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, String fullNumber) {
         int firstDigit;
-        //String plainNumber = PhoneNumberUtil.getInstance().normalizeDigitsOnly(fullNumber);
+        if (fullNumber == null) {
+            return null;
+        } else {
+            fullNumber = fullNumber.trim();
+        }
+
         if (fullNumber.length() != 0) {
             if (fullNumber.charAt(0) == '+') {
                 firstDigit = 1;
@@ -344,8 +349,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 CCPCountryGroup countryGroup = null;
                 try {
                     countryGroup = CCPCountryGroup.getCountryGroupForPhoneCode(Integer.parseInt(code));
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception ignored) {
                 }
                 if (countryGroup != null) {
                     int areaCodeStartsAt = firstDigit + code.length();
