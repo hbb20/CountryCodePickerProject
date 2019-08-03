@@ -65,6 +65,7 @@ public class CountryCodePicker extends RelativeLayout {
     RelativeLayout relativeClickConsumer;
     CountryCodePicker codePicker;
     TextGravity currentTextGravity;
+    String originalHint = "";
     // see attr.xml to see corresponding values for pref
     AutoDetectionPref selectedAutoDetectionPref = AutoDetectionPref.SIM_NETWORK_LOCALE;
     PhoneNumberUtil phoneUtil;
@@ -879,11 +880,19 @@ public class CountryCodePicker extends RelativeLayout {
                 } else {
                     formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber);
                 }
-                formattedNumber = formattedNumber.substring(getSelectedCountryCodeWithPlus().length()).trim();
+                if (formattedNumber != null) {
+                    formattedNumber = formattedNumber.substring(getSelectedCountryCodeWithPlus().length()).trim();
+                }
 //                Log.d(TAG, "updateHint: after format " + formattedNumber + " " + selectionMemoryTag);
             } else {
 //                Log.w(TAG, "updateHint: No example number found for this country (" + getSelectedCountryNameCode() + ") or this type (" + hintExampleNumberType.name() + ").");
             }
+
+            //fallback to original hint
+            if (formattedNumber == null) {
+                formattedNumber = originalHint;
+            }
+
             editText_registeredCarrierNumber.setHint(formattedNumber);
         }
     }
@@ -1116,6 +1125,7 @@ public class CountryCodePicker extends RelativeLayout {
     void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
         this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
 //        Log.d(TAG, "setEditText_registeredCarrierNumber: carrierEditTextAttached " + selectionMemoryTag);
+        originalHint = this.editText_registeredCarrierNumber.getHint().toString();
         updateValidityTextWatcher();
         updateFormattingTextWatcher();
         updateHint();

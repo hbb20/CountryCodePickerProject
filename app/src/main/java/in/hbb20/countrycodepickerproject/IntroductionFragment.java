@@ -2,12 +2,13 @@ package in.hbb20.countrycodepickerproject;
 
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.fragment.app.Fragment;
 
 import com.hbb20.CountryCodePicker;
 
@@ -55,6 +56,6 @@ public class IntroductionFragment extends Fragment {
         buttonGo = (Button) getView().findViewById(R.id.button_letsGo);
         etPhone = (EditText) getView().findViewById(R.id.et_phone);
         countryCodePicker = (CountryCodePicker) getView().findViewById(R.id.ccp);
-//        countryCodePicker.registerCarrierNumberEditText(etPhone);
+        countryCodePicker.registerCarrierNumberEditText(etPhone);
     }
 }
