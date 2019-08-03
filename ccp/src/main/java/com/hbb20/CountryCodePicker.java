@@ -459,12 +459,15 @@ public class CountryCodePicker extends RelativeLayout {
             setCcpClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
 
         } catch (Exception e) {
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
-            textView_selectedCountry.setMaxLines(25);
-            textView_selectedCountry.setTextSize(10);
-            textView_selectedCountry.setText(sw.toString());
+            if (BuildConfig.DEBUG) {
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                e.printStackTrace(pw);
+                textView_selectedCountry.setMaxLines(25);
+                textView_selectedCountry.setTextSize(10);
+                textView_selectedCountry.setText(sw.toString());
+            }
+            e.printStackTrace();
         } finally {
             a.recycle();
         }
