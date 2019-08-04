@@ -27,7 +27,7 @@ Add this to your gradle file and sync
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.2.9'
+            implementation 'com.hbb20:ccp:2.3.0'
           }
    ````
 
@@ -61,6 +61,11 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 
 Change log
 ----------
+
+##### Version 2.3.0 (August 3, 2019)
+- Fixes [#287](https://github.com/hbb20/CountryCodePickerProject/issues/287),[#299](https://github.com/hbb20/CountryCodePickerProject/issues/299),[#310](https://github.com/hbb20/CountryCodePickerProject/issues/310),[#311](https://github.com/hbb20/CountryCodePickerProject/issues/311),[#314](https://github.com/hbb20/CountryCodePickerProject/issues/314),[#316](https://github.com/hbb20/CountryCodePickerProject/issues/316),[#328](https://github.com/hbb20/CountryCodePickerProject/issues/328),[#332](https://github.com/hbb20/CountryCodePickerProject/issues/332)
+- Formats in national format
+- AndroidX 
 
 ##### Version 2.2.9 (April 24, 2019)
 - Solves [issue](https://github.com/hbb20/CountryCodePickerProject/issues/305) regarding valid numbers with leading 0 
