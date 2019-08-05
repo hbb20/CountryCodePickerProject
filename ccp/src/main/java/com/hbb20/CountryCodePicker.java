@@ -1127,8 +1127,9 @@ public class CountryCodePicker extends RelativeLayout {
      */
     void setEditText_registeredCarrierNumber(EditText editText_registeredCarrierNumber) {
         this.editText_registeredCarrierNumber = editText_registeredCarrierNumber;
-//        Log.d(TAG, "setEditText_registeredCarrierNumber: carrierEditTextAttached " + selectionMemoryTag);
-        originalHint = this.editText_registeredCarrierNumber.getHint().toString();
+        if (this.editText_registeredCarrierNumber.getHint() != null) {
+            originalHint = this.editText_registeredCarrierNumber.getHint().toString();
+        }
         updateValidityTextWatcher();
         updateFormattingTextWatcher();
         updateHint();
