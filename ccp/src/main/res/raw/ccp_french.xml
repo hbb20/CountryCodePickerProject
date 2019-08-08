@@ -2,8 +2,8 @@
 <data>
     <messages>
         <ccp_dialog_title translation="Sélectionner le pays" />
-        <ccp_dialog_search_hint_message translation="chercher ..." />
-        <ccp_dialog_no_result_ack_message translation="résulte pas trouvé" />
+        <ccp_dialog_search_hint_message translation="Rechercher" />
+        <ccp_dialog_no_result_ack_message translation="Aucun résultat" />
     </messages>
 
     <countries>
@@ -13,7 +13,7 @@
             name_code="ad"
             phone_code="376" />
         <country
-            name="Émirats Arabes Unis"
+            name="Émirats arabes unis"
             english_name="United Arab Emirates (UAE)"
             name_code="ae"
             phone_code="971" />
@@ -23,7 +23,7 @@
             name_code="af"
             phone_code="93" />
         <country
-            name="Antigua et Barbuda"
+            name="Antigua-et-Barbuda"
             english_name="Antigua and Barbuda"
             name_code="ag"
             phone_code="1" />
@@ -78,7 +78,7 @@
             name_code="aw"
             phone_code="297" />
         <country
-            name="Iles Aland"
+            name="Åland"
             english_name="Åland Islands"
             name_code="ax"
             phone_code="358" />
@@ -88,7 +88,7 @@
             name_code="az"
             phone_code="994" />
         <country
-            name="Bosnie Herzégovine"
+            name="Bosnie-Herzégovine"
             english_name="Bosnia And Herzegovina"
             name_code="ba"
             phone_code="387" />
@@ -133,7 +133,7 @@
             name_code="bj"
             phone_code="229" />
         <country
-            name="Saint Barthélemy"
+            name="Saint-Barthélemy"
             english_name="Saint Barthélemy"
             name_code="bl"
             phone_code="590" />
@@ -173,7 +173,7 @@
             name_code="bw"
             phone_code="267" />
         <country
-            name="Bélarus"
+            name="Biélorussie"
             english_name="Belarus"
             name_code="by"
             phone_code="375" />
@@ -193,7 +193,7 @@
             name_code="cc"
             phone_code="61" />
         <country
-            name="République Démocratique du Congo"
+            name="République démocratique du Congo"
             english_name="Congo, The Democratic Republic Of The"
             name_code="cd"
             phone_code="243" />
@@ -213,7 +213,7 @@
             name_code="ch"
             phone_code="41" />
         <country
-            name="Côte D'ivoire"
+            name="Côte d'Ivoire"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
@@ -253,7 +253,7 @@
             name_code="cu"
             phone_code="53" />
         <country
-            name="Cap Vert"
+            name="Cap-Vert"
             english_name="Cape Verde"
             name_code="cv"
             phone_code="238" />
@@ -373,7 +373,7 @@
             name_code="ga"
             phone_code="241" />
         <country
-            name="Royaume Uni"
+            name="Royaume-Uni"
             english_name="United Kingdom"
             name_code="gb"
             phone_code="44" />
@@ -428,7 +428,7 @@
             name_code="gp"
             phone_code="590" />
         <country
-            name="Guinée Équatoriale"
+            name="Guinée équatoriale"
             english_name="Equatorial Guinea"
             name_code="gq"
             phone_code="240" />
@@ -783,7 +783,7 @@
             name_code="na"
             phone_code="264" />
         <country
-            name="Nouvelle Calédonie"
+            name="Nouvelle-Calédonie"
             english_name="New Caledonia"
             name_code="nc"
             phone_code="687" />
@@ -833,7 +833,7 @@
             name_code="nu"
             phone_code="683" />
         <country
-            name="Nouvelle Zélande"
+            name="Nouvelle-Zélande"
             english_name="New Zealand"
             name_code="nz"
             phone_code="64" />
@@ -858,7 +858,7 @@
             name_code="pf"
             phone_code="689" />
         <country
-            name="Papouasie Nouvelle Guinée"
+            name="Papouasie-Nouvelle-Guinée"
             english_name="Papua New Guinea"
             name_code="pg"
             phone_code="675" />
@@ -933,7 +933,7 @@
             name_code="rs"
             phone_code="381" />
         <country
-            name="Fédération Russe"
+            name="Russie"
             english_name="Russian Federation"
             name_code="ru"
             phone_code="7" />
@@ -943,7 +943,7 @@
             name_code="rw"
             phone_code="250" />
         <country
-            name="Arabie Saoudite"
+            name="Arabie saoudite"
             english_name="Saudi Arabia"
             name_code="sa"
             phone_code="966" />
@@ -1128,7 +1128,7 @@
             name_code="ug"
             phone_code="256" />
         <country
-            name="États Unis"
+            name="États-Unis"
             english_name="United States (USA)"
             name_code="us"
             phone_code="1" />
