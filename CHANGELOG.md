@@ -1,4 +1,18 @@
 # Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [2.3.2] - 2019-09-10
+### Added
+- Changelog.md file ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/340) by [Antoine Jaury](https://github.com/Ajojo44))
+### Changed
+- App module converted to Kotlin ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/343) by [JoshuaBradbury](https://github.com/JoshuaBradbury))
+- Improve FRENCH translation ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/334) by [m3-ra](https://github.com/m3-ra))
+- Update gradle and plugin versions
 
 ## Version 2.3.1 (August 5, 2019)
 - **AndroidX** 
@@ -62,4 +76,176 @@
 - Feature to remove country name code from CCP Dialog [Issue#159](https://github.com/hbb20/CountryCodePickerProject/issues/159)
 - Adds ccp_hintExampleNumberFormat to address cases like [Issue#154](https://github.com/hbb20/CountryCodePickerProject/issues/154)
 
-For earlier versions, check [full log](https://github.com/hbb20/CountryCodePickerProject/wiki/Version-Change-Log).
+## version 2.1.4 (Jan 29, 2018)
+- Handles national trunk prefixes correctly. [Issue#149](https://github.com/hbb20/CountryCodePickerProject/issues/149)
+- Feature to add selected country's example number as hint of carrier number edit text. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Example-phone-number-as-edittext-hint)
+- Corrected dimension of French Guiana flag ([Pull request](https://github.com/hbb20/CountryCodePickerProject/pull/148) by [Gautier MECHLING](https://github.com/Nilhcem))
+- Feature to exclude specific countries from the list. [Wiki Page](https://github.com/hbb20/CountryCodePickerProject/wiki/Exclude-specific-countries)
+
+## version 2.1.2 (Jan 6, 2018)
+- Adds Punjabi language support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/141) By [Dhruv Bhakta](https://github.com/DBB411)
+- Corrected Arabic translation by [Ahmed Wahdan](https://github.com/WahdanZ)
+- Country name textView, Flag imageView, Arrow imageView are now publicly accessible through getter-setters.
+
+## version 2.1.1 (Dec 13, 2017)
+- Opens Country class (Renamed to "CCPCountry" to avoid naming confusion) ([issue#136](https://github.com/hbb20/CountryCodePickerProject/issues/136))
+- Fixes preview in Android Studio 3
+- Auto detects country while typing area code (among multiple countries with code "+1") ([issue#140](https://github.com/hbb20/CountryCodePickerProject/issues/140))
+- Cursor color follows ccpDialog_searchEditTextTint color ([issue#131](https://github.com/hbb20/CountryCodePickerProject/issues/131))
+- Possible fix for crash ([issue#67](https://github.com/hbb20/CountryCodePickerProject/issues/67))
+
+
+## version 2.1.0 (Nov 17, 2017)
+- Introduces countryAutoDetectionPref option (Default: SIM then NETWORK then LOCALE)
+- Now default value for ccp_autoDetectCountry is *false* instead of true.
+- Option to remember last selection.
+- Uses android's port instead of libphonenumber. ([Suggestion](https://github.com/hbb20/CountryCodePickerProject/issues/127))
+
+## version 2.0.9 (Nov 10, 2017)
+- Adds dutch language support
+- Updates build tool version
+
+## version 2.0.8 (Nov 1, 2017)
+- Corrects Myanmar flag
+- Applies TypeFace to dialog text as well. [Read wiki.](https://github.com/hbb20/CountryCodePickerProject/wiki/Custom-TypeFace-(FontFamily))
+
+## version 2.0.7 (Oct 28, 2017)
+- Dialog events callback listeners
+- Option to change visibility of down arrow
+- Adds UAE as part of name
+- Country name corrections for German language
+- Corrects phone code for holy see
+- Fixes crash for turkish language (for some devices)
+- Option to get country's english name irrespective of selected language
+- Corrects Turkey flag
+
+## version 2.0.5
+- Adds country "Iceland"
+- Updates country auto detection method and order (1. Locale, 2. Network, 3. SIM).
+
+## version 2.0.4
+
+- Ukrainian language support
+- Italian language support
+- Updated libphonenumber library version to 8.8.2
+
+## version 2.0.3
+- Turkish language support
+- Issue for initial popped status of keyboard for some specific devices irrespective of ccpDialog_keyboardAutoPopup value.
+
+## version 2.0.2
+- Few countries' name corrected for spanish language
+- RTL layout [bug](https://github.com/hbb20/CountryCodePickerProject/issues/75) fix for dialog
+
+## version 2.0.1
+- Minor bug fix for showing name code
+- Allowed customization of ccpDialog theme by changing colors of background, text and editText.
+
+## version 2.0.0
+*If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0.*
+
+- Clear search query "X" button
+- All attributes has prefix of ccp and ccpDialog (to avoid name space clashes) i.e "textSize" is now "ccp_textSize".
+- Few attribute name changes to follow convention
+    - defaultCode => ccp_default_PhoneCode
+    - hideNameCode => ccp_showNameCode
+    - keyboardAutoPopOnSearch => ccpDialog_keyboardAutoPopup
+    - selectionDialogShowSearch => ccpDialog_allowSearch
+    - ccpClickable => ccp_clickable
+    - ccpSearchBox_showPhoneCode => ccpDialog_showPhoneCode
+- Supports "match_parent" width attribute with text gravity option
+- As you type formatting of carrier number in registerCarrierNumberEditText (Enabled by default)
+- Feature of auto-detect language (disabled by default)
+- Feature of auto-detect country (enabled by default)
+- Validity checker for full number
+- PhoneNumber validity change listener
+- Differentiate countries with "+1" based on area code. Now full number that starts with +1 will set correct country.
+
+
+
+## version 1.8
+- Fast Scroller with index.
+
+## version 1.7.9
+- Lightweight: Long lists of countries are moved to xml from java. Now it consumes only minimum runtime memory.
+- Adds missing flags of Sint Maarten and Cayman Islands
+- There were some countries which were visible only when english is selected. This is fixed now and all countries will be appearing for all languages.
+- Now it is easier to add new languages.
+- Countries are now listed in ascending order specific to selected language rather than just English name.
+
+## version 1.7.8
+- Option to add border to ccp flag. This gives more clarity to flag if flag and background has same or almost similar color.
+- Adds Palestine to country list.
+- Change JAVANESE to INDONESIA
+
+## version 1.7.7
+- Option to hide phone code. Allows developers to use CCP as Country Selector and not code selector.
+
+## version 1.7.6
+- Typo fix for "Search...", "Select a country", "Results not found".
+- Now "Results not found" text is shifted to top to avoid it from being hidden under bigger keyboards.
+
+## version 1.7.5
+- Fixes a problem which was toasting message for disabled search feature
+
+## version 1.7.4
+- Adds French Guyana, Martinique and Réunion to country list
+
+## version 1.7.3
+- Adds support for HEBREW
+- Two variants of CHINESE are added CHINESE TRADITIONAL and CHINESE SIMPLIFIED
+- Correct layout for RTL layouts
+- Support to enable/disable click
+- Option to hide search bar from selection dialog
+
+## version 1.7.1
+- Adds Flag thumbnail
+- Adds option for full country name
+
+## version 1.6.1
+- Bug fix for getDefaultCountryCodeAsInt() and getDefaultCountryCodeAsInt()
+
+## version 1.6
+- Added country change listener
+
+## version 1.5.1
+- Changed ccp view size when code name is hidden
+
+## version 1.5
+- Custom master list
+- Custom font
+- Language support
+- Optional KeyboardAutoPopup
+
+## version 1.4
+- Country preference
+- Hide country name code option
+- Default country using Country name code
+
+
+## version 1.2
+   - Support for textSize and arrowSize modification
+
+
+## version 0.1.1
+   - First upload with basic functionalities
+
+
+
+# New Version Template
+
+## [x.y.z] - 20YY-MM-DD
+- PR_Desc ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/) by []())
+- Issue_Desc ([Issue](https://github.com/hbb20/CountryCodePickerProject/issues/))
+### Added
+-
+### Changed
+-
+### Deprecated
+-
+### Removed
+-
+### Fixed
+-
+### Security
+-

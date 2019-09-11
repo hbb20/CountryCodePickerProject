@@ -47,7 +47,7 @@ class ExampleActivity: AppCompatActivity() {
 	}
 
 	private inner class PagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
-		private val fragments: List<() -> Fragment> = listOf(
+		private val fragments = listOf(
 				{ IntroductionFragment() },
 				{ DefaultCountryFragment() },
 				{ CountryPreferenceFragment() },
@@ -61,7 +61,7 @@ class ExampleActivity: AppCompatActivity() {
 				{ LanguageSupportFragment() }
 		)
 
-		override fun getItem(position: Int): Fragment? {
+		override fun getItem(position: Int): Fragment {
 			return fragments[position]()
 		}
 

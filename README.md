@@ -23,14 +23,13 @@ Introduction
 How to add to your project
 --------------
 
-Add this to your gradle file and sync
+Add this to your gradle file and sync. [CHANGELOG](https://github.com/hbb20/CountryCodePickerProject/blob/master/CHANGELOG.md)
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.3.1'
+            implementation 'com.hbb20:ccp:2.3.2'
           }
    ````
-
   * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0. or above*
   * Version 2.3.1 and above uses AndroidX
 
