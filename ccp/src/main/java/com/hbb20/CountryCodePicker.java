@@ -2371,6 +2371,7 @@ public class CountryCodePicker extends RelativeLayout {
         SWEDISH("sv"),
         TURKISH("tr"),
         UKRAINIAN("uk"),
+        URDU("ur"),
         UZBEK("uz"),
         VIETNAMESE("vi");
 

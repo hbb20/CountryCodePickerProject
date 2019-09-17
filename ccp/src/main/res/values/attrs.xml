@@ -100,8 +100,9 @@
             <enum name="SWEDISH" value="26" />
             <enum name="TURKISH" value="27" />
             <enum name="UKRAINIAN" value="28" />
-            <enum name="UZBEK" value="29" />
-            <enum name="VIETNAMESE" value="30" />
+            <enum name="URDU" value="29" />
+            <enum name="UZBEK" value="30" />
+            <enum name="VIETNAMESE" value="31" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">
