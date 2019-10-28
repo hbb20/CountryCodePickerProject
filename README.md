@@ -84,6 +84,7 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 - Danish language support by [porkyhead](https://github.com/porkyhead)
 - Vietnamese language support by [Ricardo Markiewicz](https://github.com/Gazer)
 - Urdu language support by [Hamza Ahmed Khan](https://github.com/hamzaahmedkhan)
+- Kazakh language support by [Zhanbolat Raimbekov](https://github.com/janbolat)
 
 # Contribution
 - To add a new country, follow the [guide to add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).
