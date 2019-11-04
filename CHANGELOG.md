@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.3] - 2019-09-10
+### Added
+- Support for Kazakh ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/352) by [Zhanbolat Raimbekov](https://github.com/janbolat))
+
 ## [2.3.2] - 2019-09-10
 ### Added
 - Changelog.md file ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/340) by [Antoine Jaury](https://github.com/Ajojo44))
