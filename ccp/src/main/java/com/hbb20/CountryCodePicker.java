@@ -2078,7 +2078,7 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setPhoneNumberValidityChangeListener(PhoneNumberValidityChangeListener phoneNumberValidityChangeListener) {
         this.phoneNumberValidityChangeListener = phoneNumberValidityChangeListener;
-        if (editText_registeredCarrierNumber != null) {
+        if (editText_registeredCarrierNumber != null && phoneNumberValidityChangeListener != null) {
             reportedValidity = isValidFullNumber();
             phoneNumberValidityChangeListener.onValidityChanged(reportedValidity);
         }
