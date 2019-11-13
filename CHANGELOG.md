@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.4] - 2019-11-13
+### Fixes
+- Allow to set validity change listener to null ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/357) by [Michael Gray](https://github.com/mgray88))
+
 ## [2.3.3] - 2019-09-10
 ### Added
 - Support for Kazakh ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/352) by [Zhanbolat Raimbekov](https://github.com/janbolat))
