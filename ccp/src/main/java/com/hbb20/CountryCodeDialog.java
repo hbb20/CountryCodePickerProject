@@ -124,6 +124,10 @@ class CountryCodeDialog {
             rlHolder.setBackgroundColor(codePicker.getDialogBackgroundColor());
         }
 
+        if (codePicker.getDialogBackgroundResId() != 0) {
+            rlHolder.setBackgroundResource(codePicker.getDialogBackgroundResId());
+        }
+
         //close button visibility
         if (codePicker.isShowCloseIcon()) {
             imgDismiss.setVisibility(View.VISIBLE);
@@ -282,6 +286,7 @@ class CountryCodeDialog {
             sCursorDrawableField.set(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN
                     ? editText : sEditorField.get(editText), new Drawable[]{drawable, drawable});
         } catch (Exception ignored) {
+
         }
     }
 

@@ -141,6 +141,13 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                app:ccp_countryPreference="pl"
+                                app:ccp_defaultLanguage="POLISH"
+                                app:ccpDialog_background="@drawable/gradient"
+                                app:ccpDialog_showFastScroller="false"
+                                app:ccpDialog_searchEditTextTint="@android:color/white"
+                                app:ccpDialog_showCloseIcon="true"
+                                app:ccpDialog_textColor="@android:color/white"
                                 app:ccp_contentColor="@android:color/white"/>
                             <EditText
                                 android:id="@+id/editText_phone"

@@ -26,6 +26,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -123,7 +125,7 @@ public class CountryCodePicker extends RelativeLayout {
     private DialogEventsListener dialogEventsListener;
     private CustomDialogTextProvider customDialogTextProvider;
     private int fastScrollerHandleColor = 0;
-    private int dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
+    private int dialogBackgroundResId, dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
     private int fastScrollerBubbleTextAppearance = 0;
     private CCPCountryGroup currentCountryGroup;
     private View.OnClickListener customClickListener;
@@ -438,6 +440,7 @@ public class CountryCodePicker extends RelativeLayout {
 
             //dialog colors
             setDialogBackgroundColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_backgroundColor, 0));
+            setDialogBackground(a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_background, 0));
             setDialogTextColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_textColor, 0));
             setDialogSearchEditTextTintColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_searchEditTextTint, 0));
 
@@ -1194,6 +1197,10 @@ public class CountryCodePicker extends RelativeLayout {
         return dialogBackgroundColor;
     }
 
+    int getDialogBackgroundResId() {
+        return dialogBackgroundResId;
+    }
+
     /**
      * This will be color of dialog background
      *
@@ -1201,6 +1208,15 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setDialogBackgroundColor(int dialogBackgroundColor) {
         this.dialogBackgroundColor = dialogBackgroundColor;
+    }
+
+    /**
+     * This will be color of dialog background
+     *
+     * @param dialogBackgroundResId
+     */
+    public void setDialogBackground(@IdRes int dialogBackgroundResId) {
+        this.dialogBackgroundResId = dialogBackgroundResId;
     }
 
     int getDialogSearchEditTextTintColor() {

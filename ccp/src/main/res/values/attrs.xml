@@ -62,7 +62,8 @@
         <attr name="ccpDialog_fastScroller_bubbleColor" format="color" />
         <attr name="ccpDialog_fastScroller_handleColor" format="color" />
         <attr name="ccpDialog_fastScroller_bubbleTextAppearance" format="reference" />
-        <attr name="ccpDialog_backgroundColor" format="color" />
+        <attr name="ccpDialog_backgroundColor" format="reference" />
+        <attr name="ccpDialog_background" format="reference" />
         <attr name="ccpDialog_textColor" format="color" />
         <attr name="ccpDialog_searchEditTextTint" format="color" />
         <attr name="ccpDialog_showCloseIcon" format="boolean" />
