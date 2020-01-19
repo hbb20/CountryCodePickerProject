@@ -2363,6 +2363,7 @@ public class CountryCodePicker extends RelativeLayout {
         JAPANESE("ja"),
         KAZAKH("kk"),
         KOREAN("ko"),
+        MARATHI("mr"),
         POLISH("pl"),
         PORTUGUESE("pt"),
         PUNJABI("pa"),
