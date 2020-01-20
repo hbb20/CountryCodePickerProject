@@ -37,6 +37,10 @@
 
         </attr>
 
+
+        <!--CCP dimension properties-->
+        <attr name="ccp_padding" format="dimension" />
+
         <!--CCP bool properties-->
         <attr name="ccp_showNameCode" format="boolean" />
         <attr name="ccp_showFlag" format="boolean" />
