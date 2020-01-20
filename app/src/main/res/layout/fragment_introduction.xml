@@ -119,7 +119,6 @@
                                 app:ccpDialog_keyboardAutoPopup="false"
                                 app:ccp_autoDetectCountry="true"
                                 app:ccp_countryPreference="in,us,nz,gb"
-                                app:ccp_defaultLanguage="MARATHI"
                                 app:ccp_hintExampleNumber="true" />
 
                             <EditText
