@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 2.3.6 - 2020-01-20
+### Added
+- Marathi language support [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/368) by [Kaustubh Kulkarni](https://github.com/kaustubhk24)
+- `ccp_padding` attribute [Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/369) by [mina george](https://github.com/minageorge5080)
+### Fixed
+- Typo 
+
 ## 2.3.5 - 2019-12-30
 ### Added
 - Adds `ccpDialog_background` property to set custom background resource for CCP Dialog.
