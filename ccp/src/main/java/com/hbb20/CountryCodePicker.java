@@ -1203,10 +1203,6 @@ public class CountryCodePicker extends RelativeLayout {
         return dialogBackgroundColor;
     }
 
-    int getDialogBackgroundResId() {
-        return dialogBackgroundResId;
-    }
-
     /**
      * This will be color of dialog background
      *
@@ -1214,6 +1210,10 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setDialogBackgroundColor(int dialogBackgroundColor) {
         this.dialogBackgroundColor = dialogBackgroundColor;
+    }
+
+    int getDialogBackgroundResId() {
+        return dialogBackgroundResId;
     }
 
     /**
@@ -1805,7 +1805,7 @@ public class CountryCodePicker extends RelativeLayout {
             return getPhoneUtil().format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.E164).substring(1);
         } catch (NumberParseException e) {
             Log.e(TAG, "getFullNumber: Could not parse number");
-            return getSelectedCountryCode();
+            return getSelectedCountryCode() + PhoneNumberUtil.normalizeDigitsOnly(editText_registeredCarrierNumber.getText().toString());
         }
     }
 
@@ -1842,7 +1842,7 @@ public class CountryCodePicker extends RelativeLayout {
             return "+" + getPhoneUtil().format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL).substring(1);
         } catch (NumberParseException e) {
             Log.e(TAG, "getFullNumber: Could not parse number");
-            return getSelectedCountryCode();
+            return getFullNumberWithPlus();
         }
     }
 
@@ -1852,13 +1852,7 @@ public class CountryCodePicker extends RelativeLayout {
      * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number= 8866667722, this will return "+918866667722"
      */
     public String getFullNumberWithPlus() {
-        try {
-            Phonenumber.PhoneNumber phoneNumber = getEnteredPhoneNumber();
-            return getPhoneUtil().format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.E164);
-        } catch (NumberParseException e) {
-            Log.e(TAG, "getFullNumber: Could not parse number");
-            return getSelectedCountryCode();
-        }
+        return "+" + getFullNumber();
     }
 
     /**
@@ -2358,6 +2352,12 @@ public class CountryCodePicker extends RelativeLayout {
         customClickListener = clickListener;
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        CountryCodeDialog.clear();
+        super.onDetachedFromWindow();
+    }
+
     /**
      * Update every time new language is supported #languageSupport
      */
@@ -2550,11 +2550,5 @@ public class CountryCodePicker extends RelativeLayout {
         String getCCPDialogSearchHintText(Language language, String defaultSearchHintText);
 
         String getCCPDialogNoResultACK(Language language, String defaultNoResultACK);
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        CountryCodeDialog.clear();
-        super.onDetachedFromWindow();
     }
 }
