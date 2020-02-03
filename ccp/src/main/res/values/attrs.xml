@@ -103,13 +103,14 @@
             <enum name="PUNJABI" value="24" />
             <enum name="RUSSIAN" value="25" />
             <enum name="SLOVAK" value="26" />
-            <enum name="SPANISH" value="27" />
-            <enum name="SWEDISH" value="28" />
-            <enum name="TURKISH" value="29" />
-            <enum name="UKRAINIAN" value="30" />
-            <enum name="URDU" value="31" />
-            <enum name="UZBEK" value="32" />
-            <enum name="VIETNAMESE" value="33" />
+            <enum name="SLOVENIAN" value="27" />
+            <enum name="SPANISH" value="28" />
+            <enum name="SWEDISH" value="29" />
+            <enum name="TURKISH" value="30" />
+            <enum name="UKRAINIAN" value="31" />
+            <enum name="URDU" value="32" />
+            <enum name="UZBEK" value="33" />
+            <enum name="VIETNAMESE" value="34" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">
