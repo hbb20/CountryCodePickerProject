@@ -2391,6 +2391,7 @@ public class CountryCodePicker extends RelativeLayout {
         PUNJABI("pa"),
         RUSSIAN("ru"),
         SLOVAK("sk"),
+        SLOVENIAN("si"),
         SPANISH("es"),
         SWEDISH("sv"),
         TURKISH("tr"),
