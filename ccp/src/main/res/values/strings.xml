@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">CountryCodePicker</string>
     <string name="search_hint">Search…</string>
     <string name="no_result_found">Results not found</string>
     <string name="select_country">Select a country</string>
