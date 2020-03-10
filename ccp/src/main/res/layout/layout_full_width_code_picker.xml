@@ -31,8 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_margin="0.5dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/flag_india" />
+                    android:adjustViewBounds="true" />
             </LinearLayout>
         </LinearLayout>
 
@@ -47,7 +46,6 @@
             android:layout_toEndOf="@+id/linear_flag_holder"
             android:layout_toRightOf="@+id/linear_flag_holder"
             android:gravity="center"
-            android:text="(IN) +91"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -59,7 +57,6 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:adjustViewBounds="true"
-            android:alpha="0.6"
-            android:src="@drawable/ccp_down_arrow" />
+            android:src="@drawable/ic_chevron_down_blue" />
     </RelativeLayout>
 </RelativeLayout>

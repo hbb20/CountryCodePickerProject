@@ -3,6 +3,8 @@ package com.hbb20;
 import android.app.Dialog;
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.graphics.Typeface;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -33,18 +35,16 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     EditText editText_search;
     Dialog dialog;
     Context context;
-    RelativeLayout rlQueryHolder;
     ImageView imgClearQuery;
     int preferredCountriesCount = 0;
 
-    CountryCodeAdapter(Context context, List<CCPCountry> countries, CountryCodePicker codePicker, RelativeLayout rlQueryHolder, final EditText editText_search, TextView textView_noResult, Dialog dialog, ImageView imgClearQuery) {
+    CountryCodeAdapter(Context context, List<CCPCountry> countries, CountryCodePicker codePicker, final EditText editText_search, TextView textView_noResult, Dialog dialog, ImageView imgClearQuery) {
         this.context = context;
         this.masterCountries = countries;
         this.codePicker = codePicker;
         this.dialog = dialog;
         this.textView_noResult = textView_noResult;
         this.editText_search = editText_search;
-        this.rlQueryHolder = rlQueryHolder;
         this.imgClearQuery = imgClearQuery;
         this.inflater = LayoutInflater.from(context);
         this.filteredCountries = getFilteredCountries("");
@@ -53,21 +53,8 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
     private void setSearchBar() {
         if (codePicker.isSearchAllowed()) {
-            imgClearQuery.setVisibility(View.GONE);
             setTextWatcher();
-            setQueryClearListener();
-        } else {
-            rlQueryHolder.setVisibility(View.GONE);
         }
-    }
-
-    private void setQueryClearListener() {
-        imgClearQuery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText_search.setText("");
-            }
-        });
     }
 
     /**
@@ -88,11 +75,6 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     applyQuery(s.toString());
-                    if (s.toString().trim().equals("")) {
-                        imgClearQuery.setVisibility(View.GONE);
-                    } else {
-                        imgClearQuery.setVisibility(View.VISIBLE);
-                    }
                 }
             });
 
@@ -214,7 +196,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         TextView textView_name, textView_code;
         ImageView imageViewFlag;
         LinearLayout linearFlagHolder;
-        View divider;
+        TextView textView_allCountries;
 
         public CountryCodeViewHolder(View itemView) {
             super(itemView);
@@ -223,12 +205,13 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             textView_code = (TextView) relativeLayout_main.findViewById(R.id.textView_code);
             imageViewFlag = (ImageView) relativeLayout_main.findViewById(R.id.image_flag);
             linearFlagHolder = (LinearLayout) relativeLayout_main.findViewById(R.id.linear_flag_holder);
-            divider = relativeLayout_main.findViewById(R.id.preferenceDivider);
+            textView_allCountries = relativeLayout_main.findViewById(R.id.textView_allCountries);
+            textView_allCountries.setTypeface(Typeface.DEFAULT_BOLD);
 
             if (codePicker.getDialogTextColor() != 0) {
                 textView_name.setTextColor(codePicker.getDialogTextColor());
                 textView_code.setTextColor(codePicker.getDialogTextColor());
-                divider.setBackgroundColor(codePicker.getDialogTextColor());
+                textView_allCountries.setBackgroundColor(codePicker.getDialogTextColor());
             }
 
             try {
@@ -248,7 +231,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
         public void setCountry(CCPCountry ccpCountry) {
             if (ccpCountry != null) {
-                divider.setVisibility(View.GONE);
+                textView_allCountries.setVisibility(View.GONE);
                 textView_name.setVisibility(View.VISIBLE);
                 textView_code.setVisibility(View.VISIBLE);
                 if (codePicker.isCcpDialogShowPhoneCode()) {
@@ -266,10 +249,6 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
                 countryName += ccpCountry.getName();
 
-                if (codePicker.getCcpDialogShowNameCode()) {
-                    countryName += " (" + ccpCountry.getNameCode().toUpperCase() + ")";
-                }
-
                 textView_name.setText(countryName);
                 textView_code.setText("+" + ccpCountry.getPhoneCode());
 
@@ -280,7 +259,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                     imageViewFlag.setImageResource(ccpCountry.getFlagID());
                 }
             } else {
-                divider.setVisibility(View.VISIBLE);
+                textView_allCountries.setVisibility(View.VISIBLE);
                 textView_name.setVisibility(View.GONE);
                 textView_code.setVisibility(View.GONE);
                 linearFlagHolder.setVisibility(View.GONE);
@@ -292,4 +271,3 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         }
     }
 }
-

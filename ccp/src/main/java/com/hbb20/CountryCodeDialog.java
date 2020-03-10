@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -80,8 +81,15 @@ class CountryCodeDialog {
         codePicker.refreshCustomMasterList();
         codePicker.refreshPreferredCountries();
         List<CCPCountry> masterCountries = CCPCountry.getCustomMasterCountryList(context, codePicker);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
 
         //keyboard
         if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
@@ -93,13 +101,11 @@ class CountryCodeDialog {
 
         //dialog views
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
-        final TextView textViewTitle = (TextView) dialog.findViewById(R.id.textView_title);
-        RelativeLayout rlQueryHolder = (RelativeLayout) dialog.findViewById(R.id.rl_query_holder);
-        ImageView imgClearQuery = (ImageView) dialog.findViewById(R.id.img_clear_query);
+        ImageView imgClearQuery = (ImageView) dialog.findViewById(R.id.img_search);
         final EditText editText_search = (EditText) dialog.findViewById(R.id.editText_search);
-        TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noresult);
-        RelativeLayout rlHolder = (RelativeLayout) dialog.findViewById(R.id.rl_holder);
-        ImageView imgDismiss = (ImageView) dialog.findViewById(R.id.img_dismiss);
+        TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noResult);
+        ConstraintLayout rlHolder = (ConstraintLayout) dialog.findViewById(R.id.cl_holder);
+        ImageView iv_close = (ImageView) dialog.findViewById(R.id.iv_close);
 
         // type faces
         //set type faces
@@ -107,12 +113,8 @@ class CountryCodeDialog {
             if (codePicker.getDialogTypeFace() != null) {
                 if (codePicker.getDialogTypeFaceStyle() != CountryCodePicker.DEFAULT_UNSET) {
                     textView_noResult.setTypeface(codePicker.getDialogTypeFace(), codePicker.getDialogTypeFaceStyle());
-                    editText_search.setTypeface(codePicker.getDialogTypeFace(), codePicker.getDialogTypeFaceStyle());
-                    textViewTitle.setTypeface(codePicker.getDialogTypeFace(), codePicker.getDialogTypeFaceStyle());
                 } else {
                     textView_noResult.setTypeface(codePicker.getDialogTypeFace());
-                    editText_search.setTypeface(codePicker.getDialogTypeFace());
-                    textViewTitle.setTypeface(codePicker.getDialogTypeFace());
                 }
             }
         } catch (Exception e) {
@@ -128,48 +130,21 @@ class CountryCodeDialog {
             rlHolder.setBackgroundResource(codePicker.getDialogBackgroundResId());
         }
 
-        //close button visibility
-        if (codePicker.isShowCloseIcon()) {
-            imgDismiss.setVisibility(View.VISIBLE);
-            imgDismiss.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dialog.dismiss();
-                }
-            });
-        } else {
-            imgDismiss.setVisibility(View.GONE);
-        }
-
-        //title
-        if (!codePicker.getCcpDialogShowTitle()) {
-            textViewTitle.setVisibility(View.GONE);
-        }
+        iv_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
         //clear button color and title color
         if (codePicker.getDialogTextColor() != 0) {
             int textColor = codePicker.getDialogTextColor();
-            imgClearQuery.setColorFilter(textColor);
-            imgDismiss.setColorFilter(textColor);
-            textViewTitle.setTextColor(textColor);
+            iv_close.setColorFilter(textColor);
             textView_noResult.setTextColor(textColor);
-            editText_search.setTextColor(textColor);
-            editText_search.setHintTextColor(Color.argb(100, Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
         }
-
-
-        //editText tint
-        if (codePicker.getDialogSearchEditTextTintColor() != 0) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                editText_search.setBackgroundTintList(ColorStateList.valueOf(codePicker.getDialogSearchEditTextTintColor()));
-                setCursorColor(editText_search, codePicker.getDialogSearchEditTextTintColor());
-            }
-        }
-
 
         //add messages to views
-        textViewTitle.setText(codePicker.getDialogTitle());
-        editText_search.setHint(codePicker.getSearchHintText());
         textView_noResult.setText(codePicker.getNoResultACK());
 
         //this will make dialog compact
@@ -179,12 +154,12 @@ class CountryCodeDialog {
             recyclerView_countryDialog.setLayoutParams(params);
         }
 
-        final CountryCodeAdapter cca = new CountryCodeAdapter(context, masterCountries, codePicker, rlQueryHolder, editText_search, textView_noResult, dialog, imgClearQuery);
+        final CountryCodeAdapter cca = new CountryCodeAdapter(context, masterCountries, codePicker, editText_search, textView_noResult, dialog, imgClearQuery);
         recyclerView_countryDialog.setLayoutManager(new LinearLayoutManager(context));
         recyclerView_countryDialog.setAdapter(cca);
 
         //fast scroller
-        FastScroller fastScroller = (FastScroller) dialog.findViewById(R.id.fastscroll);
+        FastScroller fastScroller = (FastScroller) dialog.findViewById(R.id.fastScroll);
         fastScroller.setRecyclerView(recyclerView_countryDialog);
         if (codePicker.isShowFastScroller()) {
             if (codePicker.getFastScrollerBubbleColor() != 0) {
