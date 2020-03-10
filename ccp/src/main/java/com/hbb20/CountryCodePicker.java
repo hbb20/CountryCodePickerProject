@@ -109,6 +109,10 @@ public class CountryCodePicker extends RelativeLayout {
     Language customDefaultLanguage = Language.ENGLISH;
     Language languageToApply = Language.ENGLISH;
 
+    String et_searchText = "";
+    String tv_noResult = "";
+    String tv_allCountries = "";
+
     boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
     boolean autoDetectLanguageEnabled = false, autoDetectCountryEnabled = false, numberAutoFormattingEnabled = true, hintExampleNumberEnabled = false;
