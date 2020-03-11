@@ -181,9 +181,6 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setNumberAutoFormattingEnabled(boolean numberAutoFormattingEnabled) {
         this.numberAutoFormattingEnabled = numberAutoFormattingEnabled;
-        if (editText_registeredCarrierNumber != null) {
-            updateFormattingTextWatcher();
-        }
     }
 
     private boolean isInternationalFormattingOnlyEnabled() {
@@ -197,9 +194,6 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setInternationalFormattingOnly(boolean internationalFormattingOnly) {
         this.internationalFormattingOnly = internationalFormattingOnly;
-        if (editText_registeredCarrierNumber != null) {
-            updateFormattingTextWatcher();
-        }
     }
 
     private void init(AttributeSet attrs) {
@@ -832,9 +826,6 @@ public class CountryCodePicker extends RelativeLayout {
         if (onCountryChangeListener != null) {
             onCountryChangeListener.onCountrySelected();
         }
-        updateFormattingTextWatcher();
-
-        updateHint();
 
         //notify to registered validity listener
         if (editText_registeredCarrierNumber != null && phoneNumberValidityChangeListener != null) {
@@ -864,38 +855,6 @@ public class CountryCodePicker extends RelativeLayout {
      */
     private void updateCountryGroup() {
         currentCountryGroup = CCPCountryGroup.getCountryGroupForPhoneCode(getSelectedCountryCodeAsInt());
-    }
-
-    /**
-     * updates hint
-     */
-    private void updateHint() {
-        if (editText_registeredCarrierNumber != null && hintExampleNumberEnabled) {
-            String formattedNumber = "";
-            Phonenumber.PhoneNumber exampleNumber = getPhoneUtil().getExampleNumberForType(getSelectedCountryNameCode(), getSelectedHintNumberType());
-            if (exampleNumber != null) {
-                formattedNumber = exampleNumber.getNationalNumber() + "";
-//                Log.d(TAG, "updateHint: " + formattedNumber);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber, getSelectedCountryNameCode());
-                } else {
-                    formattedNumber = PhoneNumberUtils.formatNumber(getSelectedCountryCodeWithPlus() + formattedNumber);
-                }
-                if (formattedNumber != null) {
-                    formattedNumber = formattedNumber.substring(getSelectedCountryCodeWithPlus().length()).trim();
-                }
-//                Log.d(TAG, "updateHint: after format " + formattedNumber + " " + selectionMemoryTag);
-            } else {
-//                Log.w(TAG, "updateHint: No example number found for this country (" + getSelectedCountryNameCode() + ") or this type (" + hintExampleNumberType.name() + ").");
-            }
-
-            //fallback to original hint
-            if (formattedNumber == null) {
-                formattedNumber = originalHint;
-            }
-
-            editText_registeredCarrierNumber.setHint(formattedNumber);
-        }
     }
 
     /**
@@ -944,43 +903,6 @@ public class CountryCodePicker extends RelativeLayout {
 
     void setLanguageToApply(Language languageToApply) {
         this.languageToApply = languageToApply;
-    }
-
-    private void updateFormattingTextWatcher() {
-        if (editText_registeredCarrierNumber != null && selectedCCPCountry != null) {
-            String enteredValue = getEditText_registeredCarrierNumber().getText().toString();
-            String digitsValue = PhoneNumberUtil.normalizeDigitsOnly(enteredValue);
-
-            if (formattingTextWatcher != null) {
-                editText_registeredCarrierNumber.removeTextChangedListener(formattingTextWatcher);
-            }
-
-            if (areaCodeCountryDetectorTextWatcher != null) {
-                editText_registeredCarrierNumber.removeTextChangedListener(areaCodeCountryDetectorTextWatcher);
-            }
-
-            if (numberAutoFormattingEnabled) {
-                formattingTextWatcher = new InternationalPhoneTextWatcher(context, getSelectedCountryNameCode(), getSelectedCountryCodeAsInt(), internationalFormattingOnly);
-                editText_registeredCarrierNumber.addTextChangedListener(formattingTextWatcher);
-            }
-
-            //if country detection from area code is enabled, then it will add areaCodeCountryDetectorTextWatcher
-            if (detectCountryWithAreaCode) {
-                areaCodeCountryDetectorTextWatcher = getCountryDetectorTextWatcher();
-                editText_registeredCarrierNumber.addTextChangedListener(areaCodeCountryDetectorTextWatcher);
-            }
-
-            //text watcher stops working when it finds non digit character in previous phone code. This will reset its function
-            editText_registeredCarrierNumber.setText("");
-            editText_registeredCarrierNumber.setText(digitsValue);
-            editText_registeredCarrierNumber.setSelection(editText_registeredCarrierNumber.getText().length());
-        } else {
-            if (editText_registeredCarrierNumber == null) {
-                Log.v(TAG, "updateFormattingTextWatcher: EditText not registered " + selectionMemoryTag);
-            } else {
-                Log.v(TAG, "updateFormattingTextWatcher: selected country is null " + selectionMemoryTag);
-            }
-        }
     }
 
     /**
@@ -1129,8 +1051,6 @@ public class CountryCodePicker extends RelativeLayout {
             originalHint = this.editText_registeredCarrierNumber.getHint().toString();
         }
         updateValidityTextWatcher();
-        updateFormattingTextWatcher();
-        updateHint();
     }
 
     /**
@@ -1813,7 +1733,6 @@ public class CountryCodePicker extends RelativeLayout {
         String carrierNumber = detectCarrierNumber(fullNumber, country);
         if (getEditText_registeredCarrierNumber() != null) {
             getEditText_registeredCarrierNumber().setText(carrierNumber);
-            updateFormattingTextWatcher();
         } else {
             Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
         }
@@ -2269,17 +2188,14 @@ public class CountryCodePicker extends RelativeLayout {
 
     public void setDetectCountryWithAreaCode(boolean detectCountryWithAreaCode) {
         this.detectCountryWithAreaCode = detectCountryWithAreaCode;
-        updateFormattingTextWatcher();
     }
 
     public void setHintExampleNumberEnabled(boolean hintExampleNumberEnabled) {
         this.hintExampleNumberEnabled = hintExampleNumberEnabled;
-        updateHint();
     }
 
     public void setHintExampleNumberType(PhoneNumberType hintExampleNumberType) {
         this.hintExampleNumberType = hintExampleNumberType;
-        updateHint();
     }
 
     public boolean isDialogInitialScrollToSelectionEnabled() {
