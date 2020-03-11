@@ -29,7 +29,7 @@
     <EditText
         android:id="@+id/editText_search"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
@@ -37,7 +37,6 @@
         android:hint="Search country"
         android:imeOptions="actionSearch"
         android:inputType="textNoSuggestions"
-        android:padding="20dp"
         android:paddingStart="52dp"
         android:singleLine="true"
         android:textColor="@android:color/primary_text_light_nodisable"
