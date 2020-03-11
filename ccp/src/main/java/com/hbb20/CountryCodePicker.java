@@ -424,7 +424,6 @@ public class CountryCodePicker extends RelativeLayout {
 
             int arrowColor;
             arrowColor = a.getColor(R.styleable.CountryCodePicker_ccp_arrowColor, DEFAULT_UNSET);
-            setArrowColor(arrowColor);
 
             //content color
             int contentColor;
@@ -432,9 +431,6 @@ public class CountryCodePicker extends RelativeLayout {
                 contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, DEFAULT_UNSET);
             } else {
                 contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, context.getResources().getColor(R.color.defaultContentColor));
-            }
-            if (contentColor != DEFAULT_UNSET) {
-                setContentColor(contentColor);
             }
 
             // flag border color
@@ -824,35 +820,12 @@ public class CountryCodePicker extends RelativeLayout {
             }
         }
 
-        // add full name to if required
-        if (showFullName) {
-            displayText = displayText + selectedCCPCountry.getName();
-        }
-
-        // adds name code if required
-        if (showNameCode) {
-            if (showFullName) {
-                displayText += " (" + selectedCCPCountry.getNameCode().toUpperCase() + ")";
-            } else {
-                displayText += " " + selectedCCPCountry.getNameCode().toUpperCase();
-            }
-        }
-
         // hide phone code if required
         if (showPhoneCode) {
-            if (displayText.length() > 0) {
-                displayText += "  ";
-            }
             displayText += "+" + selectedCCPCountry.getPhoneCode();
         }
 
         textView_selectedCountry.setText(displayText);
-
-        //avoid blank state of ccp
-        if (showFlag == false && displayText.length() == 0) {
-            displayText += "+" + selectedCCPCountry.getPhoneCode();
-            textView_selectedCountry.setText(displayText);
-        }
 
         imageViewFlag.setImageResource(selectedCCPCountry.getFlagID());
 
@@ -1876,37 +1849,6 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public int getContentColor() {
         return contentColor;
-    }
-
-    /**
-     * Sets text and small down arrow color of CCP.
-     *
-     * @param contentColor color to apply to text and down arrow
-     */
-    public void setContentColor(int contentColor) {
-        this.contentColor = contentColor;
-        textView_selectedCountry.setTextColor(this.contentColor);
-
-        //change arrow color only if explicit arrow color is not specified.
-        if (this.arrowColor == DEFAULT_UNSET) {
-            imageViewArrow.setColorFilter(this.contentColor, PorterDuff.Mode.SRC_IN);
-        }
-    }
-
-    /**
-     * set small down arrow color of CCP.
-     *
-     * @param arrowColor color to apply to text and down arrow
-     */
-    public void setArrowColor(int arrowColor) {
-        this.arrowColor = arrowColor;
-        if (this.arrowColor == DEFAULT_UNSET) {
-            if (contentColor != DEFAULT_UNSET) {
-                imageViewArrow.setColorFilter(this.contentColor, PorterDuff.Mode.SRC_IN);
-            }
-        } else {
-            imageViewArrow.setColorFilter(this.arrowColor, PorterDuff.Mode.SRC_IN);
-        }
     }
 
     /**

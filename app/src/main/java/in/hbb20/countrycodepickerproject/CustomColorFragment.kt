@@ -50,14 +50,10 @@ class CustomColorFragment: Fragment() {
 
 		ccp.setOnClickListener {
 			ccp.launchCountrySelectionDialog()
-			if (selectedColor != -1) {
-				ccp.contentColor = selectedColor
-			}
 		}
 	}
 
 	private fun setColor(selection: Int, color: Int) {
-		ccp.contentColor = color
 		//textView
 		textViewTitle.setTextColor(color)
 
