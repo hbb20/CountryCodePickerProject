@@ -105,7 +105,7 @@ class CountryCodeDialog {
         ConstraintLayout rlHolder = (ConstraintLayout) dialog.findViewById(R.id.cl_holder);
         ImageView iv_close = (ImageView) dialog.findViewById(R.id.iv_close);
 
-        editText_search.setHint(codePicker.searchText);
+        editText_search.setHint(codePicker.searchHint);
         textView_noResult.setText(codePicker.noResultText);
 
         // type faces

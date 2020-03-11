@@ -109,7 +109,7 @@ public class CountryCodePicker extends RelativeLayout {
     Language customDefaultLanguage = Language.ENGLISH;
     Language languageToApply = Language.ENGLISH;
 
-    String searchText = "";
+    String searchHint = "";
     String noResultText = "";
     String allCountriesText = "";
 
@@ -677,8 +677,8 @@ public class CountryCodePicker extends RelativeLayout {
         applyTextGravity(textGravity.enumIndex);
     }
 
-    public void setSearchText(String text) {
-        searchText = text;
+    public void setSearchHint(String text) {
+        searchHint = text;
     }
 
     public void setNoResultsText(String text) {
