@@ -677,16 +677,16 @@ public class CountryCodePicker extends RelativeLayout {
         applyTextGravity(textGravity.enumIndex);
     }
 
-    public String getSearchText() {
-        return searchText;
+    public void setSearchText(String text) {
+        searchText = text;
     }
 
-    public String getNoResultsText() {
-       return noResultText;
+    public void setNoResultsText(String text) {
+       noResultText = text;
     }
 
-    public String getAllCountriesText() {
-        return allCountriesText;
+    public void setAllCountriesText(String text) {
+        allCountriesText = text;
     }
 
     private void applyTextGravity(int enumIndex) {
