@@ -169,7 +169,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 }
             });
         } else {
-            countryCodeViewHolder.textView_allCountries.setText(codePicker.tv_allCountries);
+            countryCodeViewHolder.textView_allCountries.setText(codePicker.allCountriesText);
             countryCodeViewHolder.getMainView().setOnClickListener(null);
         }
     }

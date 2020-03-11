@@ -109,9 +109,9 @@ public class CountryCodePicker extends RelativeLayout {
     Language customDefaultLanguage = Language.ENGLISH;
     Language languageToApply = Language.ENGLISH;
 
-    String et_searchText = "";
-    String tv_noResult = "";
-    String tv_allCountries = "";
+    String searchText = "";
+    String noResultText = "";
+    String allCountriesText = "";
 
     boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
@@ -675,6 +675,18 @@ public class CountryCodePicker extends RelativeLayout {
     public void setCurrentTextGravity(TextGravity textGravity) {
         this.currentTextGravity = textGravity;
         applyTextGravity(textGravity.enumIndex);
+    }
+
+    public String getSearchText() {
+        return searchText;
+    }
+
+    public String getNoResultsText() {
+       return noResultText;
+    }
+
+    public String getAllCountriesText() {
+        return allCountriesText;
     }
 
     private void applyTextGravity(int enumIndex) {

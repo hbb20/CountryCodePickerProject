@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -107,8 +105,8 @@ class CountryCodeDialog {
         ConstraintLayout rlHolder = (ConstraintLayout) dialog.findViewById(R.id.cl_holder);
         ImageView iv_close = (ImageView) dialog.findViewById(R.id.iv_close);
 
-        editText_search.setHint(codePicker.et_searchText);
-        textView_noResult.setText(codePicker.tv_noResult);
+        editText_search.setHint(codePicker.searchText);
+        textView_noResult.setText(codePicker.noResultText);
 
         // type faces
         //set type faces
