@@ -3,7 +3,6 @@
     <color name="test">#221224</color>
     <color name="defaultContentColor">@android:color/black</color>
     <color name="defaultBorderFlagColor">@android:color/transparent</color>
-    <color name="pressed_bg">#64b7b7b7</color>
     <color name="NordicBlue">#0D607D</color>
     <color name="LightBlue">#EDF5F7</color>
     <color name="TextBlack">#1A1A1A</color>
