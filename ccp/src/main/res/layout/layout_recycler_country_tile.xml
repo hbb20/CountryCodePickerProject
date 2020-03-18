@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ccp_selectable_bg">
@@ -27,10 +28,11 @@
         android:layout_marginStart="16dp"
         android:layout_toStartOf="@+id/textView_code"
         android:layout_toEndOf="@+id/linear_flag_holder"
+        android:fontFamily="@font/sharp_grotesk_book20"
         android:gravity="center_vertical"
-        android:text="India (IN)"
         android:textColor="@color/TextBlack"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:text="India (IN)" />
 
     <TextView
         android:id="@+id/textView_code"
@@ -39,11 +41,12 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="24dp"
+        android:fontFamily="@font/sharp_grotesk_book20"
         android:gravity="center_vertical"
-        android:text="+91"
         android:textColor="@color/TextBlack"
         android:textDirection="ltr"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:text="+91" />
 
     <TextView
         android:id="@+id/textView_allCountries"
@@ -55,8 +58,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp"
-        android:text="All countries"
+        android:fontFamily="@font/sharp_grotesk_sm_bold20"
         android:textColor="@color/TextBlack"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="All countries" />
 </RelativeLayout>

@@ -16,7 +16,6 @@ import com.hbb20.CountryCodePicker
  */
 class IntroductionFragment: Fragment() {
 
-
 	private lateinit var buttonGo: Button
 	private lateinit var countryCodePicker: CountryCodePicker
 	private lateinit var etPhone: EditText

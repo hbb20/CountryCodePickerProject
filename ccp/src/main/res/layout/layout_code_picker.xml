@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/linear_flag_holder"
+            android:fontFamily="@font/sharp_grotesk_book20"
             android:singleLine="true"
             android:textColor="@color/NordicBlue"
             android:textSize="16sp"
