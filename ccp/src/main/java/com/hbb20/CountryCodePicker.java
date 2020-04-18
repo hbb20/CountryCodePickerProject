@@ -26,6 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
 
 import java.io.PrintWriter;
@@ -1710,6 +1711,17 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public String getSelectedCountryNameCode() {
         return getSelectedCountry().nameCode.toUpperCase();
+    }
+
+    /**
+     * To get selected country image resource id
+     *
+     * @return integer value of the selected country flag reource.
+     * For example for georgia it returns R.drawable.flag_georgia
+     */
+    @DrawableRes
+    public int getSelectedCountryFlagResourceId(){
+        return getSelectedCountry().flagResID;
     }
 
     /**
