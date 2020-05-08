@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 2.3.9 - 2020-05-08
 ### Fixed
-- US Flag Image to show correctly with border ((Pull Request)[https://github.com/hbb20/CountryCodePickerProject/pull/396])
+- US Flag Image to show correctly with border ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/396))
 
 ## 2.3.8 - 2020-02-06
 ### Added
-- Slovenian language support by [pastafarianGit](https://github.com/pastafarianGit) ((Pull Request)[https://github.com/hbb20/CountryCodePickerProject/pull/373])
+- Slovenian language support by [pastafarianGit](https://github.com/pastafarianGit) ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/373))
 
 ## 2.3.7 - 2020-01-23
 ### Fixed
