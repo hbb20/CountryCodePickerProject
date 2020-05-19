@@ -32,7 +32,7 @@
                     android:layout_height="18dp"
                     android:layout_margin="0.5dp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/flag_india" />
+                    android:src="@drawable/flag_transparent" />
             </LinearLayout>
         </LinearLayout>
 
