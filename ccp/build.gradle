@@ -27,11 +27,11 @@ ext {
 
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -47,13 +47,13 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation('com.futuremind.recyclerfastscroll:fastscroll:0.2.5', {
         exclude group: 'com.android.support'
     })
-    implementation 'io.michaelrocks:libphonenumber-android:8.10.14'
+    implementation 'io.michaelrocks:libphonenumber-android:8.10.16'
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
