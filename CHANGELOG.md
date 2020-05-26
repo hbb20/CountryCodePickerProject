@@ -4,8 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Next Release]
+- Nothing so far
 
+## 2.4.0 - 2020-05-25
+### Added
+- Tagalog/Filipino language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/392)) by [Noor ul Ain Ali](https://github.com/noorulain17)
+- Return selected country flag resource id ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/389)) by [Giorgi](https://github.com/gusakovgiorgi)
+
+### Fixed
+- Optimized resources  ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/397)) by [Daniel Gomez](https://github.com/danielgomezrico)
 
 ## 2.3.9 - 2020-05-08
 ### Fixed
