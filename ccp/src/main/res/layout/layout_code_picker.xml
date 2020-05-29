@@ -11,6 +11,7 @@
         android:id="@+id/rlClickConsumer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/ccp_selectable_bg"
         android:padding="@dimen/ccp_padding">
 
         <LinearLayout
