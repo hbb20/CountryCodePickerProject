@@ -96,22 +96,23 @@
             <enum name="ITALIAN" value="17" />
             <enum name="JAPANESE" value="18" />
             <enum name="KAZAKH" value="19" />
-            <enum name="KOREAN" value="20" />
-            <enum name="MARATHI" value="21"/>
-            <enum name="POLISH" value="22" />
-            <enum name="PORTUGUESE" value="23" />
-            <enum name="PUNJABI" value="24" />
-            <enum name="RUSSIAN" value="25" />
-            <enum name="SLOVAK" value="26" />
-            <enum name="SLOVENIAN" value="27" />
-            <enum name="SPANISH" value="28" />
-            <enum name="SWEDISH" value="29" />
-            <enum name="TAGALOG" value="30" />
-            <enum name="TURKISH" value="31" />
-            <enum name="UKRAINIAN" value="32" />
-            <enum name="URDU" value="33" />
-            <enum name="UZBEK" value="34" />
-            <enum name="VIETNAMESE" value="35" />
+		<enum name="KHMER" value="20" />
+            <enum name="KOREAN" value="21" />
+            <enum name="MARATHI" value="22"/>
+            <enum name="POLISH" value="23" />
+            <enum name="PORTUGUESE" value="24" />
+            <enum name="PUNJABI" value="25" />
+            <enum name="RUSSIAN" value="26" />
+            <enum name="SLOVAK" value="27" />
+            <enum name="SLOVENIAN" value="28" />
+            <enum name="SPANISH" value="29" />
+            <enum name="SWEDISH" value="30" />
+            <enum name="TAGALOG" value="31" />
+            <enum name="TURKISH" value="32" />
+            <enum name="UKRAINIAN" value="33" />
+            <enum name="URDU" value="34" />
+            <enum name="UZBEK" value="35" />
+            <enum name="VIETNAMESE" value="36" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">
