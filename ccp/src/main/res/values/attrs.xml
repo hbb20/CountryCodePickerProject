@@ -96,7 +96,7 @@
             <enum name="ITALIAN" value="17" />
             <enum name="JAPANESE" value="18" />
             <enum name="KAZAKH" value="19" />
-		<enum name="KHMER" value="20" />
+	    <enum name="KHMER" value="20" />
             <enum name="KOREAN" value="21" />
             <enum name="MARATHI" value="22"/>
             <enum name="POLISH" value="23" />
