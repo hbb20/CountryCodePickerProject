@@ -62,7 +62,9 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:adjustViewBounds="true"
+            android:tint="@android:color/black"
             android:alpha="0.6"
-            android:src="@drawable/ccp_down_arrow" />
+            android:src="@drawable/ccp_ic_arrow_drop_down"
+            />
     </RelativeLayout>
 </RelativeLayout>

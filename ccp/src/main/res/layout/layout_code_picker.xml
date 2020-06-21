@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/countryCodeHolder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -11,7 +10,6 @@
         android:id="@+id/rlClickConsumer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ccp_selectable_bg"
         android:padding="@dimen/ccp_padding">
 
         <LinearLayout
@@ -35,7 +33,7 @@
                     android:layout_height="18dp"
                     android:layout_margin="0.5dp"
                     android:adjustViewBounds="true"
-                    tools:src="@drawable/flag_india"
+
                     />
             </LinearLayout>
         </LinearLayout>
@@ -62,6 +60,7 @@
             android:layout_toRightOf="@+id/textView_selectedCountry"
             android:adjustViewBounds="true"
             android:alpha="0.6"
-            android:src="@drawable/ccp_down_arrow" />
+            android:src="@drawable/ccp_ic_arrow_drop_down"
+            />
     </RelativeLayout>
 </RelativeLayout>
