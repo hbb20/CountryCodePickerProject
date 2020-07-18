@@ -53,7 +53,7 @@ dependencies {
     implementation('com.futuremind.recyclerfastscroll:fastscroll:0.2.5', {
         exclude group: 'com.android.support'
     })
-    implementation 'io.michaelrocks:libphonenumber-android:8.10.14'
+    implementation 'io.michaelrocks:libphonenumber-android:8.12.6'
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
