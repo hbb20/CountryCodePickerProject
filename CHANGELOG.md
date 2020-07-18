@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Next Release]
 - Nothing so far
 
+## 2.4.1 - 2020-07-18
+- Updated libphonenumber-android to latest
+- No ripple effect (as a potential fix for #403)
+- Enable vectorDrawables.useSupportLibrary (as a potential fix for #403)
+
 ## 2.4.0 - 2020-05-25
 ### Added
 - Tagalog/Filipino language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/392)) by [Noor ul Ain Ali](https://github.com/noorulain17)
