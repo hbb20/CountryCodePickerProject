@@ -1,4 +1,4 @@
-Country Code Picker Library
+Country Code Picker Library [![HitCount](http://hits.dwyl.com/hbb20/CountryCodePickerProject.svg)](http://hits.dwyl.com/hbb20/CountryCodePickerProject)
 ===========================
 
 If you are looking for an android library for Country Selector or Country Spinner or Country Phone Code selector, this is the perfect place for you.
