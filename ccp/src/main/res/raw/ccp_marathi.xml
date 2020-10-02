@@ -113,12 +113,12 @@
             name_code="bf"
             phone_code="226" />
         <country
-            name="बल्गेरिया"
+            name="बल्जेरिया"
             english_name="Bulgaria"
             name_code="bg"
             phone_code="359" />
         <country
-            name="बहरीन"
+            name="बऱ्हेन"
             english_name="Bahrain"
             name_code="bh"
             phone_code="973" />
@@ -163,7 +163,7 @@
             name_code="bs"
             phone_code="1" />
         <country
-            name="भूतान"
+            name="भूटान"
             english_name="Bhutan"
             name_code="bt"
             phone_code="975" />
@@ -193,12 +193,12 @@
             name_code="cc"
             phone_code="61" />
         <country
-            name="काँगो, लोकशाही प्रजासत्ताकe"
+            name="काँगो, लोकशाही प्रजासत्ताक"
             english_name="Congo, The Democratic Republic Of The"
             name_code="cd"
             phone_code="243" />
         <country
-            name="सेंट्रल आफ्रिकन रिपब्लिक"
+            name="मध्यवर्ती आफ्रिकन रिपब्लिक"
             english_name="Central African Republic"
             name_code="cf"
             phone_code="236" />
