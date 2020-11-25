@@ -2,4 +2,6 @@
     <string name="search_hint">Search…</string>
     <string name="no_result_found">Results not found</string>
     <string name="select_country">Select a country</string>
+    <string name="dismiss_button_content_description">Dismiss</string>
+    <string name="clear_search_button_content_description">Clear search</string>
 </resources>
