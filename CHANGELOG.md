@@ -5,7 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Next Release]
-- Nothing so far
+## 2.4.2 - 2020-11-26
+- Added content description for Dialog Buttons ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/452)) by [Matthew Nogas](https://github.com/m-nogas)
 
 ## 2.4.1 - 2020-07-18
 - Updated libphonenumber-android to latest
