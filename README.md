@@ -1,4 +1,5 @@
-Country Code Picker Library ![ViewCount](https://views.whatilearened.today/views/github/hbb20/CountryCodePickerProject.svg)
+Country Code Picker Library ![ViewCount](https://views.whatilearened.today/views/github/hbb20/CountryCodePickerProject.svg) [![GitHub issues](https://img.shields.io/github/issues/hbb20/CountryCodePickerProject)](https://github.com/hbb20/CountryCodePickerProject/issues)  [![GitHub forks](https://img.shields.io/github/forks/hbb20/CountryCodePickerProject)](https://github.com/hbb20/CountryCodePickerProject/network) [![GitHub stars](https://img.shields.io/github/stars/hbb20/CountryCodePickerProject)](https://github.com/hbb20/CountryCodePickerProject/stargazers) [![GitHub license](https://img.shields.io/github/license/hbb20/CountryCodePickerProject)](https://github.com/hbb20/CountryCodePickerProject/blob/master/License.txt) 
+![GitHub search hit counter](https://img.shields.io/github/search/hbb20/CountryCodePickerProject/CountryCodePicker)
 ===========================
 
 If you are looking for an android library for Country Selector or Country Spinner or Country Phone Code selector, this is the perfect place for you.
