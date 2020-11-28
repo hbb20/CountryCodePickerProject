@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import io.michaelrocks.libphonenumber.android.BuildConfig;
 import io.michaelrocks.libphonenumber.android.NumberParseException;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import io.michaelrocks.libphonenumber.android.Phonenumber;
@@ -2416,6 +2417,16 @@ public class CountryCodePicker extends RelativeLayout {
         private String code;
         private String country;
         private String script;
+
+        public static Language forCountryNameCode(String code) {
+            Language lang = Language.ENGLISH;
+            for (Language language : Language.values()) {
+                if (language.code.equals(code)) {
+                    lang = language;
+                }
+            }
+            return lang;
+        }
 
         Language(String code, String country, String script) {
             this.code = code;
