@@ -26,12 +26,12 @@
             name="TODO: replace with  translated country name"
             english_name="Antigua and Barbuda"
             name_code="ag"
-            phone_code="1" />
+            phone_code="1-268" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Anguilla"
             name_code="ai"
-            phone_code="1" />
+            phone_code="1-264" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Albania"
@@ -61,7 +61,7 @@
             name="TODO: replace with  translated country name"
             english_name="American Samoa"
             name_code="as"
-            phone_code="1" />
+            phone_code="1-684" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Austria"
@@ -96,7 +96,7 @@
             name="TODO: replace with  translated country name"
             english_name="Barbados"
             name_code="bb"
-            phone_code="1" />
+            phone_code="1-246"/>
         <country
             name="TODO: replace with  translated country name"
             english_name="Bangladesh"
@@ -141,7 +141,7 @@
             name="TODO: replace with  translated country name"
             english_name="Bermuda"
             name_code="bm"
-            phone_code="1" />
+            phone_code="1-441"/>
         <country
             name="TODO: replace with  translated country name"
             english_name="Brunei Darussalam"
@@ -161,7 +161,7 @@
             name="TODO: replace with  translated country name"
             english_name="Bahamas"
             name_code="bs"
-            phone_code="1" />
+            phone_code="1-242" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Bhutan"
@@ -296,7 +296,7 @@
             name="TODO: replace with  translated country name"
             english_name="Dominica"
             name_code="dm"
-            phone_code="1" />
+            phone_code="1-767" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Dominican Republic"
@@ -381,7 +381,7 @@
             name="TODO: replace with  translated country name"
             english_name="Grenada"
             name_code="gd"
-            phone_code="1" />
+            phone_code="1-473" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Georgia"
@@ -446,7 +446,7 @@
             name="TODO: replace with  translated country name"
             english_name="Guam"
             name_code="gu"
-            phone_code="1" />
+            phone_code="1-671" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Guinea-bissau"
@@ -541,7 +541,7 @@
             name="TODO: replace with  translated country name"
             english_name="Jamaica"
             name_code="jm"
-            phone_code="1" />
+            phone_code="1-876" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Jordan"
@@ -581,7 +581,7 @@
             name="TODO: replace with  translated country name"
             english_name="Saint Kitts and Nevis"
             name_code="kn"
-            phone_code="1" />
+            phone_code="1-869" />
         <country
             name="TODO: replace with  translated country name"
             english_name="North Korea"
@@ -601,7 +601,7 @@
             name="TODO: replace with  translated country name"
             english_name="Cayman Islands"
             name_code="ky"
-            phone_code="1" />
+            phone_code="1-345" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Kazakhstan"
@@ -621,7 +621,7 @@
             name="TODO: replace with  translated country name"
             english_name="Saint Lucia"
             name_code="lc"
-            phone_code="1" />
+            phone_code="1-758" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Liechtenstein"
@@ -726,7 +726,7 @@
             name="TODO: replace with  translated country name"
             english_name="Northern Mariana Islands"
             name_code="mp"
-            phone_code="1" />
+            phone_code="1-670" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Martinique"
@@ -741,7 +741,7 @@
             name="TODO: replace with  translated country name"
             english_name="Montserrat"
             name_code="ms"
-            phone_code="1" />
+            phone_code="1-664" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Malta"
@@ -1031,7 +1031,7 @@
             name="TODO: replace with  translated country name"
             english_name="Sint Maarten"
             name_code="sx"
-            phone_code="1" />
+            phone_code="1-721" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Syrian Arab Republic"
@@ -1046,7 +1046,7 @@
             name="TODO: replace with  translated country name"
             english_name="Turks and Caicos Islands"
             name_code="tc"
-            phone_code="1" />
+            phone_code="1-649" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Chad"
@@ -1101,7 +1101,7 @@
             name="TODO: replace with  translated country name"
             english_name="Trinidad &amp; Tobago"
             name_code="tt"
-            phone_code="1" />
+            phone_code="1-868" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Tuvalu"
@@ -1151,7 +1151,7 @@
             name="TODO: replace with  translated country name"
             english_name="Saint Vincent &amp; The Grenadines"
             name_code="vc"
-            phone_code="1" />
+            phone_code="1-784" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Venezuela, Bolivarian Republic Of"
@@ -1161,12 +1161,12 @@
             name="TODO: replace with  translated country name"
             english_name="British Virgin Islands"
             name_code="vg"
-            phone_code="1" />
+            phone_code="1-284" />
         <country
             name="TODO: replace with  translated country name"
             english_name="US Virgin Islands"
             name_code="vi"
-            phone_code="1" />
+            phone_code="1-340" />
         <country
             name="TODO: replace with  translated country name"
             english_name="Vietnam"
