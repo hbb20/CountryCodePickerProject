@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -82,6 +84,7 @@ class CountryCodeDialog {
         List<CCPCountry> masterCountries = CCPCountry.getCustomMasterCountryList(context, codePicker);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
+        dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(context, android.R.color.transparent));
 
         //keyboard
         if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
@@ -98,7 +101,7 @@ class CountryCodeDialog {
         ImageView imgClearQuery = (ImageView) dialog.findViewById(R.id.img_clear_query);
         final EditText editText_search = (EditText) dialog.findViewById(R.id.editText_search);
         TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noresult);
-        RelativeLayout rlHolder = (RelativeLayout) dialog.findViewById(R.id.rl_holder);
+        CardView dialogRoot = (CardView) dialog.findViewById(R.id.cardViewRoot);
         ImageView imgDismiss = (ImageView) dialog.findViewById(R.id.img_dismiss);
 
         // type faces
@@ -121,12 +124,14 @@ class CountryCodeDialog {
 
         //dialog background color
         if (codePicker.getDialogBackgroundColor() != 0) {
-            rlHolder.setBackgroundColor(codePicker.getDialogBackgroundColor());
+            dialogRoot.setCardBackgroundColor(codePicker.getDialogBackgroundColor());
         }
 
         if (codePicker.getDialogBackgroundResId() != 0) {
-            rlHolder.setBackgroundResource(codePicker.getDialogBackgroundResId());
+            dialogRoot.setBackgroundResource(codePicker.getDialogBackgroundResId());
         }
+
+        dialogRoot.setRadius(codePicker.getDialogCornerRadius());
 
         //close button visibility
         if (codePicker.isShowCloseIcon()) {

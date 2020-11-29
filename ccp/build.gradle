@@ -56,6 +56,7 @@ dependencies {
         exclude group: 'com.android.support'
     })
     implementation 'io.michaelrocks:libphonenumber-android:8.12.6'
+    implementation "androidx.cardview:cardview:1.0.0"
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'

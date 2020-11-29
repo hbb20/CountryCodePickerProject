@@ -115,6 +115,7 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                app:ccpDialog_cornerRadius="8dp"
                                 app:ccpDialog_keyboardAutoPopup="false"
                                 app:ccp_autoDetectCountry="true"
                                 app:ccp_countryPreference="in,us,nz,gb"
