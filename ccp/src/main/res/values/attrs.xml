@@ -68,6 +68,7 @@
         <attr name="ccpDialog_fastScroller_bubbleTextAppearance" format="reference" />
         <attr name="ccpDialog_backgroundColor" format="reference" />
         <attr name="ccpDialog_background" format="reference" />
+        <attr name="ccpDialog_cornerRadius" format="dimension" />
         <attr name="ccpDialog_textColor" format="color" />
         <attr name="ccpDialog_searchEditTextTint" format="color" />
         <attr name="ccpDialog_showCloseIcon" format="boolean" />

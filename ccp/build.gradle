@@ -52,10 +52,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation('com.futuremind.recyclerfastscroll:fastscroll:0.2.5', {
-        exclude group: 'com.android.support'
-    })
-    implementation 'io.michaelrocks:libphonenumber-android:8.12.6'
+    implementation 'io.michaelrocks:libphonenumber-android:8.12.13'
+    implementation "androidx.cardview:cardview:1.0.0"
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
