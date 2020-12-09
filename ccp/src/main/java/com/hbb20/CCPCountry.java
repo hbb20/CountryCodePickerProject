@@ -309,7 +309,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
      * @param context
      * @param preferredCountries list of country with priority,
      * @param code               phone code. i.e 91 or 1
-     * @return Country that has phone §code as @param code.
+     * @return Country that has phone code as @param code.
      * or returns null if no country matches given code.
      */
     static CCPCountry getCountryForCode(Context context, CountryCodePicker.Language language, List<CCPCountry> preferredCountries, int code) {

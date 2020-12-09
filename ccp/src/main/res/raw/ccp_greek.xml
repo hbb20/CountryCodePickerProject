@@ -26,12 +26,12 @@
             name="Αντίγκουα και Μπαρμπούντα"
             english_name="Antigua and Barbuda"
             name_code="ag"
-            phone_code="1-268" />
+            phone_code="1" />
         <country
             name="Ανγκουίλα"
             english_name="Anguilla"
             name_code="ai"
-            phone_code="1-264" />
+            phone_code="1" />
         <country
             name="Αλβανία"
             english_name="Albania"
@@ -61,7 +61,7 @@
             name="Αμερικάνικη Σαμόα"
             english_name="American Samoa"
             name_code="as"
-            phone_code="1-684" />
+            phone_code="1" />
         <country
             name="Αυστρία"
             english_name="Austria"
@@ -96,7 +96,7 @@
             name="Μπαρμπάντος"
             english_name="Barbados"
             name_code="bb"
-            phone_code="1-246"/>
+            phone_code="1"/>
         <country
             name="Μπανγκλαντές"
             english_name="Bangladesh"
@@ -141,7 +141,7 @@
             name="Βερμούδες"
             english_name="Bermuda"
             name_code="bm"
-            phone_code="1-441"/>
+            phone_code="1"/>
         <country
             name="Μπρουνάι Νταρουσαλάμ"
             english_name="Brunei Darussalam"
@@ -161,7 +161,7 @@
             name="Μπαχάμες"
             english_name="Bahamas"
             name_code="bs"
-            phone_code="1-242" />
+            phone_code="1" />
         <country
             name="Μπουτάν"
             english_name="Bhutan"
@@ -296,7 +296,7 @@
             name="Δομινίκα"
             english_name="Dominica"
             name_code="dm"
-            phone_code="1-767" />
+            phone_code="1" />
         <country
             name="Δομινικανή Δημοκρατία"
             english_name="Dominican Republic"
@@ -381,7 +381,7 @@
             name="Γρενάδα"
             english_name="Grenada"
             name_code="gd"
-            phone_code="1-473" />
+            phone_code="1" />
         <country
             name="Γεωργία"
             english_name="Georgia"
@@ -446,7 +446,7 @@
             name="Γκουάμ"
             english_name="Guam"
             name_code="gu"
-            phone_code="1-671" />
+            phone_code="1" />
         <country
             name="Γουινέα-Μπισσάου"
             english_name="Guinea-bissau"
@@ -541,7 +541,7 @@
             name="Τζαµάικα"
             english_name="Jamaica"
             name_code="jm"
-            phone_code="1-876" />
+            phone_code="1" />
         <country
             name="Ιορδανία"
             english_name="Jordan"
@@ -581,7 +581,7 @@
             name="Άγιος Χριστόφορος και Νέβις"
             english_name="Saint Kitts and Nevis"
             name_code="kn"
-            phone_code="1-869" />
+            phone_code="1" />
         <country
             name="Βόρεια Κορέα"
             english_name="North Korea"
@@ -601,7 +601,7 @@
             name="Νήσοι Κάυµαν"
             english_name="Cayman Islands"
             name_code="ky"
-            phone_code="1-345" />
+            phone_code="1" />
         <country
             name="Καζακστάν"
             english_name="Kazakhstan"
@@ -621,7 +621,7 @@
             name="Αγία Λουκία"
             english_name="Saint Lucia"
             name_code="lc"
-            phone_code="1-758" />
+            phone_code="1" />
         <country
             name="Λίχτενσταϊν"
             english_name="Liechtenstein"
@@ -726,7 +726,7 @@
             name="Βόρειες Μαριάνες Νήσοι"
             english_name="Northern Mariana Islands"
             name_code="mp"
-            phone_code="1-670" />
+            phone_code="1" />
         <country
             name="Μαρτινίκα"
             english_name="Martinique"
@@ -741,7 +741,7 @@
             name="Μοντσερράτ"
             english_name="Montserrat"
             name_code="ms"
-            phone_code="1-664" />
+            phone_code="1" />
         <country
             name="Μάλτα"
             english_name="Malta"
@@ -1031,7 +1031,7 @@
             name="Άγιος Μαρτίνος"
             english_name="Sint Maarten"
             name_code="sx"
-            phone_code="1-721" />
+            phone_code="1" />
         <country
             name="Αραβική Δημοκρατία της Συρίας"
             english_name="Syrian Arab Republic"
@@ -1046,7 +1046,7 @@
             name="Νήσοι Τερκς και Κάικος"
             english_name="Turks and Caicos Islands"
             name_code="tc"
-            phone_code="1-649" />
+            phone_code="1" />
         <country
             name="Τσαντ"
             english_name="Chad"
@@ -1101,7 +1101,7 @@
             name="Τρινιντάντ και Τομπάγκο"
             english_name="Trinidad &amp; Tobago"
             name_code="tt"
-            phone_code="1-868" />
+            phone_code="1" />
         <country
             name="Τουβαλού"
             english_name="Tuvalu"
@@ -1151,7 +1151,7 @@
             name="Άγιος Βικέντιος και Γρεναδίνες"
             english_name="Saint Vincent &amp; The Grenadines"
             name_code="vc"
-            phone_code="1-784" />
+            phone_code="1" />
         <country
             name="Βολιβαριανή ∆ηµοκρατία της Βενεζουέλας"
             english_name="Venezuela, Bolivarian Republic Of"
@@ -1161,12 +1161,12 @@
             name="Βρετανικές Παρθένοι Νήσοι"
             english_name="British Virgin Islands"
             name_code="vg"
-            phone_code="1-284" />
+            phone_code="1" />
         <country
             name="Αμερικανικές Παρθένοι Νήσοι"
             english_name="US Virgin Islands"
             name_code="vi"
-            phone_code="1-340" />
+            phone_code="1" />
         <country
             name="Βιετνάμ"
             english_name="Vietnam"
