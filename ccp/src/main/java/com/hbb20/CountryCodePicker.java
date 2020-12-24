@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import io.michaelrocks.libphonenumber.android.BuildConfig;
 import io.michaelrocks.libphonenumber.android.NumberParseException;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import io.michaelrocks.libphonenumber.android.Phonenumber;
@@ -130,6 +131,7 @@ public class CountryCodePicker extends RelativeLayout {
     private int fastScrollerHandleColor = 0;
     private int dialogBackgroundResId, dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
     private int fastScrollerBubbleTextAppearance = 0;
+    private float dialogCornerRadius;
     private CCPCountryGroup currentCountryGroup;
     private View.OnClickListener customClickListener;
     View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
@@ -450,6 +452,7 @@ public class CountryCodePicker extends RelativeLayout {
             setDialogBackground(a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_background, 0));
             setDialogTextColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_textColor, 0));
             setDialogSearchEditTextTintColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_searchEditTextTint, 0));
+            setDialogCornerRaius(a.getDimension(R.styleable.CountryCodePicker_ccpDialog_cornerRadius, 0));
 
             //text size
             int textSize = a.getDimensionPixelSize(R.styleable.CountryCodePicker_ccp_textSize, 0);
@@ -1237,6 +1240,14 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setDialogSearchEditTextTintColor(int dialogSearchEditTextTintColor) {
         this.dialogSearchEditTextTintColor = dialogSearchEditTextTintColor;
+    }
+
+    public float getDialogCornerRadius() {
+        return dialogCornerRadius;
+    }
+
+    public void setDialogCornerRaius(float dialogCornerRadius) {
+        this.dialogCornerRadius = dialogCornerRadius;
     }
 
     int getDialogTextColor() {
@@ -2416,6 +2427,16 @@ public class CountryCodePicker extends RelativeLayout {
         private String code;
         private String country;
         private String script;
+
+        public static Language forCountryNameCode(String code) {
+            Language lang = Language.ENGLISH;
+            for (Language language : Language.values()) {
+                if (language.code.equals(code)) {
+                    lang = language;
+                }
+            }
+            return lang;
+        }
 
         Language(String code, String country, String script) {
             this.code = code;

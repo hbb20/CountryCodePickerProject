@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "in.hbb20.countrycodepickerproject"
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 7
-        versionName "2.2.3"
+        versionName "2.2.4"
     }
     buildTypes {
         release {
@@ -30,8 +30,8 @@ dependencies {
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 	debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-alpha-2'
 	implementation project(':ccp')
-	implementation 'androidx.appcompat:appcompat:1.0.2'
+	implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 	implementation 'androidx.cardview:cardview:1.0.0'
-	testImplementation 'junit:junit:4.12'
+	testImplementation 'junit:junit:4.13.1'
 }

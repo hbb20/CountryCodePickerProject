@@ -33,14 +33,14 @@ class IntroductionFragment: Fragment() {
 		setClickListener()
 	}
 
-	private fun setClickListener() {
-		buttonGo.setOnClickListener { (activity as ExampleActivity).viewPager.currentItem = 1 }
-	}
-
 	private fun assignViews() {
 		buttonGo = view!!.findViewById(R.id.button_letsGo)
 		etPhone = view!!.findViewById(R.id.et_phone)
 		countryCodePicker = view!!.findViewById(R.id.ccp)
 		countryCodePicker.registerCarrierNumberEditText(etPhone)
+	}
+
+	private fun setClickListener() {
+		buttonGo.setOnClickListener { (activity as ExampleActivity).viewPager.currentItem = 1 }
 	}
 }

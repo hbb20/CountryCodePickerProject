@@ -96,7 +96,7 @@
             name="Barbados"
             english_name="Barbados"
             name_code="bb"
-            phone_code="1" />
+            phone_code="1"/>
         <country
             name="Bangladesh"
             english_name="Bangladesh"
@@ -141,7 +141,7 @@
             name="Islas Bermudas"
             english_name="Bermuda"
             name_code="bm"
-            phone_code="1" />
+            phone_code="1"/>
         <country
             name="Brunei Darussalam"
             english_name="Brunei Darussalam"

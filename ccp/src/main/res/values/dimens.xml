@@ -2,4 +2,12 @@
 <resources>
     <dimen name="google_1x">8dp</dimen>
     <dimen name="ccp_padding">8dp</dimen>
+    <dimen name="fastscroll__bubble_corner">20dp</dimen>
+    <dimen name="fastscroll__bubble_size">50dp</dimen>
+    <dimen name="fastscroll__handle_corner">3dp</dimen>
+    <dimen name="fastscroll__handle_height">30dp</dimen>
+    <dimen name="fastscroll__handle_width">6dp</dimen>
+    <dimen name="fastscroll__handle_inset">9dp</dimen>
+    <dimen name="fastscroll__handle_clickable_width">24dp</dimen>
+    <dimen name="fastscroll__handle_padding">2dp</dimen>
 </resources>

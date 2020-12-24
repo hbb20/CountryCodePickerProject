@@ -249,7 +249,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
      *
      * @param context
      * @param customMasterCountriesList
-     * @param nameCode                  country name code. i.e US or us or Au. See countries.xml for all code names.  @return Country that has phone code as @param code.
+     * @param nameCode                  country name code. i.e US or us or Au. See countries.xml for all code names.
+     * @return Country that has country name code as @param code.
      */
     static CCPCountry getCountryForNameCodeFromCustomMasterList(Context context, List<CCPCountry> customMasterCountriesList, CountryCodePicker.Language language, String nameCode) {
         if (customMasterCountriesList == null || customMasterCountriesList.size() == 0) {
@@ -269,7 +270,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
      *
      * @param context
      * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
-     * @return Country that has phone code as @param code.
+     * @return Country that has country name code as @param code.
      * or returns null if no country matches given code.
      */
     public static CCPCountry getCountryForNameCodeFromLibraryMasterList(Context context, CountryCodePicker.Language language, String nameCode) {
@@ -288,7 +289,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
      * This searches through local english name list. This should be used only for the preview purpose.
      *
      * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
-     * @return Country that has phone code as @param code.
+     * @return Country that has country name code as @param code.
      * or returns null if no country matches given code.
      */
     static CCPCountry getCountryForNameCodeFromEnglishList(String nameCode) {
