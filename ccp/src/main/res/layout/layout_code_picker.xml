@@ -11,7 +11,9 @@
         android:id="@+id/rlClickConsumer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/ccp_padding">
+        android:foreground="?android:attr/selectableItemBackground"
+        android:padding="@dimen/ccp_padding"
+        >
 
         <LinearLayout
             android:id="@+id/linear_flag_holder"
@@ -20,13 +22,15 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="@dimen/google_1x"
-            android:layout_marginRight="@dimen/google_1x">
+            android:layout_marginRight="@dimen/google_1x"
+            >
 
             <LinearLayout
                 android:id="@+id/linear_flag_border"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent">
+                android:background="@android:color/transparent"
+                >
 
                 <ImageView
                     android:id="@+id/image_flag"
@@ -50,7 +54,8 @@
             android:singleLine="true"
             android:text="(IN) +91"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            />
 
         <ImageView
             android:id="@+id/imageView_arrow"
@@ -61,8 +66,8 @@
             android:layout_toRightOf="@+id/textView_selectedCountry"
             android:adjustViewBounds="true"
             android:alpha="0.6"
-            app:tint="@android:color/black"
             app:srcCompat="@drawable/ccp_ic_arrow_drop_down"
+            app:tint="@android:color/black"
             />
     </RelativeLayout>
 </RelativeLayout>

@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Next Release]
+
+## 2.4.4 - 2020-12-24
+- Add static helper method to Language enum to create Language for country name code
+- Fix block comments
+- Update gradle versions, SDK versions
+- Dialog rounded corner support (PR #453 by [Sergio C](https://github.com/SerggioC))
+- Put ripple effect for picker view and selection row
+
 ## 2.4.2 - 2020-11-26
 - Added content description for Dialog Buttons ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/452)) by [Matthew Nogas](https://github.com/m-nogas)
 
