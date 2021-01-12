@@ -51,6 +51,7 @@ public class CountryCodePicker extends RelativeLayout {
     static int LIB_DEFAULT_COUNTRY_CODE = 91;
     private static int TEXT_GRAVITY_LEFT = -1, TEXT_GRAVITY_RIGHT = 1, TEXT_GRAVITY_CENTER = 0;
     private static String ANDROID_NAME_SPACE = "http://schemas.android.com/apk/res/android";
+    private CCPTalkBackTextProvider talkBackTextProvider = new InternalTalkBackTextProvider();
     String CCP_PREF_FILE = "CCP_PREF_FILE";
     int defaultCountryCode;
     String defaultCountryNameCode;
@@ -71,7 +72,6 @@ public class CountryCodePicker extends RelativeLayout {
     TextGravity currentTextGravity;
     String originalHint = "";
     int ccpPadding;
-
     // see attr.xml to see corresponding values for pref
     AutoDetectionPref selectedAutoDetectionPref = AutoDetectionPref.SIM_NETWORK_LOCALE;
     PhoneNumberUtil phoneUtil;
@@ -779,6 +779,9 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     void setSelectedCountry(CCPCountry selectedCCPCountry) {
+        if (talkBackTextProvider != null && talkBackTextProvider.getTalkBackTextForCountry(selectedCCPCountry) != null) {
+            textView_selectedCountry.setContentDescription(talkBackTextProvider.getTalkBackTextForCountry(selectedCCPCountry));
+        }
 
         //force disable area code country detection
         countryDetectionBasedOnAreaAllowed = false;
@@ -1731,7 +1734,7 @@ public class CountryCodePicker extends RelativeLayout {
      * For example for georgia it returns R.drawable.flag_georgia
      */
     @DrawableRes
-    public int getSelectedCountryFlagResourceId(){
+    public int getSelectedCountryFlagResourceId() {
         return getSelectedCountry().flagResID;
     }
 
@@ -2351,6 +2354,11 @@ public class CountryCodePicker extends RelativeLayout {
         return ccpDialogInitialScrollToSelection;
     }
 
+    public void setTalkBackTextProvider(CCPTalkBackTextProvider talkBackTextProvider) {
+        this.talkBackTextProvider = talkBackTextProvider;
+        setSelectedCountry(selectedCCPCountry);
+    }
+
     /**
      * This will decide initial scroll position of countries list in dialog.
      *
@@ -2428,16 +2436,6 @@ public class CountryCodePicker extends RelativeLayout {
         private String country;
         private String script;
 
-        public static Language forCountryNameCode(String code) {
-            Language lang = Language.ENGLISH;
-            for (Language language : Language.values()) {
-                if (language.code.equals(code)) {
-                    lang = language;
-                }
-            }
-            return lang;
-        }
-
         Language(String code, String country, String script) {
             this.code = code;
             this.country = country;
@@ -2446,6 +2444,16 @@ public class CountryCodePicker extends RelativeLayout {
 
         Language(String code) {
             this.code = code;
+        }
+
+        public static Language forCountryNameCode(String code) {
+            Language lang = Language.ENGLISH;
+            for (Language language : Language.values()) {
+                if (language.code.equals(code)) {
+                    lang = language;
+                }
+            }
+            return lang;
         }
 
         public String getCode() {

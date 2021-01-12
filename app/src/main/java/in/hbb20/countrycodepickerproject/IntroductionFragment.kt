@@ -28,9 +28,9 @@ class IntroductionFragment: Fragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-
 		assignViews()
 		setClickListener()
+		setCustomTalkBackProvider()
 	}
 
 	private fun assignViews() {
@@ -42,5 +42,9 @@ class IntroductionFragment: Fragment() {
 
 	private fun setClickListener() {
 		buttonGo.setOnClickListener { (activity as ExampleActivity).viewPager.currentItem = 1 }
+	}
+
+	private fun setCustomTalkBackProvider() {
+		countryCodePicker.setTalkBackTextProvider(CCPCustomTalkBackProvider())
 	}
 }
