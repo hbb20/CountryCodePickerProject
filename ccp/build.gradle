@@ -52,7 +52,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'io.michaelrocks:libphonenumber-android:8.12.13'
+    implementation 'io.michaelrocks:libphonenumber-android:8.12.17'
     implementation "androidx.cardview:cardview:1.0.0"
 }
 
