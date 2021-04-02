@@ -28,11 +28,12 @@ Add this to your gradle file and sync. See [CHANGELOG](https://github.com/hbb20/
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.4.7'
+            implementation 'com.hbb20:ccp:2.5.0'
           }
    ````
   * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0. or above*
   * Version 2.3.1 and above uses AndroidX
+  * Version 2.5.0 and above hosted on MavenCentral
 
 Features
 --------
