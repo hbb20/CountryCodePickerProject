@@ -1064,7 +1064,10 @@ public class CountryCodePicker extends RelativeLayout {
     private void setCustomDefaultLanguage(Language customDefaultLanguage) {
         this.customDefaultLanguage = customDefaultLanguage;
         updateLanguageToApply();
-        setSelectedCountry(CCPCountry.getCountryForNameCodeFromLibraryMasterList(context, getLanguageToApply(), selectedCCPCountry.getNameCode()));
+        CCPCountry country = CCPCountry.getCountryForNameCodeFromLibraryMasterList(context, getLanguageToApply(), selectedCCPCountry.getNameCode());
+        if (country != null) {
+            setSelectedCountry(country);
+        }
     }
 
     private View getHolderView() {
