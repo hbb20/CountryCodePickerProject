@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Next Release]
 - null check for issue #475
-- respect custom master list when setting auto detected country
+- respect custom master list when setting auto detected country #454
 
 ## 2.5.0 - 2021-2-24
 - Published to MavenCentral
