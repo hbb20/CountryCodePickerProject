@@ -2249,7 +2249,7 @@ public class CountryCodePicker extends RelativeLayout {
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             String simCountryISO = telephonyManager.getSimCountryIso();
-            if (simCountryISO == null || simCountryISO.isEmpty()) {
+            if (simCountryISO == null || simCountryISO.isEmpty() || !isNameCodeInCustomMasterList(simCountryISO)) {
                 if (loadDefaultWhenFails) {
                     resetToDefaultCountry();
                 }
@@ -2266,6 +2266,16 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
+    private boolean isNameCodeInCustomMasterList(String nameCode) {
+        List<CCPCountry> allowedList = CCPCountry.getCustomMasterCountryList(context, this);
+        for (CCPCountry country : allowedList) {
+            if (country.nameCode.equalsIgnoreCase(nameCode)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * This will detect country from NETWORK info and then load it into CCP.
      *
@@ -2277,7 +2287,7 @@ public class CountryCodePicker extends RelativeLayout {
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             String networkCountryISO = telephonyManager.getNetworkCountryIso();
-            if (networkCountryISO == null || networkCountryISO.isEmpty()) {
+            if (networkCountryISO == null || networkCountryISO.isEmpty() || !isNameCodeInCustomMasterList(networkCountryISO)) {
                 if (loadDefaultWhenFails) {
                     resetToDefaultCountry();
                 }
@@ -2304,7 +2314,7 @@ public class CountryCodePicker extends RelativeLayout {
     public boolean detectLocaleCountry(boolean loadDefaultWhenFails) {
         try {
             String localeCountryISO = context.getResources().getConfiguration().locale.getCountry();
-            if (localeCountryISO == null || localeCountryISO.isEmpty()) {
+            if (localeCountryISO == null || localeCountryISO.isEmpty() || !isNameCodeInCustomMasterList(localeCountryISO)) {
                 if (loadDefaultWhenFails) {
                     resetToDefaultCountry();
                 }
