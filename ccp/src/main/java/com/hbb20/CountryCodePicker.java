@@ -2439,6 +2439,7 @@ public class CountryCodePicker extends RelativeLayout {
         SPANISH("es"),
         SWEDISH("sv"),
         TAGALOG("tl"),
+        THAI("th"),
         TURKISH("tr"),
         UKRAINIAN("uk"),
         URDU("ur"),
