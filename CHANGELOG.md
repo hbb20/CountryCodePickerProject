@@ -5,6 +5,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Next Release]
+
+## 2.5.2 - 2021-4-16
+- actual null check for issue #475
+
+## 2.5.1 - 2021-4-10
+- null check for issue #475
+- respect custom master list when setting auto detected country #454
+- update gradle plug-in
+- Thai language support #474
+
+## 2.5.0 - 2021-2-24
+- Published to MavenCentral
+- Removed dependencies from jCenter
+- Bye Bye jCenter. You were awesome :)
+
+## 2.4.7 - 2021-2-22
+- Compressed images
+
+## 2.4.6 - 2021-2-1
+- Update phonelib version
+
+## 2.4.5 - 2021-1-11
+- Add better talkBack response for widget
+- Add functionality to provide custom talkBackTextProvider
+
+## 2.4.4 - 2020-12-24
+- Add static helper method to Language enum to create Language for country name code
+- Fix block comments
+- Update gradle versions, SDK versions
+- Dialog rounded corner support (PR #453 by [Sergio C](https://github.com/SerggioC))
+- Put ripple effect for picker view and selection row
+
 ## 2.4.2 - 2020-11-26
 - Added content description for Dialog Buttons ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/452)) by [Matthew Nogas](https://github.com/m-nogas)
 
