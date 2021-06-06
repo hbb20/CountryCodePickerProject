@@ -1638,7 +1638,9 @@ public class CountryCodePicker extends RelativeLayout {
      * if default country is JP +81(Japan) returns: "Japan"
      */
     public String getDefaultCountryName() {
-        return getDefaultCountry().name;
+        CCPCountry dc = getDefaultCountry();
+        if (dc == null) return "";
+        return dc.name;
     }
 
     /**
@@ -1649,7 +1651,9 @@ public class CountryCodePicker extends RelativeLayout {
      * if default country is JP +81(Japan) returns: "JP"
      */
     public String getDefaultCountryNameCode() {
-        return getDefaultCountry().nameCode.toUpperCase();
+        CCPCountry dc = getDefaultCountry();
+        if (dc == null) return "";
+        return dc.nameCode.toUpperCase();
     }
 
     /**
