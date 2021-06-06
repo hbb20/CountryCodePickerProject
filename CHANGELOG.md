@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Next Release]
 
+## 2.5.3 - 2021-6-6
+- crash fix #475
+- Deps update
+
 ## 2.5.2 - 2021-4-16
 - actual null check for issue #475
 
