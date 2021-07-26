@@ -20,6 +20,8 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -86,13 +88,6 @@ class CountryCodeDialog {
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
         dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(context, android.R.color.transparent));
 
-        //keyboard
-        if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
-            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-        } else {
-            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        }
-
 
         //dialog views
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
@@ -104,6 +99,14 @@ class CountryCodeDialog {
         CardView dialogRoot = (CardView) dialog.findViewById(R.id.cardViewRoot);
         ImageView imgDismiss = (ImageView) dialog.findViewById(R.id.img_dismiss);
 
+        //keyboard
+        if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
+            new WindowInsetsControllerCompat(dialog.getWindow(), editText_search)
+                    .show(WindowInsetsCompat.Type.ime());
+            editText_search.requestFocus();
+        } else {
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        }
         // type faces
         //set type faces
         try {

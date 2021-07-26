@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Next Release]
 
+## 2.5.4 - 2021-7-26
+- New (and working) way for opening keyboard
+- Update deps versions
+
 ## 2.5.3 - 2021-6-6
 - crash fix #475
 - Deps update
