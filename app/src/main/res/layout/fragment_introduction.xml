@@ -49,7 +49,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="#e5e5e5"
+                    android:background="?attr/colorSurface"
                     android:padding="8dp">
 
                     <LinearLayout
@@ -88,7 +88,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="#e5e5e5"
+                    android:background="?attr/colorSurface"
                     android:padding="8dp">
 
                     <LinearLayout
