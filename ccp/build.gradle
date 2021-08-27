@@ -28,4 +28,5 @@ dependencies {
     implementation 'androidx.core:core:1.6.0'
     implementation 'io.michaelrocks:libphonenumber-android:8.12.28'
     implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'com.google.android.material:material:1.4.0'
 }

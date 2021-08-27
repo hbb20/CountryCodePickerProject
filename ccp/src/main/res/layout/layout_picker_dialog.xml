@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardViewRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -24,8 +25,7 @@
                 android:layout_toStartOf="@+id/img_dismiss"
                 android:layout_toLeftOf="@+id/img_dismiss"
                 android:text="@string/select_country"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/secondary_text_light" />
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <ImageView
                 android:id="@+id/img_dismiss"
@@ -39,7 +39,8 @@
                 android:contentDescription="@string/dismiss_button_content_description"
                 android:focusable="true"
                 android:padding="4dp"
-                app:srcCompat="@drawable/ic_clear_black_24dp" />
+                app:srcCompat="@drawable/ic_clear_black_24dp"
+                app:tint="?attr/colorOnSurface" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -58,7 +59,7 @@
                 android:imeOptions="actionSearch"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:textColor="@android:color/primary_text_light_nodisable" />
+                android:textColor="?attr/colorOnSurface" />
 
             <ImageView
                 android:id="@+id/img_clear_query"
@@ -72,6 +73,7 @@
                 android:contentDescription="@string/clear_search_button_content_description"
                 android:focusable="true"
                 android:padding="10dp"
+                app:tint="?attr/colorOnSurface"
                 app:srcCompat="@drawable/ic_backspace_black_24dp" />
         </RelativeLayout>
 
@@ -80,6 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/rl_query_holder"
+            tools:listitem="@layout/layout_recycler_country_tile"
             android:dividerHeight="2dp" />
 
         <com.futuremind.recyclerviewfastscroll.FastScroller
@@ -92,7 +95,7 @@
             android:layout_alignBottom="@+id/recycler_countryDialog"
             android:orientation="vertical" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView_noresult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,7 +103,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:text="@string/no_result_found"
-            android:textColor="@android:color/primary_text_light"
             android:visibility="gone" />
 
     </RelativeLayout>
