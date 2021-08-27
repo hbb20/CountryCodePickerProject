@@ -29,6 +29,8 @@ import android.widget.Toast;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
 
+import com.google.android.material.color.MaterialColors;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -430,7 +432,7 @@ public class CountryCodePicker extends RelativeLayout {
             if (isInEditMode()) {
                 contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, DEFAULT_UNSET);
             } else {
-                contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, context.getResources().getColor(R.color.defaultContentColor));
+                contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnSurface));
             }
             if (contentColor != DEFAULT_UNSET) {
                 setContentColor(contentColor);

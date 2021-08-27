@@ -56,7 +56,7 @@
             android:layout_toRightOf="@+id/linear_flag_holder"
             android:gravity="center"
             android:text="(IN) +91"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="18sp"
             />
 
@@ -70,7 +70,7 @@
             android:adjustViewBounds="true"
             android:alpha="0.6"
             app:srcCompat="@drawable/ccp_ic_arrow_drop_down"
-            app:tint="@android:color/black"
+            app:tint="?attr/colorOnSurface"
             />
     </RelativeLayout>
 </RelativeLayout>
