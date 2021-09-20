@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
@@ -75,6 +76,7 @@ public class CountryCodePicker extends RelativeLayout {
     // see attr.xml to see corresponding values for pref
     AutoDetectionPref selectedAutoDetectionPref = AutoDetectionPref.SIM_NETWORK_LOCALE;
     PhoneNumberUtil phoneUtil;
+    boolean rippleEnable = true;
     boolean showNameCode = true;
     boolean showPhoneCode = true;
     boolean ccpDialogShowPhoneCode = true;
@@ -83,6 +85,7 @@ public class CountryCodePicker extends RelativeLayout {
     boolean showFastScroller = true;
     boolean ccpDialogShowTitle = true;
     boolean ccpDialogShowFlag = true;
+    boolean ccpDialogRippleEnable = true;
     boolean searchAllowed = true;
     boolean showArrow = true;
     boolean showCloseIcon = false;
@@ -264,6 +267,9 @@ public class CountryCodePicker extends RelativeLayout {
             //ccpDialog initial scroll to selection
             ccpDialogInitialScrollToSelection = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_initialScrollToSelection, false);
 
+            //ripple enable on dialog
+            ccpDialogRippleEnable = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_rippleEnable, true);
+
             //show full name
             showFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
 
@@ -321,6 +327,10 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show close icon
             showCloseIcon = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showCloseIcon, false);
+
+            //ripple enable
+            rippleEnable = a.getBoolean(R.styleable.CountryCodePicker_ccp_rippleEnable, true);
+            refreshEnableRipple();
 
             //show flag
             showFlag(a.getBoolean(R.styleable.CountryCodePicker_ccp_showFlag, true));
@@ -494,6 +504,17 @@ public class CountryCodePicker extends RelativeLayout {
         }
     }
 
+    private void refreshEnableRipple() {
+        if (rippleEnable) {
+            TypedValue outValue = new TypedValue();
+            getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
+            if(outValue.resourceId!=0)
+                relativeClickConsumer.setBackgroundResource(outValue.resourceId);
+            else
+                relativeClickConsumer.setBackgroundResource(outValue.data);
+        }
+    }
+
     /**
      * this will read last selected country name code from the shared pref.
      * if that name code is not null, load that country in the CCP
@@ -592,6 +613,22 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setCcpDialogShowFlag(boolean ccpDialogShowFlag) {
         this.ccpDialogShowFlag = ccpDialogShowFlag;
+    }
+
+    /**
+     * To show/hide ripple from country selection dialog
+     */
+    public boolean getCcpDialogRippleEnable() {
+        return this.ccpDialogRippleEnable;
+    }
+
+    /**
+     * To show/hide ripple from country selection dialog
+     *
+     * @param ccpDialogRippleEnable
+     */
+    public void setCcpDialogRippleEnable(boolean ccpDialogRippleEnable) {
+        this.ccpDialogRippleEnable = ccpDialogRippleEnable;
     }
 
     boolean isShowPhoneCode() {
