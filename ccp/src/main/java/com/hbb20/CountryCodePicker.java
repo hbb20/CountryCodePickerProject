@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
@@ -755,6 +756,10 @@ public class CountryCodePicker extends RelativeLayout {
     private void setDefaultCountry(CCPCountry defaultCCPCountry) {
         this.defaultCCPCountry = defaultCCPCountry;
         //        Log.d(TAG, "Setting default country:" + defaultCountry.logString());
+    }
+
+    public void setImageView_arrowDrawable(Drawable drawable) {
+        this.imageViewArrow.setImageDrawable(drawable);
     }
 
     public TextView getTextView_selectedCountry() {
