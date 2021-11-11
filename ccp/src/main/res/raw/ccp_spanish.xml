@@ -2,8 +2,8 @@
 <data>
     <messages>
         <ccp_dialog_title translation="Seleccionar país" />
-        <ccp_dialog_search_hint_message translation="buscar ..." />
-        <ccp_dialog_no_result_ack_message translation="como resultado que no se encuentra" />
+        <ccp_dialog_search_hint_message translation="Buscar..." />
+        <ccp_dialog_no_result_ack_message translation="Ningún resultado encontrado" />
     </messages>
 
     <countries>
@@ -143,12 +143,12 @@
             name_code="bm"
             phone_code="1"/>
         <country
-            name="Brunei Darussalam"
+            name="Brunéi"
             english_name="Brunei Darussalam"
             name_code="bn"
             phone_code="673" />
         <country
-            name="Bolivia, Estado Plurinacional de"
+            name="Bolivia"
             english_name="Bolivia, Plurinational State Of"
             name_code="bo"
             phone_code="591" />
@@ -173,7 +173,7 @@
             name_code="bw"
             phone_code="267" />
         <country
-            name="Belarús"
+            name="Bielorrusia"
             english_name="Belarus"
             name_code="by"
             phone_code="375" />
@@ -188,7 +188,7 @@
             name_code="ca"
             phone_code="1" />
         <country
-            name="Cocos (Keeling)"
+            name="Islas Cocos (Keeling)"
             english_name="Cocos (keeling) Islands"
             name_code="cc"
             phone_code="61" />
@@ -388,7 +388,7 @@
             name_code="ge"
             phone_code="995" />
         <country
-            name="Guayana francés"
+            name="Guayana Francesa"
             english_name="French Guyana"
             name_code="gf"
             phone_code="594" />
@@ -408,7 +408,7 @@
             name_code="gi"
             phone_code="350" />
         <country
-            name="Tierra Verde"
+            name="Groenlandia"
             english_name="Greenland"
             name_code="gl"
             phone_code="299" />
@@ -523,7 +523,7 @@
             name_code="iq"
             phone_code="964" />
         <country
-            name="Irán (República Islámica de"
+            name="Irán, República Islámica De"
             english_name="Iran, Islamic Republic Of"
             name_code="ir"
             phone_code="98" />
@@ -543,7 +543,7 @@
             name_code="jm"
             phone_code="1" />
         <country
-            name="Jordán"
+            name="Jordania"
             english_name="Jordan"
             name_code="jo"
             phone_code="962" />
@@ -583,7 +583,7 @@
             name_code="kn"
             phone_code="1" />
         <country
-            name="Corea del Norte, República Popular Democrática"
+            name="Corea del Norte"
             english_name="North Korea"
             name_code="kp"
             phone_code="850" />
@@ -608,7 +608,7 @@
             name_code="kz"
             phone_code="7" />
         <country
-            name="República Democrática s; Lao y apos"
+            name="Laos"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856" />
@@ -683,7 +683,7 @@
             name_code="me"
             phone_code="382" />
         <country
-            name="San Martín"
+            name="San Martín (Francia)"
             english_name="Saint Martin"
             name_code="mf"
             phone_code="590" />
@@ -698,7 +698,7 @@
             name_code="mh"
             phone_code="692" />
         <country
-            name="Macedonia, Ex-República Yugoslava de"
+            name="Macedonia del Norte"
             english_name="Macedonia (FYROM)"
             name_code="mk"
             phone_code="389" />
@@ -718,7 +718,7 @@
             name_code="mn"
             phone_code="976" />
         <country
-            name="Macau"
+            name="Macao"
             english_name="Macau"
             name_code="mo"
             phone_code="853" />
@@ -883,7 +883,7 @@
             name_code="pm"
             phone_code="508" />
         <country
-            name="Pitcairn Islands"
+            name="Islas Pitcairn"
             english_name="Pitcairn Islands"
             name_code="pn"
             phone_code="870" />
@@ -918,7 +918,7 @@
             name_code="qa"
             phone_code="974" />
         <country
-            name="La Reunión"
+            name="Reunión"
             english_name="Réunion"
             name_code="re"
             phone_code="262" />
@@ -933,7 +933,7 @@
             name_code="rs"
             phone_code="381" />
         <country
-            name="Rusia, Federación"
+            name="Rusia"
             english_name="Russian Federation"
             name_code="ru"
             phone_code="7" />
@@ -973,7 +973,7 @@
             name_code="sg"
             phone_code="65" />
         <country
-            name="Santa Helena, Ascensión y Tristán da Cunha"
+            name="Santa Elena, Ascensión y Tristán de Acuña"
             english_name="Saint Helena, Ascension And Tristan Da Cunha"
             name_code="sh"
             phone_code="290" />
@@ -1028,12 +1028,12 @@
             name_code="sv"
             phone_code="503" />
         <country
-            name="San Martín"
+            name="San Martín (Países Bajos)"
             english_name="Sint Maarten"
             name_code="sx"
             phone_code="1" />
         <country
-            name="Siria, República Árabe"
+            name="Siria"
             english_name="Syrian Arab Republic"
             name_code="sy"
             phone_code="963" />
