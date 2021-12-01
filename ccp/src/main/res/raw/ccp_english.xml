@@ -7,1215 +7,1505 @@
     </messages>
 
     <countries>
-        <country
-            name="Andorra"
-            english_name="Andorra"
-            name_code="ad"
-            phone_code="376" />
-        <country
-            name="United Arab Emirates (UAE)"
-            english_name="United Arab Emirates (UAE)"
-            name_code="ae"
-            phone_code="971" />
-        <country
-            name="Afghanistan"
-            english_name="Afghanistan"
-            name_code="af"
-            phone_code="93" />
-        <country
-            name="Antigua and Barbuda"
-            english_name="Antigua and Barbuda"
-            name_code="ag"
-            phone_code="1" />
-        <country
-            name="Anguilla"
-            english_name="Anguilla"
-            name_code="ai"
-            phone_code="1" />
-        <country
-            name="Albania"
-            english_name="Albania"
-            name_code="al"
-            phone_code="355" />
-        <country
-            name="Armenia"
-            english_name="Armenia"
-            name_code="am"
-            phone_code="374" />
-        <country
-            name="Angola"
-            english_name="Angola"
-            name_code="ao"
-            phone_code="244" />
-        <country
-            name="Antarctica"
-            english_name="Antarctica"
-            name_code="aq"
-            phone_code="672" />
-        <country
-            name="Argentina"
-            english_name="Argentina"
-            name_code="ar"
-            phone_code="54" />
-        <country
-            name="American Samoa"
-            english_name="American Samoa"
-            name_code="as"
-            phone_code="1" />
-        <country
-            name="Austria"
-            english_name="Austria"
-            name_code="at"
-            phone_code="43" />
-        <country
-            name="Australia"
-            english_name="Australia"
-            name_code="au"
-            phone_code="61" />
-        <country
-            name="Aruba"
-            english_name="Aruba"
-            name_code="aw"
-            phone_code="297" />
-        <country
-            name="Åland Islands"
-            english_name="Åland Islands"
-            name_code="ax"
-            phone_code="358" />
-        <country
-            name="Azerbaijan"
-            english_name="Azerbaijan"
-            name_code="az"
-            phone_code="994" />
-        <country
-            name="Bosnia And Herzegovina"
-            english_name="Bosnia And Herzegovina"
-            name_code="ba"
-            phone_code="387" />
-        <country
-            name="Barbados"
-            english_name="Barbados"
-            name_code="bb"
-            phone_code="1"/>
-        <country
-            name="Bangladesh"
-            english_name="Bangladesh"
-            name_code="bd"
-            phone_code="880" />
-        <country
-            name="Belgium"
-            english_name="Belgium"
-            name_code="be"
-            phone_code="32" />
-        <country
-            name="Burkina Faso"
-            english_name="Burkina Faso"
-            name_code="bf"
-            phone_code="226" />
-        <country
-            name="Bulgaria"
-            english_name="Bulgaria"
-            name_code="bg"
-            phone_code="359" />
-        <country
-            name="Bahrain"
-            english_name="Bahrain"
-            name_code="bh"
-            phone_code="973" />
-        <country
-            name="Burundi"
-            english_name="Burundi"
-            name_code="bi"
-            phone_code="257" />
-        <country
-            name="Benin"
-            english_name="Benin"
-            name_code="bj"
-            phone_code="229" />
-        <country
-            name="Saint Barthélemy"
-            english_name="Saint Barthélemy"
-            name_code="bl"
-            phone_code="590" />
-        <country
-            name="Bermuda"
-            english_name="Bermuda"
-            name_code="bm"
-            phone_code="1"/>
-        <country
-            name="Brunei Darussalam"
-            english_name="Brunei Darussalam"
-            name_code="bn"
-            phone_code="673" />
-        <country
-            name="Bolivia, Plurinational State Of"
-            english_name="Bolivia, Plurinational State Of"
-            name_code="bo"
-            phone_code="591" />
-        <country
-            name="Brazil"
-            english_name="Brazil"
-            name_code="br"
-            phone_code="55" />
-        <country
-            name="Bahamas"
-            english_name="Bahamas"
-            name_code="bs"
-            phone_code="1" />
-        <country
-            name="Bhutan"
-            english_name="Bhutan"
-            name_code="bt"
-            phone_code="975" />
-        <country
-            name="Botswana"
-            english_name="Botswana"
-            name_code="bw"
-            phone_code="267" />
-        <country
-            name="Belarus"
-            english_name="Belarus"
-            name_code="by"
-            phone_code="375" />
-        <country
-            name="Belize"
-            english_name="Belize"
-            name_code="bz"
-            phone_code="501" />
-        <country
-            name="Canada"
-            english_name="Canada"
-            name_code="ca"
-            phone_code="1" />
-        <country
-            name="Cocos (keeling) Islands"
-            english_name="Cocos (keeling) Islands"
-            name_code="cc"
-            phone_code="61" />
-        <country
-            name="Congo, The Democratic Republic Of The"
-            english_name="Congo, The Democratic Republic Of The"
-            name_code="cd"
-            phone_code="243" />
-        <country
-            name="Central African Republic"
-            english_name="Central African Republic"
-            name_code="cf"
-            phone_code="236" />
-        <country
-            name="Congo"
-            english_name="Congo"
-            name_code="cg"
-            phone_code="242" />
-        <country
-            name="Switzerland"
-            english_name="Switzerland"
-            name_code="ch"
-            phone_code="41" />
-        <country
-            name="Côte D'ivoire"
-            english_name="Côte D'ivoire"
-            name_code="ci"
-            phone_code="225" />
-        <country
-            name="Cook Islands"
-            english_name="Cook Islands"
-            name_code="ck"
-            phone_code="682" />
-        <country
-            name="Chile"
-            english_name="Chile"
-            name_code="cl"
-            phone_code="56" />
-        <country
-            name="Cameroon"
-            english_name="Cameroon"
-            name_code="cm"
-            phone_code="237" />
-        <country
-            name="China"
-            english_name="China"
-            name_code="cn"
-            phone_code="86" />
-        <country
-            name="Colombia"
-            english_name="Colombia"
-            name_code="co"
-            phone_code="57" />
-        <country
-            name="Costa Rica"
-            english_name="Costa Rica"
-            name_code="cr"
-            phone_code="506" />
-        <country
-            name="Cuba"
-            english_name="Cuba"
-            name_code="cu"
-            phone_code="53" />
-        <country
-            name="Cape Verde"
-            english_name="Cape Verde"
-            name_code="cv"
-            phone_code="238" />
-        <country
-            name="Curaçao"
-            english_name="Curaçao"
-            name_code="cw"
-            phone_code="599" />
-        <country
-            name="Christmas Island"
-            english_name="Christmas Island"
-            name_code="cx"
-            phone_code="61" />
-        <country
-            name="Cyprus"
-            english_name="Cyprus"
-            name_code="cy"
-            phone_code="357" />
-        <country
-            name="Czech Republic"
-            english_name="Czech Republic"
-            name_code="cz"
-            phone_code="420" />
-        <country
-            name="Germany"
-            english_name="Germany"
-            name_code="de"
-            phone_code="49" />
-        <country
-            name="Djibouti"
-            english_name="Djibouti"
-            name_code="dj"
-            phone_code="253" />
-        <country
-            name="Denmark"
-            english_name="Denmark"
-            name_code="dk"
-            phone_code="45" />
-        <country
-            name="Dominica"
-            english_name="Dominica"
-            name_code="dm"
-            phone_code="1" />
-        <country
-            name="Dominican Republic"
-            english_name="Dominican Republic"
-            name_code="do"
-            phone_code="1" />
-        <country
-            name="Algeria"
-            english_name="Algeria"
-            name_code="dz"
-            phone_code="213" />
-        <country
-            name="Ecuador"
-            english_name="Ecuador"
-            name_code="ec"
-            phone_code="593" />
-        <country
-            name="Estonia"
-            english_name="Estonia"
-            name_code="ee"
-            phone_code="372" />
-        <country
-            name="Egypt"
-            english_name="Egypt"
-            name_code="eg"
-            phone_code="20" />
-        <country
-            name="Eritrea"
-            english_name="Eritrea"
-            name_code="er"
-            phone_code="291" />
-        <country
-            name="Spain"
-            english_name="Spain"
-            name_code="es"
-            phone_code="34" />
-        <country
-            name="Ethiopia"
-            english_name="Ethiopia"
-            name_code="et"
-            phone_code="251" />
-        <country
-            name="Finland"
-            english_name="Finland"
-            name_code="fi"
-            phone_code="358" />
-        <country
-            name="Fiji"
-            english_name="Fiji"
-            name_code="fj"
-            phone_code="679" />
-        <country
-            name="Falkland Islands (malvinas)"
-            english_name="Falkland Islands (malvinas)"
-            name_code="fk"
-            phone_code="500" />
-        <country
-            name="Micronesia, Federated States Of"
-            english_name="Micronesia, Federated States Of"
-            name_code="fm"
-            phone_code="691" />
-        <country
-            name="Faroe Islands"
-            english_name="Faroe Islands"
-            name_code="fo"
-            phone_code="298" />
-        <country
-            name="France"
-            english_name="France"
-            name_code="fr"
-            phone_code="33" />
-        <country
-            name="Gabon"
-            english_name="Gabon"
-            name_code="ga"
-            phone_code="241" />
-        <country
-            name="United Kingdom"
-            english_name="United Kingdom"
-            name_code="gb"
-            phone_code="44" />
-        <country
-            name="Grenada"
-            english_name="Grenada"
-            name_code="gd"
-            phone_code="1" />
-        <country
-            name="Georgia"
-            english_name="Georgia"
-            name_code="ge"
-            phone_code="995" />
-        <country
-            name="French Guyana"
-            english_name="French Guyana"
-            name_code="gf"
-            phone_code="594" />
-        <country
-            name="Guernsey"
-            english_name="Guernsey"
-            name_code="gg"
-            phone_code="44" />
-        <country
-            name="Ghana"
-            english_name="Ghana"
-            name_code="gh"
-            phone_code="233" />
-        <country
-            name="Gibraltar"
-            english_name="Gibraltar"
-            name_code="gi"
-            phone_code="350" />
-        <country
-            name="Greenland"
-            english_name="Greenland"
-            name_code="gl"
-            phone_code="299" />
-        <country
-            name="Gambia"
-            english_name="Gambia"
-            name_code="gm"
-            phone_code="220" />
-        <country
-            name="Guinea"
-            english_name="Guinea"
-            name_code="gn"
-            phone_code="224" />
-        <country
-            name="Guadeloupe"
-            english_name="Guadeloupe"
-            name_code="gp"
-            phone_code="590" />
-        <country
-            name="Equatorial Guinea"
-            english_name="Equatorial Guinea"
-            name_code="gq"
-            phone_code="240" />
-        <country
-            name="Greece"
-            english_name="Greece"
-            name_code="gr"
-            phone_code="30" />
-        <country
-            name="Guatemala"
-            english_name="Guatemala"
-            name_code="gt"
-            phone_code="502" />
-        <country
-            name="Guam"
-            english_name="Guam"
-            name_code="gu"
-            phone_code="1" />
-        <country
-            name="Guinea-bissau"
-            english_name="Guinea-bissau"
-            name_code="gw"
-            phone_code="245" />
-        <country
-            name="Guyana"
-            english_name="Guyana"
-            name_code="gy"
-            phone_code="592" />
-        <country
-            name="Hong Kong"
-            english_name="Hong Kong"
-            name_code="hk"
-            phone_code="852" />
-        <country
-            name="Honduras"
-            english_name="Honduras"
-            name_code="hn"
-            phone_code="504" />
-        <country
-            name="Croatia"
-            english_name="Croatia"
-            name_code="hr"
-            phone_code="385" />
-        <country
-            name="Haiti"
-            english_name="Haiti"
-            name_code="ht"
-            phone_code="509" />
-        <country
-            name="Hungary"
-            english_name="Hungary"
-            name_code="hu"
-            phone_code="36" />
-        <country
-            name="Indonesia"
-            english_name="Indonesia"
-            name_code="id"
-            phone_code="62" />
-        <country
-            name="Ireland"
-            english_name="Ireland"
-            name_code="ie"
-            phone_code="353" />
-        <country
-            name="Israel"
-            english_name="Israel"
-            name_code="il"
-            phone_code="972" />
-        <country
-            name="Isle Of Man"
-            english_name="Isle Of Man"
-            name_code="im"
-            phone_code="44" />
-        <country
-            name="Iceland"
-            english_name="Iceland"
-            name_code="is"
-            phone_code="354" />
-        <country
-            name="India"
-            english_name="India"
-            name_code="in"
-            phone_code="91" />
-        <country
-            name="British Indian Ocean Territory"
-            english_name="British Indian Ocean Territory"
-            name_code="io"
-            phone_code="246" />
-        <country
-            name="Iraq"
-            english_name="Iraq"
-            name_code="iq"
-            phone_code="964" />
-        <country
-            name="Iran, Islamic Republic Of"
-            english_name="Iran, Islamic Republic Of"
-            name_code="ir"
-            phone_code="98" />
-        <country
-            name="Italy"
-            english_name="Italy"
-            name_code="it"
-            phone_code="39" />
-        <country
-            name="Jersey"
-            english_name="Jersey"
-            name_code="je"
-            phone_code="44" />
-        <country
-            name="Jamaica"
-            english_name="Jamaica"
-            name_code="jm"
-            phone_code="1" />
-        <country
-            name="Jordan"
-            english_name="Jordan"
-            name_code="jo"
-            phone_code="962" />
-        <country
-            name="Japan"
-            english_name="Japan"
-            name_code="jp"
-            phone_code="81" />
-        <country
-            name="Kenya"
-            english_name="Kenya"
-            name_code="ke"
-            phone_code="254" />
-        <country
-            name="Kyrgyzstan"
-            english_name="Kyrgyzstan"
-            name_code="kg"
-            phone_code="996" />
-        <country
-            name="Cambodia"
-            english_name="Cambodia"
-            name_code="kh"
-            phone_code="855" />
-        <country
-            name="Kiribati"
-            english_name="Kiribati"
-            name_code="ki"
-            phone_code="686" />
-        <country
-            name="Comoros"
-            english_name="Comoros"
-            name_code="km"
-            phone_code="269" />
-        <country
-            name="Saint Kitts and Nevis"
-            english_name="Saint Kitts and Nevis"
-            name_code="kn"
-            phone_code="1" />
-        <country
-            name="North Korea"
-            english_name="North Korea"
-            name_code="kp"
-            phone_code="850" />
-        <country
-            name="South Korea"
-            english_name="South Korea"
-            name_code="kr"
-            phone_code="82" />
-        <country
-            name="Kuwait"
-            english_name="Kuwait"
-            name_code="kw"
-            phone_code="965" />
-        <country
-            name="Cayman Islands"
-            english_name="Cayman Islands"
-            name_code="ky"
-            phone_code="1" />
-        <country
-            name="Kazakhstan"
-            english_name="Kazakhstan"
-            name_code="kz"
-            phone_code="7" />
-        <country
-            name="Lao People's Democratic Republic"
-            english_name="Lao People's Democratic Republic"
-            name_code="la"
-            phone_code="856" />
-        <country
-            name="Lebanon"
-            english_name="Lebanon"
-            name_code="lb"
-            phone_code="961" />
-        <country
-            name="Saint Lucia"
-            english_name="Saint Lucia"
-            name_code="lc"
-            phone_code="1" />
-        <country
-            name="Liechtenstein"
-            english_name="Liechtenstein"
-            name_code="li"
-            phone_code="423" />
-        <country
-            name="Sri Lanka"
-            english_name="Sri Lanka"
-            name_code="lk"
-            phone_code="94" />
-        <country
-            name="Liberia"
-            english_name="Liberia"
-            name_code="lr"
-            phone_code="231" />
-        <country
-            name="Lesotho"
-            english_name="Lesotho"
-            name_code="ls"
-            phone_code="266" />
-        <country
-            name="Lithuania"
-            english_name="Lithuania"
-            name_code="lt"
-            phone_code="370" />
-        <country
-            name="Luxembourg"
-            english_name="Luxembourg"
-            name_code="lu"
-            phone_code="352" />
-        <country
-            name="Latvia"
-            english_name="Latvia"
-            name_code="lv"
-            phone_code="371" />
-        <country
-            name="Libya"
-            english_name="Libya"
-            name_code="ly"
-            phone_code="218" />
-        <country
-            name="Morocco"
-            english_name="Morocco"
-            name_code="ma"
-            phone_code="212" />
-        <country
-            name="Monaco"
-            english_name="Monaco"
-            name_code="mc"
-            phone_code="377" />
-        <country
-            name="Moldova, Republic Of"
-            english_name="Moldova, Republic Of"
-            name_code="md"
-            phone_code="373" />
-        <country
-            name="Montenegro"
-            english_name="Montenegro"
-            name_code="me"
-            phone_code="382" />
-        <country
-            name="Saint Martin"
-            english_name="Saint Martin"
-            name_code="mf"
-            phone_code="590" />
-        <country
-            name="Madagascar"
-            english_name="Madagascar"
-            name_code="mg"
-            phone_code="261" />
-        <country
-            name="Marshall Islands"
-            english_name="Marshall Islands"
-            name_code="mh"
-            phone_code="692" />
-        <country
-            name="Macedonia (FYROM)"
-            english_name="Macedonia (FYROM)"
-            name_code="mk"
-            phone_code="389" />
-        <country
-            name="Mali"
-            english_name="Mali"
-            name_code="ml"
-            phone_code="223" />
-        <country
-            name="Myanmar"
-            english_name="Myanmar"
-            name_code="mm"
-            phone_code="95" />
-        <country
-            name="Mongolia"
-            english_name="Mongolia"
-            name_code="mn"
-            phone_code="976" />
-        <country
-            name="Macau"
-            english_name="Macau"
-            name_code="mo"
-            phone_code="853" />
-        <country
-            name="Northern Mariana Islands"
-            english_name="Northern Mariana Islands"
-            name_code="mp"
-            phone_code="1" />
-        <country
-            name="Martinique"
-            english_name="Martinique"
-            name_code="mq"
-            phone_code="596" />
-        <country
-            name="Mauritania"
-            english_name="Mauritania"
-            name_code="mr"
-            phone_code="222" />
-        <country
-            name="Montserrat"
-            english_name="Montserrat"
-            name_code="ms"
-            phone_code="1" />
-        <country
-            name="Malta"
-            english_name="Malta"
-            name_code="mt"
-            phone_code="356" />
-        <country
-            name="Mauritius"
-            english_name="Mauritius"
-            name_code="mu"
-            phone_code="230" />
-        <country
-            name="Maldives"
-            english_name="Maldives"
-            name_code="mv"
-            phone_code="960" />
-        <country
-            name="Malawi"
-            english_name="Malawi"
-            name_code="mw"
-            phone_code="265" />
-        <country
-            name="Mexico"
-            english_name="Mexico"
-            name_code="mx"
-            phone_code="52" />
-        <country
-            name="Malaysia"
-            english_name="Malaysia"
-            name_code="my"
-            phone_code="60" />
-        <country
-            name="Mozambique"
-            english_name="Mozambique"
-            name_code="mz"
-            phone_code="258" />
-        <country
-            name="Namibia"
-            english_name="Namibia"
-            name_code="na"
-            phone_code="264" />
-        <country
-            name="New Caledonia"
-            english_name="New Caledonia"
-            name_code="nc"
-            phone_code="687" />
-        <country
-            name="Niger"
-            english_name="Niger"
-            name_code="ne"
-            phone_code="227" />
-        <country
-            name="Norfolk Islands"
-            english_name="Norfolk Islands"
-            name_code="nf"
-            phone_code="672" />
-        <country
-            name="Nigeria"
-            english_name="Nigeria"
-            name_code="ng"
-            phone_code="234" />
-        <country
-            name="Nicaragua"
-            english_name="Nicaragua"
-            name_code="ni"
-            phone_code="505" />
-        <country
-            name="Netherlands"
-            english_name="Netherlands"
-            name_code="nl"
-            phone_code="31" />
-        <country
-            name="Norway"
-            english_name="Norway"
-            name_code="no"
-            phone_code="47" />
-        <country
-            name="Nepal"
-            english_name="Nepal"
-            name_code="np"
-            phone_code="977" />
-        <country
-            name="Nauru"
-            english_name="Nauru"
-            name_code="nr"
-            phone_code="674" />
-        <country
-            name="Niue"
-            english_name="Niue"
-            name_code="nu"
-            phone_code="683" />
-        <country
-            name="New Zealand"
-            english_name="New Zealand"
-            name_code="nz"
-            phone_code="64" />
-        <country
-            name="Oman"
-            english_name="Oman"
-            name_code="om"
-            phone_code="968" />
-        <country
-            name="Panama"
-            english_name="Panama"
-            name_code="pa"
-            phone_code="507" />
-        <country
-            name="Peru"
-            english_name="Peru"
-            name_code="pe"
-            phone_code="51" />
-        <country
-            name="French Polynesia"
-            english_name="French Polynesia"
-            name_code="pf"
-            phone_code="689" />
-        <country
-            name="Papua New Guinea"
-            english_name="Papua New Guinea"
-            name_code="pg"
-            phone_code="675" />
-        <country
-            name="Philippines"
-            english_name="Philippines"
-            name_code="ph"
-            phone_code="63" />
-        <country
-            name="Pakistan"
-            english_name="Pakistan"
-            name_code="pk"
-            phone_code="92" />
-        <country
-            name="Poland"
-            english_name="Poland"
-            name_code="pl"
-            phone_code="48" />
-        <country
-            name="Saint Pierre And Miquelon"
-            english_name="Saint Pierre And Miquelon"
-            name_code="pm"
-            phone_code="508" />
-        <country
-            name="Pitcairn Islands"
-            english_name="Pitcairn Islands"
-            name_code="pn"
-            phone_code="870" />
-        <country
-            name="Puerto Rico"
-            english_name="Puerto Rico"
-            name_code="pr"
-            phone_code="1" />
-        <country
-            name="Palestine"
-            english_name="Palestine"
-            name_code="ps"
-            phone_code="970" />
-        <country
-            name="Portugal"
-            english_name="Portugal"
-            name_code="pt"
-            phone_code="351" />
-        <country
-            name="Palau"
-            english_name="Palau"
-            name_code="pw"
-            phone_code="680" />
-        <country
-            name="Paraguay"
-            english_name="Paraguay"
-            name_code="py"
-            phone_code="595" />
-        <country
-            name="Qatar"
-            english_name="Qatar"
-            name_code="qa"
-            phone_code="974" />
-        <country
-            name="Réunion"
-            english_name="Réunion"
-            name_code="re"
-            phone_code="262" />
-        <country
-            name="Romania"
-            english_name="Romania"
-            name_code="ro"
-            phone_code="40" />
-        <country
-            name="Serbia"
-            english_name="Serbia"
-            name_code="rs"
-            phone_code="381" />
-        <country
-            name="Russian Federation"
-            english_name="Russian Federation"
-            name_code="ru"
-            phone_code="7" />
-        <country
-            name="Rwanda"
-            english_name="Rwanda"
-            name_code="rw"
-            phone_code="250" />
-        <country
-            name="Saudi Arabia"
-            english_name="Saudi Arabia"
-            name_code="sa"
-            phone_code="966" />
-        <country
-            name="Solomon Islands"
-            english_name="Solomon Islands"
-            name_code="sb"
-            phone_code="677" />
-        <country
-            name="Seychelles"
-            english_name="Seychelles"
-            name_code="sc"
-            phone_code="248" />
-        <country
-            name="Sudan"
-            english_name="Sudan"
-            name_code="sd"
-            phone_code="249" />
-        <country
-            name="Sweden"
-            english_name="Sweden"
-            name_code="se"
-            phone_code="46" />
-        <country
-            name="Singapore"
-            english_name="Singapore"
-            name_code="sg"
-            phone_code="65" />
-        <country
-            name="Saint Helena, Ascension And Tristan Da Cunha"
-            english_name="Saint Helena, Ascension And Tristan Da Cunha"
-            name_code="sh"
-            phone_code="290" />
-        <country
-            name="Slovenia"
-            english_name="Slovenia"
-            name_code="si"
-            phone_code="386" />
-        <country
-            name="Slovakia"
-            english_name="Slovakia"
-            name_code="sk"
-            phone_code="421" />
-        <country
-            name="Sierra Leone"
-            english_name="Sierra Leone"
-            name_code="sl"
-            phone_code="232" />
-        <country
-            name="San Marino"
-            english_name="San Marino"
-            name_code="sm"
-            phone_code="378" />
-        <country
-            name="Senegal"
-            english_name="Senegal"
-            name_code="sn"
-            phone_code="221" />
-        <country
-            name="Somalia"
-            english_name="Somalia"
-            name_code="so"
-            phone_code="252" />
-        <country
-            name="Suriname"
-            english_name="Suriname"
-            name_code="sr"
-            phone_code="597" />
-        <country
-            name="South Sudan"
-            english_name="South Sudan"
-            name_code="ss"
-            phone_code="211" />
-        <country
-            name="Sao Tome And Principe"
-            english_name="Sao Tome And Principe"
-            name_code="st"
-            phone_code="239" />
-        <country
-            name="El Salvador"
-            english_name="El Salvador"
-            name_code="sv"
-            phone_code="503" />
-        <country
-            name="Sint Maarten"
-            english_name="Sint Maarten"
-            name_code="sx"
-            phone_code="1" />
-        <country
-            name="Syrian Arab Republic"
-            english_name="Syrian Arab Republic"
-            name_code="sy"
-            phone_code="963" />
-        <country
-            name="Swaziland"
-            english_name="Swaziland"
-            name_code="sz"
-            phone_code="268" />
-        <country
-            name="Turks and Caicos Islands"
-            english_name="Turks and Caicos Islands"
-            name_code="tc"
-            phone_code="1" />
-        <country
-            name="Chad"
-            english_name="Chad"
-            name_code="td"
-            phone_code="235" />
-        <country
-            name="Togo"
-            english_name="Togo"
-            name_code="tg"
-            phone_code="228" />
-        <country
-            name="Thailand"
-            english_name="Thailand"
-            name_code="th"
-            phone_code="66" />
-        <country
-            name="Tajikistan"
-            english_name="Tajikistan"
-            name_code="tj"
-            phone_code="992" />
-        <country
-            name="Tokelau"
-            english_name="Tokelau"
-            name_code="tk"
-            phone_code="690" />
-        <country
-            name="Timor-leste"
-            english_name="Timor-leste"
-            name_code="tl"
-            phone_code="670" />
-        <country
-            name="Turkmenistan"
-            english_name="Turkmenistan"
-            name_code="tm"
-            phone_code="993" />
-        <country
-            name="Tunisia"
-            english_name="Tunisia"
-            name_code="tn"
-            phone_code="216" />
-        <country
-            name="Tonga"
-            english_name="Tonga"
-            name_code="to"
-            phone_code="676" />
-        <country
-            name="Turkey"
-            english_name="Turkey"
-            name_code="tr"
-            phone_code="90" />
-        <country
-            name="Trinidad &amp; Tobago"
-            english_name="Trinidad &amp; Tobago"
-            name_code="tt"
-            phone_code="1" />
-        <country
-            name="Tuvalu"
-            english_name="Tuvalu"
-            name_code="tv"
-            phone_code="688" />
-        <country
-            name="Taiwan"
-            english_name="Taiwan"
-            name_code="tw"
-            phone_code="886" />
-        <country
-            name="Tanzania, United Republic Of"
-            english_name="Tanzania, United Republic Of"
-            name_code="tz"
-            phone_code="255" />
-        <country
-            name="Ukraine"
-            english_name="Ukraine"
-            name_code="ua"
-            phone_code="380" />
-        <country
-            name="Uganda"
-            english_name="Uganda"
-            name_code="ug"
-            phone_code="256" />
-        <country
-            name="United States"
-            english_name="United States (USA)"
-            name_code="us"
-            phone_code="1" />
-        <country
-            name="Uruguay"
-            english_name="Uruguay"
-            name_code="uy"
-            phone_code="598" />
-        <country
-            name="Uzbekistan"
-            english_name="Uzbekistan"
-            name_code="uz"
-            phone_code="998" />
-        <country
-            name="Holy See (vatican City State)"
-            english_name="Holy See (vatican City State)"
-            name_code="va"
-            phone_code="379" />
-        <country
-            name="Saint Vincent &amp; The Grenadines"
-            english_name="Saint Vincent &amp; The Grenadines"
-            name_code="vc"
-            phone_code="1" />
-        <country
-            name="Venezuela, Bolivarian Republic Of"
-            english_name="Venezuela, Bolivarian Republic Of"
-            name_code="ve"
-            phone_code="58" />
-        <country
-            name="British Virgin Islands"
-            english_name="British Virgin Islands"
-            name_code="vg"
-            phone_code="1" />
-        <country
-            name="US Virgin Islands"
-            english_name="US Virgin Islands"
-            name_code="vi"
-            phone_code="1" />
-        <country
-            name="Vietnam"
-            english_name="Vietnam"
-            name_code="vn"
-            phone_code="84" />
-        <country
-            name="Vanuatu"
-            english_name="Vanuatu"
-            name_code="vu"
-            phone_code="678" />
-        <country
-            name="Wallis And Futuna"
-            english_name="Wallis And Futuna"
-            name_code="wf"
-            phone_code="681" />
-        <country
-            name="Samoa"
-            english_name="Samoa"
-            name_code="ws"
-            phone_code="685" />
-        <country
-            name="Kosovo"
-            english_name="Kosovo"
-            name_code="xk"
-            phone_code="383" />
-        <country
-            name="Yemen"
-            english_name="Yemen"
-            name_code="ye"
-            phone_code="967" />
-        <country
-            name="Mayotte"
-            english_name="Mayotte"
-            name_code="yt"
-            phone_code="262" />
-        <country
-            name="South Africa"
-            english_name="South Africa"
-            name_code="za"
-            phone_code="27" />
-        <country
-            name="Zambia"
-            english_name="Zambia"
-            name_code="zm"
-            phone_code="260" />
-        <country
-            name="Zimbabwe"
-            english_name="Zimbabwe"
-            name_code="zw"
-            phone_code="263" />
+        <country>
+            <name>Åland Islands</name>
+            <english_name>Åland Islands</english_name>
+            <name_code>ax</name_code>
+            <phone_code>358</phone_code>
+        </country>
+        <country>
+            <name>Afghanistan</name>
+            <english_name>Afghanistan</english_name>
+            <name_code>af</name_code>
+            <phone_code>93</phone_code>
+        </country>
+        <country>
+            <name>Albania</name>
+            <english_name>Albania</english_name>
+            <name_code>al</name_code>
+            <phone_code>355</phone_code>
+        </country>
+        <country>
+            <name>Algeria</name>
+            <english_name>Algeria</english_name>
+            <name_code>dz</name_code>
+            <phone_code>213</phone_code>
+        </country>
+        <country>
+            <name>American Samoa</name>
+            <english_name>American Samoa</english_name>
+            <name_code>as</name_code>
+            <phone_code>1-684</phone_code>
+        </country>
+        <country>
+            <name>Andorra</name>
+            <english_name>Andorra</english_name>
+            <name_code>ad</name_code>
+            <phone_code>376</phone_code>
+        </country>
+        <country>
+            <name>Angola</name>
+            <english_name>Angola</english_name>
+            <name_code>ao</name_code>
+            <phone_code>244</phone_code>
+        </country>
+        <country>
+            <name>Anguilla</name>
+            <english_name>Anguilla</english_name>
+            <name_code>ai</name_code>
+            <phone_code>1-264</phone_code>
+        </country>
+        <country>
+            <name>Antarctica</name>
+            <english_name>Antarctica</english_name>
+            <name_code>aq</name_code>
+            <phone_code>672</phone_code>
+        </country>
+        <country>
+            <name>Antigua and Barbuda</name>
+            <english_name>Antigua and Barbuda</english_name>
+            <name_code>ag</name_code>
+            <phone_code>1-268</phone_code>
+        </country>
+        <country>
+            <name>Argentina</name>
+            <english_name>Argentina</english_name>
+            <name_code>ar</name_code>
+            <phone_code>54</phone_code>
+        </country>
+        <country>
+            <name>Armenia</name>
+            <english_name>Armenia</english_name>
+            <name_code>am</name_code>
+            <phone_code>374</phone_code>
+        </country>
+        <country>
+            <name>Aruba</name>
+            <english_name>Aruba</english_name>
+            <name_code>aw</name_code>
+            <phone_code>297</phone_code>
+        </country>
+        <country>
+            <name>Australia</name>
+            <english_name>Australia</english_name>
+            <name_code>au</name_code>
+            <phone_code>61</phone_code>
+        </country>
+        <country>
+            <name>Austria</name>
+            <english_name>Austria</english_name>
+            <name_code>at</name_code>
+            <phone_code>43</phone_code>
+        </country>
+        <country>
+            <name>Azerbaijan</name>
+            <english_name>Azerbaijan</english_name>
+            <name_code>az</name_code>
+            <phone_code>994</phone_code>
+        </country>
+        <country>
+            <name>Bahamas</name>
+            <english_name>Bahamas</english_name>
+            <name_code>bs</name_code>
+            <phone_code>1-242</phone_code>
+        </country>
+        <country>
+            <name>Bahrain</name>
+            <english_name>Bahrain</english_name>
+            <name_code>bh</name_code>
+            <phone_code>973</phone_code>
+        </country>
+        <country>
+            <name>Bangladesh</name>
+            <english_name>Bangladesh</english_name>
+            <name_code>bd</name_code>
+            <phone_code>880</phone_code>
+        </country>
+        <country>
+            <name>Barbados</name>
+            <english_name>Barbados</english_name>
+            <name_code>bb</name_code>
+            <phone_code>1-246</phone_code>
+        </country>
+        <country>
+            <name>Belarus</name>
+            <english_name>Belarus</english_name>
+            <name_code>by</name_code>
+            <phone_code>375</phone_code>
+        </country>
+        <country>
+            <name>Belgium</name>
+            <english_name>Belgium</english_name>
+            <name_code>be</name_code>
+            <phone_code>32</phone_code>
+        </country>
+        <country>
+            <name>Belize</name>
+            <english_name>Belize</english_name>
+            <name_code>bz</name_code>
+            <phone_code>501</phone_code>
+        </country>
+        <country>
+            <name>Benin</name>
+            <english_name>Benin</english_name>
+            <name_code>bj</name_code>
+            <phone_code>229</phone_code>
+        </country>
+        <country>
+            <name>Bermuda</name>
+            <english_name>Bermuda</english_name>
+            <name_code>bm</name_code>
+            <phone_code>1-441</phone_code>
+        </country>
+        <country>
+            <name>Bhutan</name>
+            <english_name>Bhutan</english_name>
+            <name_code>bt</name_code>
+            <phone_code>975</phone_code>
+        </country>
+        <country>
+            <name>Bolivia (Plurinational State of)</name>
+            <english_name>Bolivia (Plurinational State of)</english_name>
+            <name_code>bo</name_code>
+            <phone_code>591</phone_code>
+        </country>
+        <country>
+            <name>Bonaire, Sint Eustatius and Saba</name>
+            <english_name>Bonaire, Sint Eustatius and Saba</english_name>
+            <name_code>bq</name_code>
+            <phone_code>599</phone_code>
+        </country>
+        <country>
+            <name>Bosnia and Herzegovina</name>
+            <english_name>Bosnia and Herzegovina</english_name>
+            <name_code>ba</name_code>
+            <phone_code>387</phone_code>
+        </country>
+        <country>
+            <name>Botswana</name>
+            <english_name>Botswana</english_name>
+            <name_code>bw</name_code>
+            <phone_code>267</phone_code>
+        </country>
+        <country>
+            <name>Bouvet Island</name>
+            <english_name>Bouvet Island</english_name>
+            <name_code>bv</name_code>
+            <phone_code>47</phone_code>
+        </country>
+        <country>
+            <name>Brazil</name>
+            <english_name>Brazil</english_name>
+            <name_code>br</name_code>
+            <phone_code>55</phone_code>
+        </country>
+        <country>
+            <name>British Indian Ocean Territory</name>
+            <english_name>British Indian Ocean Territory</english_name>
+            <name_code>io</name_code>
+            <phone_code>246</phone_code>
+        </country>
+        <country>
+            <name>British Virgin Islands</name>
+            <english_name>British Virgin Islands</english_name>
+            <name_code>vg</name_code>
+            <phone_code>1-284</phone_code>
+        </country>
+        <country>
+            <name>Brunei Darussalam</name>
+            <english_name>Brunei Darussalam</english_name>
+            <name_code>bn</name_code>
+            <phone_code>673</phone_code>
+        </country>
+        <country>
+            <name>Bulgaria</name>
+            <english_name>Bulgaria</english_name>
+            <name_code>bg</name_code>
+            <phone_code>359</phone_code>
+        </country>
+        <country>
+            <name>Burkina Faso</name>
+            <english_name>Burkina Faso</english_name>
+            <name_code>bf</name_code>
+            <phone_code>226</phone_code>
+        </country>
+        <country>
+            <name>Burundi</name>
+            <english_name>Burundi</english_name>
+            <name_code>bi</name_code>
+            <phone_code>257</phone_code>
+        </country>
+        <country>
+            <name>C&#244;te d'Ivoire</name>
+            <english_name>C&#244;te d'Ivoire</english_name>
+            <name_code>ci</name_code>
+            <phone_code>225</phone_code>
+        </country>
+        <country>
+            <name>Cabo Verde</name>
+            <english_name>Cabo Verde</english_name>
+            <name_code>cv</name_code>
+            <phone_code>238</phone_code>
+        </country>
+        <country>
+            <name>Cambodia</name>
+            <english_name>Cambodia</english_name>
+            <name_code>kh</name_code>
+            <phone_code>855</phone_code>
+        </country>
+        <country>
+            <name>Cameroon</name>
+            <english_name>Cameroon</english_name>
+            <name_code>cm</name_code>
+            <phone_code>237</phone_code>
+        </country>
+        <country>
+            <name>Canada</name>
+            <english_name>Canada</english_name>
+            <name_code>ca</name_code>
+            <phone_code>1</phone_code>
+        </country>
+        <country>
+            <name>Cayman Islands</name>
+            <english_name>Cayman Islands</english_name>
+            <name_code>ky</name_code>
+            <phone_code>1-345</phone_code>
+        </country>
+        <country>
+            <name>Central African Republic</name>
+            <english_name>Central African Republic</english_name>
+            <name_code>cf</name_code>
+            <phone_code>236</phone_code>
+        </country>
+        <country>
+            <name>Chad</name>
+            <english_name>Chad</english_name>
+            <name_code>td</name_code>
+            <phone_code>235</phone_code>
+        </country>
+        <country>
+            <name>Chile</name>
+            <english_name>Chile</english_name>
+            <name_code>cl</name_code>
+            <phone_code>56</phone_code>
+        </country>
+        <country>
+            <name>China</name>
+            <english_name>China</english_name>
+            <name_code>cn</name_code>
+            <phone_code>86</phone_code>
+        </country>
+        <country>
+            <name>China, Hong Kong Special Administrative Region</name>
+            <english_name>China, Hong Kong Special Administrative Region</english_name>
+            <name_code>hk</name_code>
+            <phone_code>852</phone_code>
+        </country>
+        <country>
+            <name>China, Macao Special Administrative Region</name>
+            <english_name>China, Macao Special Administrative Region</english_name>
+            <name_code>mo</name_code>
+            <phone_code>853</phone_code>
+        </country>
+        <country>
+            <name>Christmas Island</name>
+            <english_name>Christmas Island</english_name>
+            <name_code>cx</name_code>
+            <phone_code>61</phone_code>
+        </country>
+        <country>
+            <name>Cocos (Keeling) Islands</name>
+            <english_name>Cocos (Keeling) Islands</english_name>
+            <name_code>cc</name_code>
+            <phone_code>61</phone_code>
+        </country>
+        <country>
+            <name>Colombia</name>
+            <english_name>Colombia</english_name>
+            <name_code>co</name_code>
+            <phone_code>57</phone_code>
+        </country>
+        <country>
+            <name>Comoros</name>
+            <english_name>Comoros</english_name>
+            <name_code>km</name_code>
+            <phone_code>269</phone_code>
+        </country>
+        <country>
+            <name>Congo</name>
+            <english_name>Congo</english_name>
+            <name_code>cg</name_code>
+            <phone_code>242</phone_code>
+        </country>
+        <country>
+            <name>Cook Islands</name>
+            <english_name>Cook Islands</english_name>
+            <name_code>ck</name_code>
+            <phone_code>682</phone_code>
+        </country>
+        <country>
+            <name>Costa Rica</name>
+            <english_name>Costa Rica</english_name>
+            <name_code>cr</name_code>
+            <phone_code>506</phone_code>
+        </country>
+        <country>
+            <name>Croatia</name>
+            <english_name>Croatia</english_name>
+            <name_code>hr</name_code>
+            <phone_code>385</phone_code>
+        </country>
+        <country>
+            <name>Cuba</name>
+            <english_name>Cuba</english_name>
+            <name_code>cu</name_code>
+            <phone_code>53</phone_code>
+        </country>
+        <country>
+            <name>Curaçao</name>
+            <english_name>Curaçao</english_name>
+            <name_code>cw</name_code>
+            <phone_code>599</phone_code>
+        </country>
+        <country>
+            <name>Cyprus</name>
+            <english_name>Cyprus</english_name>
+            <name_code>cy</name_code>
+            <phone_code>357</phone_code>
+        </country>
+        <country>
+            <name>Czechia</name>
+            <english_name>Czechia</english_name>
+            <name_code>cz</name_code>
+            <phone_code>420</phone_code>
+        </country>
+        <country>
+            <name>Democratic People's Republic of Korea</name>
+            <english_name>Democratic People's Republic of Korea</english_name>
+            <name_code>kp</name_code>
+            <phone_code>850</phone_code>
+        </country>
+        <country>
+            <name>Democratic Republic of the Congo</name>
+            <english_name>Democratic Republic of the Congo</english_name>
+            <name_code>cd</name_code>
+            <phone_code>243</phone_code>
+        </country>
+        <country>
+            <name>Denmark</name>
+            <english_name>Denmark</english_name>
+            <name_code>dk</name_code>
+            <phone_code>45</phone_code>
+        </country>
+        <country>
+            <name>Djibouti</name>
+            <english_name>Djibouti</english_name>
+            <name_code>dj</name_code>
+            <phone_code>253</phone_code>
+        </country>
+        <country>
+            <name>Dominica</name>
+            <english_name>Dominica</english_name>
+            <name_code>dm</name_code>
+            <phone_code>1-767</phone_code>
+        </country>
+        <country>
+            <name>Dominican Republic</name>
+            <english_name>Dominican Republic</english_name>
+            <name_code>do</name_code>
+            <phone_code>1-809,1-829,1-849</phone_code>
+        </country>
+        <country>
+            <name>Ecuador</name>
+            <english_name>Ecuador</english_name>
+            <name_code>ec</name_code>
+            <phone_code>593</phone_code>
+        </country>
+        <country>
+            <name>Egypt</name>
+            <english_name>Egypt</english_name>
+            <name_code>eg</name_code>
+            <phone_code>20</phone_code>
+        </country>
+        <country>
+            <name>El Salvador</name>
+            <english_name>El Salvador</english_name>
+            <name_code>sv</name_code>
+            <phone_code>503</phone_code>
+        </country>
+        <country>
+            <name>Equatorial Guinea</name>
+            <english_name>Equatorial Guinea</english_name>
+            <name_code>gq</name_code>
+            <phone_code>240</phone_code>
+        </country>
+        <country>
+            <name>Eritrea</name>
+            <english_name>Eritrea</english_name>
+            <name_code>er</name_code>
+            <phone_code>291</phone_code>
+        </country>
+        <country>
+            <name>Estonia</name>
+            <english_name>Estonia</english_name>
+            <name_code>ee</name_code>
+            <phone_code>372</phone_code>
+        </country>
+        <country>
+            <name>Eswatini</name>
+            <english_name>Eswatini</english_name>
+            <name_code>sz</name_code>
+            <phone_code>268</phone_code>
+        </country>
+        <country>
+            <name>Ethiopia</name>
+            <english_name>Ethiopia</english_name>
+            <name_code>et</name_code>
+            <phone_code>251</phone_code>
+        </country>
+        <country>
+            <name>Falkland Islands (Malvinas)</name>
+            <english_name>Falkland Islands (Malvinas)</english_name>
+            <name_code>fk</name_code>
+            <phone_code>500</phone_code>
+        </country>
+        <country>
+            <name>Faroe Islands</name>
+            <english_name>Faroe Islands</english_name>
+            <name_code>fo</name_code>
+            <phone_code>298</phone_code>
+        </country>
+        <country>
+            <name>Fiji</name>
+            <english_name>Fiji</english_name>
+            <name_code>fj</name_code>
+            <phone_code>679</phone_code>
+        </country>
+        <country>
+            <name>Finland</name>
+            <english_name>Finland</english_name>
+            <name_code>fi</name_code>
+            <phone_code>358</phone_code>
+        </country>
+        <country>
+            <name>France</name>
+            <english_name>France</english_name>
+            <name_code>fr</name_code>
+            <phone_code>33</phone_code>
+        </country>
+        <country>
+            <name>French Guiana</name>
+            <english_name>French Guiana</english_name>
+            <name_code>gf</name_code>
+            <phone_code>594</phone_code>
+        </country>
+        <country>
+            <name>French Polynesia</name>
+            <english_name>French Polynesia</english_name>
+            <name_code>pf</name_code>
+            <phone_code>689</phone_code>
+        </country>
+        <country>
+            <name>French Southern Territories</name>
+            <english_name>French Southern Territories</english_name>
+            <name_code>tf</name_code>
+            <phone_code>262</phone_code>
+        </country>
+        <country>
+            <name>Gabon</name>
+            <english_name>Gabon</english_name>
+            <name_code>ga</name_code>
+            <phone_code>241</phone_code>
+        </country>
+        <country>
+            <name>Gambia</name>
+            <english_name>Gambia</english_name>
+            <name_code>gm</name_code>
+            <phone_code>220</phone_code>
+        </country>
+        <country>
+            <name>Georgia</name>
+            <english_name>Georgia</english_name>
+            <name_code>ge</name_code>
+            <phone_code>995</phone_code>
+        </country>
+        <country>
+            <name>Germany</name>
+            <english_name>Germany</english_name>
+            <name_code>de</name_code>
+            <phone_code>49</phone_code>
+        </country>
+        <country>
+            <name>Ghana</name>
+            <english_name>Ghana</english_name>
+            <name_code>gh</name_code>
+            <phone_code>233</phone_code>
+        </country>
+        <country>
+            <name>Gibraltar</name>
+            <english_name>Gibraltar</english_name>
+            <name_code>gi</name_code>
+            <phone_code>350</phone_code>
+        </country>
+        <country>
+            <name>Greece</name>
+            <english_name>Greece</english_name>
+            <name_code>gr</name_code>
+            <phone_code>30</phone_code>
+        </country>
+        <country>
+            <name>Greenland</name>
+            <english_name>Greenland</english_name>
+            <name_code>gl</name_code>
+            <phone_code>299</phone_code>
+        </country>
+        <country>
+            <name>Grenada</name>
+            <english_name>Grenada</english_name>
+            <name_code>gd</name_code>
+            <phone_code>1-473</phone_code>
+        </country>
+        <country>
+            <name>Guadeloupe</name>
+            <english_name>Guadeloupe</english_name>
+            <name_code>gp</name_code>
+            <phone_code>590</phone_code>
+        </country>
+        <country>
+            <name>Guam</name>
+            <english_name>Guam</english_name>
+            <name_code>gu</name_code>
+            <phone_code>1-671</phone_code>
+        </country>
+        <country>
+            <name>Guatemala</name>
+            <english_name>Guatemala</english_name>
+            <name_code>gt</name_code>
+            <phone_code>502</phone_code>
+        </country>
+        <country>
+            <name>Guernsey</name>
+            <english_name>Guernsey</english_name>
+            <name_code>gg</name_code>
+            <phone_code>44</phone_code>
+        </country>
+        <country>
+            <name>Guinea</name>
+            <english_name>Guinea</english_name>
+            <name_code>gn</name_code>
+            <phone_code>224</phone_code>
+        </country>
+        <country>
+            <name>Guinea-Bissau</name>
+            <english_name>Guinea-Bissau</english_name>
+            <name_code>gw</name_code>
+            <phone_code>245</phone_code>
+        </country>
+        <country>
+            <name>Guyana</name>
+            <english_name>Guyana</english_name>
+            <name_code>gy</name_code>
+            <phone_code>592</phone_code>
+        </country>
+        <country>
+            <name>Haiti</name>
+            <english_name>Haiti</english_name>
+            <name_code>ht</name_code>
+            <phone_code>509</phone_code>
+        </country>
+        <country>
+            <name>Heard Island and McDonald Islands</name>
+            <english_name>Heard Island and McDonald Islands</english_name>
+            <name_code>hm</name_code>
+            <phone_code>672</phone_code>
+        </country>
+        <country>
+            <name>Holy See</name>
+            <english_name>Holy See</english_name>
+            <name_code>va</name_code>
+            <phone_code>39-06</phone_code>
+        </country>
+        <country>
+            <name>Honduras</name>
+            <english_name>Honduras</english_name>
+            <name_code>hn</name_code>
+            <phone_code>504</phone_code>
+        </country>
+        <country>
+            <name>Hungary</name>
+            <english_name>Hungary</english_name>
+            <name_code>hu</name_code>
+            <phone_code>36</phone_code>
+        </country>
+        <country>
+            <name>Iceland</name>
+            <english_name>Iceland</english_name>
+            <name_code>is</name_code>
+            <phone_code>354</phone_code>
+        </country>
+        <country>
+            <name>India</name>
+            <english_name>India</english_name>
+            <name_code>in</name_code>
+            <phone_code>91</phone_code>
+        </country>
+        <country>
+            <name>Indonesia</name>
+            <english_name>Indonesia</english_name>
+            <name_code>id</name_code>
+            <phone_code>62</phone_code>
+        </country>
+        <country>
+            <name>Iran (Islamic Republic of)</name>
+            <english_name>Iran (Islamic Republic of)</english_name>
+            <name_code>ir</name_code>
+            <phone_code>98</phone_code>
+        </country>
+        <country>
+            <name>Iraq</name>
+            <english_name>Iraq</english_name>
+            <name_code>iq</name_code>
+            <phone_code>964</phone_code>
+        </country>
+        <country>
+            <name>Ireland</name>
+            <english_name>Ireland</english_name>
+            <name_code>ie</name_code>
+            <phone_code>353</phone_code>
+        </country>
+        <country>
+            <name>Isle of Man</name>
+            <english_name>Isle of Man</english_name>
+            <name_code>im</name_code>
+            <phone_code>44</phone_code>
+        </country>
+        <country>
+            <name>Israel</name>
+            <english_name>Israel</english_name>
+            <name_code>il</name_code>
+            <phone_code>972</phone_code>
+        </country>
+        <country>
+            <name>Italy</name>
+            <english_name>Italy</english_name>
+            <name_code>it</name_code>
+            <phone_code>39</phone_code>
+        </country>
+        <country>
+            <name>Jamaica</name>
+            <english_name>Jamaica</english_name>
+            <name_code>jm</name_code>
+            <phone_code>1-876</phone_code>
+        </country>
+        <country>
+            <name>Japan</name>
+            <english_name>Japan</english_name>
+            <name_code>jp</name_code>
+            <phone_code>81</phone_code>
+        </country>
+        <country>
+            <name>Jersey</name>
+            <english_name>Jersey</english_name>
+            <name_code>je</name_code>
+            <phone_code>44</phone_code>
+        </country>
+        <country>
+            <name>Jordan</name>
+            <english_name>Jordan</english_name>
+            <name_code>jo</name_code>
+            <phone_code>962</phone_code>
+        </country>
+        <country>
+            <name>Kazakhstan</name>
+            <english_name>Kazakhstan</english_name>
+            <name_code>kz</name_code>
+            <phone_code>7</phone_code>
+        </country>
+        <country>
+            <name>Kenya</name>
+            <english_name>Kenya</english_name>
+            <name_code>ke</name_code>
+            <phone_code>254</phone_code>
+        </country>
+        <country>
+            <name>Kiribati</name>
+            <english_name>Kiribati</english_name>
+            <name_code>ki</name_code>
+            <phone_code>686</phone_code>
+        </country>
+        <country>
+            <name>Kuwait</name>
+            <english_name>Kuwait</english_name>
+            <name_code>kw</name_code>
+            <phone_code>965</phone_code>
+        </country>
+        <country>
+            <name>Kyrgyzstan</name>
+            <english_name>Kyrgyzstan</english_name>
+            <name_code>kg</name_code>
+            <phone_code>996</phone_code>
+        </country>
+        <country>
+            <name>Lao People's Democratic Republic</name>
+            <english_name>Lao People's Democratic Republic</english_name>
+            <name_code>la</name_code>
+            <phone_code>856</phone_code>
+        </country>
+        <country>
+            <name>Latvia</name>
+            <english_name>Latvia</english_name>
+            <name_code>lv</name_code>
+            <phone_code>371</phone_code>
+        </country>
+        <country>
+            <name>Lebanon</name>
+            <english_name>Lebanon</english_name>
+            <name_code>lb</name_code>
+            <phone_code>961</phone_code>
+        </country>
+        <country>
+            <name>Lesotho</name>
+            <english_name>Lesotho</english_name>
+            <name_code>ls</name_code>
+            <phone_code>266</phone_code>
+        </country>
+        <country>
+            <name>Liberia</name>
+            <english_name>Liberia</english_name>
+            <name_code>lr</name_code>
+            <phone_code>231</phone_code>
+        </country>
+        <country>
+            <name>Libya</name>
+            <english_name>Libya</english_name>
+            <name_code>ly</name_code>
+            <phone_code>218</phone_code>
+        </country>
+        <country>
+            <name>Liechtenstein</name>
+            <english_name>Liechtenstein</english_name>
+            <name_code>li</name_code>
+            <phone_code>423</phone_code>
+        </country>
+        <country>
+            <name>Lithuania</name>
+            <english_name>Lithuania</english_name>
+            <name_code>lt</name_code>
+            <phone_code>370</phone_code>
+        </country>
+        <country>
+            <name>Luxembourg</name>
+            <english_name>Luxembourg</english_name>
+            <name_code>lu</name_code>
+            <phone_code>352</phone_code>
+        </country>
+        <country>
+            <name>Madagascar</name>
+            <english_name>Madagascar</english_name>
+            <name_code>mg</name_code>
+            <phone_code>261</phone_code>
+        </country>
+        <country>
+            <name>Malawi</name>
+            <english_name>Malawi</english_name>
+            <name_code>mw</name_code>
+            <phone_code>265</phone_code>
+        </country>
+        <country>
+            <name>Malaysia</name>
+            <english_name>Malaysia</english_name>
+            <name_code>my</name_code>
+            <phone_code>60</phone_code>
+        </country>
+        <country>
+            <name>Maldives</name>
+            <english_name>Maldives</english_name>
+            <name_code>mv</name_code>
+            <phone_code>960</phone_code>
+        </country>
+        <country>
+            <name>Mali</name>
+            <english_name>Mali</english_name>
+            <name_code>ml</name_code>
+            <phone_code>223</phone_code>
+        </country>
+        <country>
+            <name>Malta</name>
+            <english_name>Malta</english_name>
+            <name_code>mt</name_code>
+            <phone_code>356</phone_code>
+        </country>
+        <country>
+            <name>Marshall Islands</name>
+            <english_name>Marshall Islands</english_name>
+            <name_code>mh</name_code>
+            <phone_code>692</phone_code>
+        </country>
+        <country>
+            <name>Martinique</name>
+            <english_name>Martinique</english_name>
+            <name_code>mq</name_code>
+            <phone_code>596</phone_code>
+        </country>
+        <country>
+            <name>Mauritania</name>
+            <english_name>Mauritania</english_name>
+            <name_code>mr</name_code>
+            <phone_code>222</phone_code>
+        </country>
+        <country>
+            <name>Mauritius</name>
+            <english_name>Mauritius</english_name>
+            <name_code>mu</name_code>
+            <phone_code>230</phone_code>
+        </country>
+        <country>
+            <name>Mayotte</name>
+            <english_name>Mayotte</english_name>
+            <name_code>yt</name_code>
+            <phone_code>262</phone_code>
+        </country>
+        <country>
+            <name>Mexico</name>
+            <english_name>Mexico</english_name>
+            <name_code>mx</name_code>
+            <phone_code>52</phone_code>
+        </country>
+        <country>
+            <name>Micronesia (Federated States of)</name>
+            <english_name>Micronesia (Federated States of)</english_name>
+            <name_code>fm</name_code>
+            <phone_code>691</phone_code>
+        </country>
+        <country>
+            <name>Monaco</name>
+            <english_name>Monaco</english_name>
+            <name_code>mc</name_code>
+            <phone_code>377</phone_code>
+        </country>
+        <country>
+            <name>Mongolia</name>
+            <english_name>Mongolia</english_name>
+            <name_code>mn</name_code>
+            <phone_code>976</phone_code>
+        </country>
+        <country>
+            <name>Montenegro</name>
+            <english_name>Montenegro</english_name>
+            <name_code>me</name_code>
+            <phone_code>382</phone_code>
+        </country>
+        <country>
+            <name>Montserrat</name>
+            <english_name>Montserrat</english_name>
+            <name_code>ms</name_code>
+            <phone_code>1-664</phone_code>
+        </country>
+        <country>
+            <name>Morocco</name>
+            <english_name>Morocco</english_name>
+            <name_code>ma</name_code>
+            <phone_code>212</phone_code>
+        </country>
+        <country>
+            <name>Mozambique</name>
+            <english_name>Mozambique</english_name>
+            <name_code>mz</name_code>
+            <phone_code>258</phone_code>
+        </country>
+        <country>
+            <name>Myanmar</name>
+            <english_name>Myanmar</english_name>
+            <name_code>mm</name_code>
+            <phone_code>95</phone_code>
+        </country>
+        <country>
+            <name>Namibia</name>
+            <english_name>Namibia</english_name>
+            <name_code>na</name_code>
+            <phone_code>264</phone_code>
+        </country>
+        <country>
+            <name>Nauru</name>
+            <english_name>Nauru</english_name>
+            <name_code>nr</name_code>
+            <phone_code>674</phone_code>
+        </country>
+        <country>
+            <name>Nepal</name>
+            <english_name>Nepal</english_name>
+            <name_code>np</name_code>
+            <phone_code>977</phone_code>
+        </country>
+        <country>
+            <name>Netherlands</name>
+            <english_name>Netherlands</english_name>
+            <name_code>nl</name_code>
+            <phone_code>31</phone_code>
+        </country>
+        <country>
+            <name>New Caledonia</name>
+            <english_name>New Caledonia</english_name>
+            <name_code>nc</name_code>
+            <phone_code>687</phone_code>
+        </country>
+        <country>
+            <name>New Zealand</name>
+            <english_name>New Zealand</english_name>
+            <name_code>nz</name_code>
+            <phone_code>64</phone_code>
+        </country>
+        <country>
+            <name>Nicaragua</name>
+            <english_name>Nicaragua</english_name>
+            <name_code>ni</name_code>
+            <phone_code>505</phone_code>
+        </country>
+        <country>
+            <name>Niger</name>
+            <english_name>Niger</english_name>
+            <name_code>ne</name_code>
+            <phone_code>227</phone_code>
+        </country>
+        <country>
+            <name>Nigeria</name>
+            <english_name>Nigeria</english_name>
+            <name_code>ng</name_code>
+            <phone_code>234</phone_code>
+        </country>
+        <country>
+            <name>Niue</name>
+            <english_name>Niue</english_name>
+            <name_code>nu</name_code>
+            <phone_code>683</phone_code>
+        </country>
+        <country>
+            <name>Norfolk Island</name>
+            <english_name>Norfolk Island</english_name>
+            <name_code>nf</name_code>
+            <phone_code>672</phone_code>
+        </country>
+        <country>
+            <name>Northern Mariana Islands</name>
+            <english_name>Northern Mariana Islands</english_name>
+            <name_code>mp</name_code>
+            <phone_code>1-670</phone_code>
+        </country>
+        <country>
+            <name>Norway</name>
+            <english_name>Norway</english_name>
+            <name_code>no</name_code>
+            <phone_code>47</phone_code>
+        </country>
+        <country>
+            <name>Oman</name>
+            <english_name>Oman</english_name>
+            <name_code>om</name_code>
+            <phone_code>968</phone_code>
+        </country>
+        <country>
+            <name>Pakistan</name>
+            <english_name>Pakistan</english_name>
+            <name_code>pk</name_code>
+            <phone_code>92</phone_code>
+        </country>
+        <country>
+            <name>Palau</name>
+            <english_name>Palau</english_name>
+            <name_code>pw</name_code>
+            <phone_code>680</phone_code>
+        </country>
+        <country>
+            <name>Panama</name>
+            <english_name>Panama</english_name>
+            <name_code>pa</name_code>
+            <phone_code>507</phone_code>
+        </country>
+        <country>
+            <name>Papua New Guinea</name>
+            <english_name>Papua New Guinea</english_name>
+            <name_code>pg</name_code>
+            <phone_code>675</phone_code>
+        </country>
+        <country>
+            <name>Paraguay</name>
+            <english_name>Paraguay</english_name>
+            <name_code>py</name_code>
+            <phone_code>595</phone_code>
+        </country>
+        <country>
+            <name>Peru</name>
+            <english_name>Peru</english_name>
+            <name_code>pe</name_code>
+            <phone_code>51</phone_code>
+        </country>
+        <country>
+            <name>Philippines</name>
+            <english_name>Philippines</english_name>
+            <name_code>ph</name_code>
+            <phone_code>63</phone_code>
+        </country>
+        <country>
+            <name>Pitcairn</name>
+            <english_name>Pitcairn</english_name>
+            <name_code>pn</name_code>
+            <phone_code>870</phone_code>
+        </country>
+        <country>
+            <name>Poland</name>
+            <english_name>Poland</english_name>
+            <name_code>pl</name_code>
+            <phone_code>48</phone_code>
+        </country>
+        <country>
+            <name>Portugal</name>
+            <english_name>Portugal</english_name>
+            <name_code>pt</name_code>
+            <phone_code>351</phone_code>
+        </country>
+        <country>
+            <name>Puerto Rico</name>
+            <english_name>Puerto Rico</english_name>
+            <name_code>pr</name_code>
+            <phone_code>1</phone_code>
+        </country>
+        <country>
+            <name>Qatar</name>
+            <english_name>Qatar</english_name>
+            <name_code>qa</name_code>
+            <phone_code>974</phone_code>
+        </country>
+        <country>
+            <name>R&#233;union</name>
+            <english_name>R&#233;union</english_name>
+            <name_code>re</name_code>
+            <phone_code>262</phone_code>
+        </country>
+        <country>
+            <name>Republic of Korea</name>
+            <english_name>Republic of Korea</english_name>
+            <name_code>kr</name_code>
+            <phone_code>82</phone_code>
+        </country>
+        <country>
+            <name>Republic of Moldova</name>
+            <english_name>Republic of Moldova</english_name>
+            <name_code>md</name_code>
+            <phone_code>373</phone_code>
+        </country>
+        <country>
+            <name>Romania</name>
+            <english_name>Romania</english_name>
+            <name_code>ro</name_code>
+            <phone_code>40</phone_code>
+        </country>
+        <country>
+            <name>Russian Federation</name>
+            <english_name>Russian Federation</english_name>
+            <name_code>ru</name_code>
+            <phone_code>7</phone_code>
+        </country>
+        <country>
+            <name>Rwanda</name>
+            <english_name>Rwanda</english_name>
+            <name_code>rw</name_code>
+            <phone_code>250</phone_code>
+        </country>
+        <country>
+            <name>Saint Barth&#233;lemy</name>
+            <english_name>Saint Barth&#233;lemy</english_name>
+            <name_code>bl</name_code>
+            <phone_code>590</phone_code>
+        </country>
+        <country>
+            <name>Saint Helena</name>
+            <english_name>Saint Helena</english_name>
+            <name_code>sh</name_code>
+            <phone_code>290</phone_code>
+        </country>
+        <country>
+            <name>Saint Kitts and Nevis</name>
+            <english_name>Saint Kitts and Nevis</english_name>
+            <name_code>kn</name_code>
+            <phone_code>1-869</phone_code>
+        </country>
+        <country>
+            <name>Saint Lucia</name>
+            <english_name>Saint Lucia</english_name>
+            <name_code>lc</name_code>
+            <phone_code>1-758</phone_code>
+        </country>
+        <country>
+            <name>Saint Martin (French Part)</name>
+            <english_name>Saint Martin (French Part)</english_name>
+            <name_code>mf</name_code>
+            <phone_code>590</phone_code>
+        </country>
+        <country>
+            <name>Saint Pierre and Miquelon</name>
+            <english_name>Saint Pierre and Miquelon</english_name>
+            <name_code>pm</name_code>
+            <phone_code>508</phone_code>
+        </country>
+        <country>
+            <name>Saint Vincent and the Grenadines</name>
+            <english_name>Saint Vincent and the Grenadines</english_name>
+            <name_code>vc</name_code>
+            <phone_code>1-784</phone_code>
+        </country>
+        <country>
+            <name>Samoa</name>
+            <english_name>Samoa</english_name>
+            <name_code>ws</name_code>
+            <phone_code>685</phone_code>
+        </country>
+        <country>
+            <name>San Marino</name>
+            <english_name>San Marino</english_name>
+            <name_code>sm</name_code>
+            <phone_code>378</phone_code>
+        </country>
+        <country>
+            <name>Sao Tome and Principe</name>
+            <english_name>Sao Tome and Principe</english_name>
+            <name_code>st</name_code>
+            <phone_code>239</phone_code>
+        </country>
+        <country>
+            <name>Sark</name>
+            <english_name>Sark</english_name>
+            <name_code />
+            <phone_code />
+        </country>
+        <country>
+            <name>Saudi Arabia</name>
+            <english_name>Saudi Arabia</english_name>
+            <name_code>sa</name_code>
+            <phone_code>966</phone_code>
+        </country>
+        <country>
+            <name>Senegal</name>
+            <english_name>Senegal</english_name>
+            <name_code>sn</name_code>
+            <phone_code>221</phone_code>
+        </country>
+        <country>
+            <name>Serbia</name>
+            <english_name>Serbia</english_name>
+            <name_code>rs</name_code>
+            <phone_code>381</phone_code>
+        </country>
+        <country>
+            <name>Seychelles</name>
+            <english_name>Seychelles</english_name>
+            <name_code>sc</name_code>
+            <phone_code>248</phone_code>
+        </country>
+        <country>
+            <name>Sierra Leone</name>
+            <english_name>Sierra Leone</english_name>
+            <name_code>sl</name_code>
+            <phone_code>232</phone_code>
+        </country>
+        <country>
+            <name>Singapore</name>
+            <english_name>Singapore</english_name>
+            <name_code>sg</name_code>
+            <phone_code>65</phone_code>
+        </country>
+        <country>
+            <name>Sint Maarten (Dutch part)</name>
+            <english_name>Sint Maarten (Dutch part)</english_name>
+            <name_code>sx</name_code>
+            <phone_code>1-721</phone_code>
+        </country>
+        <country>
+            <name>Slovakia</name>
+            <english_name>Slovakia</english_name>
+            <name_code>sk</name_code>
+            <phone_code>421</phone_code>
+        </country>
+        <country>
+            <name>Slovenia</name>
+            <english_name>Slovenia</english_name>
+            <name_code>si</name_code>
+            <phone_code>386</phone_code>
+        </country>
+        <country>
+            <name>Solomon Islands</name>
+            <english_name>Solomon Islands</english_name>
+            <name_code>sb</name_code>
+            <phone_code>677</phone_code>
+        </country>
+        <country>
+            <name>Somalia</name>
+            <english_name>Somalia</english_name>
+            <name_code>so</name_code>
+            <phone_code>252</phone_code>
+        </country>
+        <country>
+            <name>South Africa</name>
+            <english_name>South Africa</english_name>
+            <name_code>za</name_code>
+            <phone_code>27</phone_code>
+        </country>
+        <country>
+            <name>South Georgia and the South Sandwich Islands</name>
+            <english_name>South Georgia and the South Sandwich Islands</english_name>
+            <name_code>gs</name_code>
+            <phone_code>500</phone_code>
+        </country>
+        <country>
+            <name>South Sudan</name>
+            <english_name>South Sudan</english_name>
+            <name_code>ss</name_code>
+            <phone_code>211</phone_code>
+        </country>
+        <country>
+            <name>Spain</name>
+            <english_name>Spain</english_name>
+            <name_code>es</name_code>
+            <phone_code>34</phone_code>
+        </country>
+        <country>
+            <name>Sri Lanka</name>
+            <english_name>Sri Lanka</english_name>
+            <name_code>lk</name_code>
+            <phone_code>94</phone_code>
+        </country>
+        <country>
+            <name>State of Palestine</name>
+            <english_name>State of Palestine</english_name>
+            <name_code>ps</name_code>
+            <phone_code>970</phone_code>
+        </country>
+        <country>
+            <name>Sudan</name>
+            <english_name>Sudan</english_name>
+            <name_code>sd</name_code>
+            <phone_code>249</phone_code>
+        </country>
+        <country>
+            <name>Suriname</name>
+            <english_name>Suriname</english_name>
+            <name_code>sr</name_code>
+            <phone_code>597</phone_code>
+        </country>
+        <country>
+            <name>Svalbard and Jan Mayen Islands</name>
+            <english_name>Svalbard and Jan Mayen Islands</english_name>
+            <name_code>sj</name_code>
+            <phone_code>47</phone_code>
+        </country>
+        <country>
+            <name>Sweden</name>
+            <english_name>Sweden</english_name>
+            <name_code>se</name_code>
+            <phone_code>46</phone_code>
+        </country>
+        <country>
+            <name>Switzerland</name>
+            <english_name>Switzerland</english_name>
+            <name_code>ch</name_code>
+            <phone_code>41</phone_code>
+        </country>
+        <country>
+            <name>Syrian Arab Republic</name>
+            <english_name>Syrian Arab Republic</english_name>
+            <name_code>sy</name_code>
+            <phone_code>963</phone_code>
+        </country>
+        <country>
+            <name>Tajikistan</name>
+            <english_name>Tajikistan</english_name>
+            <name_code>tj</name_code>
+            <phone_code>992</phone_code>
+        </country>
+        <country>
+            <name>Thailand</name>
+            <english_name>Thailand</english_name>
+            <name_code>th</name_code>
+            <phone_code>66</phone_code>
+        </country>
+        <country>
+            <name>The former Yugoslav Republic of Macedonia</name>
+            <english_name>The former Yugoslav Republic of Macedonia</english_name>
+            <name_code>mk</name_code>
+            <phone_code>389</phone_code>
+        </country>
+        <country>
+            <name>Timor-Leste</name>
+            <english_name>Timor-Leste</english_name>
+            <name_code>tl</name_code>
+            <phone_code>670</phone_code>
+        </country>
+        <country>
+            <name>Togo</name>
+            <english_name>Togo</english_name>
+            <name_code>tg</name_code>
+            <phone_code>228</phone_code>
+        </country>
+        <country>
+            <name>Tokelau</name>
+            <english_name>Tokelau</english_name>
+            <name_code>tk</name_code>
+            <phone_code>690</phone_code>
+        </country>
+        <country>
+            <name>Tonga</name>
+            <english_name>Tonga</english_name>
+            <name_code>to</name_code>
+            <phone_code>676</phone_code>
+        </country>
+        <country>
+            <name>Trinidad and Tobago</name>
+            <english_name>Trinidad and Tobago</english_name>
+            <name_code>tt</name_code>
+            <phone_code>1-868</phone_code>
+        </country>
+        <country>
+            <name>Tunisia</name>
+            <english_name>Tunisia</english_name>
+            <name_code>tn</name_code>
+            <phone_code>216</phone_code>
+        </country>
+        <country>
+            <name>Turkey</name>
+            <english_name>Turkey</english_name>
+            <name_code>tr</name_code>
+            <phone_code>90</phone_code>
+        </country>
+        <country>
+            <name>Turkmenistan</name>
+            <english_name>Turkmenistan</english_name>
+            <name_code>tm</name_code>
+            <phone_code>993</phone_code>
+        </country>
+        <country>
+            <name>Turks and Caicos Islands</name>
+            <english_name>Turks and Caicos Islands</english_name>
+            <name_code>tc</name_code>
+            <phone_code>1-649</phone_code>
+        </country>
+        <country>
+            <name>Tuvalu</name>
+            <english_name>Tuvalu</english_name>
+            <name_code>tv</name_code>
+            <phone_code>688</phone_code>
+        </country>
+        <country>
+            <name>Uganda</name>
+            <english_name>Uganda</english_name>
+            <name_code>ug</name_code>
+            <phone_code>256</phone_code>
+        </country>
+        <country>
+            <name>Ukraine</name>
+            <english_name>Ukraine</english_name>
+            <name_code>ua</name_code>
+            <phone_code>380</phone_code>
+        </country>
+        <country>
+            <name>United Arab Emirates</name>
+            <english_name>United Arab Emirates</english_name>
+            <name_code>ae</name_code>
+            <phone_code>971</phone_code>
+        </country>
+        <country>
+            <name>United Kingdom of Great Britain and Northern Ireland</name>
+            <english_name>United Kingdom of Great Britain and Northern Ireland</english_name>
+            <name_code>gb</name_code>
+            <phone_code>44</phone_code>
+        </country>
+        <country>
+            <name>United Republic of Tanzania</name>
+            <english_name>United Republic of Tanzania</english_name>
+            <name_code>tz</name_code>
+            <phone_code>255</phone_code>
+        </country>
+        <country>
+            <name>United States Minor Outlying Islands</name>
+            <english_name>United States Minor Outlying Islands</english_name>
+            <name_code>um</name_code>
+            <phone_code />
+        </country>
+        <country>
+            <name>United States of America</name>
+            <english_name>United States of America</english_name>
+            <name_code>us</name_code>
+            <phone_code>1</phone_code>
+        </country>
+        <country>
+            <name>United States Virgin Islands</name>
+            <english_name>United States Virgin Islands</english_name>
+            <name_code>vi</name_code>
+            <phone_code>1-340</phone_code>
+        </country>
+        <country>
+            <name>Uruguay</name>
+            <english_name>Uruguay</english_name>
+            <name_code>uy</name_code>
+            <phone_code>598</phone_code>
+        </country>
+        <country>
+            <name>Uzbekistan</name>
+            <english_name>Uzbekistan</english_name>
+            <name_code>uz</name_code>
+            <phone_code>998</phone_code>
+        </country>
+        <country>
+            <name>Vanuatu</name>
+            <english_name>Vanuatu</english_name>
+            <name_code>vu</name_code>
+            <phone_code>678</phone_code>
+        </country>
+        <country>
+            <name>Venezuela (Bolivarian Republic of)</name>
+            <english_name>Venezuela (Bolivarian Republic of)</english_name>
+            <name_code>ve</name_code>
+            <phone_code>58</phone_code>
+        </country>
+        <country>
+            <name>Viet Nam</name>
+            <english_name>Viet Nam</english_name>
+            <name_code>vn</name_code>
+            <phone_code>84</phone_code>
+        </country>
+        <country>
+            <name>Wallis and Futuna Islands</name>
+            <english_name>Wallis and Futuna Islands</english_name>
+            <name_code>wf</name_code>
+            <phone_code>681</phone_code>
+        </country>
+        <country>
+            <name>Western Sahara</name>
+            <english_name>Western Sahara</english_name>
+            <name_code>eh</name_code>
+            <phone_code>212</phone_code>
+        </country>
+        <country>
+            <name>Yemen</name>
+            <english_name>Yemen</english_name>
+            <name_code>ye</name_code>
+            <phone_code>967</phone_code>
+        </country>
+        <country>
+            <name>Zambia</name>
+            <english_name>Zambia</english_name>
+            <name_code>zm</name_code>
+            <phone_code>260</phone_code>
+        </country>
+        <country>
+            <name>Zimbabwe</name>
+            <english_name>Zimbabwe</english_name>
+            <name_code>zw</name_code>
+            <phone_code>263</phone_code>
+        </country>
+        <country>
+            <name>Taiwan</name>
+            <english_name>Taiwan</english_name>
+            <name_code>tw</name_code>
+            <phone_code>886</phone_code>
+        </country>
     </countries>
 </data>
