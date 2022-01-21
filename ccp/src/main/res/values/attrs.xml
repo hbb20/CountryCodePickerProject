@@ -79,41 +79,42 @@
         <attr name="ccp_defaultLanguage" format="enum">
             <enum name="AFRIKAANS" value="0" />
             <enum name="ARABIC" value="1" />
-            <enum name="BENGALI" value="2" />
-            <enum name="CHINESE_SIMPLIFIED" value="3" />
-            <enum name="CHINESE_TRADITIONAL" value="4" />
-            <enum name="CZECH" value="5" />
-            <enum name="DANISH" value="6" />
-            <enum name="DUTCH" value="7" />
-            <enum name="ENGLISH" value="8" />
-            <enum name="FARSI" value="9" />
-            <enum name="FRENCH" value="10" />
-            <enum name="GERMAN" value="11" />
-            <enum name="GREEK" value="12" />
-            <enum name="GUJARATI" value="13" />
-            <enum name="HEBREW" value="14" />
-            <enum name="HINDI" value="15" />
-            <enum name="INDONESIA" value="16" />
-            <enum name="ITALIAN" value="17" />
-            <enum name="JAPANESE" value="18" />
-            <enum name="KAZAKH" value="19" />
-            <enum name="KOREAN" value="20" />
-            <enum name="MARATHI" value="21"/>
-            <enum name="POLISH" value="22" />
-            <enum name="PORTUGUESE" value="23" />
-            <enum name="PUNJABI" value="24" />
-            <enum name="RUSSIAN" value="25" />
-            <enum name="SLOVAK" value="26" />
-            <enum name="SLOVENIAN" value="27" />
-            <enum name="SPANISH" value="28" />
-            <enum name="SWEDISH" value="29" />
-            <enum name="TAGALOG" value="30" />
-            <enum name="THAI" value="31" />
-            <enum name="TURKISH" value="32" />
-            <enum name="UKRAINIAN" value="33" />
-            <enum name="URDU" value="34" />
-            <enum name="UZBEK" value="35" />
-            <enum name="VIETNAMESE" value="36" />
+            <enum name="BASQUE" value="2" />
+            <enum name="BENGALI" value="3" />
+            <enum name="CHINESE_SIMPLIFIED" value="4" />
+            <enum name="CHINESE_TRADITIONAL" value="5" />
+            <enum name="CZECH" value="6" />
+            <enum name="DANISH" value="7" />
+            <enum name="DUTCH" value="8" />
+            <enum name="ENGLISH" value="9" />
+            <enum name="FARSI" value="10" />
+            <enum name="FRENCH" value="11" />
+            <enum name="GERMAN" value="12" />
+            <enum name="GREEK" value="13" />
+            <enum name="GUJARATI" value="14" />
+            <enum name="HEBREW" value="15" />
+            <enum name="HINDI" value="16" />
+            <enum name="INDONESIA" value="17" />
+            <enum name="ITALIAN" value="18" />
+            <enum name="JAPANESE" value="19" />
+            <enum name="KAZAKH" value="20" />
+            <enum name="KOREAN" value="21" />
+            <enum name="MARATHI" value="22"/>
+            <enum name="POLISH" value="23" />
+            <enum name="PORTUGUESE" value="24" />
+            <enum name="PUNJABI" value="25" />
+            <enum name="RUSSIAN" value="26" />
+            <enum name="SLOVAK" value="27" />
+            <enum name="SLOVENIAN" value="28" />
+            <enum name="SPANISH" value="29" />
+            <enum name="SWEDISH" value="30" />
+            <enum name="TAGALOG" value="31" />
+            <enum name="THAI" value="32" />
+            <enum name="TURKISH" value="33" />
+            <enum name="UKRAINIAN" value="34" />
+            <enum name="URDU" value="35" />
+            <enum name="UZBEK" value="36" />
+            <enum name="VIETNAMESE" value="37" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">

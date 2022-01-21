@@ -2416,6 +2416,7 @@ public class CountryCodePicker extends RelativeLayout {
     public enum Language {
         AFRIKAANS("af"),
         ARABIC("ar"),
+        BASQUE("eu"),
         BENGALI("bn"),
         CHINESE_SIMPLIFIED("zh", "CN", "Hans"),
         CHINESE_TRADITIONAL("zh", "TW", "Hant"),
