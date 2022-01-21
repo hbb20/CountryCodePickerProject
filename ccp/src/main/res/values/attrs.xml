@@ -55,6 +55,7 @@
         <attr name="ccp_hintExampleNumber" format="boolean" />
         <attr name="ccp_rememberLastSelection" format="boolean" />
         <attr name="ccp_showArrow" format="boolean" />
+        <attr name="ccp_rippleEnable" format="boolean" />
 
         <!--CCP Dialog properties-->
         <attr name="ccpDialog_keyboardAutoPopup" format="boolean" />
@@ -74,6 +75,7 @@
         <attr name="ccpDialog_showCloseIcon" format="boolean" />
         <attr name="ccpDialog_showTitle" format="boolean" />
         <attr name="ccpDialog_initialScrollToSelection" format="boolean" />
+        <attr name="ccpDialog_rippleEnable" format="boolean" />
         <!--list of languages-->
         <!--Make sure: order in this list must match order of Language Enum in CountryCodePicker.java. Values must be ascending starting from 0.-->
         <attr name="ccp_defaultLanguage" format="enum">
