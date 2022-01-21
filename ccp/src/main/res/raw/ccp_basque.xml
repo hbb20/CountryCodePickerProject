@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <messages>
-        <ccp_dialog_title translation="Seleccionar país" />
-        <ccp_dialog_search_hint_message translation="Buscar..." />
-        <ccp_dialog_no_result_ack_message translation="Ningún resultado encontrado" />
+        <ccp_dialog_title translation="Hautatu herrialdea" />
+        <ccp_dialog_search_hint_message translation="Bilatu ..." />
+        <ccp_dialog_no_result_ack_message translation="Ez da aurkitu emaitzarik" />
     </messages>
 
     <countries>
@@ -13,22 +13,22 @@
             name_code="ad"
             phone_code="376" />
         <country
-            name="Emiratos Árabes Unidos"
+            name="Arabiar Emirerri Batuak"
             english_name="United Arab Emirates (UAE)"
             name_code="ae"
             phone_code="971" />
         <country
-            name="Afganistán"
+            name="Afganistan"
             english_name="Afghanistan"
             name_code="af"
             phone_code="93" />
         <country
-            name="Antigua y Barbuda"
+            name="Antigua eta Barbuda"
             english_name="Antigua and Barbuda"
             name_code="ag"
             phone_code="1" />
         <country
-            name="Anguila"
+            name="Aingira"
             english_name="Anguilla"
             name_code="ai"
             phone_code="1" />
@@ -48,7 +48,7 @@
             name_code="ao"
             phone_code="244" />
         <country
-            name="Antártida"
+            name="Antartika"
             english_name="Antarctica"
             name_code="aq"
             phone_code="672" />
@@ -58,7 +58,7 @@
             name_code="ar"
             phone_code="54" />
         <country
-            name="Samoa Americana"
+            name="Samoa Estatubatuarra"
             english_name="American Samoa"
             name_code="as"
             phone_code="1" />
@@ -78,17 +78,17 @@
             name_code="aw"
             phone_code="297" />
         <country
-            name="Islas Aland"
+            name="Åland Uharteak"
             english_name="Åland Islands"
             name_code="ax"
             phone_code="358" />
         <country
-            name="Azerbaiyán"
+            name="Azerbaijan"
             english_name="Azerbaijan"
             name_code="az"
             phone_code="994" />
         <country
-            name="Bosnia y Herzegovina"
+            name="Bosnia eta Herzegovina"
             english_name="Bosnia And Herzegovina"
             name_code="ba"
             phone_code="387" />
@@ -103,7 +103,7 @@
             name_code="bd"
             phone_code="880" />
         <country
-            name="Bélgica"
+            name="Belgika"
             english_name="Belgium"
             name_code="be"
             phone_code="32" />
@@ -118,7 +118,7 @@
             name_code="bg"
             phone_code="359" />
         <country
-            name="Bahrein"
+            name="Bahrain"
             english_name="Bahrain"
             name_code="bh"
             phone_code="973" />
@@ -133,17 +133,17 @@
             name_code="bj"
             phone_code="229" />
         <country
-            name="San Bartolomé"
+            name="Saint Barthélemy"
             english_name="Saint Barthélemy"
             name_code="bl"
             phone_code="590" />
         <country
-            name="Islas Bermudas"
+            name="Bermuda"
             english_name="Bermuda"
             name_code="bm"
             phone_code="1"/>
         <country
-            name="Brunéi"
+            name="Brunei"
             english_name="Brunei Darussalam"
             name_code="bn"
             phone_code="673" />
@@ -158,12 +158,12 @@
             name_code="br"
             phone_code="55" />
         <country
-            name="Bahamas"
+            name="Bahamak"
             english_name="Bahamas"
             name_code="bs"
             phone_code="1" />
         <country
-            name="Bhután"
+            name="Bhutan"
             english_name="Bhutan"
             name_code="bt"
             phone_code="975" />
@@ -178,67 +178,67 @@
             name_code="by"
             phone_code="375" />
         <country
-            name="Belice"
+            name="Belize"
             english_name="Belize"
             name_code="bz"
             phone_code="501" />
         <country
-            name="Canadá"
+            name="Kanada"
             english_name="Canada"
             name_code="ca"
             phone_code="1" />
         <country
-            name="Islas Cocos (Keeling)"
+            name="Cocosak (Keeling) Uharteak"
             english_name="Cocos (keeling) Islands"
             name_code="cc"
             phone_code="61" />
         <country
-            name="Congo, La República Democrática Del"
+            name="Kongoko Errepublika Demokratikoa"
             english_name="Congo, The Democratic Republic Of The"
             name_code="cd"
             phone_code="243" />
         <country
-            name="República Centroafricana"
+            name="Afrika Erdiko Errepublika"
             english_name="Central African Republic"
             name_code="cf"
             phone_code="236" />
         <country
-            name="Congo"
+            name="Kongo"
             english_name="Congo"
             name_code="cg"
             phone_code="242" />
         <country
-            name="Suiza"
+            name="Suitza"
             english_name="Switzerland"
             name_code="ch"
             phone_code="41" />
         <country
-            name="Costa de Marfil"
+            name="Boli Kosta"
             english_name="Côte D'ivoire"
             name_code="ci"
             phone_code="225" />
         <country
-            name="Islas Cook"
+            name="Cook Uharteak"
             english_name="Cook Islands"
             name_code="ck"
             phone_code="682" />
         <country
-            name="Chile"
+            name="Txile"
             english_name="Chile"
             name_code="cl"
             phone_code="56" />
         <country
-            name="Camerún"
+            name="Kamerun"
             english_name="Cameroon"
             name_code="cm"
             phone_code="237" />
         <country
-            name="China"
+            name="Txina"
             english_name="China"
             name_code="cn"
             phone_code="86" />
         <country
-            name="Colombia"
+            name="Kolonbia"
             english_name="Colombia"
             name_code="co"
             phone_code="57" />
@@ -248,7 +248,7 @@
             name_code="cr"
             phone_code="506" />
         <country
-            name="Cuba"
+            name="Kuba"
             english_name="Cuba"
             name_code="cu"
             phone_code="53" />
@@ -258,22 +258,22 @@
             name_code="cv"
             phone_code="238" />
         <country
-            name="Curazao"
+            name="Curaçao"
             english_name="Curaçao"
             name_code="cw"
             phone_code="599" />
         <country
-            name="Isla de Navidad"
+            name="Christmas Uhartea"
             english_name="Christmas Island"
             name_code="cx"
             phone_code="61" />
         <country
-            name="Chipre"
+            name="Zipre"
             english_name="Cyprus"
             name_code="cy"
             phone_code="357" />
         <country
-            name="República Checa"
+            name="Txekiako Errepublika"
             english_name="Czech Republic"
             name_code="cz"
             phone_code="420" />
@@ -288,27 +288,27 @@
             name_code="dj"
             phone_code="253" />
         <country
-            name="Dinamarca"
+            name="Danimarka"
             english_name="Denmark"
             name_code="dk"
             phone_code="45" />
         <country
-            name="Dominica"
+            name="Dominika"
             english_name="Dominica"
             name_code="dm"
             phone_code="1" />
         <country
-            name="República Dominicana"
+            name="Dominikar Errepublika"
             english_name="Dominican Republic"
             name_code="do"
             phone_code="1" />
         <country
-            name="Argelia"
+            name="Aljeria"
             english_name="Algeria"
             name_code="dz"
             phone_code="213" />
         <country
-            name="Ecuador"
+            name="Ekuador"
             english_name="Ecuador"
             name_code="ec"
             phone_code="593" />
@@ -328,12 +328,12 @@
             name_code="er"
             phone_code="291" />
         <country
-            name="España"
+            name="Espainia"
             english_name="Spain"
             name_code="es"
             phone_code="34" />
         <country
-            name="Etiopía"
+            name="Etiopia"
             english_name="Ethiopia"
             name_code="et"
             phone_code="251" />
@@ -348,37 +348,37 @@
             name_code="fj"
             phone_code="679" />
         <country
-            name="Islas Malvinas (Falkland)"
+            name="Malvinak (Falkland) Uharteak"
             english_name="Falkland Islands (malvinas)"
             name_code="fk"
             phone_code="500" />
         <country
-            name="Micronesia, Estados Federados de"
+            name="Mikronesiako Estatu Federatuak"
             english_name="Micronesia, Federated States Of"
             name_code="fm"
             phone_code="691" />
         <country
-            name="Islas Faroe"
+            name="Faroe Uharteak"
             english_name="Faroe Islands"
             name_code="fo"
             phone_code="298" />
         <country
-            name="Francia"
+            name="Frantzia"
             english_name="France"
             name_code="fr"
             phone_code="33" />
         <country
-            name="Gabón"
+            name="Gabon"
             english_name="Gabon"
             name_code="ga"
             phone_code="241" />
         <country
-            name="Reino Unido"
+            name="Erresuma Batua"
             english_name="United Kingdom"
             name_code="gb"
             phone_code="44" />
         <country
-            name="Granada"
+            name="Grenada"
             english_name="Grenada"
             name_code="gd"
             phone_code="1" />
@@ -388,12 +388,12 @@
             name_code="ge"
             phone_code="995" />
         <country
-            name="Guayana Francesa"
+            name="Guyana Frantsesa"
             english_name="French Guyana"
             name_code="gf"
             phone_code="594" />
         <country
-            name="Guernsey"
+            name="Guernesey"
             english_name="Guernsey"
             name_code="gg"
             phone_code="44" />
@@ -418,7 +418,7 @@
             name_code="gm"
             phone_code="220" />
         <country
-            name="Guinea"
+            name="Ginea"
             english_name="Guinea"
             name_code="gn"
             phone_code="224" />
@@ -428,12 +428,12 @@
             name_code="gp"
             phone_code="590" />
         <country
-            name="Guinea Ecuatorial"
+            name="Ekuatore Ginea"
             english_name="Equatorial Guinea"
             name_code="gq"
             phone_code="240" />
         <country
-            name="Grecia"
+            name="Grezia"
             english_name="Greece"
             name_code="gr"
             phone_code="30" />
@@ -448,12 +448,12 @@
             name_code="gu"
             phone_code="1" />
         <country
-            name="Guinea-Bissau"
+            name="Ginea Bissau"
             english_name="Guinea-bissau"
             name_code="gw"
             phone_code="245" />
         <country
-            name="Guayana"
+            name="Guyana"
             english_name="Guyana"
             name_code="gy"
             phone_code="592" />
@@ -468,17 +468,17 @@
             name_code="hn"
             phone_code="504" />
         <country
-            name="Croacia"
+            name="Kroazia"
             english_name="Croatia"
             name_code="hr"
             phone_code="385" />
         <country
-            name="Haití"
+            name="Haiti"
             english_name="Haiti"
             name_code="ht"
             phone_code="509" />
         <country
-            name="Hungría"
+            name="Hungaria"
             english_name="Hungary"
             name_code="hu"
             phone_code="36" />
@@ -498,7 +498,7 @@
             name_code="il"
             phone_code="972" />
         <country
-            name="Isla de Man"
+            name="Man Uhartea"
             english_name="Isle Of Man"
             name_code="im"
             phone_code="44" />
@@ -513,7 +513,7 @@
             name_code="in"
             phone_code="91" />
         <country
-            name="Territorio Británico del Océano Índico"
+            name="Indiako Ozeanoko Britainiar Lurraldea"
             english_name="British Indian Ocean Territory"
             name_code="io"
             phone_code="246" />
@@ -523,7 +523,7 @@
             name_code="iq"
             phone_code="964" />
         <country
-            name="Irán, República Islámica De"
+            name="Iran"
             english_name="Iran, Islamic Republic Of"
             name_code="ir"
             phone_code="98" />
@@ -538,7 +538,7 @@
             name_code="je"
             phone_code="44" />
         <country
-            name="Jamaica"
+            name="Jamaika"
             english_name="Jamaica"
             name_code="jm"
             phone_code="1" />
@@ -548,22 +548,22 @@
             name_code="jo"
             phone_code="962" />
         <country
-            name="Japón"
+            name="Japonia"
             english_name="Japan"
             name_code="jp"
             phone_code="81" />
         <country
-            name="Kenia"
+            name="Kenya"
             english_name="Kenya"
             name_code="ke"
             phone_code="254" />
         <country
-            name="Kirguistán"
+            name="Kirgizistan"
             english_name="Kyrgyzstan"
             name_code="kg"
             phone_code="996" />
         <country
-            name="Camboya"
+            name="Kanbodia"
             english_name="Cambodia"
             name_code="kh"
             phone_code="855" />
@@ -573,22 +573,22 @@
             name_code="ki"
             phone_code="686" />
         <country
-            name="Comoras"
+            name="Komoreak"
             english_name="Comoros"
             name_code="km"
             phone_code="269" />
         <country
-            name="San Cristóbal y Nieves"
+            name="Saint Kitts eta Nevis"
             english_name="Saint Kitts and Nevis"
             name_code="kn"
             phone_code="1" />
         <country
-            name="Corea del Norte"
+            name="Ipar Korea"
             english_name="North Korea"
             name_code="kp"
             phone_code="850" />
         <country
-            name="Corea del Sur"
+            name="Hego Korea"
             english_name="South Korea"
             name_code="kr"
             phone_code="82" />
@@ -598,12 +598,12 @@
             name_code="kw"
             phone_code="965" />
         <country
-            name="Islas Caimán"
+            name="Kaiman Uharteak"
             english_name="Cayman Islands"
             name_code="ky"
             phone_code="1" />
         <country
-            name="Kazajstán"
+            name="Kazakhstan"
             english_name="Kazakhstan"
             name_code="kz"
             phone_code="7" />
@@ -613,12 +613,12 @@
             name_code="la"
             phone_code="856" />
         <country
-            name="Líbano"
+            name="Libano"
             english_name="Lebanon"
             name_code="lb"
             phone_code="961" />
         <country
-            name="Santa Lucía"
+            name="Santa Luzia"
             english_name="Saint Lucia"
             name_code="lc"
             phone_code="1" />
@@ -638,7 +638,7 @@
             name_code="lr"
             phone_code="231" />
         <country
-            name="Lesoto"
+            name="Lesotho"
             english_name="Lesotho"
             name_code="ls"
             phone_code="266" />
@@ -648,7 +648,7 @@
             name_code="lt"
             phone_code="370" />
         <country
-            name="Luxemburgo"
+            name="Luxenburgo"
             english_name="Luxembourg"
             name_code="lu"
             phone_code="352" />
@@ -663,12 +663,12 @@
             name_code="ly"
             phone_code="218" />
         <country
-            name="Marruecos"
+            name="Maroko"
             english_name="Morocco"
             name_code="ma"
             phone_code="212" />
         <country
-            name="Mónaco"
+            name="Monako"
             english_name="Monaco"
             name_code="mc"
             phone_code="377" />
@@ -683,27 +683,27 @@
             name_code="me"
             phone_code="382" />
         <country
-            name="San Martín (Francia)"
+            name="Saint Martin"
             english_name="Saint Martin"
             name_code="mf"
             phone_code="590" />
         <country
-            name="Madagascar"
+            name="Madagaskar"
             english_name="Madagascar"
             name_code="mg"
             phone_code="261" />
         <country
-            name="Islas Marshall"
+            name="Marshall Uharteak"
             english_name="Marshall Islands"
             name_code="mh"
             phone_code="692" />
         <country
-            name="Macedonia del Norte"
+            name="Ipar Mazedonia"
             english_name="Macedonia (FYROM)"
             name_code="mk"
             phone_code="389" />
         <country
-            name="Malí"
+            name="Mali"
             english_name="Mali"
             name_code="ml"
             phone_code="223" />
@@ -723,12 +723,12 @@
             name_code="mo"
             phone_code="853" />
         <country
-            name="Islas Marianas del Norte"
+            name="Ipar Mariana Uharteak"
             english_name="Northern Mariana Islands"
             name_code="mp"
             phone_code="1" />
         <country
-            name="Martinica"
+            name="Martinika"
             english_name="Martinique"
             name_code="mq"
             phone_code="596" />
@@ -748,12 +748,12 @@
             name_code="mt"
             phone_code="356" />
         <country
-            name="Mauricio"
+            name="Maurizio"
             english_name="Mauritius"
             name_code="mu"
             phone_code="230" />
         <country
-            name="Maldivas"
+            name="Maldivak"
             english_name="Maldives"
             name_code="mv"
             phone_code="960" />
@@ -763,17 +763,17 @@
             name_code="mw"
             phone_code="265" />
         <country
-            name="México"
+            name="Mexiko"
             english_name="Mexico"
             name_code="mx"
             phone_code="52" />
         <country
-            name="Malasia"
+            name="Malaysia"
             english_name="Malaysia"
             name_code="my"
             phone_code="60" />
         <country
-            name="Mozambique"
+            name="Mozambike"
             english_name="Mozambique"
             name_code="mz"
             phone_code="258" />
@@ -783,17 +783,17 @@
             name_code="na"
             phone_code="264" />
         <country
-            name="Nueva Caledonia"
+            name="Kaledonia Berria"
             english_name="New Caledonia"
             name_code="nc"
             phone_code="687" />
         <country
-            name="Níger"
+            name="Niger"
             english_name="Niger"
             name_code="ne"
             phone_code="227" />
         <country
-            name="Islas Norfolk"
+            name="Norfolk Uhartea"
             english_name="Norfolk Islands"
             name_code="nf"
             phone_code="672" />
@@ -803,17 +803,17 @@
             name_code="ng"
             phone_code="234" />
         <country
-            name="Nicaragua"
+            name="Nikaragua"
             english_name="Nicaragua"
             name_code="ni"
             phone_code="505" />
         <country
-            name="Países Bajos"
+            name="Herbehereak"
             english_name="Netherlands"
             name_code="nl"
             phone_code="31" />
         <country
-            name="Noruega"
+            name="Norvegia"
             english_name="Norway"
             name_code="no"
             phone_code="47" />
@@ -833,42 +833,42 @@
             name_code="nu"
             phone_code="683" />
         <country
-            name="Nueva Zelanda"
+            name="Zeelanda Berria"
             english_name="New Zealand"
             name_code="nz"
             phone_code="64" />
         <country
-            name="Omán"
+            name="Oman"
             english_name="Oman"
             name_code="om"
             phone_code="968" />
         <country
-            name="Panamá"
+            name="Panama"
             english_name="Panama"
             name_code="pa"
             phone_code="507" />
         <country
-            name="Perú"
+            name="Peru"
             english_name="Peru"
             name_code="pe"
             phone_code="51" />
         <country
-            name="Polinesia Francesa"
+            name="Polinesia Frantsesa"
             english_name="French Polynesia"
             name_code="pf"
             phone_code="689" />
         <country
-            name="Papúa Nueva Guinea"
+            name="Papua Ginea Berria"
             english_name="Papua New Guinea"
             name_code="pg"
             phone_code="675" />
         <country
-            name="Filipinas"
+            name="Filipinak"
             english_name="Philippines"
             name_code="ph"
             phone_code="63" />
         <country
-            name="Pakistán"
+            name="Pakistan"
             english_name="Pakistan"
             name_code="pk"
             phone_code="92" />
@@ -878,12 +878,12 @@
             name_code="pl"
             phone_code="48" />
         <country
-            name="San Pedro y Miquelón"
+            name="Saint-Pierre eta Mikelune"
             english_name="Saint Pierre And Miquelon"
             name_code="pm"
             phone_code="508" />
         <country
-            name="Islas Pitcairn"
+            name="Pitcairn Uharteak"
             english_name="Pitcairn Islands"
             name_code="pn"
             phone_code="870" />
@@ -908,7 +908,7 @@
             name_code="pw"
             phone_code="680" />
         <country
-            name="Paraguay"
+            name="Paraguai"
             english_name="Paraguay"
             name_code="py"
             phone_code="595" />
@@ -918,12 +918,12 @@
             name_code="qa"
             phone_code="974" />
         <country
-            name="Reunión"
+            name="Réunion"
             english_name="Réunion"
             name_code="re"
             phone_code="262" />
         <country
-            name="Rumania"
+            name="Errumania"
             english_name="Romania"
             name_code="ro"
             phone_code="40" />
@@ -933,7 +933,7 @@
             name_code="rs"
             phone_code="381" />
         <country
-            name="Rusia"
+            name="Errusia"
             english_name="Russian Federation"
             name_code="ru"
             phone_code="7" />
@@ -943,27 +943,27 @@
             name_code="rw"
             phone_code="250" />
         <country
-            name="Arabia Saudita"
+            name="Saudi Arabia"
             english_name="Saudi Arabia"
             name_code="sa"
             phone_code="966" />
         <country
-            name="Islas Salomón"
+            name="Salomon Uharteak"
             english_name="Solomon Islands"
             name_code="sb"
             phone_code="677" />
         <country
-            name="Seychelles"
+            name="Seychelleak"
             english_name="Seychelles"
             name_code="sc"
             phone_code="248" />
         <country
-            name="Sudán"
+            name="Sudan"
             english_name="Sudan"
             name_code="sd"
             phone_code="249" />
         <country
-            name="Suecia"
+            name="Suedia"
             english_name="Sweden"
             name_code="se"
             phone_code="46" />
@@ -973,7 +973,7 @@
             name_code="sg"
             phone_code="65" />
         <country
-            name="Santa Elena, Ascensión y Tristán de Acuña"
+            name="Santa Helena, Ascension Eta Tristan Da Cunha"
             english_name="Saint Helena, Ascension And Tristan Da Cunha"
             name_code="sh"
             phone_code="290" />
@@ -983,7 +983,7 @@
             name_code="si"
             phone_code="386" />
         <country
-            name="Eslovaquia"
+            name="Eslovakia"
             english_name="Slovakia"
             name_code="sk"
             phone_code="421" />
@@ -1013,12 +1013,12 @@
             name_code="sr"
             phone_code="597" />
         <country
-            name="Sudán del Sur"
+            name="Hego Sudan"
             english_name="South Sudan"
             name_code="ss"
             phone_code="211" />
         <country
-            name="Santo Tomé y Príncipe"
+            name="Sao Tome Eta Principe"
             english_name="Sao Tome And Principe"
             name_code="st"
             phone_code="239" />
@@ -1028,7 +1028,7 @@
             name_code="sv"
             phone_code="503" />
         <country
-            name="San Martín (Países Bajos)"
+            name="Sint Maarten"
             english_name="Sint Maarten"
             name_code="sx"
             phone_code="1" />
@@ -1038,17 +1038,17 @@
             name_code="sy"
             phone_code="963" />
         <country
-            name="Swazilandia"
+            name="Eswatini"
             english_name="Swaziland"
             name_code="sz"
             phone_code="268" />
         <country
-            name="Islas Turcas y Caicos"
+            name="Turkak Eta Caicoak"
             english_name="Turks and Caicos Islands"
             name_code="tc"
             phone_code="1" />
         <country
-            name="Chad"
+            name="Txad"
             english_name="Chad"
             name_code="td"
             phone_code="235" />
@@ -1058,12 +1058,12 @@
             name_code="tg"
             phone_code="228" />
         <country
-            name="Tailandia"
+            name="Thailandia"
             english_name="Thailand"
             name_code="th"
             phone_code="66" />
         <country
-            name="Tayikistán"
+            name="Tajikistan"
             english_name="Tajikistan"
             name_code="tj"
             phone_code="992" />
@@ -1073,17 +1073,17 @@
             name_code="tk"
             phone_code="690" />
         <country
-            name="Timor Oriental"
+            name="Ekialdeko Timor"
             english_name="Timor-leste"
             name_code="tl"
             phone_code="670" />
         <country
-            name="Turkmenistán"
+            name="Turkmenistan"
             english_name="Turkmenistan"
             name_code="tm"
             phone_code="993" />
         <country
-            name="Túnez"
+            name="Tunisia"
             english_name="Tunisia"
             name_code="tn"
             phone_code="216" />
@@ -1093,12 +1093,12 @@
             name_code="to"
             phone_code="676" />
         <country
-            name="Turquía"
+            name="Turkia"
             english_name="Turkey"
             name_code="tr"
             phone_code="90" />
         <country
-            name="Trinidad y Tobago"
+            name="Trinidad Eta Tobago"
             english_name="Trinidad &amp; Tobago"
             name_code="tt"
             phone_code="1" />
@@ -1113,12 +1113,12 @@
             name_code="tw"
             phone_code="886" />
         <country
-            name="Tanzania, República Unida de"
+            name="Tanzaniako Errepublika Batua"
             english_name="Tanzania, United Republic Of"
             name_code="tz"
             phone_code="255" />
         <country
-            name="Ucrania"
+            name="Ukraina"
             english_name="Ukraine"
             name_code="ua"
             phone_code="380" />
@@ -1128,42 +1128,42 @@
             name_code="ug"
             phone_code="256" />
         <country
-            name="Estados Unidos"
+            name="Ameriketako Estatu Batuak"
             english_name="United States (USA)"
             name_code="us"
             phone_code="1" />
         <country
-            name="Uruguay"
+            name="Uruguai"
             english_name="Uruguay"
             name_code="uy"
             phone_code="598" />
         <country
-            name="Uzbekistán"
+            name="Uzbekistan"
             english_name="Uzbekistan"
             name_code="uz"
             phone_code="998" />
         <country
-            name="Santa Sede (Ciudad del Vaticano)"
+            name="Egoitza Santua (Vatikano Hiria)"
             english_name="Holy See (vatican City State)"
             name_code="va"
             phone_code="379" />
         <country
-            name="San Vicente y las Granadinas"
+            name="Saint Vincent Eta Grenadinak"
             english_name="Saint Vincent &amp; The Grenadines"
             name_code="vc"
             phone_code="1" />
         <country
-            name="Venezuela, República Bolivariana de"
+            name="Venezuelako Bolibartar Errepublika"
             english_name="Venezuela, Bolivarian Republic Of"
             name_code="ve"
             phone_code="58" />
         <country
-            name="Islas Vírgenes Británicas"
+            name="Birjina Britainiar Uharteak"
             english_name="British Virgin Islands"
             name_code="vg"
             phone_code="1" />
         <country
-            name="Islas Vírgenes de EE.UU"
+            name="Birjina Uharte Estatubatuarrak"
             english_name="US Virgin Islands"
             name_code="vi"
             phone_code="1" />
@@ -1178,7 +1178,7 @@
             name_code="vu"
             phone_code="678" />
         <country
-            name="Wallis y Futuna"
+            name="Wallis Eta Futuna"
             english_name="Wallis And Futuna"
             name_code="wf"
             phone_code="681" />
@@ -1203,7 +1203,7 @@
             name_code="yt"
             phone_code="262" />
         <country
-            name="Sudáfrica"
+            name="Hegoafrika"
             english_name="South Africa"
             name_code="za"
             phone_code="27" />
@@ -1213,7 +1213,7 @@
             name_code="zm"
             phone_code="260" />
         <country
-            name="Zimbabue"
+            name="Zimbabwe"
             english_name="Zimbabwe"
             name_code="zw"
             phone_code="263" />
