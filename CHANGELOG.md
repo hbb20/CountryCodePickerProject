@@ -1,16 +1,36 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project
+adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Next Release]
 
+## 2.6.0 - 2022-1-21
+
+### Added
+
+- BASQUE language
+  support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/514))
+  by [David Benito Fdz.](https://github.com/Davidbf)
+- Hungarian language
+  support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/523))
+  by [valivalter](https://github.com/valivalter)
+- Feature to enable disable ripple [PR](https://github.com/hbb20/CountryCodePickerProject/pull/508)
+
+### Fixed
+
+- Turkey translation [PR](https://github.com/hbb20/CountryCodePickerProject/pull/499)
+- Auto pop keyboard issue [PR](https://github.com/hbb20/CountryCodePickerProject/pull/529)
+
 ## 2.5.4 - 2021-7-26
+
 - New (and working) way for opening keyboard
 - Update deps versions
 
 ## 2.5.3 - 2021-6-6
+
 - crash fix #475
 - Deps update
 
