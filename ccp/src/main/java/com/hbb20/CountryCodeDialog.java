@@ -101,9 +101,8 @@ class CountryCodeDialog {
 
         //keyboard
         if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
-            new WindowInsetsControllerCompat(dialog.getWindow(), editText_search)
-                    .show(WindowInsetsCompat.Type.ime());
             editText_search.requestFocus();
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         } else {
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         }
