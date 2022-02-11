@@ -35,6 +35,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import androidx.appcompat.app.AppCompatActivity;
 
 import io.michaelrocks.libphonenumber.android.BuildConfig;
 import io.michaelrocks.libphonenumber.android.NumberParseException;
@@ -44,7 +45,7 @@ import io.michaelrocks.libphonenumber.android.Phonenumber;
 /**
  * Created by hbb20 on 11/1/16.
  */
-public class CountryCodePicker extends RelativeLayout {
+public class CountryCodePicker extends AppCompatActivity {
 
     static final int DEFAULT_UNSET = -99;
     static String TAG = "CCP";
