@@ -7,6 +7,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Next Release]
 
+- Changed name code returned by English locale instead of local
+  locale [Issue](https://github.com/hbb20/CountryCodePickerProject/issues/539)
+
 ## 2.6.0 - 2022-1-21
 
 ### Added

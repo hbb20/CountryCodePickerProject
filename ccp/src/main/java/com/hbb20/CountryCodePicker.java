@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
@@ -860,9 +859,9 @@ public class CountryCodePicker extends RelativeLayout {
         // adds name code if required
         if (showNameCode) {
             if (showFullName) {
-                displayText += " (" + selectedCCPCountry.getNameCode().toUpperCase() + ")";
+                displayText += " (" + selectedCCPCountry.getNameCode().toUpperCase(Locale.US) + ")";
             } else {
-                displayText += " " + selectedCCPCountry.getNameCode().toUpperCase();
+                displayText += " " + selectedCCPCountry.getNameCode().toUpperCase(Locale.US);
             }
         }
 
@@ -1690,7 +1689,7 @@ public class CountryCodePicker extends RelativeLayout {
     public String getDefaultCountryNameCode() {
         CCPCountry dc = getDefaultCountry();
         if (dc == null) return "";
-        return dc.nameCode.toUpperCase();
+        return dc.nameCode.toUpperCase(Locale.US);
     }
 
     /**
@@ -1770,7 +1769,7 @@ public class CountryCodePicker extends RelativeLayout {
      * if selected country is JP +81(Japan) returns: "JP"
      */
     public String getSelectedCountryNameCode() {
-        return getSelectedCountry().nameCode.toUpperCase();
+        return getSelectedCountry().nameCode.toUpperCase(Locale.US);
     }
 
     /**

@@ -2,7 +2,6 @@ package com.hbb20;
 
 import android.app.Dialog;
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.TypedValue;
@@ -18,10 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.futuremind.recyclerviewfastscroll.SectionTitleProvider;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by hbb20 on 11/1/16.
@@ -278,7 +280,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 countryName += ccpCountry.getName();
 
                 if (codePicker.getCcpDialogShowNameCode()) {
-                    countryName += " (" + ccpCountry.getNameCode().toUpperCase() + ")";
+                    countryName += " (" + ccpCountry.getNameCode().toUpperCase(Locale.US) + ")";
                 }
 
                 textView_name.setText(countryName);

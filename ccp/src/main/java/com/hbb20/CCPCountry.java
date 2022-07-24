@@ -62,7 +62,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
     }
 
     public CCPCountry(String nameCode, String phoneCode, String name, int flagResID) {
-        this.nameCode = nameCode.toUpperCase(Locale.ROOT);
+        this.nameCode = nameCode.toUpperCase(Locale.US);
         this.phoneCode = phoneCode;
         this.name = name;
         this.flagResID = flagResID;
@@ -109,7 +109,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
                     case XmlPullParser.END_TAG:
                         if (name.equals("country")) {
                             CCPCountry ccpCountry = new CCPCountry();
-                            ccpCountry.setNameCode(xmlPullParser.getAttributeValue(null, "name_code").toUpperCase());
+                            ccpCountry.setNameCode(xmlPullParser.getAttributeValue(null, "name_code").toUpperCase(Locale.US));
                             ccpCountry.setPhoneCode(xmlPullParser.getAttributeValue(null, "phone_code"));
                             ccpCountry.setEnglishName(xmlPullParser.getAttributeValue(null, "english_name"));
                             ccpCountry.setName(xmlPullParser.getAttributeValue(null, "name"));
@@ -1710,7 +1710,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
     }
 
     String logString() {
-        return nameCode.toUpperCase() + " +" + phoneCode + "(" + name + ")";
+        return nameCode.toUpperCase(Locale.US) + " +" + phoneCode + "(" + name + ")";
     }
 
     /**
