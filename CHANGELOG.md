@@ -9,6 +9,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Changed name code returned by English locale instead of local
   locale [Issue](https://github.com/hbb20/CountryCodePickerProject/issues/539)
+- Correct hindi language translations #550 by @kishansinghpanwar
+- Adds Serbian language support #548 by @bozidars27
 
 ## 2.6.0 - 2022-1-21
 
