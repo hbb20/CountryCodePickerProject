@@ -7,6 +7,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Next Release]
 
+## 2.6.1 - 2022-7-24
+- Changed name code returned by English locale instead of local
+  locale [Issue](https://github.com/hbb20/CountryCodePickerProject/issues/539)
+- Correct hindi language translations #550 by @kishansinghpanwar
+- Adds Serbian language support #548 by @bozidars27
+- Update `libphonenumber-android` to the latest (8.12.52)
+
 ## 2.6.0 - 2022-1-21
 
 ### Added
