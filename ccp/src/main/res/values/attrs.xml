@@ -45,7 +45,7 @@
         <attr name="ccp_showNameCode" format="boolean" />
         <attr name="ccp_showFlag" format="boolean" />
         <attr name="ccp_showFullName" format="boolean" />
-	      <attr name="ccp_internationalFormattingOnly" format="boolean" />
+        <attr name="ccp_internationalFormattingOnly" format="boolean" />
         <attr name="ccp_clickable" format="boolean" />
         <attr name="ccp_showPhoneCode" format="boolean" />
         <attr name="ccp_autoDetectLanguage" format="boolean" />
@@ -102,7 +102,7 @@
             <enum name="JAPANESE" value="20" />
             <enum name="KAZAKH" value="21" />
             <enum name="KOREAN" value="22" />
-            <enum name="MARATHI" value="23"/>
+            <enum name="MARATHI" value="23" />
             <enum name="POLISH" value="24" />
             <enum name="PORTUGUESE" value="25" />
             <enum name="PUNJABI" value="26" />
@@ -113,12 +113,13 @@
             <enum name="SPANISH" value="31" />
             <enum name="SWEDISH" value="32" />
             <enum name="TAGALOG" value="33" />
-            <enum name="THAI" value="34" />
-            <enum name="TURKISH" value="35" />
-            <enum name="UKRAINIAN" value="36" />
-            <enum name="URDU" value="37" />
-            <enum name="UZBEK" value="38" />
-            <enum name="VIETNAMESE" value="39" />
+            <enum name="TAMIL" value="34" />
+            <enum name="THAI" value="35" />
+            <enum name="TURKISH" value="36" />
+            <enum name="UKRAINIAN" value="37" />
+            <enum name="URDU" value="38" />
+            <enum name="UZBEK" value="39" />
+            <enum name="VIETNAMESE" value="40" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">
