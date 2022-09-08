@@ -2465,6 +2465,7 @@ public class CountryCodePicker extends RelativeLayout {
         GERMAN("de"),
         GREEK("el"),
         GUJARATI("gu"),
+        HAUSA("ha"),
         HEBREW("iw"),
         HINDI("hi"),
         HUNGARIAN("hu"),
