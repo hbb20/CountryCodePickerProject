@@ -1189,6 +1189,11 @@
             phone_code="685" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="Worldwide"
+            name_code="ww"
+            phone_code="0" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Kosovo"
             name_code="xk"
             phone_code="383" />
