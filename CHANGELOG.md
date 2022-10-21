@@ -1,10 +1,100 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project
+adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Next Release]
+
+## 2.6.1 - 2022-7-24
+- Changed name code returned by English locale instead of local
+  locale [Issue](https://github.com/hbb20/CountryCodePickerProject/issues/539)
+- Correct hindi language translations #550 by @kishansinghpanwar
+- Adds Serbian language support #548 by @bozidars27
+- Update `libphonenumber-android` to the latest (8.12.52)
+
+## 2.6.0 - 2022-1-21
+
+### Added
+
+- BASQUE language
+  support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/514))
+  by [David Benito Fdz.](https://github.com/Davidbf)
+- Hungarian language
+  support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/523))
+  by [valivalter](https://github.com/valivalter)
+- Feature to enable disable ripple [PR](https://github.com/hbb20/CountryCodePickerProject/pull/508)
+
+### Fixed
+
+- Turkey translation [PR](https://github.com/hbb20/CountryCodePickerProject/pull/499)
+- Auto pop keyboard issue [PR](https://github.com/hbb20/CountryCodePickerProject/pull/529)
+
+## 2.5.4 - 2021-7-26
+
+- New (and working) way for opening keyboard
+- Update deps versions
+
+## 2.5.3 - 2021-6-6
+
+- crash fix #475
+- Deps update
+
+## 2.5.2 - 2021-4-16
+- actual null check for issue #475
+
+## 2.5.1 - 2021-4-10
+- null check for issue #475
+- respect custom master list when setting auto detected country #454
+- update gradle plug-in
+- Thai language support #474
+
+## 2.5.0 - 2021-2-24
+- Published to MavenCentral
+- Removed dependencies from jCenter
+- Bye Bye jCenter. You were awesome :)
+
+## 2.4.7 - 2021-2-22
+- Compressed images
+
+## 2.4.6 - 2021-2-1
+- Update phonelib version
+
+## 2.4.5 - 2021-1-11
+- Add better talkBack response for widget
+- Add functionality to provide custom talkBackTextProvider
+
+## 2.4.4 - 2020-12-24
+- Add static helper method to Language enum to create Language for country name code
+- Fix block comments
+- Update gradle versions, SDK versions
+- Dialog rounded corner support (PR #453 by [Sergio C](https://github.com/SerggioC))
+- Put ripple effect for picker view and selection row
+
+## 2.4.2 - 2020-11-26
+- Added content description for Dialog Buttons ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/452)) by [Matthew Nogas](https://github.com/m-nogas)
+
+## 2.4.1 - 2020-07-18
+- Updated libphonenumber-android to latest
+- No ripple effect (as a potential fix for #403)
+- Enable vectorDrawables.useSupportLibrary (as a potential fix for #403)
+
+## 2.4.0 - 2020-05-25
+### Added
+- Tagalog/Filipino language support ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/392)) by [Noor ul Ain Ali](https://github.com/noorulain17)
+- Return selected country flag resource id ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/389)) by [Giorgi](https://github.com/gusakovgiorgi)
+
+### Fixed
+- Optimized resources  ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/397)) by [Daniel Gomez](https://github.com/danielgomezrico)
+
+## 2.3.9 - 2020-05-08
+### Fixed
+- US Flag Image to show correctly with border ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/396))
+
+## 2.3.8 - 2020-02-06
+### Added
+- Slovenian language support by [pastafarianGit](https://github.com/pastafarianGit) ([Pull Request](https://github.com/hbb20/CountryCodePickerProject/pull/373))
 
 ## 2.3.7 - 2020-01-23
 ### Fixed

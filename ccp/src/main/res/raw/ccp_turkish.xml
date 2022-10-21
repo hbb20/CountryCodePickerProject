@@ -96,7 +96,7 @@
             name="Barbados"
             english_name="Barbados"
             name_code="bb"
-            phone_code="1" />
+            phone_code="1"/>
         <country
             name="Bangladeş"
             english_name="Bangladesh"
@@ -141,7 +141,7 @@
             name="Bermuda"
             english_name="Bermuda"
             name_code="bm"
-            phone_code="1" />
+            phone_code="1"/>
         <country
             name="Brunei Darussalam"
             english_name="Brunei Darussalam"
@@ -698,7 +698,7 @@
             name_code="mh"
             phone_code="692" />
         <country
-            name="Makedonya"
+            name="Kuzey Makedonya "
             english_name="Macedonia (FYROM)"
             name_code="mk"
             phone_code="389" />

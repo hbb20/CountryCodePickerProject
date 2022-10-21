@@ -1,5 +1,9 @@
-Country Code Picker Library
-===========================
+Country Code Picker Library ![MavenCentral](https://maven-badges.herokuapp.com/maven-central/com.hbb20/ccp/badge.svg)
+==================================
+
+![ViewCount](https://views.whatilearened.today/views/github/hbb20/CountryCodePickerProject.svg) [![GitHub issues](https://img.shields.io/github/issues/hbb20/CountryCodePickerProject)](https://github.com/hbb20/CountryCodePickerProject/issues)  [![GitHub forks](https://img.shields.io/github/forks/hbb20/CountryCodePickerProject)](https://github.com/hbb20/CountryCodePickerProject/network) [![GitHub stars](https://img.shields.io/github/stars/hbb20/CountryCodePickerProject)](https://github.com/hbb20/CountryCodePickerProject/stargazers) [![GitHub license](https://img.shields.io/github/license/hbb20/CountryCodePickerProject)](https://github.com/hbb20/CountryCodePickerProject/blob/master/License.txt) 
+![GitHub search hit counter](https://img.shields.io/github/search/hbb20/CountryCodePickerProject/CountryCodePicker)
+
 
 If you are looking for an android library for Country Selector or Country Spinner or Country Phone Code selector, this is the perfect place for you.
 
@@ -27,11 +31,13 @@ Add this to your gradle file and sync. See [CHANGELOG](https://github.com/hbb20/
 
   ````groovy
           dependencies {
-            implementation 'com.hbb20:ccp:2.3.7'
+            implementation 'com.hbb20:ccp:X.Y.Z'
           }
    ````
+   ![MavenCentral](https://maven-badges.herokuapp.com/maven-central/com.hbb20/ccp/badge.svg)
   * If you are using version lower than 2.0.0 then please read [update guide](https://github.com/hbb20/CountryCodePickerProject/wiki/Update-Guide-for-v2.0.0) before upgrading to v2.0.0. or above*
   * Version 2.3.1 and above uses AndroidX
+  * Version 2.5.0 and above hosted on MavenCentral
 
 Features
 --------
@@ -86,6 +92,11 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 - Urdu language support by [Hamza Ahmed Khan](https://github.com/hamzaahmedkhan)
 - Kazakh language support by [Zhanbolat Raimbekov](https://github.com/janbolat)
 - Marathi language support by [Kaustubh Kulkarni](https://github.com/kaustubhk24)
+- Slovenian language support by [pastafarianGit](https://github.com/pastafarianGit)
+- Tagalog (Filipino/Tagalog) language support by [Noor ul Ain Ali](https://github.com/noorulain17)
+- Thai language support by [offerre](https://github.com/offerre)
+- BASQUE language support by [David Benito Fdz.](https://github.com/Davidbf)
+- Hungarian language support by [valivalter](https://github.com/valivalter)
 
 # Contribution
 - To add a new country, follow the [guide to add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).

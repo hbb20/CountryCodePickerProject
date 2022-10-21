@@ -1,78 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_holder"
+    android:id="@+id/cardViewRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/ic_close"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/img_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_search"
-        app:layout_constraintStart_toStartOf="@+id/editText_search"
-        app:layout_constraintTop_toTopOf="@+id/editText_search" />
-
-    <EditText
-        android:id="@+id/editText_search"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/et_background"
-        android:fontFamily="@font/roboto_regular"
-        android:imeOptions="actionSearch"
-        android:inputType="textNoSuggestions"
-        android:paddingStart="52dp"
-        android:singleLine="true"
-        android:textColor="@android:color/primary_text_light_nodisable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_close" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_countryDialog"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_search" />
-
-    <com.futuremind.recyclerviewfastscroll.FastScroller
-        android:id="@+id/fastScroll"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_search" />
+        android:padding="8dp">
 
-    <TextView
-        android:id="@+id/textView_noResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/primary_text_light"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/fastScroll"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText_search" />
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_toStartOf="@+id/img_dismiss"
+                android:layout_toLeftOf="@+id/img_dismiss"
+                android:text="@string/select_country"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/secondary_text_light" />
+
+            <ImageView
+                android:id="@+id/img_dismiss"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:alpha="0.7"
+                android:clickable="true"
+                android:contentDescription="@string/dismiss_button_content_description"
+                android:focusable="true"
+                android:padding="4dp"
+                app:srcCompat="@drawable/ic_clear_black_24dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_query_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_title">
+
+            <EditText
+                android:id="@+id/editText_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/img_clear_query"
+                android:layout_toLeftOf="@+id/img_clear_query"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/primary_text_light_nodisable" />
+
+            <ImageView
+                android:id="@+id/img_clear_query"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:alpha="0.7"
+                android:clickable="true"
+                android:contentDescription="@string/clear_search_button_content_description"
+                android:focusable="true"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_backspace_black_24dp" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_countryDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_query_holder"
+            android:dividerHeight="2dp" />
+
+        <com.futuremind.recyclerviewfastscroll.FastScroller
+            android:id="@+id/fastscroll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/recycler_countryDialog"
+            android:layout_alignEnd="@+id/recycler_countryDialog"
+            android:layout_alignRight="@+id/recycler_countryDialog"
+            android:layout_alignBottom="@+id/recycler_countryDialog"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/textView_noresult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_query_holder"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/no_result_found"
+            android:textColor="@android:color/primary_text_light"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

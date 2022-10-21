@@ -27,13 +27,9 @@ class IntroductionFragment: Fragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-
 		assignViews()
 		setClickListener()
-	}
-
-	private fun setClickListener() {
-		buttonGo.setOnClickListener { (activity as ExampleActivity).viewPager.currentItem = 1 }
+		setCustomTalkBackProvider()
 	}
 
 	private fun assignViews() {
@@ -44,5 +40,13 @@ class IntroductionFragment: Fragment() {
 		countryCodePicker.setSearchHint("Search country")
 		countryCodePicker.setNoResultsText("No results")
 		countryCodePicker.setAllCountriesText("All countries")
+	}
+
+	private fun setClickListener() {
+		buttonGo.setOnClickListener { (activity as ExampleActivity).viewPager.currentItem = 1 }
+	}
+
+	private fun setCustomTalkBackProvider() {
+		countryCodePicker.setTalkBackTextProvider(CCPCustomTalkBackProvider())
 	}
 }
