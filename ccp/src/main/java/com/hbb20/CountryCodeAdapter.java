@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.graphics.Typeface;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +20,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.futuremind.recyclerviewfastscroll.SectionTitleProvider;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by hbb20 on 11/1/16.
@@ -192,7 +196,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     }
 
     class CountryCodeViewHolder extends RecyclerView.ViewHolder {
-        RelativeLayout relativeLayout_main;
+        RelativeLayout relativeLayout_main,rootRowCountryTile;
         TextView textView_name, textView_code;
         ImageView imageViewFlag;
         LinearLayout linearFlagHolder;
@@ -201,6 +205,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         public CountryCodeViewHolder(View itemView) {
             super(itemView);
             relativeLayout_main = (RelativeLayout) itemView;
+
             textView_name = (TextView) relativeLayout_main.findViewById(R.id.textView_countryName);
             textView_code = (TextView) relativeLayout_main.findViewById(R.id.textView_code);
             imageViewFlag = (ImageView) relativeLayout_main.findViewById(R.id.image_flag);
@@ -212,6 +217,15 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 textView_name.setTextColor(codePicker.getDialogTextColor());
                 textView_code.setTextColor(codePicker.getDialogTextColor());
                 textView_allCountries.setBackgroundColor(codePicker.getDialogTextColor());
+            }
+
+            if(codePicker.getCcpDialogRippleEnable()){
+                TypedValue outValue = new TypedValue();
+                context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
+                if(outValue.resourceId!=0)
+                    relativeLayout_main.setBackgroundResource(outValue.resourceId);
+                else
+                    relativeLayout_main.setBackgroundResource(outValue.data);
             }
 
             try {

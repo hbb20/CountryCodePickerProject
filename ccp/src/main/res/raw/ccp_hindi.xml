@@ -23,7 +23,7 @@
             name_code="af"
             phone_code="93" />
         <country
-            name="अंतिगुया और बार्बूडा"
+            name="एंटीगुआ और बारबूडा"
             english_name="Antigua and Barbuda"
             name_code="ag"
             phone_code="1" />
@@ -96,7 +96,7 @@
             name="बारबाडोस"
             english_name="Barbados"
             name_code="bb"
-            phone_code="1" />
+            phone_code="1"/>
         <country
             name="बांग्लादेश"
             english_name="Bangladesh"
@@ -133,7 +133,7 @@
             name_code="bj"
             phone_code="229" />
         <country
-            name="सेंट Barthélemy"
+            name="सेंट बार्थेलेमी"
             english_name="Saint Barthélemy"
             name_code="bl"
             phone_code="590" />
@@ -141,7 +141,7 @@
             name="बरमूडा"
             english_name="Bermuda"
             name_code="bm"
-            phone_code="1" />
+            phone_code="1"/>
         <country
             name="ब्रुनेई दारुस्सलाम"
             english_name="Brunei Darussalam"
@@ -158,7 +158,7 @@
             name_code="br"
             phone_code="55" />
         <country
-            name="बहामा"
+            name="बहामास"
             english_name="Bahamas"
             name_code="bs"
             phone_code="1" />
@@ -353,7 +353,7 @@
             name_code="fk"
             phone_code="500" />
         <country
-            name="माइक्रोनेशिया Federated के राज्य अमेरिका"
+            name="माइक्रोनेशिया, संघीकृत राज्य"
             english_name="Micronesia, Federated States Of"
             name_code="fm"
             phone_code="691" />
@@ -578,17 +578,17 @@
             name_code="km"
             phone_code="269" />
         <country
-            name="संत किट्ट्स और नेविस"
+            name="सेंट किट्स एंड नेविस"
             english_name="Saint Kitts and Nevis"
             name_code="kn"
             phone_code="1" />
         <country
-            name="कोरिया"
+            name="उत्तर कोरिया"
             english_name="North Korea"
             name_code="kp"
             phone_code="850" />
         <country
-            name="कोरिया गणतंत्र"
+            name="दक्षिण कोरिया"
             english_name="South Korea"
             name_code="kr"
             phone_code="82" />
@@ -608,7 +608,7 @@
             name_code="kz"
             phone_code="7" />
         <country
-            name="लाओ पीपुल्स' की लोकतांत्रिक गणराज्य"
+            name="लाओ पीपुल्स की लोकतांत्रिक गणराज्य"
             english_name="Lao People's Democratic Republic"
             name_code="la"
             phone_code="856" />
@@ -673,7 +673,7 @@
             name_code="mc"
             phone_code="377" />
         <country
-            name="मोल्दोवा, गणराज्य के"
+            name="मोल्दोवा गणराज्य"
             english_name="Moldova, Republic Of"
             name_code="md"
             phone_code="373" />
@@ -918,7 +918,7 @@
             name_code="qa"
             phone_code="974" />
         <country
-            name="बैठक"
+            name="रेयूनियों"
             english_name="Réunion"
             name_code="re"
             phone_code="262" />
@@ -1048,12 +1048,12 @@
             name_code="tc"
             phone_code="1" />
         <country
-            name="काग़ज़ का टुकड़ा"
+            name="चाड"
             english_name="Chad"
             name_code="td"
             phone_code="235" />
         <country
-            name="जाना"
+            name="टोगो"
             english_name="Togo"
             name_code="tg"
             phone_code="228" />
@@ -1143,7 +1143,7 @@
             name_code="uz"
             phone_code="998" />
         <country
-            name="पवित्र देखो (वैटिकन सिटी राज्य)"
+            name="वैटिकन शहर (वैटिकन सिटी राज्य)"
             english_name="Holy See (vatican City State)"
             name_code="va"
             phone_code="379" />
@@ -1153,7 +1153,7 @@
             name_code="vc"
             phone_code="1" />
         <country
-            name="वेनेजुएला, के Bolivarian गणराज्य"
+            name="वेनेजुएला, Bolivarian गणराज्य"
             english_name="Venezuela, Bolivarian Republic Of"
             name_code="ve"
             phone_code="58" />
@@ -1178,7 +1178,7 @@
             name_code="vu"
             phone_code="678" />
         <country
-            name="वाली और फ़्युटुना"
+            name="वालिस और फ़्यूचूना"
             english_name="Wallis And Futuna"
             name_code="wf"
             phone_code="681" />
@@ -1198,7 +1198,7 @@
             name_code="ye"
             phone_code="967" />
         <country
-            name="मैयट"
+            name="मायोत"
             english_name="Mayotte"
             name_code="yt"
             phone_code="262" />

@@ -16,7 +16,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -86,25 +89,24 @@ class CountryCodeDialog {
         lp.height = WindowManager.LayoutParams.MATCH_PARENT;
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
-        dialog.getWindow().setAttributes(lp);
-        dialog.show();
-
-        //keyboard
-        if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
-            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-        } else {
-            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        }
+        dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(context, android.R.color.transparent));
 
 
         //dialog views
         RecyclerView recyclerView_countryDialog = (RecyclerView) dialog.findViewById(R.id.recycler_countryDialog);
         ImageView imgClearQuery = (ImageView) dialog.findViewById(R.id.img_search);
         final EditText editText_search = (EditText) dialog.findViewById(R.id.editText_search);
-        TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noResult);
-        ConstraintLayout rlHolder = (ConstraintLayout) dialog.findViewById(R.id.cl_holder);
-        ImageView iv_close = (ImageView) dialog.findViewById(R.id.iv_close);
+        TextView textView_noResult = (TextView) dialog.findViewById(R.id.textView_noresult);
+        CardView dialogRoot = (CardView) dialog.findViewById(R.id.cardViewRoot);
+        ImageView imgDismiss = (ImageView) dialog.findViewById(R.id.img_dismiss);
 
+        //keyboard
+        if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
+            editText_search.requestFocus();
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        } else {
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        }
         // type faces
         //set type faces
         try {
@@ -121,19 +123,32 @@ class CountryCodeDialog {
 
         //dialog background color
         if (codePicker.getDialogBackgroundColor() != 0) {
-            rlHolder.setBackgroundColor(codePicker.getDialogBackgroundColor());
+            dialogRoot.setCardBackgroundColor(codePicker.getDialogBackgroundColor());
         }
 
         if (codePicker.getDialogBackgroundResId() != 0) {
-            rlHolder.setBackgroundResource(codePicker.getDialogBackgroundResId());
+            dialogRoot.setBackgroundResource(codePicker.getDialogBackgroundResId());
         }
 
-        iv_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
+        dialogRoot.setRadius(codePicker.getDialogCornerRadius());
+
+        //close button visibility
+        if (codePicker.isShowCloseIcon()) {
+            imgDismiss.setVisibility(View.VISIBLE);
+            imgDismiss.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
+        } else {
+            imgDismiss.setVisibility(View.GONE);
+        }
+
+        //title
+        if (!codePicker.getCcpDialogShowTitle()) {
+            textViewTitle.setVisibility(View.GONE);
+        }
 
         //clear button color and title color
         if (codePicker.getDialogTextColor() != 0) {

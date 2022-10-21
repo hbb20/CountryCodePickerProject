@@ -142,7 +142,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 app:ccp_countryPreference="pl"
-                                app:ccp_defaultLanguage="POLISH"
+                                app:ccp_defaultLanguage="BASQUE"
                                 app:ccpDialog_background="@drawable/gradient"
                                 app:ccpDialog_showFastScroller="false"
                                 app:ccpDialog_searchEditTextTint="@android:color/white"
