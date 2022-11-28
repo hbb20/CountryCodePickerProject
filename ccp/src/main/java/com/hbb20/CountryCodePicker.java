@@ -2453,6 +2453,7 @@ public class CountryCodePicker extends RelativeLayout {
         AFRIKAANS("af"),
         ARABIC("ar"),
         BASQUE("eu"),
+        BELARUSIAN("by"),
         BENGALI("bn"),
         CHINESE_SIMPLIFIED("zh", "CN", "Hans"),
         CHINESE_TRADITIONAL("zh", "TW", "Hant"),
