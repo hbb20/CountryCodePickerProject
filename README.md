@@ -97,6 +97,9 @@ To check all xml properties available for CCP and CCP Selection ppDialog, please
 - Thai language support by [offerre](https://github.com/offerre)
 - BASQUE language support by [David Benito Fdz.](https://github.com/Davidbf)
 - Hungarian language support by [valivalter](https://github.com/valivalter)
+- Belarusian language supprt by [Vlad Petrushkevich](https://github.com/Vladuken)
+- Hausa language support by [Auwal Alhassan Abubakar](https://github.com/A4Gumel)
+- Tamil language support by [Kamalakannan G](https://github.com/kamal-lab)
 
 # Contribution
 - To add a new country, follow the [guide to add new country](https://github.com/hbb20/CountryCodePickerProject/wiki/Guide-to-add-new-country-in-list).

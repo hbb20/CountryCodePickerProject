@@ -8,6 +8,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Next Release]
 
 ## 2.6.1 - 2022-7-24
+- Updated Pakistan Flag [PR](https://github.com/hbb20/CountryCodePickerProject/pull/571)
+- Adds Belarusian language #565 by [Vlad Petrushkevich](https://github.com/Vladuken)
+- Adds Hausa language #559 by [Auwal Alhassan Abubakar](https://github.com/A4Gumel)
+- Adds Tamil language #554 by [Kamalakannan G](https://github.com/kamal-lab)
+
+## 2.6.1 - 2022-7-24
 - Changed name code returned by English locale instead of local
   locale [Issue](https://github.com/hbb20/CountryCodePickerProject/issues/539)
 - Correct hindi language translations #550 by @kishansinghpanwar
