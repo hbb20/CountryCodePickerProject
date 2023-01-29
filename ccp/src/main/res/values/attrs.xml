@@ -82,6 +82,7 @@
             <enum name="AFRIKAANS" value="0" />
             <enum name="ARABIC" value="1" />
             <enum name="BASQUE" value="2" />
+            <enum name="BELARUSIAN" value="3" />
             <enum name="BENGALI" value="3" />
             <enum name="CHINESE_SIMPLIFIED" value="4" />
             <enum name="CHINESE_TRADITIONAL" value="5" />
