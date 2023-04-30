@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Next Release]
+- Update Japanese
+  translations [Discussion](https://github.com/hbb20/CountryCodePickerProject/discussions/572)
 
 ## 2.7.1 - 2023-04-30
 
