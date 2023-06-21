@@ -33,6 +33,9 @@ public class CCPCountryGroup {
 
         //create group for +358
         addGroupForPhoneCode358();
+
+        //create group for +7
+        addGroupForPhoneCode7();
     }
 
     private static void addGroupForPhoneCode358() {
@@ -83,6 +86,15 @@ public class CCPCountryGroup {
         nameCodeToAreaCodes.put("vg", "284"); //BRITISH_VIRGIN_ISLANDS_AREA_CODES
         nameCodeToAreaCodes.put("vi", "340"); //US_VIRGIN_ISLANDS_AREA_CODES
         countryGroups.put(1, new CCPCountryGroup("us", 3, nameCodeToAreaCodes)); // USA
+    }
+
+    /**
+     * +7 group
+     */
+    private static void addGroupForPhoneCode7() {
+        HashMap<String, String> nameCodeToAreaCodes = new HashMap<>();
+        nameCodeToAreaCodes.put("kz", "6/7"); //Kazakhstan
+        countryGroups.put(7, new CCPCountryGroup("ru", 1, nameCodeToAreaCodes)); // RU
     }
 
     public static CCPCountryGroup getCountryGroupForPhoneCode(int countryCode) {
