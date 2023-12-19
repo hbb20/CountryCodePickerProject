@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.vanniktech.maven.publish'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 33
@@ -28,4 +29,18 @@ dependencies {
     implementation 'androidx.core:core:1.6.0'
     implementation 'io.michaelrocks:libphonenumber-android:8.12.52'
     implementation "androidx.cardview:cardview:1.0.0"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.abdulkadirMete'
+                artifactId = 'country-code-picker'
+                version = '1.0'
+            }
+        }
+    }
 }
