@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.vanniktech.maven.publish'
 apply plugin: 'maven-publish'
 
 android {
@@ -17,7 +18,6 @@ android {
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
     }
-    tasks.withType(Javadoc).all { enabled = false }
 }
 
 dependencies {
