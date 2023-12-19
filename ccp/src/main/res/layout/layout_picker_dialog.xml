@@ -58,10 +58,6 @@
                 android:imeOptions="actionSearch"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:nextFocusUp="@id/editText_search"
-                android:nextFocusRight="@id/editText_search"
-                android:nextFocusLeft="@id/editText_search"
-                android:nextFocusDown="@id/recycler_countryDialog"
                 android:textColor="@android:color/primary_text_light_nodisable" />
 
             <ImageView
@@ -83,7 +79,6 @@
             android:id="@+id/recycler_countryDialog"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:descendantFocusability="afterDescendants"
             android:layout_below="@+id/rl_query_holder"
             android:dividerHeight="2dp" />
 
