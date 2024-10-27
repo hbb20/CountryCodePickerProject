@@ -2473,6 +2473,7 @@ public class CountryCodePicker extends RelativeLayout {
         INDONESIA("in"),
         ITALIAN("it"),
         JAPANESE("ja"),
+        KANNADA("kn"),
         KAZAKH("kk"),
         KOREAN("ko"),
         LITHUANIAN("lt"),
