@@ -153,6 +153,11 @@
             name_code="bo"
             phone_code="591" />
         <country
+            name="बोनेयर"
+            english_name="Bonaire"
+            name_code="bq"
+            phone_code="599" />
+        <country
             name="ब्राज़िल"
             english_name="Brazil"
             name_code="br"

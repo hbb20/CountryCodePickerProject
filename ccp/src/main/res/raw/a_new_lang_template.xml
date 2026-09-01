@@ -154,6 +154,11 @@
             phone_code="591" />
         <country
             name="TODO: replace with  translated country name"
+            english_name="Bonaire"
+            name_code="bq"
+            phone_code="599" />
+        <country
+            name="TODO: replace with  translated country name"
             english_name="Brazil"
             name_code="br"
             phone_code="55" />
