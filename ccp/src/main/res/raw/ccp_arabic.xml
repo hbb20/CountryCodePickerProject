@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <messages>
-        <ccp_dialog_title translation="اختار دولة" />
+        <ccp_dialog_title translation="اختار دولة / منطقة" />
         <ccp_dialog_search_hint_message translation="بحث" />
         <ccp_dialog_no_result_ack_message translation=" لا يوجد نتائج" />
     </messages>
